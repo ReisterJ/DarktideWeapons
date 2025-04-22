@@ -9,7 +9,7 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class Verb_DarktideShoot : Verb
+    public class Verb_DarktideShoot : Verb_LaunchProjectile
     {
         private List<IntVec3> forcedMissTargetEvenDispersalCache = new List<IntVec3>();
 
@@ -17,7 +17,7 @@ namespace DarktideWeapons
 
         
 
-        public virtual ThingDef Projectile
+        public override ThingDef Projectile
         {
             get
             {
@@ -36,26 +36,7 @@ namespace DarktideWeapons
             Find.BattleLog.Add(new BattleLogEntry_RangedFire(caster, currentTarget.HasThing ? currentTarget.Thing : null, base.EquipmentSource?.def, Projectile, ShotsPerBurst > 1));
         }
 
-        protected IntVec3 GetForcedMissTarget(float forcedMissRadius)
-        {
-            if (verbProps.forcedMissEvenDispersal)
-            {
-                if (forcedMissTargetEvenDispersalCache.Count <= 0)
-                {
-                    forcedMissTargetEvenDispersalCache.AddRange(GenerateEvenDispersalForcedMissTargets(currentTarget.Cell, forcedMissRadius, burstShotsLeft));
-                    forcedMissTargetEvenDispersalCache.SortByDescending((IntVec3 p) => p.DistanceToSquared(Caster.Position));
-                }
-                if (forcedMissTargetEvenDispersalCache.Count > 0)
-                {
-                    return forcedMissTargetEvenDispersalCache.Pop();
-                }
-            }
-            int maxExclusive = GenRadial.NumCellsInRadius(forcedMissRadius);
-            int num = Rand.Range(0, maxExclusive);
-            return currentTarget.Cell + GenRadial.RadialPattern[num];
-        }
-
-        private static IEnumerable<IntVec3> GenerateEvenDispersalForcedMissTargets(IntVec3 root, float radius, int count)
+        public static IEnumerable<IntVec3> GenerateEvenDispersalForcedMissTargets(IntVec3 root, float radius, int count)
         {
             float randomRotationOffset = Rand.Range(0f, 360f);
             float goldenRatio = (1f + Mathf.Pow(5f, 0.5f)) / 2f;

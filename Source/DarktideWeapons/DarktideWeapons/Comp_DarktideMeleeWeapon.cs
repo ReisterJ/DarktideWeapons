@@ -13,6 +13,8 @@ namespace DarktideWeapons
         protected int counter = 0;
 
         protected Comp_DWToughnessShield comp_DWToughnessShield;
+
+        protected Comp_CounterAttack comp_CounterAttack;
         public CompProperties_DarktideMeleeWeapon Props
         {
             get
@@ -23,10 +25,34 @@ namespace DarktideWeapons
 
         public int cleaveTargetsinGame;
 
+        public bool IsWeapon
+        {
+            get
+            {
+                if (parent.TryGetComp<CompEquippable>() != null) // equipment check
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        /*
+        public Pawn HoldingPawn
+        {
+            get
+            {
+                if(this.IsWeapon) // equipment check
+                {
+                    return this.paren;
+                }
+            }
+        }*/
+
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
             cleaveTargetsinGame = Props.cleaveTargets;
+           
         }
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -37,6 +63,10 @@ namespace DarktideWeapons
         {
             base.CompTick();
             counter++;
+            if(comp_CounterAttack == null)
+            {
+               comp_CounterAttack = parent.TryGetComp<Comp_CounterAttack>();
+            }
             if(counter >= 300)
             {
                 //Util_Melee.DEV_output(this.parent + " is ticking");
@@ -51,6 +81,40 @@ namespace DarktideWeapons
             
         }
 
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            foreach (var gizmo in base.CompGetGizmosExtra())
+            {
+                yield return gizmo;
+            }
+
+            // 添加一个按钮
+            yield return new Command_Action
+            {
+                defaultLabel = "Inspect", 
+                defaultDesc = "Inspect this weapon's details.", 
+                icon = TexCommand.DesirePower, 
+                action = ShowInspectDialog
+            };
+        }
+        protected void ShowInspectDialog()
+        {
+            StringBuilder info = new StringBuilder();
+            info.AppendLine("Weapon Info:".Translate());
+            //info.AppendLine($"Counter: {counter}".Translate());
+            info.AppendLine($"Cleave Targets: {cleaveTargetsinGame}".Translate());
+            if (comp_CounterAttack != null)
+            {
+                info.AppendLine("Enable CounterAttack".Translate());
+            }
+
+            
+            Find.WindowStack.Add(new Dialog_MessageBox(info.ToString(), title: "Inspect Weapon".Translate()));
+        }
+        protected virtual void Dodge()
+        { 
+            
+        }
     }
 
     public class CompProperties_DarktideMeleeWeapon : CompProperties

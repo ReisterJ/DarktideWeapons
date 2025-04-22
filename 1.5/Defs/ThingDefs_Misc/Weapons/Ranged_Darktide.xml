@@ -84,9 +84,9 @@
   <statBases>
     <WorkToMake>34000</WorkToMake>
     <Mass>3.0</Mass>
-    <AccuracyTouch>0.85</AccuracyTouch>
+    <AccuracyTouch>0.80</AccuracyTouch>
     <AccuracyShort>0.85</AccuracyShort>
-    <AccuracyMedium>0.65</AccuracyMedium>
+    <AccuracyMedium>0.60</AccuracyMedium>
     <AccuracyLong>0.25</AccuracyLong>
     <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
   </statBases>
@@ -101,7 +101,7 @@
       <hasStandardCommand>true</hasStandardCommand>
       <defaultProjectile>DW_Bullet_C5IFAG</defaultProjectile>
       <warmupTime>1.2</warmupTime>
-      <range>27.9</range>
+      <range>29.9</range>
       <burstShotCount>8</burstShotCount>
       <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
       <soundCast>Shot_HeavySMG</soundCast>

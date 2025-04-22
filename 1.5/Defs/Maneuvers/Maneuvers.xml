@@ -13,6 +13,14 @@
     <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
     <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>6</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
+        <craftType>Cardinal</craftType>
+			</li>
+		</modExtensions>
   </ManeuverDef>
   
 </Defs>

@@ -9,6 +9,8 @@ namespace DarktideWeapons
 {
     public class ModExtension_MeleeWeaponProperties : DefModExtension
     {
+        public int cleaveTargets = 2;
+        public float cleaveDamageFalloffRatio = 0.90f;
 
     }
 }

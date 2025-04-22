@@ -1,79 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\",
+  "WorkspaceRootPath": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\verb_darktidemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\verb_darktidemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\dw_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\comp_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\my mod\\darktide weapons\\source\\darktideweapons\\darktideweapons\\comp_darktidemeleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_darktidemeleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\comp_counterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_counterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\my mod\\darktide weapons\\source\\darktideweapons\\darktideweapons\\util_stagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\util_stagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\modextension_meleeweaponproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\modextension_meleeweaponproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\modextension_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\modextension_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\my mod\\darktide weapons\\source\\darktideweapons\\darktideweapons\\util_melee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\util_melee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\util_melee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\verb_darktideshoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\verb_darktideshoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\util_stagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\util_stagger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_bullet_def.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\dw_bullet_def.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\verb_darktidemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\verb_darktidemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\my mod\\darktide weapons\\source\\darktideweapons\\darktideweapons\\util_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\util_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\modextension_meleeweaponproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\modextension_meleeweaponproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\hediff_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\hediff_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\modextension_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\modextension_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\dw_bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\modextension_toughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\modextension_toughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\modextension_toughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\verb_darktideshoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\verb_darktideshoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_bullet_def.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\dw_bullet_def.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\comp_darktiderangedweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_darktiderangedweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\comp_darktidemeleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_darktidemeleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\comp_counterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_counterattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|DarktideWeapons||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\dw_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\dw_projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\comp_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\comp_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\util_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\util_ranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\hediff_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\hediff_dwtoughnessshield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 105,
+      "VerticalTabListWidth": 124,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -89,102 +96,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Comp_DarktideMeleeWeapon.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
-              "RelativeDocumentMoniker": "DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
-              "RelativeToolTip": "DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAIwC8AAAAuAAAA",
+              "DocumentIndex": 9,
+              "Title": "Comp_DarktideRangedWeapon.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideRangedWeapon.cs",
+              "RelativeDocumentMoniker": "DarktideWeapons\\Comp_DarktideRangedWeapon.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideRangedWeapon.cs",
+              "RelativeToolTip": "DarktideWeapons\\Comp_DarktideRangedWeapon.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T13:08:20.733Z",
+              "WhenOpened": "2025-04-22T08:23:36.741Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Verb_DarktideMelee.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideMelee.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideMelee.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Verb_DarktideMelee.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideMelee.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideMelee.cs",
               "RelativeToolTip": "DarktideWeapons\\Verb_DarktideMelee.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAAwEEAAABVAAAA",
+              "ViewState": "AQIAABQAAAAAmpmZmZkdwFIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T17:58:15.328Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
+              "Title": "Comp_DarktideMeleeWeapon.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
+              "RelativeDocumentMoniker": "DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
+              "RelativeToolTip": "DarktideWeapons\\Comp_DarktideMeleeWeapon.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAiwIEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T13:08:20.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ModExtension_MeleeWeaponProperties.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
               "RelativeToolTip": "DarktideWeapons\\ModExtension_MeleeWeaponProperties.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwwAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-19T12:56:09.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "DW_Projectile.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Projectile.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Projectile.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\DW_Projectile.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Projectile.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Projectile.cs",
               "RelativeToolTip": "DarktideWeapons\\DW_Projectile.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAywNsAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T09:32:30.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 5,
               "Title": "DW_Bullet.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\DW_Bullet.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet.cs",
               "RelativeToolTip": "DarktideWeapons\\DW_Bullet.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAJAAAA",
+              "ViewState": "AQIAAFUAAACAzczMzMwowGsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T18:17:29.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Util_Stagger.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Stagger.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Stagger.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Util_Stagger.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Stagger.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Stagger.cs",
               "RelativeToolTip": "DarktideWeapons\\Util_Stagger.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAAjAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-15T16:27:00.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Verb_DarktideShoot.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideShoot.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideShoot.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Verb_DarktideShoot.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideShoot.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Verb_DarktideShoot.cs",
               "RelativeToolTip": "DarktideWeapons\\Verb_DarktideShoot.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAYwHAAAAAOAAAA",
+              "ViewState": "AQIAAC0AAAAAnJmZmZnpv+IAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T07:59:02.263Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "Comp_DWToughnessShield.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DWToughnessShield.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DWToughnessShield.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Comp_DWToughnessShield.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DWToughnessShield.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_DWToughnessShield.cs",
               "RelativeToolTip": "DarktideWeapons\\Comp_DWToughnessShield.cs",
               "ViewState": "AQIAANcAAAAAAAAAAAAowOsAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -193,39 +213,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Hediff_DWToughnessShield.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Hediff_DWToughnessShield.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Hediff_DWToughnessShield.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Hediff_DWToughnessShield.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Hediff_DWToughnessShield.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Hediff_DWToughnessShield.cs",
               "RelativeToolTip": "DarktideWeapons\\Hediff_DWToughnessShield.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAAwBoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T09:13:59.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T09:13:59.853Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Util_Melee.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Melee.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Melee.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Util_Melee.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Melee.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Melee.cs",
               "RelativeToolTip": "DarktideWeapons\\Util_Melee.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA8AAAAnAAAA",
+              "ViewState": "AQIAADkAAAAANTMzMzMXwEcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T18:30:58.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ModExtension_Ranged.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_Ranged.cs",
-              "RelativeDocumentMoniker": "DarktideWeapons\\ModExtension_Ranged.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_Ranged.cs",
-              "RelativeToolTip": "DarktideWeapons\\ModExtension_Ranged.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAgAAAA",
+              "DocumentIndex": 4,
+              "Title": "ModExtension_Projectile.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_Projectile.cs",
+              "RelativeDocumentMoniker": "DarktideWeapons\\ModExtension_Projectile.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_Projectile.cs",
+              "RelativeToolTip": "DarktideWeapons\\ModExtension_Projectile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-10T17:01:12.335Z",
               "EditorCaption": ""
@@ -236,23 +255,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 6,
               "Title": "ModExtension_ToughnessShield.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_ToughnessShield.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_ToughnessShield.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\ModExtension_ToughnessShield.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_ToughnessShield.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\ModExtension_ToughnessShield.cs",
               "RelativeToolTip": "DarktideWeapons\\ModExtension_ToughnessShield.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T09:38:11.661Z"
+              "WhenOpened": "2024-08-16T09:38:11.661Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "Comp_CounterAttack.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_CounterAttack.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_CounterAttack.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Comp_CounterAttack.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_CounterAttack.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Comp_CounterAttack.cs",
               "RelativeToolTip": "DarktideWeapons\\Comp_CounterAttack.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAowEsAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -261,40 +281,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "DW_Bullet_def.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet_def.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet_def.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\DW_Bullet_def.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet_def.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DW_Bullet_def.cs",
               "RelativeToolTip": "DarktideWeapons\\DW_Bullet_def.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAADwvxQAAAAoAAAA",
+              "ViewState": "AQIAAAAAAACAmpmZmZkRwBQAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T10:13:30.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Util_Ranged.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Ranged.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Ranged.cs",
               "RelativeDocumentMoniker": "DarktideWeapons\\Util_Ranged.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Ranged.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\Util_Ranged.cs",
               "RelativeToolTip": "DarktideWeapons\\Util_Ranged.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T18:31:30.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T18:31:30.733Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 12,
               "Title": "DarktideWeapons",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DarktideWeapons.csproj",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DarktideWeapons.csproj",
               "RelativeDocumentMoniker": "DarktideWeapons\\DarktideWeapons.csproj",
-              "ToolTip": "E:\\workstation\\rimworld\\my mod\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DarktideWeapons.csproj",
+              "ToolTip": "E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\DarktideWeapons\\DarktideWeapons.csproj",
               "RelativeToolTip": "DarktideWeapons\\DarktideWeapons.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-13T10:24:49.519Z"
+              "WhenOpened": "2024-07-13T10:24:49.519Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using static RimWorld.RitualStage_InteractWithRole;
 using static UnityEngine.GraphicsBuffer;
 
 namespace DarktideWeapons
@@ -20,6 +21,7 @@ namespace DarktideWeapons
 
         public const float expEarnedBase = 200f;
 
+        ModExtension_MeleeWeaponProperties ModExtension_MeleeProp => this.maneuver.GetModExtension<ModExtension_MeleeWeaponProperties>();
         protected override bool TryCastShot()
         {
             Pawn casterPawn = CasterPawn;
@@ -74,13 +76,14 @@ namespace DarktideWeapons
                     DamageWorker.DamageResult damageResult = ApplyMeleeDamageToTarget(currentTarget);
                     if (currentTarget.Thing is Pawn pawnTarget)
                     {
-                        Comp_DarktideMeleeWeapon compDMW = casterPawn.equipment.Primary.TryGetComp<Comp_DarktideMeleeWeapon>();
-                        if(compDMW != null)
+                        
+                        if(ModExtension_MeleeProp != null)
                         {
-                            this.cleaveTargetsNum = compDMW.cleaveTargetsinGame;
-                            Util_Melee.DEV_output("cleave targets : " + this.cleaveTargetsNum);
+                            this.cleaveTargetsNum = ModExtension_MeleeProp.cleaveTargets;
+
                         }
-                        ApplyMeleeDamageToAdjCardinalTarget(pawnTarget);
+                        ApplyMeleeDamageToAdjTarget(pawnTarget);
+                        
                     }
                     if (pawn != null && damageResult.totalDamageDealt > 0f)
                     {
@@ -133,7 +136,10 @@ namespace DarktideWeapons
             }
             return result;
         }
-
+        protected virtual void ApplyMeleeDamageToAdjTarget(Pawn target)
+        {
+            ApplyMeleeDamageToAdjCardinalTarget(target);
+        }
         protected new BattleLogEntry_MeleeCombat CreateCombatLog(Func<ManeuverDef, RulePackDef> rulePackGetter, bool alwaysShow)
         {
             if (maneuver == null)
@@ -250,7 +256,7 @@ namespace DarktideWeapons
             return result;
         }
 
-        protected virtual void ApplyMeleeDamageToAdjCardinalTarget(Pawn target)
+        protected void ApplyMeleeDamageToAdjCardinalTarget(Pawn target)
         {
             //List<DamageWorker.DamageResult> damageResults = new List<DamageWorker.DamageResult>();
             if(this.cleaveTargetsNum <= 1)
@@ -259,7 +265,7 @@ namespace DarktideWeapons
             }
             Util_Melee.DEV_output(" CleaveTargets valid ");
             IntVec3 targetPos = target.Position;
-            var targetAdjCardinal = GenAdjFast.AdjacentCellsCardinal(target);
+            var targetAdjCardinal = GenAdjFast.AdjacentCellsCardinal(targetPos);
             
             int pawnNum = 0;
             bool stopFlag = false;
@@ -270,38 +276,43 @@ namespace DarktideWeapons
                 {
                     continue;
                 }
-                List<Thing> thingList = tempPos.GetThingList(target.Map);
+                Util_Melee.DEV_output(" Position check: " + tempPos);
+                Pawn nextPawnTarget = tempPos.GetFirstPawn(target.Map);
+                //List<Thing> thingList = tempPos.GetThingList(target.Map);
+                if (nextPawnTarget.Dead) continue;
+                Util_Melee.DEV_output("CleaveTarget : " + nextPawnTarget.Name);
+                if (nextPawnTarget == CasterPawn)
+                {
+                    Util_Melee.DEV_output("CasterPawn itself : " + nextPawnTarget.Name + " | Wont take Damage : ");
+                    continue;
+                }
+                if ((nextPawnTarget.NonHumanlikeOrWildMan() && !nextPawnTarget.Faction.IsPlayer) || (nextPawnTarget.Faction.HostileTo(CasterPawn.Faction)))
+                {
+                    pawnNum++;
+                    Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + nextPawnTarget.Name);
+                    if (pawnNum >= cleaveTargetsNum)
+                    {
+                        Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
+                        stopFlag = true;
+                        break;
+                    }
+
+                    //DamageWorker.DamageResult result = new DamageWorker.DamageResult();
+                    foreach (DamageInfo item in DamageInfosToApplyCleaveTarget(target, pawnNum))
+                    {
+                        Util_Melee.DEV_output("Pawn take cleave damage : " + nextPawnTarget.Name + " | Damage : " + item.Amount);
+                        nextPawnTarget.TakeDamage(item);
+                    }
+
+                }
+                /*
                 for (int j = 0; j < thingList.Count; j++)
                 {
                     if (thingList[j] is Pawn cleaveTarget && !cleaveTarget.Dead)
                     {
-                        Util_Melee.DEV_output("CleaveTarget : " + cleaveTarget.Name );
-                        if (cleaveTarget == CasterPawn)
-                        {
-                            Util_Melee.DEV_output("CasterPawn itself : " + cleaveTarget.Name + " | Wont take Damage : ");
-                            continue;
-                        }
-                        if ((cleaveTarget.NonHumanlikeOrWildMan() && !cleaveTarget.Faction.IsPlayer ) || (cleaveTarget.Faction.HostileTo(CasterPawn.Faction)) )
-                        {
-                            pawnNum++;
-                            Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + cleaveTarget.Name);
-                            if (pawnNum >= cleaveTargetsNum)
-                            {
-                                Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
-                                stopFlag = true;
-                                break;
-                            }
-                            
-                            //DamageWorker.DamageResult result = new DamageWorker.DamageResult();
-                            foreach (DamageInfo item in DamageInfosToApplyCleaveTarget(target, pawnNum))
-                            {
-                                Util_Melee.DEV_output("Pawn take cleave damage : " + cleaveTarget.Name + " | Damage : " + item.Amount);
-                                cleaveTarget.TakeDamage(item);
-                            }
-                                
-                        }
+                        
                     }
-                }
+                }*/
                 if (stopFlag)
                 {
                     break;

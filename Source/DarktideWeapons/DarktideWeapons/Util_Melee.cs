@@ -61,5 +61,25 @@ namespace DarktideWeapons
             Log.Message(o);
 #endif
         }
+        public enum CleaveType
+        {
+            None,
+            Cardinal,
+            Impale,
+            CrowdControl,
+            Juggernaut,
+            type5,
+            type6,
+            type7,
+            type8,
+            type9,
+            type10,
+            type11,
+            type12,
+            type13,
+            type14,
+            type15
+
+        }
     }
 }

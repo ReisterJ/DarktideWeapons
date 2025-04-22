@@ -19,3 +19,9 @@ E:\workstation\rimworld\my mod\Darktide Weapons\Source\DarktideWeapons\DarktideW
 E:\workstation\rimworld\my mod\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.csproj.CoreCompileInputs.cache
 E:\workstation\rimworld\my mod\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.dll
 E:\workstation\rimworld\my mod\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.pdb
+E:\workstation\rimworld\Darktide Weapons\1.5\Assemblies\DarktideWeapons.dll
+E:\workstation\rimworld\Darktide Weapons\1.5\Assemblies\DarktideWeapons.pdb
+E:\workstation\rimworld\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.csproj.AssemblyReference.cache
+E:\workstation\rimworld\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.csproj.CoreCompileInputs.cache
+E:\workstation\rimworld\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.dll
+E:\workstation\rimworld\Darktide Weapons\Source\DarktideWeapons\DarktideWeapons\obj\Debug\DarktideWeapons.pdb

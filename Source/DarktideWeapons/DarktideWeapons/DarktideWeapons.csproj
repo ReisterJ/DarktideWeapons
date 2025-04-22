@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Comp_CounterAttack.cs" />
     <Compile Include="Comp_DarktideMeleeWeapon.cs" />
+    <Compile Include="Comp_DarktideRangedWeapon.cs" />
     <Compile Include="Comp_DWToughnessShield.cs" />
     <Compile Include="DW_Bullet.cs" />
     <Compile Include="DW_Projectile.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Util_Melee.cs" />
     <Compile Include="ModExtension_MeleeWeaponProperties.cs" />
     <Compile Include="ModExtension_ToughnessShield.cs" />
-    <Compile Include="ModExtension_Ranged.cs" />
+    <Compile Include="ModExtension_Projectile.cs" />
     <Compile Include="DW_Bullet_def.cs" />
     <Compile Include="Util_Ranged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,19 +8,21 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class ModExtension_DWBullet: DefModExtension 
+    public class ModExtension_Projectile: DefModExtension 
     {
         public float critChance;
         public float critMultiplier;
         public float stunChance;
         public int stunTicks;
         public int objectPenetrationBase;
-        public ModExtension_DWBullet () {
+        public bool isGrenade;
+        public ModExtension_Projectile() {
             critChance = 0f;
             critMultiplier = 1f;
             stunChance = 0f;
             stunTicks = 0;
             objectPenetrationBase = 0;
+            isGrenade = false;
         }
 
 
