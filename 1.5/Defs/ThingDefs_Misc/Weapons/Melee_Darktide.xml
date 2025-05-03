@@ -106,7 +106,7 @@
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
     <defName>DM_Catachan_Sword</defName>
     <label>Catachan Sword</label>
-    <description>Catachan Sword from Warhammer 40K: Darktide. \n  </description>
+    <description>Catachan Sword from Warhammer 40K: Darktide.</description>
     <graphicData>
       <texPath>Things/Weapon/Melee/CatachanSword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -149,6 +149,8 @@
         <CounterAttackArmorPenetrationBase>0.4</CounterAttackArmorPenetrationBase>
         <CounterAttackStabArmorPenetration>0.9</CounterAttackStabArmorPenetration>
         <CounterAttackChanceIncreasePerLevel>0.025</CounterAttackChanceIncreasePerLevel>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DarktideWeapon">
       </li>
     </comps>
     <equippedStatOffsets>
@@ -366,9 +368,9 @@
         <capacities>
           <li>DW_Melee_Powered_Cleave</li>
         </capacities>
-        <power>21</power>
+        <power>20</power>
         <cooldownTime>1.2</cooldownTime>
-        <armorPenetration>0.5</armorPenetration>
+        <armorPenetration>0.50</armorPenetration>
       </li>
       <!-- <li>
         <label>Powered Stab</label>
@@ -384,8 +386,7 @@
       <MeleeHitChance>4</MeleeHitChance>
     </equippedStatOffsets>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_DarktideMeleeWeapon">
-        <cleaveTargets>6</cleaveTargets>
+      <li Class="DarktideWeapons.CompProperties_DarktideWeapon">
       </li>
     </comps>
     <costList>

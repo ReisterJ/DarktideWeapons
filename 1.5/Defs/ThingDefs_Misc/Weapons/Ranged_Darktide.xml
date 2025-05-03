@@ -13,6 +13,7 @@
     <weaponClasses Inherit="false">
 
     </weaponClasses>
+    <tickerType>Normal</tickerType>
     <recipeMaker>
       <researchPrerequisite>PrecisionRifling</researchPrerequisite>
       <skillRequirements>
@@ -53,7 +54,7 @@
     </verbProperties>
   </AbilityDef>
  <!-- Infantry autogun bullet special:    critical hit  -->
-  <ThingDef ParentName="DW_BaseBullet" Class = "DarktideWeapons.DW_Bullet_Def">
+  <ThingDef ParentName="DW_BaseBullet" >
     <defName>DW_Bullet_C5IFAG</defName>
     <label>Columnus Mk5 IFAG Bullet</label>
     <graphicData>
@@ -66,9 +67,15 @@
       <armorPenetrationBase>0.21</armorPenetrationBase>
       <speed>70</speed>
     </projectile>
-    <thingClass>DarktideWeapons.DW_Bullet</thingClass>
-    <critChance>0.20</critChance>
-    <critMultiplier>2</critMultiplier>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+  <modExtensions>
+    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <penetrationPower>0</penetrationPower>
+      <effectiveRange>29.9</effectiveRange>
+      <penetrateWall>false</penetrateWall>
+    </li>
+  </modExtensions>
+    
   </ThingDef>
 
 <ThingDef ParentName="Darktide_Gun">
@@ -112,7 +119,7 @@
   
 </ThingDef>
 
-<ThingDef ParentName="DW_BaseBullet" Class = "DarktideWeapons.DW_Bullet_Def">
+<ThingDef ParentName="DW_BaseBullet">
   <defName>DW_Bullet_Revolver</defName>
   <label>Stub Revolver bullet</label>
   <graphicData>
@@ -121,12 +128,19 @@
   </graphicData>
   <projectile>
     <damageDef>Bullet</damageDef>
-    <damageAmountBase>36</damageAmountBase>
+    <damageAmountBase>28</damageAmountBase>
     <stoppingPower>2</stoppingPower>
     <armorPenetrationBase>0.60</armorPenetrationBase>
-    <speed>80</speed>
+    <speed>99</speed>
   </projectile>
-  <!-- <objectPenetrationBase>2</objectPenetrationBase> -->
+  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+  <modExtensions>
+    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <penetrationPower>4</penetrationPower>
+      <effectiveRange>44.9</effectiveRange>
+      <penetrateWall>false</penetrateWall>
+    </li>
+  </modExtensions>
 </ThingDef>
 
 <ThingDef ParentName="Darktide_Gun">
@@ -155,7 +169,7 @@
     <ComponentIndustrial>8</ComponentIndustrial>
   </costList>
   <equippedStatOffsets>
-    <ShootingAccuracyFactor_Long>1</ShootingAccuracyFactor_Long> 
+    <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
   </equippedStatOffsets>
   <verbs>
     <li>
@@ -172,7 +186,7 @@
 </ThingDef>
 
 <!-- Agripinaa Braced Autogun Mk8 -->
-<ThingDef ParentName="DW_BaseBullet" Class = "DarktideWeapons.DW_Bullet_Def">
+<ThingDef ParentName="DW_BaseBullet">
   <defName>DW_Bullet_A8BRAG</defName>
   <label>Agripinaa Mk8 BARG Bullet</label>
   <graphicData>
@@ -181,14 +195,19 @@
   </graphicData>
   <projectile>
     <damageDef>Bullet</damageDef>
-    <damageAmountBase>17</damageAmountBase>
-    <armorPenetrationBase>0.30</armorPenetrationBase>
+    <damageAmountBase>13</damageAmountBase>
+    <armorPenetrationBase>0.25</armorPenetrationBase>
     <stoppingPower>3</stoppingPower>
-    <speed>70</speed>
+    <speed>80</speed>
   </projectile>
-  <thingClass>DarktideWeapons.DW_Bullet</thingClass>
-  <stunChance>0.25</stunChance>
-  <stunTicks>40</stunTicks>
+  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+  <modExtensions>
+    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <penetrationPower>2</penetrationPower>
+      <effectiveRange>31.9</effectiveRange>
+      <penetrateWall>false</penetrateWall>
+    </li>
+  </modExtensions>
 </ThingDef>
 
 <ThingDef ParentName="Darktide_Gun">
@@ -221,7 +240,7 @@
       <defaultProjectile>DW_Bullet_A8BRAG</defaultProjectile>
       <warmupTime>0.6</warmupTime>
       <range>31.9</range>
-      <burstShotCount>5</burstShotCount>
+      <burstShotCount>3</burstShotCount>
       <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
       <soundCast>Shot_AssaultRifle</soundCast>
       <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -597,5 +616,85 @@ the most powerful lasguns to come out of the manufactorums of Kantrael, albeit s
 
   <!-- Plasma Gun -->
 
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_PlasmaProjectile</defName>
+    <label>Plasma projectile</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <speed>85</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>10</penetrationPower>
+        <effectiveRange>35.9</effectiveRange>
+        <penetrateWall>true</penetrateWall>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_PlasmaGun</defName>
+    <label>Plasma Gun</label>
+    <description>TODO.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>150000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <Mass>5.0</Mass>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.67</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <!-- <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets> -->
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <requireLineOfSight>false</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_PlasmaProjectile</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>35.9</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li>
+      <li Class="DarktideWeapons.CompProperties_DarktidePlasma">
+        <heatGen>15</heatGen>
+        <heatGenCharged>40</heatGenCharged>
+        <coolingWeaponHeatDamage>15</coolingWeaponHeatDamage>
+        <coolingWeaponHeatLossForced>22</coolingWeaponHeatLossForced>
+        <coolingWeaponHeatLossRate>0.05</coolingWeaponHeatLossRate>
+        <overheatExplosionDamage>80</overheatExplosionDamage>
+        <overheatExplosionRadius>3</overheatExplosionRadius>
+        <maxHeat>100</maxHeat>
+      </li>
+    </comps>
+  </ThingDef>
   <!-- Twin-Linked Heavy Stubber -->
 </Defs>

@@ -10,6 +10,7 @@ using Verse.Sound;
 
 namespace DarktideWeapons
 {
+    //deprecated
     public class DW_Bullet : Bullet
     {
         public virtual void DW_Bullet_inGameProcess()
@@ -47,7 +48,7 @@ namespace DarktideWeapons
                     break;
                 case QualityCategory.Legendary:
                     this.stunChanceinGame = this.DW_BulletDef.stunChance * Util_Ranged.Quality_Legendary_Multiplier;
-                    this.stunTicksinGame = this.DW_BulletDef.stunTicks * Util_Ranged.Quality_Legendary_Stun_Tick_Multiplier;
+                    //this.stunTicksinGame = this.DW_BulletDef.stunTicks * Util_Ranged.Quality_Legendary_Stun_Tick_Multiplier;
                     this.critChanceinGame = this.DW_BulletDef.critChance * Util_Ranged.Quality_Legendary_Multiplier;
                     this.critMultiplierinGame = this.DW_BulletDef.critMultiplier * Util_Ranged.Quality_Legendary_Multiplier;
                     break;
@@ -119,7 +120,7 @@ namespace DarktideWeapons
         {
             Log.Message("critchance :" + this.critChanceinGame);
             if (this.critChanceinGame <= 0) return false; 
-            bool critFlag = Util_Ranged.IsCrit(this.critChanceinGame);
+            bool critFlag = Util_Crit.IsCrit(this.critChanceinGame);
             if (critFlag)
             {
                 this.weaponDamageMultiplier *= this.critMultiplierinGame;

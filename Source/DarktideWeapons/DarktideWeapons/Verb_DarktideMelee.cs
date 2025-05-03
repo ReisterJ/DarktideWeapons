@@ -21,7 +21,8 @@ namespace DarktideWeapons
 
         public const float expEarnedBase = 200f;
 
-        ModExtension_MeleeWeaponProperties ModExtension_MeleeProp => this.maneuver.GetModExtension<ModExtension_MeleeWeaponProperties>();
+        protected Util_Melee.CraftType craftType = Util_Melee.CraftType.None;
+        public ModExtension_MeleeWeaponProperties ModExtension_MeleeProp => this.maneuver.GetModExtension<ModExtension_MeleeWeaponProperties>();
         protected override bool TryCastShot()
         {
             Pawn casterPawn = CasterPawn;
@@ -73,18 +74,19 @@ namespace DarktideWeapons
                     }
                     BattleLogEntry_MeleeCombat battleLogEntry_MeleeCombat = CreateCombatLog((ManeuverDef maneuver) => maneuver.combatLogRulesHit, alwaysShow: true);
                     result = true;
-                    DamageWorker.DamageResult damageResult = ApplyMeleeDamageToTarget(currentTarget);
+                    // aoe
                     if (currentTarget.Thing is Pawn pawnTarget)
                     {
                         
                         if(ModExtension_MeleeProp != null)
                         {
                             this.cleaveTargetsNum = ModExtension_MeleeProp.cleaveTargets;
-
+                            craftType = ModExtension_MeleeProp.craftType;
                         }
                         ApplyMeleeDamageToAdjTarget(pawnTarget);
                         
                     }
+                    DamageWorker.DamageResult damageResult = ApplyMeleeDamageToTarget(currentTarget);
                     if (pawn != null && damageResult.totalDamageDealt > 0f)
                     {
                         ApplyMeleeSlaveSuppression(pawn, damageResult.totalDamageDealt);
@@ -138,7 +140,22 @@ namespace DarktideWeapons
         }
         protected virtual void ApplyMeleeDamageToAdjTarget(Pawn target)
         {
-            ApplyMeleeDamageToAdjCardinalTarget(target);
+            switch (this.craftType)
+            {
+                case Util_Melee.CraftType.None:
+                    break;
+                case Util_Melee.CraftType.Cardinal:
+                    ApplyMeleeDamageToAdjCardinalTarget(target);
+                    break;
+                case Util_Melee.CraftType.Impale:
+                    break;
+                case Util_Melee.CraftType.CrowdControl:
+                    break;
+                case Util_Melee.CraftType.Juggernaut:
+                    break;
+                default:
+                    break;
+            }
         }
         protected new BattleLogEntry_MeleeCombat CreateCombatLog(Func<ManeuverDef, RulePackDef> rulePackGetter, bool alwaysShow)
         {
@@ -258,7 +275,12 @@ namespace DarktideWeapons
 
         protected void ApplyMeleeDamageToAdjCardinalTarget(Pawn target)
         {
+            
             //List<DamageWorker.DamageResult> damageResults = new List<DamageWorker.DamageResult>();
+            if (target == null || target.Dead || target.Map == null || target.Position == null || target.Position.InBounds(target.Map) == false)
+            {
+                return;
+            }
             if(this.cleaveTargetsNum <= 1)
             {
                 return; 
@@ -269,9 +291,11 @@ namespace DarktideWeapons
             
             int pawnNum = 0;
             bool stopFlag = false;
-            for (int i = 0; i < 4; i++)
+
+            foreach (var p in targetAdjCardinal)
             {
-                IntVec3 tempPos = targetPos + targetAdjCardinal[i];
+                Log.Message(p);
+                IntVec3 tempPos = p;
                 if (!tempPos.InBounds(target.Map))
                 {
                     continue;
@@ -279,13 +303,15 @@ namespace DarktideWeapons
                 Util_Melee.DEV_output(" Position check: " + tempPos);
                 Pawn nextPawnTarget = tempPos.GetFirstPawn(target.Map);
                 //List<Thing> thingList = tempPos.GetThingList(target.Map);
-                if (nextPawnTarget.Dead) continue;
+                if (nextPawnTarget == null || nextPawnTarget.Dead) continue;
                 Util_Melee.DEV_output("CleaveTarget : " + nextPawnTarget.Name);
+                /*
                 if (nextPawnTarget == CasterPawn)
                 {
                     Util_Melee.DEV_output("CasterPawn itself : " + nextPawnTarget.Name + " | Wont take Damage : ");
                     continue;
                 }
+                */
                 if ((nextPawnTarget.NonHumanlikeOrWildMan() && !nextPawnTarget.Faction.IsPlayer) || (nextPawnTarget.Faction.HostileTo(CasterPawn.Faction)))
                 {
                     pawnNum++;
@@ -305,14 +331,7 @@ namespace DarktideWeapons
                     }
 
                 }
-                /*
-                for (int j = 0; j < thingList.Count; j++)
-                {
-                    if (thingList[j] is Pawn cleaveTarget && !cleaveTarget.Dead)
-                    {
-                        
-                    }
-                }*/
+
                 if (stopFlag)
                 {
                     break;

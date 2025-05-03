@@ -9,13 +9,9 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class Verb_DarktideShoot : Verb_LaunchProjectile
+    public class Verb_DarktideLaunchProjectile : Verb_LaunchProjectile
     {
-        private List<IntVec3> forcedMissTargetEvenDispersalCache = new List<IntVec3>();
-
-        protected bool willPenetrate = false;
-
-        
+        protected List<IntVec3> forcedMissTargetEvenDispersalCache = new List<IntVec3>();
 
         public override ThingDef Projectile
         {
@@ -36,7 +32,26 @@ namespace DarktideWeapons
             Find.BattleLog.Add(new BattleLogEntry_RangedFire(caster, currentTarget.HasThing ? currentTarget.Thing : null, base.EquipmentSource?.def, Projectile, ShotsPerBurst > 1));
         }
 
-        public static IEnumerable<IntVec3> GenerateEvenDispersalForcedMissTargets(IntVec3 root, float radius, int count)
+        protected virtual new IntVec3 GetForcedMissTarget(float forcedMissRadius)
+        {
+            if (verbProps.forcedMissEvenDispersal)
+            {
+                if (forcedMissTargetEvenDispersalCache.Count <= 0)
+                {
+                    forcedMissTargetEvenDispersalCache.AddRange(GenerateEvenDispersalForcedMissTargets(currentTarget.Cell, forcedMissRadius, burstShotsLeft));
+                    forcedMissTargetEvenDispersalCache.SortByDescending((IntVec3 p) => p.DistanceToSquared(Caster.Position));
+                }
+                if (forcedMissTargetEvenDispersalCache.Count > 0)
+                {
+                    return forcedMissTargetEvenDispersalCache.Pop();
+                }
+            }
+            int maxExclusive = GenRadial.NumCellsInRadius(forcedMissRadius);
+            int num = Rand.Range(0, maxExclusive);
+            return currentTarget.Cell + GenRadial.RadialPattern[num];
+        }
+
+        protected IEnumerable<IntVec3> GenerateEvenDispersalForcedMissTargets(IntVec3 root, float radius, int count)
         {
             float randomRotationOffset = Rand.Range(0f, 360f);
             float goldenRatio = (1f + Mathf.Pow(5f, 0.5f)) / 2f;
@@ -50,7 +65,7 @@ namespace DarktideWeapons
                 yield return root + vect.ToIntVec3();
             }
         }
-        
+
         protected override bool TryCastShot()
         {
             if (currentTarget.HasThing && currentTarget.Thing.Map != caster.Map)
@@ -84,15 +99,6 @@ namespace DarktideWeapons
             }
             Vector3 drawPos = caster.DrawPos;
             Projectile projectile2 = (Projectile)GenSpawn.Spawn(projectile, resultingLine.Source, caster.Map);
-
-            //------------------------penetration---------------------------
-            if (willPenetrate)
-            {
-
-            }
-
-            //
-
             if (verbProps.ForcedMissRadius > 0.5f)
             {
                 float num = verbProps.ForcedMissRadius;
@@ -229,5 +235,6 @@ namespace DarktideWeapons
             base.Reset();
             forcedMissTargetEvenDispersalCache.Clear();
         }
+
     }
 }

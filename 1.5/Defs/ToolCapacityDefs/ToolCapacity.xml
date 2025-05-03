@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
+
+  
+  <!-- Axe -->
   <ToolCapacityDef>
-    <defName>DW_Melee_Powered_Cleave</defName>
-    <label>Powered Cleave</label> 
+    <defName>DW_Melee_Axe_Cleave</defName>
+    <label>Cleave</label> 
   </ToolCapacityDef>
   
   <ToolCapacityDef>
@@ -14,5 +17,11 @@
   <ToolCapacityDef>
     <defName>DW_Melee_SmashDown</defName>
     <label>SmashDown</label>
+  </ToolCapacityDef>
+
+  <!-- PowerSword -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_Powered_Cleave</defName>
+    <label>Powered Cleave</label> 
   </ToolCapacityDef>
 </Defs>

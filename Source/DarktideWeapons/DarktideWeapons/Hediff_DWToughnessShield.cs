@@ -33,8 +33,10 @@ namespace DarktideWeapons
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
+            this.Debug_Print();
             if (CompToughnessShield != null)
             {
+
                 this.CompToughnessShield.EnableShield = true;
                 float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
                 CompToughnessShield.SetMaxShieldInGame(shieldnum);
@@ -102,6 +104,18 @@ namespace DarktideWeapons
                 this.CompToughnessShield.EnableShield = false;
             }
             base.PostRemoved();
+        }
+
+        private void Debug_Print()
+        {
+#if DEBUG
+            Log.Message("----------ToughnessShieldHediff Debug------------");
+            Log.Message("Pawn : " + this.pawn.Name);
+            Log.Message("Pawn's Toughness Shield Enabled : " + this.CompToughnessShield.EnableShield);
+            Log.Message("Pawn's Toughness Shield Max Shield : " + this.CompToughnessShield.MaxToughness);
+            Log.Message("Pawn's Toughness Shield Level : " + this.level);
+            Log.Message("------------END-------------------");
+#endif
         }
     }
 }

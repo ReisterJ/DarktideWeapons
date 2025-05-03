@@ -39,21 +39,6 @@ namespace DarktideWeapons
             return false;
         }
         
-       
-
-        public static void ApplyBleeding(Pawn victim , int ticks)
-        {
-            if(victim != null)
-            {
-               
-            }
-        }
-
-        public static void AbilityThunderHammerChargedStrike()
-        {
-            //
-        }
-        
 
         public static void DEV_output(object o)
         {
@@ -61,7 +46,7 @@ namespace DarktideWeapons
             Log.Message(o);
 #endif
         }
-        public enum CleaveType
+        public enum CraftType
         {
             None,
             Cardinal,

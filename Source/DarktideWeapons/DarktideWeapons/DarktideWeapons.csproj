@@ -62,22 +62,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comp_CounterAttack.cs" />
-    <Compile Include="Comp_DarktideMeleeWeapon.cs" />
+    <Compile Include="Comp_DarktideForceStaff.cs" />
+    <Compile Include="Comp_DarktidePlasma.cs" />
+    <Compile Include="Comp_DarktideWeapon.cs" />
     <Compile Include="Comp_DarktideRangedWeapon.cs" />
     <Compile Include="Comp_DWToughnessShield.cs" />
     <Compile Include="DW_Bullet.cs" />
     <Compile Include="DW_Projectile.cs" />
     <Compile Include="Hediff_DWToughnessShield.cs" />
+    <Compile Include="Hefiff_DOT.cs" />
+    <Compile Include="Util_Crit.cs" />
     <Compile Include="Util_Melee.cs" />
     <Compile Include="ModExtension_MeleeWeaponProperties.cs" />
     <Compile Include="ModExtension_ToughnessShield.cs" />
-    <Compile Include="ModExtension_Projectile.cs" />
+    <Compile Include="ModExtension_ProjectileProperties.cs" />
     <Compile Include="DW_Bullet_def.cs" />
     <Compile Include="Util_Ranged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util_Stagger.cs" />
     <Compile Include="Verb_DarktideMelee.cs" />
-    <Compile Include="Verb_DarktideShoot.cs" />
+    <Compile Include="Verb_DarktideLaunchProjectile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

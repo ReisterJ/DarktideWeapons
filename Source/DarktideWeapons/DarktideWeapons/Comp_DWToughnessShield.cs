@@ -35,7 +35,7 @@ namespace DarktideWeapons
 
         protected int ticksToReset = -1;
 
-        protected float ToughnessExceeded = 0f;
+        protected float toughnessExceeded = 0f;
 
         protected Hediff_DWToughnessShield cachedHediffToughnessShield;
 
@@ -43,7 +43,7 @@ namespace DarktideWeapons
 
         protected Comp_CounterAttack compCounterAttack;
 
-        protected Comp_DarktideMeleeWeapon compDarktideMeleeWeapon;
+        public Comp_DarktideWeapon CompDarktideWeaponPrimary => this.PawnOwner.equipment.Primary.TryGetComp<Comp_DarktideWeapon>();
 
         private int interval = -1;
         public override void Initialize(CompProperties props)
@@ -157,10 +157,7 @@ namespace DarktideWeapons
         }
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (!this.enableShield)
-            {
-                yield break;
-            }
+            
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
             {
                 yield return gizmo;
@@ -175,7 +172,10 @@ namespace DarktideWeapons
                 enumerator = null;
 
             }
-
+            if (!this.enableShield)
+            {
+                yield break;
+            }
             if (DebugSettings.ShowDevGizmos)
             {
                 yield return new Command_Action
@@ -210,12 +210,23 @@ namespace DarktideWeapons
         }
         public virtual IEnumerable<Gizmo> GetGizmos()
         {
-            if (Find.Selector.SingleSelectedThing == this.PawnOwner && this.EnableShield)
+            if (Find.Selector.SingleSelectedThing == this.PawnOwner)
             {
-                yield return new Gizmo_ToughnessShieldStatus
+                if (this.EnableShield)
                 {
-                    ToughnessShield = this
-                };
+                    yield return new Gizmo_ToughnessShieldStatus
+                    {
+                        ToughnessShield = this
+                    };
+                }
+                
+                if(CompDarktideWeaponPrimary != null)
+                {
+                   foreach (var gizmo in CompDarktideWeaponPrimary.CompGetGizmosExtra())
+                    {
+                        yield return gizmo;
+                    }
+                }
             }
             yield break;
         }
@@ -232,7 +243,7 @@ namespace DarktideWeapons
                 if (compCounterAttack.CanCounterAttack(PawnOwner, dinfo) && dinfo.Instigator is Pawn pawn)
                 {
                     compCounterAttack.CounterAttack(PawnOwner, pawn);
-                    Util_Melee.DEV_output(PawnOwner + " counter " + pawn + " attack");
+                    //Util_Melee.DEV_output(PawnOwner + " counter " + pawn + " attack");
                     return true;
                 }
             }
@@ -255,10 +266,9 @@ namespace DarktideWeapons
             ticksToReset = this.StartTickstoResetinGame;
             if (Util_Melee.IsMeleeDamage(dinfo))
             {
-                
-
-                Log.Message("ismeleedamage");
-                Log.Message("origin meleedamage : "+ dinfo.Amount);
+                toughnessdamage *= 0.9f;
+                //Log.Message("ismeleedamage");
+                //Log.Message("origin meleedamage : "+ dinfo.Amount);
                 float PastToughnessDamage = (this.MaxToughnessinGame - this.energy) / this.MaxToughnessinGame * toughnessdamage;
                 if (PastToughnessDamage < 0) PastToughnessDamage = 0;
                 dinfo.SetAmount(PastToughnessDamage);
@@ -270,34 +280,60 @@ namespace DarktideWeapons
                 {
                     this.energy -= toughnessdamage;
                 }
-                Log.Message("after meleedamage : " + dinfo.Amount);
+                //Log.Message("after meleedamage : " + dinfo.Amount);
                 return;
             }
-            else// (dinfo.Def.isRanged || dinfo.Def.isExplosive)
+            if (dinfo.Def == DamageDefOf.Bomb)
             {
-               
-                if (this.energy <= toughnessdamage)
-                {
-                    this.ToughnessBreak();
-                }
-                else
-                {
-                    this.energy -= toughnessdamage;
-                    //this.ToughnessAbsorbedDamage(dinfo);
-                }
-                absorbed = true;
+                toughnessdamage *= 1.2f;
             }
-            Log.Message("Post attack toughness :" + this.energy); 
+
+            if (this.energy <= toughnessdamage)
+            {
+                this.ToughnessBreak();
+                dinfo.SetAmount(toughnessdamage - this.energy);
+            }
+            else
+            {
+                this.energy -= toughnessdamage;
+                absorbed = true;
+                //this.ToughnessAbsorbedDamage(dinfo);
+            }
+           
+           
         }
 
-        protected virtual void DarktideWeaponCompTick()
+        protected virtual bool DarktideWeaponCompTick()
         {
+            if (PawnOwner.equipment == null) return false;
             List<ThingWithComps> list = PawnOwner.equipment.AllEquipmentListForReading;
+            if (list == null || list.FirstOrDefault() == null) return false;
+
+            bool flag = false;
+            //Log.Message("this DWTcomp parent's holder " + this.PawnOwner.Name + " | equipmentlist : ");
             for (int i = 0; i < list.Count; i++)
             {
                 ThingWithComps thingWithComps = list[i];
-                thingWithComps?.Tick();
+                if (thingWithComps != null)
+                {
+                    //Log.Message("equipment: " + thingWithComps.def.label);
+                    thingWithComps.Tick();
+                    Comp_DarktideWeapon cdw = thingWithComps.TryGetComp<Comp_DarktideWeapon>();
+                    
+                    if (cdw != null)
+                    {
+                        if (interval%300 == 0)
+                        {
+                            Log.Message(thingWithComps.def.label + "has Comp_DarktideWeapon");
+                        }
+                        
+                        cdw.CompTick();
+                        cdw.HoldingPawn = this.PawnOwner;
+                        flag = true;
+                    }
+                }
             }
+            return flag;
         }
         public override void CompTick()
         {
@@ -307,17 +343,20 @@ namespace DarktideWeapons
                 Log.Error("No owner");
                 return;
             }
-            if (this.PawnOwner.Map != Find.CurrentMap || !this.enableShield)
+            
+            if (this.PawnOwner.Map == null )
             {
                 return;
             }
-            DarktideWeaponCompTick();
+            
+            
             interval++;
             if (interval >= 120)
             {
 
-                DEVoutput();
-                interval = 0;
+                //DEVoutput();
+                //interval = 0;
+                /*
                 cachedHediffToughnessShield = this.PawnOwner.health.hediffSet.GetFirstHediff<Hediff_DWToughnessShield>();
 
                 if (cachedHediffToughnessShield != null)
@@ -328,31 +367,35 @@ namespace DarktideWeapons
                 {
                     this.enableShield = false;
                 }
-
+                */
             }
             //Log.Message("Pawnowner :"+this.PawnOwner.ThingID);
-            if (this.ShieldState == ShieldState.Resetting)
+            DarktideWeaponCompTick();
+            if (enableShield)
             {
-                this.ticksToReset--;
-                //Log.Message("resetting :" + this.ticksToReset);
-                if (this.ticksToReset <= 0)
+                if (this.ShieldState == ShieldState.Resetting)
                 {
-                    this.Reset();
-                    return;
+                    this.ticksToReset--;
+               
+                    if (this.ticksToReset <= 0)
+                    {
+                        this.Reset();
+                        return;
+                    }
+                }
+                else if (this.ShieldState == ShieldState.Active)
+                {
+
+                    if (this.energy >= this.MaxToughnessinGame)
+                    {
+                        this.energy = this.MaxToughnessinGame;
+                        return;
+                    }
+                    this.energy += baseToughnessRegenerationRate;
+
                 }
             }
-            else if (this.ShieldState == ShieldState.Active)
-            {
-                
-                if (this.energy >= this.MaxToughnessinGame)
-                {
-                    this.energy = this.MaxToughnessinGame;
-                    return;
-                }
-                this.energy += baseToughnessRegenerationRate;
-                
-                //Log.Message("energy :" + this.energy);
-            }
+           
             
             //
         }
@@ -379,12 +422,22 @@ namespace DarktideWeapons
         //Toughness doesn't block pawns casting
         public override bool CompAllowVerbCast(Verb verb)
         {
+            if (this.CompDarktideWeaponPrimary != null)
+            {
+                if(verb is Verb_LaunchProjectile)
+                {
+                    return CompDarktideWeaponPrimary.CompAllowVerbCast(verb);
+                }
+                
+            }
             return true;
+            
         }
 
-        public virtual void Recharge_Afterkill(float victimBodySize)
+        public virtual void Recharge_Afterkill()
         {
-            float recharge = KillRechargeinGame * victimBodySize;
+            //float recharge = KillRechargeinGame * victimBodySize;
+            float recharge = KillRechargeinGame;
             if (this.energy + recharge <= this.MaxToughnessinGame)
             {
                 this.energy += recharge;
@@ -399,7 +452,7 @@ namespace DarktideWeapons
            
             if (pawn != null)
             {
-                this.Recharge_Afterkill(pawn.BodySize);
+                this.Recharge_Afterkill();
             }
         }
        
@@ -451,7 +504,8 @@ namespace DarktideWeapons
 #if DEBUG
             Log.Message("this DWTcomp parent: " + this.parent.ToString());
             Log.Message("this DWTcomp parent's holder " + this.PawnOwner.Name);
-            Log.Warning("energy :" + this.energy);
+            //Log.Warning("energy :" + this.energy);
+            
             //Log.Message("single selected :"+ Find.Selector.SingleSelectedThing.ThingID);
             //Log.Message("this DWTcomp parent's holder id" + this.PawnOwner.ThingID);
 #endif        
