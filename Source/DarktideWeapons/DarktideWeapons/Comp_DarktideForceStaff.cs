@@ -16,6 +16,19 @@ namespace DarktideWeapons
         public float CalmEntropy => Props.calmEntrophy;
 
         public float CalmPsyfocusCost => Props.calmPsyfocusCost;
+
+        public Thing wielder;
+
+        public Pawn HoldingPawn
+        {
+
+           get
+            {
+                if (wielder is Pawn pawn) return pawn;
+                return null;
+            }
+            
+        }
         public CompProperties_DarktideForceStaff Props
         {
             get
@@ -29,8 +42,8 @@ namespace DarktideWeapons
         {
             get
             {
-                if (compDarktideWeapon != null && compDarktideWeapon.HoldingPawn.HasPsylink && 
-                    compDarktideWeapon.HoldingPawn.GetPsylinkLevel() > Props.requirePsyLevel)
+                if (compDarktideWeapon != null && HoldingPawn.HasPsylink &&
+                    HoldingPawn.GetPsylinkLevel() > Props.requirePsyLevel)
                 {
                     return true;
                 }
@@ -52,8 +65,8 @@ namespace DarktideWeapons
             if(! Available) yield break;
             yield return new Command_Action
             {
-                defaultLabel = "CalmEntrophy",
-                defaultDesc = "Cost psychic.",
+                defaultLabel = "DW_CalmEntrophy",
+                defaultDesc = "DW_CalmEntrophyDesc",
                 icon = TexCommand.DesirePower,
                 action = Ability_CalmEntrophy
             };
@@ -110,6 +123,57 @@ namespace DarktideWeapons
                 }
             }
             return calmRate;
+        }
+
+        public void DOT_QualityOffset(ref int addLevel)
+        {
+            if (this.parent.TryGetQuality(out QualityCategory category))
+            {
+                switch (category)
+                {
+                    case QualityCategory.Masterwork:
+                        addLevel += 1;
+                        break;
+                    case QualityCategory.Legendary:
+                        addLevel += 2;
+                        break;
+                }
+            }
+        }
+
+        public void AOE_QualityOffset(ref float radius)
+        {
+            if (this.parent.TryGetQuality(out QualityCategory category))
+            {
+                switch (category)
+                { 
+                    case QualityCategory.Excellent:
+                        radius *= 1.1f;
+                        break;
+                    case QualityCategory.Masterwork:
+                        radius *= 1.25f;
+                        break;
+                    case QualityCategory.Legendary:
+                        radius *= 1.5f;
+                        break;
+                }
+            }
+        }
+
+        public void ChainTarget_QualityOffset(ref int num)
+        {
+            if (this.parent.TryGetQuality(out QualityCategory category))
+            {
+                switch (category)
+                {
+                    case QualityCategory.Masterwork:
+                        num += 1;
+                        break;
+                    case QualityCategory.Legendary:
+                        num += 2;
+                        break;
+                }
+            }
         }
     }
 

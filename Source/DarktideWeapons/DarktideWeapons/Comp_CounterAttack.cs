@@ -23,6 +23,8 @@ namespace DarktideWeapons
         public float CounterAttackStabDamage ;
 
         public float counterAttackChanceCurrent;
+
+        public float CounterAttackDamageInfo = 0f;
         public CompProperties_CounterAttack Props
         {
             get
@@ -63,22 +65,23 @@ namespace DarktideWeapons
         public void CounterAttack(Pawn wielder, Pawn opponent)
         {
             int meleelevel = wielder.skills.GetSkill(SkillDefOf.Melee).Level;
-            float counterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
+            //float counterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
             float counterAttackStabChanceCurrent = CounterAttackStabChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel * 0.5f;
             float damageBonus = meleelevel * Util_Melee.PawnMeleeLevelDamageMultiplier(wielder);
             float damage = CounterAttackDamage + damageBonus;
             if (wielder != null && opponent != null)
             {
-                DamageDef damagedef;
+                DamageDef damagedef = DamageDefOf.Cut;
                 float armorPenetration = CounterAttackArmorPenetrationBase;
-                if (Rand.Chance(CounterAttackStabChance))
+                if (Rand.Chance(counterAttackStabChanceCurrent))
                 {
                     float stabBonus = damageBonus * Util_Melee.PawnMeleeLevelDamageMultiplier(wielder);
                     damagedef = DamageDefOf.Stab;
                     armorPenetration = CounterAttackStabArmorPenetration;
                     damage = CounterAttackStabDamage + stabBonus;
                 }
-                damagedef = DamageDefOf.Cut;
+                damage *= LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().MeleeDamageMultiplierGlobal;
+                CounterAttackDamageInfo = damage;
                 DamageInfo dinfo = new DamageInfo(damagedef, damage, armorPenetration, -1
                     , wielder, null, wielder.equipment.Primary.def, DamageInfo.SourceCategory.ThingOrUnknown,
                     opponent, true, true, QualityCategory.Normal, true);
@@ -86,6 +89,16 @@ namespace DarktideWeapons
                 MoteMaker.ThrowText(wielder.PositionHeld.ToVector3(), wielder.MapHeld, "CounterAttack", 1f);
             }
 
+        }
+
+        public string ShowInfo(Pawn wielder)
+        {
+            string header = "Enable CounterAttack".Translate();
+            int meleelevel = wielder.skills.GetSkill(SkillDefOf.Melee).Level;
+            counterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
+            string counterAttackInfo = "CounterAttackChance: " + counterAttackChanceCurrent.ToStringPercent();
+            string counterAttackDamageInfo = "CounterAttackDamage: " + CounterAttackDamage.ToString() ;
+            return header + "\n" + counterAttackInfo.Translate()+ "\n" + counterAttackDamageInfo.Translate() + "\n";
         }
 
     }

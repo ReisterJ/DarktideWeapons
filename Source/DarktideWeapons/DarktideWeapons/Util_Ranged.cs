@@ -24,8 +24,14 @@ namespace DarktideWeapons
 
         public const float CoverHitFactor_NotCloseToTarget = 0.15f;
         public const float CoverHitFactor_CloseToTarget = 1f;
+        public const float CoverPenetrationBaseChance = 0.85f;
 
-        
+        public const float MinFillPercentCountAsCover = 0.3f;
+
+        public const float HeadHuntBaseChance = 0.1f;
+        public const float HeadHuntShootLevelBonusConstant = 2f;
+        public const int MinHeadHuntShootLevel = 5;
+
         public enum PlasmaWeaponMode
         {
             Normal,

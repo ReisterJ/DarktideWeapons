@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <AbilityCategoryDef>
+    <defName>DW_ForceStaff</defName>
+    <displayOrder>10</displayOrder>
+  </AbilityCategoryDef>
+  <AbilityCategoryDef>
+    <defName>DW_PsyCast</defName>
+    <displayOrder>11</displayOrder>
+  </AbilityCategoryDef>
+  
+</Defs>

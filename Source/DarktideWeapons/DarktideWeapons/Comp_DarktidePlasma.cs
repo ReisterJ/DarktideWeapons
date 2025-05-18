@@ -35,6 +35,7 @@ namespace DarktideWeapons
 
         protected Gizmo_PlasmaWeaponStatus plasmaWeaponStatus;
 
+        private int tick = 0;
         public CompProperties_DarktidePlasma Props
         {
             get
@@ -45,6 +46,12 @@ namespace DarktideWeapons
         public override void CompTick()
         {
             base.CompTick();
+            tick++;
+            if(tick % 300 == 0)
+            {
+                Util_Ranged.DEV_output("Plasma Weapon Mode : " + plasmaWeaponMode.ToString());
+            }
+            
             if (plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
             {
                 heat -= coolingWeaponHeatLossRate;
@@ -136,14 +143,12 @@ namespace DarktideWeapons
         }
         public virtual IEnumerable<Gizmo> GetGizmos()
         {
-            if (Find.Selector.SingleSelectedThing == this.wielder )
-            {
+           
                 yield return new Gizmo_PlasmaWeaponStatus
                 {
                     compPlasma = this
                 };
-            }
-            yield break;
+           
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -152,12 +157,11 @@ namespace DarktideWeapons
             {
                 yield return gizmo;
             }
-            IEnumerator<Gizmo> enumerator = null;
+            
             foreach (Gizmo gizmo2 in this.GetGizmos())
             {
                 yield return gizmo2;
             }
-            enumerator = null;
             yield return new Command_Action
             {
                 defaultLabel = "ForcedCooling".Translate(),
@@ -167,19 +171,19 @@ namespace DarktideWeapons
             };
             yield return new Command_Action
             {
-                defaultLabel = "PlasmaWeaponMode".Translate() +":"+ this.plasmaWeaponMode.ToString().Translate(),
+                defaultLabel = "PlasmaWeaponMode".Translate() +" : "+ this.plasmaWeaponMode.ToString().Translate(),
                 defaultDesc = "SwitchModeDesc".Translate(),
                 //icon = TexCommand.DesirePower,
                 action = new Action(SwitchMode)
             };
         }
-        public override bool CompAllowVerbCast(Verb verb)
+        public bool AllowShoot()
         {
             if((this.plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling) || ((this.plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Normal) && (this.heat == this.maxHeat) ))
             {
-                Util_Ranged.DEV_output("Plasma Weapon is Cooling or Overheated");
-                Util_Ranged.DEV_output("can shoot now : " + !(verb is Verb_LaunchProjectile));
-                return !(verb is Verb_LaunchProjectile);
+                //Util_Ranged.DEV_output("Plasma Weapon is Cooling or Overheated");
+                //Util_Ranged.DEV_output("can shoot now : " + !(verb is Verb_LaunchProjectile));
+                return false;
             }
             return true;
         }
@@ -222,6 +226,7 @@ namespace DarktideWeapons
         public float maxHeat = 100f;
     }
 
+    [StaticConstructorOnStartup]
     public class Gizmo_PlasmaWeaponStatus : Gizmo
     {
         public Comp_DarktidePlasma compPlasma;
@@ -250,7 +255,9 @@ namespace DarktideWeapons
             Rect rect3 = rect2;
             rect3.height = rect.height / 2f;
             Text.Font = GameFont.Tiny;
-            Widgets.Label(rect3, "Heat".Translate().Resolve());
+
+            string wielderlabel = compPlasma.wielder != null ? compPlasma.wielder.Label : "";
+            Widgets.Label(rect3, wielderlabel +" "+ "PlasmaHeat".Translate().Resolve());
             Rect rect4 = rect2;
             rect4.yMin = rect2.y + rect2.height / 2f;
             float fillPercent = compPlasma.heat / Mathf.Max(1f, compPlasma.maxHeat);

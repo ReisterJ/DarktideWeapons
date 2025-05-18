@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace DarktideWeapons
@@ -27,6 +28,27 @@ namespace DarktideWeapons
             return (meleeLevel * meleeLevel) / 2 * bias + 1;
         }
         
+        public static List<IntVec3> GetPawnNearArea(Pawn pawn,float radius)
+        {
+            IntVec3 root = pawn.Position;
+            List<IntVec3> area = new List<IntVec3>();
+            int minx = root.x - (int)radius;
+            int maxx = root.x + (int)radius;    
+            int minz = root.z - (int)radius;
+            int maxz = root.z + (int)radius;
+            for (int x = minx; x <= maxx; x++)
+            {
+                for (int z = minz; z <= maxz; z++)
+                {
+                    IntVec3 cell = new IntVec3(x, root.y, z);
+                    if (cell.InBounds(pawn.Map)) //&& cell.DistanceTo(root) <= radius)
+                    {
+                        area.Add(cell);
+                    }
+                }
+            }
+            return area;
+        }
         
         public static bool IsMeleeDamage(DamageInfo? dinfo)
         {

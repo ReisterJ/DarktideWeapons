@@ -26,7 +26,7 @@
 
   <ManeuverDef>
     <defName>DW_Melee_Axe_Cleave</defName>
-    <requiredCapacity>DW_Melee_Cleave</requiredCapacity>
+    <requiredCapacity>DW_Melee_Axe_Cleave</requiredCapacity>
     <verb>
       <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
       <meleeDamageDef>Cut</meleeDamageDef>

@@ -22,6 +22,16 @@ namespace DarktideWeapons
             }
         }
 
+        public override void PostTick()
+        {
+            base.PostTick();
+            if (CompToughnessShield != null)
+            {
+                this.CompToughnessShield.EnableShield = true;
+                float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
+                CompToughnessShield.SetMaxShieldInGame(shieldnum);
+            }
+        }
         protected CompProperties_DWToughnessShield compProperties_DWToughnessShield;
         public ModExtension_ToughnessShield ToughnessShieldExtension
         {
@@ -106,6 +116,21 @@ namespace DarktideWeapons
             base.PostRemoved();
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref this.level, "level", 0);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (this.CompToughnessShield != null && this.level > 0)
+                {
+                    this.CompToughnessShield.EnableShield = true;
+                    float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
+                    CompToughnessShield.SetMaxShieldInGame(shieldnum);
+                }
+            }
+
+        }
         private void Debug_Print()
         {
 #if DEBUG

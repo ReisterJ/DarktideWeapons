@@ -34,6 +34,7 @@
     </tools>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
+      <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li>
     </comps>
   </ThingDef>
 
@@ -73,6 +74,7 @@
       <penetrationPower>0</penetrationPower>
       <effectiveRange>29.9</effectiveRange>
       <penetrateWall>false</penetrateWall>
+      <friendlyFire>false</friendlyFire>
     </li>
   </modExtensions>
     
@@ -128,9 +130,9 @@
   </graphicData>
   <projectile>
     <damageDef>Bullet</damageDef>
-    <damageAmountBase>28</damageAmountBase>
+    <damageAmountBase>25</damageAmountBase>
     <stoppingPower>2</stoppingPower>
-    <armorPenetrationBase>0.60</armorPenetrationBase>
+    <armorPenetrationBase>0.40</armorPenetrationBase>
     <speed>99</speed>
   </projectile>
   <thingClass>DarktideWeapons.DW_Projectile</thingClass>
@@ -139,6 +141,9 @@
       <penetrationPower>4</penetrationPower>
       <effectiveRange>44.9</effectiveRange>
       <penetrateWall>false</penetrateWall>
+      <friendlyFire>false</friendlyFire>
+      <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+      <weaknessDamageMultiplier>3.0</weaknessDamageMultiplier>
     </li>
   </modExtensions>
 </ThingDef>
@@ -161,23 +166,21 @@
     <AccuracyShort>0.90</AccuracyShort>
     <AccuracyMedium>0.80</AccuracyMedium>
     <AccuracyLong>0.70</AccuracyLong>
-    <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
   </statBases>
   <costList>
     <Steel>30</Steel>
     <Plasteel>80</Plasteel>
     <ComponentIndustrial>8</ComponentIndustrial>
   </costList>
-  <equippedStatOffsets>
-    <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
-  </equippedStatOffsets>
+  
   <verbs>
     <li>
-      <verbClass>Verb_Shoot</verbClass>
+      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
       <hasStandardCommand>true</hasStandardCommand>
       <defaultProjectile>DW_Bullet_Revolver</defaultProjectile>
       <warmupTime>1.8</warmupTime>
-      <range>43.9</range>
+      <range>38.9</range>
       <soundCast>Shot_Revolver</soundCast>
       <soundCastTail>GunTail_Light</soundCastTail>
       <muzzleFlashScale>9</muzzleFlashScale>
@@ -206,6 +209,7 @@
       <penetrationPower>2</penetrationPower>
       <effectiveRange>31.9</effectiveRange>
       <penetrateWall>false</penetrateWall>
+      <friendlyFire>false</friendlyFire>
     </li>
   </modExtensions>
 </ThingDef>
@@ -406,7 +410,7 @@
       <muzzleFlashScale>9</muzzleFlashScale>
     </li>
   </verbs>
-  <comps inherit="False">
+  <comps>
     <li Class="CompProperties_EquippableAbilityReloadable">
       <abilityDef>DW_Ability_Slugshot</abilityDef>
       <maxCharges>8</maxCharges>
@@ -417,9 +421,6 @@
       <baseReloadTicks>30</baseReloadTicks>
     </li>
     <li Class="CompProperties_Forbiddable"/>
-    <li>
-        <compClass>CompQuality</compClass>
-    </li>
     <li Class="CompProperties_Art">
         <nameMaker>NamerArtWeaponGun</nameMaker>
         <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
@@ -504,7 +505,7 @@
       <muzzleFlashScale>9</muzzleFlashScale>
     </li>
   </verbs>
-  <comps inherit="False">
+  <comps>
     <li Class="CompProperties_EquippableAbilityReloadable">
       <abilityDef>DW_Ability_IncendiaryShot</abilityDef>
       <maxCharges>3</maxCharges>
@@ -534,6 +535,9 @@
     <verbClass>Verb_LaunchProjectileStatic</verbClass>
     <warmupTime>1.0</warmupTime>
     <!-- <soundCast> </soundCast> -->
+
+    <!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
+    <!-- <burstShotCount>3</burstShotCount> -->
     <ai_IsWeapon>false</ai_IsWeapon>
     <range>19.9</range>
     <requireLineOfSight>true</requireLineOfSight>
@@ -545,7 +549,7 @@
 
 <!-- Vraks Headhunter Autogun -->
 <!-- Headhunter autoguns are highly accurate, modified for high-accuracy takedowns. -->
-<ThingDef  ParentName="BaseBullet">
+<ThingDef ParentName="BaseBullet">
   <defName>DW_Bullet_HeadhunterAutogun</defName>
   <label>Headhunter</label>
   <graphicData>
@@ -554,11 +558,21 @@
   </graphicData>
   <projectile>
     <damageDef>Bullet</damageDef>
-    <damageAmountBase>12</damageAmountBase>
-    <armorPenetrationBase>0.30</armorPenetrationBase>
+    <damageAmountBase>13</damageAmountBase>
+    <armorPenetrationBase>0.15</armorPenetrationBase>
     <stoppingPower>2</stoppingPower>
     <speed>90</speed>
   </projectile>
+  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>50.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
 </ThingDef>
 
 <ThingDef ParentName="Darktide_Gun">
@@ -584,14 +598,17 @@
     <Plasteel>100</Plasteel>
     <ComponentIndustrial>8</ComponentIndustrial>
   </costList>
+  <equippedStatOffsets>
+    <ShootingAccuracyFactor_Long>0.15</ShootingAccuracyFactor_Long> 
+  </equippedStatOffsets>
   <verbs>
     <li>
-      <verbClass>Verb_Shoot</verbClass>
+      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
       <hasStandardCommand>true</hasStandardCommand>
       <defaultProjectile>DW_Bullet_HeadhunterAutogun</defaultProjectile>
-      <burstShotCount>4</burstShotCount>
-      <warmupTime>2.6</warmupTime>
-      <range>39.9</range>
+      <burstShotCount>2</burstShotCount>
+      <warmupTime>2.5</warmupTime>
+      <range>45.9</range>
       <soundCast>Shot_AssaultRifle</soundCast>
       <soundCastTail>GunTail_Heavy</soundCastTail>
       <muzzleFlashScale>9</muzzleFlashScale>
@@ -630,12 +647,13 @@ the most powerful lasguns to come out of the manufactorums of Kantrael, albeit s
       <armorPenetrationBase>0.60</armorPenetrationBase>
       <speed>85</speed>
     </projectile>
-    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <thingClass>DarktideWeapons.DW_Plasma</thingClass>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
         <penetrationPower>10</penetrationPower>
         <effectiveRange>35.9</effectiveRange>
         <penetrateWall>true</penetrateWall>
+        <friendlyFire>false</friendlyFire>
       </li>
     </modExtensions>
   </ThingDef>
@@ -671,7 +689,7 @@ the most powerful lasguns to come out of the manufactorums of Kantrael, albeit s
     </equippedStatOffsets> -->
     <verbs>
       <li>
-        <verbClass>Verb_Shoot</verbClass>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
         <requireLineOfSight>false</requireLineOfSight>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>DW_PlasmaProjectile</defaultProjectile>

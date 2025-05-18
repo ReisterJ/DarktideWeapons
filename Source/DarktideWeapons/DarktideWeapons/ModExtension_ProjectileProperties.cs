@@ -22,6 +22,13 @@ namespace DarktideWeapons
         public bool penetrateWall = false;
         public int penetrationPower = 0;    
 
+        public bool friendlyFire = false;
+
+        public float weaknessDamageMultiplier = 2.0f;
+        public ModExtension_ProjectileProperties()
+        {
+            
+        }
     }
     //Infantry autogun bullet 
 

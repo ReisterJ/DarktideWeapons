@@ -17,14 +17,17 @@
 		<alwaysHaulable>true</alwaysHaulable>
 		<resourceReadoutPriority>Middle</resourceReadoutPriority>
 		<thingCategories>
-		<li>BodyPartsArchotech</li>
+			<li>BodyPartsArchotech</li>
 		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
 		<statBases>
-		<MaxHitPoints>100</MaxHitPoints>
-		<Beauty>-4</Beauty>
-		<Mass>1</Mass>
-		<MarketValue>2600</MarketValue>
-		<DeteriorationRate>0</DeteriorationRate>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Beauty>-4</Beauty>
+			<Mass>1</Mass>
+			<MarketValue>2600</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
 		<graphicData>
 		<texPath>Things/Item/Special/PsylinkNeuroformer</texPath>

@@ -61,16 +61,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompAbilityEffect_DOT.cs" />
+    <Compile Include="HediffComp_SpreadHediffAfterDeath.cs" />
     <Compile Include="Comp_CounterAttack.cs" />
     <Compile Include="Comp_DarktideForceStaff.cs" />
     <Compile Include="Comp_DarktidePlasma.cs" />
     <Compile Include="Comp_DarktideWeapon.cs" />
-    <Compile Include="Comp_DarktideRangedWeapon.cs" />
     <Compile Include="Comp_DWToughnessShield.cs" />
     <Compile Include="DW_Bullet.cs" />
+    <Compile Include="DW_ModSettings.cs" />
+    <Compile Include="DW_Plasma.cs" />
     <Compile Include="DW_Projectile.cs" />
     <Compile Include="Hediff_DWToughnessShield.cs" />
-    <Compile Include="Hefiff_DOT.cs" />
+    <Compile Include="Hediff_DOT.cs" />
+    <Compile Include="ModExtension_HediffDOT.cs" />
     <Compile Include="Util_Crit.cs" />
     <Compile Include="Util_Melee.cs" />
     <Compile Include="ModExtension_MeleeWeaponProperties.cs" />
@@ -80,6 +84,8 @@
     <Compile Include="Util_Ranged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util_Stagger.cs" />
+    <Compile Include="Verb_DW_HeadHuntShoot.cs" />
+    <Compile Include="Verb_DW_Shoot.cs" />
     <Compile Include="Verb_DarktideMelee.cs" />
     <Compile Include="Verb_DarktideLaunchProjectile.cs" />
   </ItemGroup>

@@ -23,6 +23,8 @@ namespace DarktideWeapons
 
         protected Util_Melee.CraftType craftType = Util_Melee.CraftType.None;
         public ModExtension_MeleeWeaponProperties ModExtension_MeleeProp => this.maneuver.GetModExtension<ModExtension_MeleeWeaponProperties>();
+
+        public float MeleeDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().MeleeDamageMultiplierGlobal;
         protected override bool TryCastShot()
         {
             Pawn casterPawn = CasterPawn;
@@ -140,22 +142,7 @@ namespace DarktideWeapons
         }
         protected virtual void ApplyMeleeDamageToAdjTarget(Pawn target)
         {
-            switch (this.craftType)
-            {
-                case Util_Melee.CraftType.None:
-                    break;
-                case Util_Melee.CraftType.Cardinal:
-                    ApplyMeleeDamageToAdjCardinalTarget(target);
-                    break;
-                case Util_Melee.CraftType.Impale:
-                    break;
-                case Util_Melee.CraftType.CrowdControl:
-                    break;
-                case Util_Melee.CraftType.Juggernaut:
-                    break;
-                default:
-                    break;
-            }
+            ApplyMeleeDamageToAdjCardinalTarget(target);
         }
         protected new BattleLogEntry_MeleeCombat CreateCombatLog(Func<ManeuverDef, RulePackDef> rulePackGetter, bool alwaysShow)
         {
@@ -285,7 +272,7 @@ namespace DarktideWeapons
             {
                 return; 
             }
-            Util_Melee.DEV_output(" CleaveTargets valid ");
+            //Util_Melee.DEV_output(" CleaveTargets valid ");
             IntVec3 targetPos = target.Position;
             var targetAdjCardinal = GenAdjFast.AdjacentCellsCardinal(targetPos);
             
@@ -300,11 +287,11 @@ namespace DarktideWeapons
                 {
                     continue;
                 }
-                Util_Melee.DEV_output(" Position check: " + tempPos);
+                //Util_Melee.DEV_output(" Position check: " + tempPos);
                 Pawn nextPawnTarget = tempPos.GetFirstPawn(target.Map);
                 //List<Thing> thingList = tempPos.GetThingList(target.Map);
                 if (nextPawnTarget == null || nextPawnTarget.Dead) continue;
-                Util_Melee.DEV_output("CleaveTarget : " + nextPawnTarget.Name);
+                //Util_Melee.DEV_output("CleaveTarget : " + nextPawnTarget.Name);
                 /*
                 if (nextPawnTarget == CasterPawn)
                 {
@@ -315,10 +302,10 @@ namespace DarktideWeapons
                 if ((nextPawnTarget.NonHumanlikeOrWildMan() && !nextPawnTarget.Faction.IsPlayer) || (nextPawnTarget.Faction.HostileTo(CasterPawn.Faction)))
                 {
                     pawnNum++;
-                    Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + nextPawnTarget.Name);
+                    //Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + nextPawnTarget.Name);
                     if (pawnNum >= cleaveTargetsNum)
                     {
-                        Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
+                        //Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
                         stopFlag = true;
                         break;
                     }
@@ -339,12 +326,12 @@ namespace DarktideWeapons
             }
         }
 
-       
-       
+        
+
 
         protected IEnumerable<DamageInfo> DamageInfosToApply(LocalTargetInfo target)
         {
-            float num = verbProps.AdjustedMeleeDamageAmount(this, CasterPawn) * Util_Melee.PawnMeleeLevelDamageMultiplier(CasterPawn);
+            float num = verbProps.AdjustedMeleeDamageAmount(this, CasterPawn) * Util_Melee.PawnMeleeLevelDamageMultiplier(CasterPawn) * MeleeDamageMultiplierGlobal;
             float armorPenetration = verbProps.AdjustedArmorPenetration(this, CasterPawn);
             DamageDef def = verbProps.meleeDamageDef;
             BodyPartGroupDef bodyPartGroupDef = null;
@@ -432,7 +419,7 @@ namespace DarktideWeapons
         //main target takes full damage. Others take less as more targets are inflicted
         protected IEnumerable<DamageInfo> DamageInfosToApplyCleaveTarget(Pawn target , int pawnNum ,float damageFalloffRatio = 0.8f)
         {
-            float num = verbProps.AdjustedMeleeDamageAmount(this, CasterPawn) * Util_Melee.PawnMeleeLevelDamageMultiplier(CasterPawn);
+            float num = verbProps.AdjustedMeleeDamageAmount(this, CasterPawn) * Util_Melee.PawnMeleeLevelDamageMultiplier(CasterPawn) * MeleeDamageMultiplierGlobal;
             float armorPenetration = verbProps.AdjustedArmorPenetration(this, CasterPawn);
             DamageDef def = verbProps.meleeDamageDef;
             BodyPartGroupDef bodyPartGroupDef = null;

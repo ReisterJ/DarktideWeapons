@@ -16,13 +16,15 @@ namespace DarktideWeapons
 
         protected int comp_DWToughnessShieldcheckFail = 1;
 
-        protected Comp_CounterAttack comp_CounterAttack;
+        public Comp_CounterAttack comp_CounterAttack;
 
         protected int comp_CounterAttackcheckFail = 1;
 
-        protected Comp_DarktidePlasma comp_DarktidePlasma;
+        public Comp_DarktidePlasma comp_DarktidePlasma;
 
         protected int comp_DarktidePlasmacheckFail = 1;
+
+        public Comp_DarktideForceStaff comp_DarktideForceStaff;
 
         protected Thing holder;
 
@@ -65,24 +67,46 @@ namespace DarktideWeapons
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
-           
+            
         }
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-           
+            comp_CounterAttack = parent.TryGetComp<Comp_CounterAttack>();
+            comp_DarktidePlasma = parent.TryGetComp<Comp_DarktidePlasma>();
+            comp_DarktideForceStaff = parent.TryGetComp<Comp_DarktideForceStaff>();
         }
 
+        public virtual bool QualityUpgrade(QualityCategory q)
+        {
+            CompQuality compQuality = parent.TryGetComp<CompQuality>();
+            if(compQuality == null) return false;
+            compQuality.SetQuality(q, ArtGenerationContext.Colony);
+            return true;
+        }
+
+        public void HolderSet()
+        {
+            if (comp_DarktidePlasma != null)
+            {
+                comp_DarktidePlasma.wielder = holder;
+            }
+            if (comp_DarktideForceStaff != null)
+            {
+                comp_DarktideForceStaff.wielder = holder;
+            }
+        }
         public override void CompTick()
         {
             base.CompTick();
             counter++;
-            
+            /*
             if(comp_CounterAttack == null && (counter % (int)Math.Pow(2,comp_CounterAttackcheckFail) == 0) )
             {
                if(comp_CounterAttackcheckFail < maxCheck) comp_CounterAttackcheckFail++;
                comp_CounterAttack = parent.TryGetComp<Comp_CounterAttack>();
                if (comp_CounterAttack != null) comp_CounterAttackcheckFail = 1;
             }
+            */
             if(comp_DarktidePlasma == null && (counter % (int)Math.Pow(2, comp_DarktidePlasmacheckFail) == 0))
             {
                 if (comp_DarktidePlasmacheckFail < maxCheck) comp_DarktidePlasmacheckFail++;
@@ -90,20 +114,8 @@ namespace DarktideWeapons
                 if(comp_DarktidePlasma != null) comp_DarktidePlasmacheckFail = 1;
             }
             
-            if(comp_DarktidePlasma != null)
-            {
-                comp_DarktidePlasma.wielder = holder;
-                comp_DarktidePlasma.CompTick();
-            }
-            if(counter % 600 == 0 )
-            {
-               // DEV("Comp_DarktideWeapon is Ticking");
-
-                if (comp_DarktidePlasma != null)
-                {
-                   // DEV("Comp_Plasma is Ticking");
-                }
-            }
+            HolderSet();
+           
         }
 
         public override void Notify_KilledPawn(Pawn pawn)
@@ -126,23 +138,17 @@ namespace DarktideWeapons
             {
                 yield return gizmo;
             }
-            if(comp_DarktidePlasma != null)
-            {
-                foreach (var gizmo2 in comp_DarktidePlasma.CompGetGizmosExtra())
-                {
-                    yield return gizmo2;
-                }
-            }
+            
             
             yield return new Command_Action
             {
-                defaultLabel = "Inspect".Translate(), 
-                defaultDesc = "InspectDesc".Translate(), 
+                defaultLabel = "DWInspectWeapon".Translate(), 
+                defaultDesc = "DWInspectWeaponDesc".Translate(), 
                 icon = TexCommand.DesirePower, 
                 action = new Action( ShowInspectDialog )
             };
         }
-        private void ShowInspectDialog()
+        protected void ShowInspectDialog()
         {
             StringBuilder info = new StringBuilder();
             info.AppendLine("Weapon Info:".Translate());
@@ -150,29 +156,15 @@ namespace DarktideWeapons
             //info.AppendLine($"Cleave Targets: {cleaveTargetsinGame}".Translate());
             if (comp_CounterAttack != null)
             {
-                info.AppendLine("Enable CounterAttack".Translate());
+                info.AppendLine(comp_CounterAttack.ShowInfo(this.HoldingPawn));
+                
             }
 
             
-            Find.WindowStack.Add(new Dialog_MessageBox(info.ToString(), title: "Inspect Weapon".Translate()));
+            Find.WindowStack.Add(new Dialog_MessageBox(info.ToString(), title: "DWInspectWeapon".Translate()));
         }
 
-        public override bool CompAllowVerbCast(Verb verb)
-        {
-            if(verb is Verb_LaunchProjectile)
-            {
-                if (comp_DarktidePlasma != null)
-                {
-                    if (!comp_DarktidePlasma.CompAllowVerbCast(verb))
-                    {
-                        Util_Ranged.DEV_output("Plasma Weapon is Cooling or Overheated , Cant shoot now");
-                    }
-                    return comp_DarktidePlasma.CompAllowVerbCast(verb);
-                }
-            }
-            
-            return true;
-        }
+        
         protected virtual void Dodge()
         { 
             

@@ -21,7 +21,7 @@ namespace DarktideWeapons
 
         protected int lastAbsorbDamageTick = -9999;
 
-        public float KillRechargeinGame;
+        public float KillRechargeinGame = 30f;
         
         protected int StartTickstoResetinGame;
         
@@ -162,14 +162,13 @@ namespace DarktideWeapons
             {
                 yield return gizmo;
             }
-            IEnumerator<Gizmo> enumerator = null;
+            
             if (PawnOwner != null) {
 
                 foreach (Gizmo gizmo2 in this.GetGizmos())
                 {
                     yield return gizmo2;
                 }
-                enumerator = null;
 
             }
             if (!this.enableShield)
@@ -210,7 +209,7 @@ namespace DarktideWeapons
         }
         public virtual IEnumerable<Gizmo> GetGizmos()
         {
-            if (Find.Selector.SingleSelectedThing == this.PawnOwner)
+            if (Find.Selector.SelectedPawns.Contains( this.PawnOwner))
             {
                 if (this.EnableShield)
                 {
@@ -222,10 +221,14 @@ namespace DarktideWeapons
                 
                 if(CompDarktideWeaponPrimary != null)
                 {
-                   foreach (var gizmo in CompDarktideWeaponPrimary.CompGetGizmosExtra())
-                    {
-                        yield return gizmo;
-                    }
+                   foreach (ThingComp comp in this.PawnOwner.equipment.Primary.AllComps)
+                   {
+                        foreach(Gizmo gizmo in comp.CompGetGizmosExtra())
+                        {
+                            yield return gizmo;
+                        }
+                            
+                   }
                 }
             }
             yield break;
@@ -267,8 +270,6 @@ namespace DarktideWeapons
             if (Util_Melee.IsMeleeDamage(dinfo))
             {
                 toughnessdamage *= 0.9f;
-                //Log.Message("ismeleedamage");
-                //Log.Message("origin meleedamage : "+ dinfo.Amount);
                 float PastToughnessDamage = (this.MaxToughnessinGame - this.energy) / this.MaxToughnessinGame * toughnessdamage;
                 if (PastToughnessDamage < 0) PastToughnessDamage = 0;
                 dinfo.SetAmount(PastToughnessDamage);
@@ -317,20 +318,17 @@ namespace DarktideWeapons
                 if (thingWithComps != null)
                 {
                     //Log.Message("equipment: " + thingWithComps.def.label);
-                    thingWithComps.Tick();
+                    
                     Comp_DarktideWeapon cdw = thingWithComps.TryGetComp<Comp_DarktideWeapon>();
                     
                     if (cdw != null)
                     {
-                        if (interval%300 == 0)
-                        {
-                            Log.Message(thingWithComps.def.label + "has Comp_DarktideWeapon");
-                        }
-                        
-                        cdw.CompTick();
+                        //cdw.CompTick();
                         cdw.HoldingPawn = this.PawnOwner;
+                        cdw.HolderSet();
                         flag = true;
                     }
+                    thingWithComps.Tick();
                 }
             }
             return flag;
@@ -343,33 +341,10 @@ namespace DarktideWeapons
                 Log.Error("No owner");
                 return;
             }
-            
             if (this.PawnOwner.Map == null )
             {
                 return;
             }
-            
-            
-            interval++;
-            if (interval >= 120)
-            {
-
-                //DEVoutput();
-                //interval = 0;
-                /*
-                cachedHediffToughnessShield = this.PawnOwner.health.hediffSet.GetFirstHediff<Hediff_DWToughnessShield>();
-
-                if (cachedHediffToughnessShield != null)
-                {
-                    this.enableShield = true;
-                }
-                else
-                {
-                    this.enableShield = false;
-                }
-                */
-            }
-            //Log.Message("Pawnowner :"+this.PawnOwner.ThingID);
             DarktideWeaponCompTick();
             if (enableShield)
             {
@@ -395,9 +370,7 @@ namespace DarktideWeapons
 
                 }
             }
-           
-            
-            //
+       
         }
         public override float CompGetSpecialApparelScoreOffset()
         {
@@ -407,10 +380,7 @@ namespace DarktideWeapons
         //maybe some features here... explosion
         public virtual void ToughnessBreak()
         {
-           
             this.energy = 0f;
-
-        
         }
 
         public void Recharge()
@@ -420,19 +390,7 @@ namespace DarktideWeapons
         
 
         //Toughness doesn't block pawns casting
-        public override bool CompAllowVerbCast(Verb verb)
-        {
-            if (this.CompDarktideWeaponPrimary != null)
-            {
-                if(verb is Verb_LaunchProjectile)
-                {
-                    return CompDarktideWeaponPrimary.CompAllowVerbCast(verb);
-                }
-                
-            }
-            return true;
-            
-        }
+        
 
         public virtual void Recharge_Afterkill()
         {
@@ -455,12 +413,10 @@ namespace DarktideWeapons
                 this.Recharge_Afterkill();
             }
         }
-       
-        
+          
         public override void PostDraw()
         {
-            base.PostDraw();
-            
+            base.PostDraw();      
         }
 
         protected void Draw()
@@ -495,6 +451,16 @@ namespace DarktideWeapons
             this.energy = this.MaxToughnessinGame;
         }
 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Values.Look(ref this.energy, "energy", 0f);
+            Scribe_Values.Look(ref this.ticksToReset, "ticksToReset", -1);
+            Scribe_Values.Look(ref this.KillRechargeinGame, "KillRechargeinGame", 0f);
+            Scribe_Values.Look(ref this.enableShield, "enableShield", false);
+            Scribe_Values.Look(ref this.MaxToughnessinGame, "MaxToughnessinGame", 0f);
+            Scribe_Values.Look(ref this.toughnessExceeded, "toughnessExceeded", 0f);
+        }
         public void SetMaxShieldInGame(float maxShieldInGame)
         {
             this.MaxToughnessinGame = maxShieldInGame;
@@ -576,8 +542,4 @@ namespace DarktideWeapons
         }
     }
 
-    public class ToughnessShieldWorker
-    {
-        public Pawn Owner;
-    }
 }
