@@ -43,7 +43,7 @@ namespace DarktideWeapons
 
         protected Comp_CounterAttack compCounterAttack;
 
-        public Comp_DarktideWeapon CompDarktideWeaponPrimary => this.PawnOwner.equipment.Primary.TryGetComp<Comp_DarktideWeapon>();
+        //public Comp_DarktideWeapon CompDarktideWeaponPrimary => this.PawnOwner.equipment.Primary.TryGetComp<Comp_DarktideWeapon>();
 
         private int interval = -1;
         public override void Initialize(CompProperties props)
@@ -54,13 +54,14 @@ namespace DarktideWeapons
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup(respawningAfterLoad);
+            
             KillRechargeinGame = DWTSProp.killRechargeToughnessBase;
             StartTickstoResetinGame = DWTSProp.startTickstoResetBase;
             MaxToughnessinGame = DWTSProp.maxToughnessBase;
             ToughnessDamageReductionMultiplierinGame = DWTSProp.toughnessDamageReductionMultiplier;
             enableShield = DWTSProp.spawnEnableShield;
             baseToughnessRegenerationRate = DWTSProp.baseToughnessRegenerationRate;
+            base.PostSpawnSetup(respawningAfterLoad);
             //MeleeUtil.DEV_output("postspawn");
         }
 
@@ -218,17 +219,21 @@ namespace DarktideWeapons
                         ToughnessShield = this
                     };
                 }
-                
-                if(CompDarktideWeaponPrimary != null)
+
+                if (PawnOwner.equipment == null) yield break;
+                List<ThingWithComps> list = PawnOwner.equipment.AllEquipmentListForReading;
+                if (list == null || list.FirstOrDefault() == null) yield break;
+                for (int i = 0; i < list.Count; i++)
                 {
-                   foreach (ThingComp comp in this.PawnOwner.equipment.Primary.AllComps)
-                   {
-                        foreach(Gizmo gizmo in comp.CompGetGizmosExtra())
-                        {
-                            yield return gizmo;
-                        }
-                            
-                   }
+                    ThingWithComps thingWithComps = list[i];
+                    if(thingWithComps == null || !(thingWithComps is DW_Equipment))
+                    {
+                        continue;
+                    }
+                    foreach (Gizmo gizmo in thingWithComps.GetGizmos())
+                    {
+                        yield return gizmo;
+                    }
                 }
             }
             yield break;
@@ -286,7 +291,7 @@ namespace DarktideWeapons
             }
             if (dinfo.Def == DamageDefOf.Bomb)
             {
-                toughnessdamage *= 1.2f;
+                toughnessdamage *= 0.5f;
             }
 
             if (this.energy <= toughnessdamage)
@@ -315,21 +320,7 @@ namespace DarktideWeapons
             for (int i = 0; i < list.Count; i++)
             {
                 ThingWithComps thingWithComps = list[i];
-                if (thingWithComps != null)
-                {
-                    //Log.Message("equipment: " + thingWithComps.def.label);
-                    
-                    Comp_DarktideWeapon cdw = thingWithComps.TryGetComp<Comp_DarktideWeapon>();
-                    
-                    if (cdw != null)
-                    {
-                        //cdw.CompTick();
-                        cdw.HoldingPawn = this.PawnOwner;
-                        cdw.HolderSet();
-                        flag = true;
-                    }
-                    thingWithComps.Tick();
-                }
+                //thingWithComps?.Tick();
             }
             return flag;
         }
@@ -345,7 +336,7 @@ namespace DarktideWeapons
             {
                 return;
             }
-            DarktideWeaponCompTick();
+            //DarktideWeaponCompTick();
             if (enableShield)
             {
                 if (this.ShieldState == ShieldState.Resetting)

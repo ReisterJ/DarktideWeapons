@@ -9,7 +9,7 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class Comp_DarktideForceStaff : ThingComp
+    public class Comp_DarktideForceStaff : DW_WeaponComp
     {
         protected Comp_DarktideWeapon compDarktideWeapon => parent.TryGetComp<Comp_DarktideWeapon>();
 
@@ -17,7 +17,6 @@ namespace DarktideWeapons
 
         public float CalmPsyfocusCost => Props.calmPsyfocusCost;
 
-        public Thing wielder;
 
         public Pawn HoldingPawn
         {
@@ -42,7 +41,7 @@ namespace DarktideWeapons
         {
             get
             {
-                if (compDarktideWeapon != null && HoldingPawn.HasPsylink &&
+                if (HoldingPawn != null && HoldingPawn.HasPsylink &&
                     HoldingPawn.GetPsylinkLevel() > Props.requirePsyLevel)
                 {
                     return true;
@@ -63,6 +62,7 @@ namespace DarktideWeapons
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if(! Available) yield break;
+            /*
             yield return new Command_Action
             {
                 defaultLabel = "DW_CalmEntrophy",
@@ -70,6 +70,7 @@ namespace DarktideWeapons
                 icon = TexCommand.DesirePower,
                 action = Ability_CalmEntrophy
             };
+            */
         }
 
 
@@ -174,6 +175,12 @@ namespace DarktideWeapons
                         break;
                 }
             }
+        }
+        public override string ShowInfo(Thing wielder)
+        {
+            string header = "ForceStaff".Translate();
+
+            return header;
         }
     }
 

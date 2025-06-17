@@ -23,6 +23,7 @@ namespace DarktideWeapons
         }
     }
 
+    [StaticConstructorOnStartup]
     public class DW_Mod : Mod
     {
         DW_ModSettings settings;
@@ -41,6 +42,10 @@ namespace DarktideWeapons
             settings.MeleeDamageMultiplierGlobal = listingStandard.Slider(settings.MeleeDamageMultiplierGlobal, 0.2f, 5f);
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
+        }
+        public override string SettingsCategory()
+        {
+            return "DW_ModName".Translate();
         }
     }
 }

@@ -20,21 +20,16 @@ namespace DarktideWeapons
             if (compPlasma != null)
             {
                 this.isPlasma = true;
-                //Util_Ranged.DEV_output("Plasma weapon found , name : " + thingWithComps.Label);
-                //Util_Ranged.DEV_output("Plasma weapon mode : " + compPlasma.plasmaWeaponMode.ToString());
                 if (compPlasma.plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Normal)
                 {
                     this.penetrateWall = false;
                 }
+                
+                compPlasma.HeatBuild();
                 if (compPlasma.plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Charged)
                 {
-                    this.DamageMultiplier_Outer *= compPlasma.chargedModeDamageMultiplier;
-                    this.armorPenetrationinGame *= compPlasma.chargedModeArmorPenetrationMultiplier;
-                    this.penetrateNum *= 2;
-                    this.penetrateWall = true;
-                    this.effectiveRange *= 1.2f;
+                    compPlasma.plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
                 }
-                compPlasma.HeatBuild();
             }
         }
     }

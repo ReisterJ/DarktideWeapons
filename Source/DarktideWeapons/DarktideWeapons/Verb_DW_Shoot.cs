@@ -12,13 +12,13 @@ namespace DarktideWeapons
     {
         protected override int ShotsPerBurst => verbProps.burstShotCount;
 
-        public Comp_DarktideWeapon DarktideWeapon         
+        public DW_Equipment DarktideWeapon         
         {
             get
             {
-                if (EquipmentSource != null)
+                if (EquipmentSource != null && EquipmentSource is DW_Equipment DWE)
                 {
-                    return EquipmentSource.TryGetComp<Comp_DarktideWeapon>();
+                    return DWE;
                 }
                 return null;
             }
@@ -39,22 +39,112 @@ namespace DarktideWeapons
             bool flag = base.Available();
             if (DarktideWeapon != null)
             {
-                if (DarktideWeapon.comp_DarktidePlasma != null)
+                Comp_DarktidePlasma plasmaComp = DarktideWeapon.TryGetComp<Comp_DarktidePlasma>();
+                if (plasmaComp  != null)
                 {
-                    flag = DarktideWeapon.comp_DarktidePlasma.AllowShoot();
+                    flag = plasmaComp.AllowShoot();
                 }
             }
             return flag;
         }
+
+        public override bool TryStartCastOn(LocalTargetInfo castTarg, LocalTargetInfo destTarg, bool surpriseAttack = false, bool canHitNonTargetPawns = true, bool preventFriendlyFire = false, bool nonInterruptingSelfCast = false)
+        {
+            if (caster == null)
+            {
+                Log.Error("Verb " + GetUniqueLoadID() + " needs caster to work (possibly lost during saving/loading).");
+                return false;
+            }
+            if (!caster.Spawned)
+            {
+                return false;
+            }
+            if (state == VerbState.Bursting || !CanHitTarget(castTarg))
+            {
+                return false;
+            }
+            if (CausesTimeSlowdown(castTarg))
+            {
+                Find.TickManager.slower.SignalForceNormalSpeed();
+            }
+            this.surpriseAttack = surpriseAttack;
+            canHitNonTargetPawnsNow = canHitNonTargetPawns;
+            this.preventFriendlyFire = preventFriendlyFire;
+            this.nonInterruptingSelfCast = nonInterruptingSelfCast;
+            currentTarget = castTarg;
+            currentDestination = destTarg;
+            if (CasterIsPawn && verbProps.warmupTime > 0f)
+            {
+                if (!TryFindShootLineFromTo(caster.Position, castTarg, out var resultingLine))
+                {
+                    return false;
+                }
+                CasterPawn.Drawer.Notify_WarmingCastAlongLine(resultingLine, caster.Position);
+                float statValue = CasterPawn.GetStatValue(StatDefOf.AimingDelayFactor);
+                int ticks = (verbProps.warmupTime * statValue).SecondsToTicks();
+                CasterPawn.stances.SetStance(new Stance_Warmup(ticks, castTarg, this));
+                if (verbProps.stunTargetOnCastStart && castTarg.Pawn != null)
+                {
+                    castTarg.Pawn.stances.stunner.StunFor(ticks, null, addBattleLog: false);
+                }
+            }
+            else
+            {
+                if (verbTracker.directOwner is Ability ability)
+                {
+                    ability.lastCastTick = Find.TickManager.TicksGame;
+                }
+                WarmupComplete();
+            }
+            return true;
+        }
         protected override bool TryCastShot()
         {
             bool num = base.TryCastShot();
+            if (num)
+            {
+                if (verbProps.consumeFuelPerShot > 0f && caster.TryGetComp<CompRefuelable>() is CompRefuelable compRefuelable)
+                {
+                    compRefuelable.ConsumeFuel(verbProps.consumeFuelPerShot);
+                }
+            }
             if (num && CasterIsPawn)
             {
                 CasterPawn.records.Increment(RecordDefOf.ShotsFired);
             }
             
             return num;
+        }
+        public virtual bool CausesTimeSlowdown(LocalTargetInfo castTarg)
+        {
+            if (!verbProps.CausesTimeSlowdown)
+            {
+                return false;
+            }
+            if (!castTarg.HasThing)
+            {
+                return false;
+            }
+            Thing thing = castTarg.Thing;
+            if (thing.def.category != ThingCategory.Pawn && (thing.def.building == null || !thing.def.building.IsTurret))
+            {
+                return false;
+            }
+            Pawn pawn = thing as Pawn;
+            bool flag = pawn?.Downed ?? false;
+            if ((CasterPawn != null && CasterPawn.Faction == Faction.OfPlayer && CasterPawn.IsShambler) || (pawn != null && pawn.Faction == Faction.OfPlayer && pawn.IsShambler))
+            {
+                return false;
+            }
+            if (thing.Faction != Faction.OfPlayer || !caster.HostileTo(Faction.OfPlayer))
+            {
+                if (caster.Faction == Faction.OfPlayer && thing.HostileTo(Faction.OfPlayer))
+                {
+                    return !flag;
+                }
+                return false;
+            }
+            return true;
         }
     }
 }

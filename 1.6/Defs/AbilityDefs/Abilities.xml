@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef Name="DW_ForceStaffPsycast" ParentName="PsycastBase" Abstract="True">
+    <category>DW_ForceStaff</category>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="DW_ForceStaffPsycast">
+    <defName>DW_ReleaseWarpFire</defName>
+    <label>Release warp fire</label>
+    <description>Channeling the power of the Immaterium into warp fire. It excels at controlling crowds of enemies.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>10</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
+      <Ability_EffectRadius>1.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>19.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_DOT">
+        <hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
+        <applicableToMechs>True</applicableToMechs>
+        <addLevel>2</addLevel>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_VoidEnergyBall</defName>
+    <label>Energy ball</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <speed>65</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>8</penetrationPower>
+        <effectiveRange>45.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <isExplosive>true</isExplosive>
+        <explosionDamage>20</explosionDamage>
+        <explosionRadius>0.8</explosionRadius>
+        <explosionDamageDef>Bomb</explosionDamageDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <AbilityDef ParentName="DW_ForceStaffPsycast">
+    <defName>DW_Voidstrike</defName>
+    <label>Void strike</label>
+    <description>Sending out balls of Void energy that can both stagger and damage foes.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
+    </statBases>
+    <modExtensions>
+    <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+      <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
+    </li>
+    </modExtensions>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_AbilityShoot_Psycast</verbClass>
+      <warmupTime>2.5</warmupTime>
+      <range>39.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      
+    </comps>
+  </AbilityDef>
+
+ 
+
+</Defs>

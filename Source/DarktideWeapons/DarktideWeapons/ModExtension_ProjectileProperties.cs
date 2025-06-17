@@ -15,7 +15,7 @@ namespace DarktideWeapons
         public float stunChance = 0f;
         public int stunTicks = 30;
 
-        public bool isGrenade = false;
+        //public bool isGrenade = false;
         public float critArmorPenetrationMultiplier = 2.0f;
 
         public float effectiveRange = 25f;
@@ -25,12 +25,18 @@ namespace DarktideWeapons
         public bool friendlyFire = false;
 
         public float weaknessDamageMultiplier = 2.0f;
-        public ModExtension_ProjectileProperties()
-        {
-            
-        }
+
+        public bool isExplosive = false;
+        public float explosionDamage = 20f;
+        public float explosionRadius = 2f;
+        public float explosionArmorPenetration = 0.2f;
+
+        public bool isStickyBomb = false;
+
+        public DamageDef explosionDamageDef;
+       
+        public List<HediffDef> applyHediffDefs = new List<HediffDef>();
     }
-    //Infantry autogun bullet 
 
    
     /*

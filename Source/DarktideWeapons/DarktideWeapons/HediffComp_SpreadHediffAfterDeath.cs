@@ -30,10 +30,15 @@ namespace DarktideWeapons
                 {
                     continue;
                 }
+                if (victim == this.Pawn)
+                {
+                    continue;
+                }
                 if (victim.Faction == Faction.OfPlayer && !Props.friendlySpread)
                 {
                     continue;
                 }
+                
                 Hediff hediff = victim.health.hediffSet.GetFirstHediffOfDef(Props.hediffDef);
                 if (hediff != null)
                 {

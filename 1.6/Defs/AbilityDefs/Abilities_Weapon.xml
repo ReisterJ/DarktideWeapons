@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- plasma weapon -->
+    <AbilityDef>
+        <defName>DW_Ability_SwitchPlasmaMode</defName>
+        <label>Switch Mode</label>
+        <description>Switch plasma weapon mode.</description>
+        <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>false</targetRequired>
+        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+        <stunTargetWhileCasting>false</stunTargetWhileCasting>
+        <statBases>
+        </statBases>
+        <verbProperties>
+        <verbClass>Verb_CastAbility</verbClass>
+        <warmupTime>0.25</warmupTime>
+        <range>0</range>
+        <drawAimPie>False</drawAimPie>
+        <requireLineOfSight>False</requireLineOfSight>
+        <targetParams>
+            <canTargetSelf>true</canTargetSelf>
+            <canTargetPawns>false</canTargetPawns>
+            <canTargetBuildings>false</canTargetBuildings>
+            <canTargetAnimals>false</canTargetAnimals>
+            <canTargetHumans>false</canTargetHumans>
+            <canTargetMechs>false</canTargetMechs>
+        </targetParams>
+        </verbProperties>
+        <comps>
+        <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchPlasmaMode"></li>
+        </comps>
+  </AbilityDef>
+<!-- 对武器进行充能以获取更高的伤害，并使等离子投射物穿透一切阻拦物。注意：满热量时再次充能会导致爆炸 -->
+  <AbilityDef>
+    <defName>DW_Ability_PlasmaChargedShot</defName>
+    <label>Charged shot</label>
+    <description>Charge the weapon for increased damage and make plasma projectiles penetrate all obstacles. Note: Charging at max heat will cause deadly explosion.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+	  
+    <targetRequired>false</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+      <warmupTime>2.8</warmupTime>
+      <!-- <soundCast> </soundCast> -->
+      <ai_IsWeapon>false</ai_IsWeapon>
+      <range>40.9</range>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <defaultProjectile>DW_PlasmaChargedProjectile</defaultProjectile>
+      <accuracyTouch>0.88</accuracyTouch>
+      <accuracyShort>0.85</accuracyShort>
+      <accuracyMedium>0.85</accuracyMedium>
+      <accuracyLong>0.83</accuracyLong>
+      <soundCast>Shot_Shotgun</soundCast>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetHumans>true</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_AbilityEffect_PlasmaChargedShot"></li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef>
+    <defName>DW_Ability_EmergencyCooling</defName>
+    <label>Emergency Cooling</label>
+    <description>Cooling weapon.If temperature is high user will be scorched by boiling gas.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+	  <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>false</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchPlasmaMode"></li>
+    </comps>
+  </AbilityDef>
+
+
+  
+</Defs>

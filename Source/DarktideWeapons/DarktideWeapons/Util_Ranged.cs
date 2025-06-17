@@ -19,16 +19,16 @@ namespace DarktideWeapons
 
         public const float PenetrateWall_Probability_Base = 0.001f;
 
-        public const float Intercept_PawnBodySize_Factor = 0.75f;
-        public const float Intercept_PawnPosture_Downed_Factor = 0.2f;
+        public const float Intercept_PawnBodySize_Factor = 0.9f;
+        public const float Intercept_PawnPosture_Downed_Factor = 0.1f;
 
-        public const float CoverHitFactor_NotCloseToTarget = 0.15f;
+        public const float CoverHitFactor_NotCloseToTarget = 0.1f;
         public const float CoverHitFactor_CloseToTarget = 1f;
         public const float CoverPenetrationBaseChance = 0.85f;
 
         public const float MinFillPercentCountAsCover = 0.3f;
 
-        public const float HeadHuntBaseChance = 0.1f;
+        public const float HeadHuntBaseChance = 0.05f;
         public const float HeadHuntShootLevelBonusConstant = 2f;
         public const int MinHeadHuntShootLevel = 5;
 
@@ -82,6 +82,17 @@ namespace DarktideWeapons
             }
 
             return cells;
+        }
+
+       
+
+        public static float HeadHuntChanceCalculation(int shootlevel)
+        {
+            float chance = Util_Ranged.HeadHuntBaseChance;
+            chance = shootlevel > Util_Ranged.MinHeadHuntShootLevel ?
+                chance * (Mathf.Pow(Util_Ranged.HeadHuntShootLevelBonusConstant, (float)shootlevel / 10f) * Util_Ranged.HeadHuntShootLevelBonusConstant)
+                : chance;
+            return chance;
         }
 
         public static void DEV_output(object o)

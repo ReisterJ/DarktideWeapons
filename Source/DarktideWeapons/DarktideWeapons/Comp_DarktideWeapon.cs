@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace DarktideWeapons
         public Comp_DarktideForceStaff comp_DarktideForceStaff;
 
         protected Thing holder;
+
+        protected List<DW_WeaponComp> weaponComps = new List<DW_WeaponComp>();
 
         protected int maxCheck = 10;
         public Pawn HoldingPawn
@@ -67,7 +70,7 @@ namespace DarktideWeapons
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
-            
+            InitializeWeaponComps();
         }
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -99,6 +102,8 @@ namespace DarktideWeapons
         {
             base.CompTick();
             counter++;
+            comp_CounterAttack = parent.TryGetComp<Comp_CounterAttack>();
+            comp_DarktidePlasma = parent.TryGetComp<Comp_DarktidePlasma>();
             /*
             if(comp_CounterAttack == null && (counter % (int)Math.Pow(2,comp_CounterAttackcheckFail) == 0) )
             {
@@ -106,22 +111,36 @@ namespace DarktideWeapons
                comp_CounterAttack = parent.TryGetComp<Comp_CounterAttack>();
                if (comp_CounterAttack != null) comp_CounterAttackcheckFail = 1;
             }
-            */
+            
             if(comp_DarktidePlasma == null && (counter % (int)Math.Pow(2, comp_DarktidePlasmacheckFail) == 0))
             {
                 if (comp_DarktidePlasmacheckFail < maxCheck) comp_DarktidePlasmacheckFail++;
                 comp_DarktidePlasma = parent.TryGetComp<Comp_DarktidePlasma>();
                 if(comp_DarktidePlasma != null) comp_DarktidePlasmacheckFail = 1;
             }
-            
+            */
             HolderSet();
            
+        }
+        public void InitializeWeaponComps()
+        {
+            weaponComps = parent.AllComps.OfType<DW_WeaponComp>().ToList();
+            foreach (var comp in weaponComps)
+            {
+                comp.Initialize(comp.props);
+                this.weaponComps.Add(comp);
+            }
         }
 
         public override void Notify_KilledPawn(Pawn pawn)
         {
             base.Notify_KilledPawn(pawn);
-            comp_DWToughnessShield?.Recharge_Afterkill();
+            if (this.parent.def.IsMeleeWeapon)
+            {
+                comp_DWToughnessShield?.Recharge_Afterkill();
+            }
+
+            
         }
 
         public override void Notify_Equipped(Pawn pawn)
@@ -148,10 +167,10 @@ namespace DarktideWeapons
                 action = new Action( ShowInspectDialog )
             };
         }
-        protected void ShowInspectDialog()
+        protected virtual void ShowInspectDialog()
         {
             StringBuilder info = new StringBuilder();
-            info.AppendLine("Weapon Info:".Translate());
+            info.AppendLine("WeaponInfo:".Translate());
             //info.AppendLine($"Counter: {counter}".Translate());
             //info.AppendLine($"Cleave Targets: {cleaveTargetsinGame}".Translate());
             if (comp_CounterAttack != null)
@@ -159,8 +178,22 @@ namespace DarktideWeapons
                 info.AppendLine(comp_CounterAttack.ShowInfo(this.HoldingPawn));
                 
             }
+            using (var enumerator = weaponComps.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    if(holder is Pawn wielder)
+                    {
+                        info.AppendLine(enumerator.Current.ShowInfo(wielder));
+                    }
+                    else
+                    {
+                        info.AppendLine(enumerator.Current.ShowInfo(holder));
+                    }
+                }
+            }
 
-            
+
             Find.WindowStack.Add(new Dialog_MessageBox(info.ToString(), title: "DWInspectWeapon".Translate()));
         }
 

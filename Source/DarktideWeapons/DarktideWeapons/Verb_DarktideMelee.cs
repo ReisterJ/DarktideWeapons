@@ -264,7 +264,7 @@ namespace DarktideWeapons
         {
             
             //List<DamageWorker.DamageResult> damageResults = new List<DamageWorker.DamageResult>();
-            if (target == null || target.Dead || target.Map == null || target.Position == null || target.Position.InBounds(target.Map) == false)
+            if (target == null || target.Dead || target.Map == null || target.Position.InBounds(target.Map) == false)
             {
                 return;
             }

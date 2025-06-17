@@ -134,7 +134,6 @@ namespace DarktideWeapons
             if (verbProps.canGoWild && !Rand.Chance(shotReport.AimOnTargetChance_IgnoringPosture))
             {
                 bool flyOverhead = projectile2?.def?.projectile != null && projectile2.def.projectile.flyOverhead;
-                resultingLine.ChangeDestToMissWild_NewTemp(shotReport.AimOnTargetChance_StandardTarget, flyOverhead, caster.Map);
                 ThrowDebugText("ToWild" + (canHitNonTargetPawnsNow ? "\nchntp" : ""));
                 ThrowDebugText("Wild\nDest", resultingLine.Dest);
                 ProjectileHitFlags projectileHitFlags2 = ProjectileHitFlags.NonTargetWorld;

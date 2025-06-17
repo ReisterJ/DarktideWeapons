@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace DarktideWeapons
 {
-    public class Comp_DarktidePlasma : ThingComp
+    public class Comp_DarktidePlasma : DW_WeaponComp
     {
         public float heat = 0f;
 
@@ -31,9 +31,16 @@ namespace DarktideWeapons
 
         public float chargedModeArmorPenetrationMultiplier = 1.5f;
 
-        public Thing wielder;
-
         protected Gizmo_PlasmaWeaponStatus plasmaWeaponStatus;
+
+        public float DangerHeatThreshold = 0.85f;
+
+        protected bool safeMode = true;
+
+        public bool SafeMode
+        {
+            get { return safeMode; } 
+        }
 
         private int tick = 0;
         public CompProperties_DarktidePlasma Props
@@ -47,10 +54,6 @@ namespace DarktideWeapons
         {
             base.CompTick();
             tick++;
-            if(tick % 300 == 0)
-            {
-                Util_Ranged.DEV_output("Plasma Weapon Mode : " + plasmaWeaponMode.ToString());
-            }
             
             if (plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
             {
@@ -65,6 +68,24 @@ namespace DarktideWeapons
             {
                 plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
             }
+            if(plasmaWeaponMode != Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
+            {
+                if(PawnOwner != null)
+                {
+                    if (PawnOwner.stances.curStance is Stance_Warmup)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        heat -= coolingWeaponHeatLossRate / 2;
+                        if (heat < 0)
+                        {
+                            heat = 0;
+                        }
+                    }
+                }
+            }
         }
         public override void Initialize(CompProperties props)
         {
@@ -78,7 +99,7 @@ namespace DarktideWeapons
             this.heat = 0f;
         }
 
-        protected void ForcedCooling()
+        public virtual void ForcedCooling()
         {
             if (this.heat >= 0.4f)
             {
@@ -88,7 +109,7 @@ namespace DarktideWeapons
                     this.heat = 0;
                 }
                 DamageInfo dinfo = new DamageInfo(DamageDefOf.Burn, Props.coolingWeaponHeatDamage, 0.5f, -1, null, null, null);
-                wielder.TakeDamage(dinfo);
+                wielder?.TakeDamage(dinfo);
             }
             else
             {
@@ -129,19 +150,20 @@ namespace DarktideWeapons
             Util_Ranged.DEV_output("Plasma Heat : " + this.heat);
         }
 
-        protected void SwitchMode()
+        public void SwitchMode()
         {
-            if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Charged)
+            if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Normal)
             {
-                plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal; 
+                plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Cooling; 
+                
             }
             else
             {
-                plasmaWeaponMode += 1;
+                plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
             }
             
         }
-        public virtual IEnumerable<Gizmo> GetGizmos()
+        protected IEnumerable<Gizmo> GetGizmos()
         {
            
                 yield return new Gizmo_PlasmaWeaponStatus
@@ -162,20 +184,38 @@ namespace DarktideWeapons
             {
                 yield return gizmo2;
             }
+            /*
             yield return new Command_Action
             {
                 defaultLabel = "ForcedCooling".Translate(),
                 defaultDesc = "ForcedCoolingDesc".Translate(),
                 //icon = TexCommand.DesirePower,
-                action = new Action( ForcedCooling )
+                //action = new Action()
             };
+            
+            */
             yield return new Command_Action
             {
-                defaultLabel = "PlasmaWeaponMode".Translate() +" : "+ this.plasmaWeaponMode.ToString().Translate(),
-                defaultDesc = "SwitchModeDesc".Translate(),
-                //icon = TexCommand.DesirePower,
-                action = new Action(SwitchMode)
+                defaultLabel = "SafeMode".Translate() + " : " + this.safeMode.ToString().Translate(),
+                defaultDesc = "SwitchSafeModeDesc".Translate(),
+                icon = TexCommand.DesirePower,
+                action = SwitchSafeMode
             };
+        }
+
+        protected void SwitchSafeMode()
+        {
+            safeMode = !safeMode;
+        }
+
+
+        public override string ShowInfo(Thing wielder)
+        {
+            string header = "PlasmaWeapon".Translate();
+            string text = "PlasmaWeaponMode".Translate() + " : " + this.plasmaWeaponMode.ToString().Translate();
+
+            return header + "\n" + text;
+
         }
         public bool AllowShoot()
         {

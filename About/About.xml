@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Darktide Weapons</name>
+	<name>Darktide Weapons (dev)</name>
 	<author>Reister_J</author>
 	<packageId>reisterj.darktide.weapons</packageId>
 	<supportedVersions>
-		<li>1.5</li>
+		<li>1.6</li>
 	</supportedVersions>
 	<modVersion>1.00</modVersion>
 	<description>Added some weapon from Warhammer 40K: Darktide </description>

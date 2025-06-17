@@ -8,7 +8,7 @@ using RimWorld;
 
 namespace DarktideWeapons
 {
-    public class Comp_CounterAttack : ThingComp
+    public class Comp_CounterAttack : DW_WeaponComp
     {
         protected float CounterAttackArmorPenetrationBase;
 
@@ -22,9 +22,10 @@ namespace DarktideWeapons
 
         public float CounterAttackStabDamage ;
 
-        public float counterAttackChanceCurrent;
+        public float CounterAttackChanceCurrent;
 
         public float CounterAttackDamageInfo = 0f;
+
         public CompProperties_CounterAttack Props
         {
             get
@@ -43,7 +44,7 @@ namespace DarktideWeapons
             CounterAttackStabChance = Props.CounterAttackStabChance;
             CounterAttackStabArmorPenetration = Props.CounterAttackStabArmorPenetration;
             CounterAttackStabDamage = Props.CounterAttackStabDamage;
-            counterAttackChanceCurrent = CounterAttackChance;
+            CounterAttackChanceCurrent = CounterAttackChance;
         }
 
         public bool CanCounterAttack(Pawn pawn, DamageInfo dinfo)
@@ -53,8 +54,8 @@ namespace DarktideWeapons
                 if (!pawn.DeadOrDowned && pawn.Drafted && Util_Melee.IsMeleeDamage(dinfo))
                 {
                     int meleelevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
-                    counterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
-                    if (Rand.Chance(counterAttackChanceCurrent))
+                    CounterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
+                    if (Rand.Chance(CounterAttackChanceCurrent))
                     {
                         return true;
                     }
@@ -91,14 +92,22 @@ namespace DarktideWeapons
 
         }
 
-        public string ShowInfo(Pawn wielder)
+        public override string ShowInfo(Thing wielder)
         {
-            string header = "Enable CounterAttack".Translate();
-            int meleelevel = wielder.skills.GetSkill(SkillDefOf.Melee).Level;
-            counterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
-            string counterAttackInfo = "CounterAttackChance: " + counterAttackChanceCurrent.ToStringPercent();
-            string counterAttackDamageInfo = "CounterAttackDamage: " + CounterAttackDamage.ToString() ;
-            return header + "\n" + counterAttackInfo.Translate()+ "\n" + counterAttackDamageInfo.Translate() + "\n";
+            string header = "EnableCounterAttack".Translate();
+            if (wielder is Pawn pawn)
+            {
+                int meleelevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
+                CounterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
+                string counterAttackInfo = "CounterAttackChance: " + CounterAttackChanceCurrent.ToStringPercent();
+                string counterAttackDamageInfo = "CounterAttackDamage: " + CounterAttackDamageInfo.ToString();
+                return header + "\n" + counterAttackInfo.Translate() + "\n" + counterAttackDamageInfo.Translate() + "\n";
+            }
+            else
+            {
+                return header + "\n";
+            }
+            
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +75,34 @@ namespace DarktideWeapons
         protected bool isExplosive = false;
 
         protected bool lockedWeakness = false;
+
+        public float explosionDamageAmount = 20f;
+
+        public float explosionRadius = 0.8f;
+
+        public bool critFlag = false;
+
         public float RangedDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().RangedDamageMultiplierGlobal;
+
+        protected Vector3 LastPosition;
+
+
+        protected int launchTick = -1;
+
+        protected Thing lastHitThing;
+
+        protected int flyingTicks = -1;
+        public override Vector3 ExactPosition
+        {
+            get
+            {
+                Vector3 vector = (destination - origin).normalized * flyingTicks * def.projectile.SpeedTilesPerTick;
+                return origin.Yto0() + vector + Vector3.up * def.Altitude;
+            }
+        }
+
+
+
         protected virtual void WeaponQuality_bias()
         {
             switch (this.equipmentQuality)
@@ -106,20 +134,27 @@ namespace DarktideWeapons
             lockedWeakness = true;
         }
 
-        public virtual void ExplosionImpact()
+        public virtual void ExplosionImpact(Thing hitThing = null)
         {
-            
-        }
-        public override void Tick()
-        {
-            if(this.penetrateNum <= 0)
+            if (isExplosive)
             {
-                base.Tick();
-                return;
+                IntVec3 ExpPosition = hitThing != null ? hitThing.Position : base.Position;
+                GenExplosion.DoExplosion(ExpPosition, this.Map, this.explosionRadius, this.projectileProps.explosionDamageDef, this.launcher, (int)this.explosionDamageAmount, this.projectileProps.explosionArmorPenetration);
             }
-            lifetime--;
+        }
+        protected override void Tick()
+        {
+            /*if ( != null)
+            {
+                int i = 0;
+                for (int count = comps.Count; i < count; i++)
+                {
+                    comps[i].CompTick();
+                }
+            }
+            */
             Vector3 exactPosition = ExactPosition;
-            ticksToImpact--;
+            flyingTicks ++;
             if (!ExactPosition.InBounds(base.Map))
             {
                 base.Position = ExactPosition.ToIntVec3();
@@ -131,42 +166,24 @@ namespace DarktideWeapons
             {
                 return;
             }
+            LastPosition = exactPosition;
             base.Position = ExactPosition.ToIntVec3();
-            if (ticksToImpact == 60 && Find.TickManager.CurTimeSpeed == TimeSpeed.Normal && def.projectile.soundImpactAnticipate != null)
-            {
-                def.projectile.soundImpactAnticipate.PlayOneShot(this);
-            }
-            /*
-            if (ticksToImpact <= 0)
-            {
-                if (DestinationCell.InBounds(base.Map))
-                {
-                    base.Position = DestinationCell;
-                }
-                ImpactSomething();
-            }
-            */
-            else if (ambientSustainer != null)
+            if (ambientSustainer != null)
             {
                 ambientSustainer.Maintain();
             }
-            if(lifetime <= 0)
+            lifetime--;
+            if (lifetime <= 0)
             {
                this.Destroy();
             }
         }
-        protected float FlyingTicks
+        protected override void TickInterval(int delta)
         {
-            get
-            {
-                float num = this.projectileProps.effectiveRange / def.projectile.SpeedTilesPerTick;
-                if (num <= 0f)
-                {
-                    num = 0.001f;
-                }
-                return num;
-            }
+            return;
         }
+
+        
 
 
         protected virtual void EquipmentProjectileInit(ThingWithComps equipment)
@@ -189,6 +206,9 @@ namespace DarktideWeapons
                 this.effectiveRange = this.projectileProps.effectiveRange;
                 this.preventFriendlyFireinGame = !this.projectileProps.friendlyFire;
                 this.armorPenetrationinGame = this.ArmorPenetration;
+                this.isExplosive = this.projectileProps.isExplosive;
+                this.explosionDamageAmount = this.projectileProps.explosionDamage;
+                this.explosionRadius = this.projectileProps.explosionRadius;
             }
             if (equipment != null)
             {
@@ -218,6 +238,17 @@ namespace DarktideWeapons
                     return notMissingPart;
                 }
             }
+            return null;
+        }
+        protected BodyPartRecord GetTorsoPart(Pawn pawn)
+        {
+            foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
+            {
+                if (notMissingPart.def == BodyPartDefOf.Torso)
+                {
+                    return notMissingPart;
+                }
+            }
 
             return null;
         }
@@ -226,14 +257,15 @@ namespace DarktideWeapons
         {
             bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
             float damageAmount = this.DamageAmount * RangedDamageMultiplierGlobal;
-
             float armorPenetration = this.armorPenetrationinGame;
-            if (Util_Crit.IsCrit(this.critChanceinGame))
+            //Do crit
+            if (critFlag)
             {
                 damageAmount *= this.critDamageMultiplierinGame;
                 armorPenetration *= this.critArmorPenetrationMultiplier;
                 Util_Crit.CritMoteMaker(hitThing);
             }
+            //damage falloff by penetration
             if(this.penetrateNum > 0)
             {
                 int temp = Math.Min( Math.Max(this.PenetratedTarget - 1, 0), this.penetrateNum );
@@ -241,6 +273,7 @@ namespace DarktideWeapons
             }
             
             damageAmount *= DamageMultiplier_Outer;
+            //headhunting
             BodyPartRecord bodyPart = null;
             if (lockedWeakness  &&  hitThing is Pawn hitpawn && hitpawn == intendedTarget.Pawn)
             {
@@ -337,34 +370,62 @@ namespace DarktideWeapons
             if (projectileProps != null)
             {
                 this.Initiate(equipment);
-
             }
-            //Util_Ranged.DEV_output("originTargetCell : " + usedTarget.Cell);
-            //original projectile schematics, sad
-            if (penetrateNum > 0)
+            
+            this.launchTick = Find.TickManager.TicksGame;
+            this.launcher = launcher;
+            this.origin = origin;
+            this.usedTarget = usedTarget;
+            this.intendedTarget = intendedTarget;
+            this.targetCoverDef = targetCoverDef;
+            this.preventFriendlyFire = preventFriendlyFire;
+            HitFlags = hitFlags;
+            stoppingPower = def.projectile.stoppingPower;
+            if (stoppingPower == 0f && def.projectile.damageDef != null)
             {
-                List<IntVec3> cells = Util_Ranged.GetLineSegmentCells(origin.ToIntVec3(), usedTarget.Cell, projectileProps.effectiveRange);
-                IntVec3 cellLast = cells.LastOrDefault();
-                //Util_Ranged.DEV_output("newTargetCell : " + cellLast);
-                base.Launch(launcher, origin, cellLast, intendedTarget, ProjectileHitFlags.IntendedTarget, preventFriendlyFireinGame, equipment, targetCoverDef);
+                stoppingPower = def.projectile.damageDef.defaultStoppingPower;
+            }
+
+            if (equipment != null)
+            {
+                this.equipment = equipment;
+                equipmentDef = equipment.def;
+                equipment.TryGetQuality(out equipmentQuality);
+                if (equipment.TryGetComp(out CompUniqueWeapon comp))
+                {
+                    foreach (WeaponTraitDef item in comp.TraitsListForReading)
+                    {
+                        if (!Mathf.Approximately(item.additionalStoppingPower, 0f))
+                        {
+                            stoppingPower += item.additionalStoppingPower;
+                        }
+                    }
+                }
             }
             else
             {
-                base.Launch(launcher, origin, usedTarget, intendedTarget, hitFlags, preventFriendlyFire, equipment, targetCoverDef);
+                equipmentDef = null;
             }
 
+            destination = usedTarget.Cell.ToVector3Shifted() + Gen.RandomHorizontalVector(0.3f);
+
+            critFlag = Util_Crit.IsCrit(this.critChanceinGame);
+            float lifetimeF = this.projectileProps.effectiveRange / this.def.projectile.SpeedTilesPerTick;
+            flyingTicks = 0;
+            lifetime = lifetimeF > 0.1f ? (int)lifetimeF : 1;
+            LastPosition = ExactPosition;
             if (!def.projectile.soundAmbient.NullOrUndefined())
             {
                 ambientSustainer = def.projectile.soundAmbient.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
             }
-            //Util_Ranged.DEV_output("-----LAUNCH COMPLETED-----");
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
-        {
-            
+        { 
+            bool destroyFlag = false;
             Map map = base.Map;
             IntVec3 position = base.Position;
             GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
+           
             if (!blockedByShield && def.projectile.landedEffecter != null)
             {
                 def.projectile.landedEffecter.Spawn(base.Position, base.Map).Cleanup();
@@ -372,19 +433,43 @@ namespace DarktideWeapons
             BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
             Find.BattleLog.Add(battleLogEntry_RangedImpact);
             NotifyImpact(hitThing, map, position);
-            if (this.PenetratedTarget > penetrateNum || forcedStop)
+            if (this.PenetratedTarget > penetrateNum || forcedStop || blockedByShield || penetrateNum == 0)
             {
+                destroyFlag = true;
+                this.ExplosionImpact(hitThing);
                 this.Destroy();
             }
             if (hitThing != null)
             {
-                
                 bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
                 DamageInfo dinfo = CalculateDamage(hitThing);
                 dinfo.SetWeaponQuality(equipmentQuality);
-                hitThing.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
+                DamageWorker.DamageResult damageResult = hitThing.TakeDamage(dinfo);
+                damageResult.AssociateWithLog(battleLogEntry_RangedImpact);
+
+                //Deflected.  Destroy itself
+                if (damageResult.deflectedByMetalArmor || damageResult.deflected )
+                {
+                    if (!this.penetrateWall && !destroyFlag && !isPlasma)
+                    {
+                        destroyFlag = true;
+                        this.ExplosionImpact(hitThing);
+                        this.Destroy();
+                    }
+                }
+               
                 Pawn pawn2 = hitThing as Pawn;
                 pawn2?.stances?.stagger.Notify_BulletImpact(this);
+                if (pawn2 != null)
+                {
+                    pawn2.stances?.stagger.Notify_BulletImpact(this);
+
+                    foreach (HediffDef hediffdef in this.projectileProps.applyHediffDefs)
+                    {
+                        pawn2.health.AddHediff(hediffdef, GetTorsoPart(pawn2), null, null);
+                    }
+                }
+
                 if (def.projectile.extraDamages != null)
                 {
                     foreach (ExtraDamage extraDamage in def.projectile.extraDamages)
@@ -395,10 +480,6 @@ namespace DarktideWeapons
                             hitThing.TakeDamage(dinfo2).AssociateWithLog(battleLogEntry_RangedImpact);
                         }
                     }
-                }
-                if (Rand.Chance(def.projectile.bulletChanceToStartFire) && (pawn2 == null || Rand.Chance(FireUtility.ChanceToAttachFireFromEvent(pawn2))))
-                {
-                    hitThing.TryAttachFire(def.projectile.bulletFireSizeRange.RandomInRange, launcher);
                 }
                 return;
             }
@@ -413,17 +494,8 @@ namespace DarktideWeapons
                 {
                     FleckMaker.Static(ExactPosition, map, FleckDefOf.ShotHit_Dirt);
                 }
-
-
             }
-            else
-            {
-
-            }
-            if (Rand.Chance(def.projectile.bulletChanceToStartFire))
-            {
-                FireUtility.TryStartFireIn(base.Position, map, def.projectile.bulletFireSizeRange.RandomInRange, launcher);
-            }
+            
         }
 
         protected virtual new void NotifyImpact(Thing hitThing, Map map, IntVec3 position)
@@ -605,15 +677,13 @@ namespace DarktideWeapons
             }
             */
             List<Thing> thingList = c.GetThingList(base.Map);
+            if(thingList == null || thingList.Count == 0)
+            {
+                return false;
+            }
             for (int i = 0; i < thingList.Count; i++)
             {
                 Thing thing = thingList[i];
-                //Util_Ranged.DEV_output("through target : " + thing.Label);
-                /*
-                if (!CanHit(thing))
-                {
-                    continue;
-                }*/
                 //wall hit check
                 bool openDoorHitFlag = false;
                 if (thing.def.Fillage == FillCategory.Full)
@@ -626,17 +696,13 @@ namespace DarktideWeapons
                     {
                         if (penetrateWall)
                         {
-                            if (penetrateNum > 0)
-                            {
-                                PenetratedTarget++;
-                            }
+                            PenetratedTarget++;
                             Impact(thing);
                             //penetrateWall = false;
                             return false;
                         }
                         forcedStop = true;
                         Impact(thing);
-                        //this.Destroy();
                         return true;
                     }
                 }
@@ -661,9 +727,9 @@ namespace DarktideWeapons
                             pawnHitProbability *= Find.Storyteller.difficulty.friendlyFireChanceFactor * 0.4f;
                         }
                     }
-                    if (pawnHitProbability > 0.1f)
+                    if (pawnHitProbability > 0.01f)
                     {
-                        if(penetrateNum > 0)
+                        if(Rand.Chance(pawnHitProbability))
                         {
                             PenetratedTarget++;
                             Impact(thing);
@@ -674,7 +740,7 @@ namespace DarktideWeapons
                 }
                 else
                 {
-                    if(this.intendedTarget.Thing == thing)
+                    if(this.usedTarget.Thing == thing)
                     {
                         forcedStop = true;
                         Impact(thing);
@@ -701,10 +767,7 @@ namespace DarktideWeapons
                                 //if penetrated
                                 if (Rand.Chance(GetCoverPenetrationChance(thing)))
                                 {
-                                    if (penetrateNum > 0)
-                                    {
-                                        PenetratedTarget++;
-                                    }
+                                    PenetratedTarget++;
                                 }
                                 //blocked
                                 else

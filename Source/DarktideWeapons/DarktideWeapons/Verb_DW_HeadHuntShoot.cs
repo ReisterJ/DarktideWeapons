@@ -11,29 +11,22 @@ namespace DarktideWeapons
 {
     public class Verb_DW_HeadHuntShoot : Verb_DW_Shoot
     {
-        protected virtual float HeadHuntChanceCalculation(int shootlevel)
-        {
-            float chance = Util_Ranged.HeadHuntBaseChance;
-            chance = shootlevel > Util_Ranged.MinHeadHuntShootLevel ?
-                chance * (Mathf.Pow(Util_Ranged.HeadHuntShootLevelBonusConstant, (float)shootlevel / 10f) * Util_Ranged.HeadHuntShootLevelBonusConstant)
-                : chance * Mathf.Pow(Util_Ranged.HeadHuntShootLevelBonusConstant, (float)shootlevel / 10f);
-            return chance;
-        }
+        
         public virtual float HeadHuntShootChance()
         {
             if (CasterIsPawn && CasterPawn != null)
             {
                 int shootlevel = CasterPawn.skills.GetSkill(SkillDefOf.Shooting).Level;
-                return HeadHuntChanceCalculation(shootlevel);
+                return Util_Ranged.HeadHuntChanceCalculation(shootlevel);
             }
             CompMannable compMannable = caster.TryGetComp<CompMannable>();
             if(compMannable.ManningPawn != null)
             {
                 int shootlevel = compMannable.ManningPawn.skills.GetSkill(SkillDefOf.Shooting).Level;
-                return HeadHuntChanceCalculation(shootlevel);
+                return Util_Ranged.HeadHuntChanceCalculation(shootlevel);
             }
                 
-            return 0.3f;
+            return 0.05f;
         }
 
         protected override bool TryCastShot()
