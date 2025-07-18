@@ -39,16 +39,17 @@ namespace DarktideWeapons
                 {
                     if (!sticksToTarget)
                     {
-                        Vector3 vector = (bounceDest - bounceStart).normalized * flyingTicks / (bounceCounter * 3);
+                        if(LastPosition == bounceDest || flyingTicks > 60)  return LastPosition;
+                        Vector3 vector = (bounceDest - bounceStart).normalized * flyingTicks / (bounceCounter * 10);
                         return bounceStart.Yto0() + vector + Vector3.up * def.Altitude;
                     }
                     else
                     {
                         if (stickTarget == null || !stickTarget.Spawned || stickTarget.DestroyedOrNull())
                         {
-                            return ExactPosition;
+                            return LastPosition;
                         }
-                        return stickTarget.Position.ToVector3Shifted() + Vector3.up * def.Altitude;
+                        return stickTarget.Position.ToVector3Shifted();
                     }   
                 }
             }
@@ -56,27 +57,27 @@ namespace DarktideWeapons
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref ticksToDetonation, "ticksToDetonation", 0);
+            Scribe_Values.Look(ref ticksToDetonation, "ticksToDetonation", 30);
         }
 
         protected override void Tick()
         {
-            
             Vector3 exactPosition = ExactPosition;
+            flyingTicks++;
             if (!ExactPosition.InBounds(base.Map))
             {
                 base.Position = ExactPosition.ToIntVec3();
-                landedFlag = false;
                 Destroy();
                 return;
             }
-            
-            base.Position = ExactPosition.ToIntVec3();
-            if (this.CheckForFreeInterceptBetween(LastPosition, exactPosition))
+            Vector3 exactPosition2 = ExactPosition;
+            if (this.CheckForFreeInterceptBetween(exactPosition, exactPosition2))
             {
                 return;
             }
             LastPosition = exactPosition;
+            base.Position = ExactPosition.ToIntVec3();
+            
             if (ambientSustainer != null)
             {
                 ambientSustainer.Maintain();
@@ -118,14 +119,15 @@ namespace DarktideWeapons
                 int temp = Math.Min(Math.Max(this.PenetratedTarget - 1, 0), this.penetrateNum);
                 damageAmount *= Mathf.Pow(this.penetrateDamageFalloffRatio, temp);
             }
-            damageAmount *= DamageMultiplier_Outer * (landedFlag ? 0.1f : 1f );
+            damageAmount *= DamageMultiplier_Outer * (landedFlag ? 0.01f : 1f );
             DamageInfo dinfo = new DamageInfo(def.projectile.damageDef, damageAmount, armorPenetration, ExactRotation.eulerAngles.y, launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
             return dinfo;
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             bool destroyFlag = false;
-            landedFlag = true;
+            //landedFlag = true;
+            landed = true;
             Map map = base.Map;
             IntVec3 position = base.Position;
             GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
@@ -136,6 +138,11 @@ namespace DarktideWeapons
             BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
             Find.BattleLog.Add(battleLogEntry_RangedImpact);
             NotifyImpact(hitThing, map, position);
+            if (blockedByShield)
+            {
+                destroyFlag = true;
+                Explode();
+            }
             if (hitThing != null)
             {
                 bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
@@ -160,9 +167,13 @@ namespace DarktideWeapons
                 }
                 else
                 {
-                    flyingTicks = 0;
-                    bounceStart = this.ExactPosition;
-                    Bounce(bounceStart);
+                    if(bounceCounter < 1)
+                    {
+                        flyingTicks = 0;
+                        bounceStart = this.ExactPosition;
+                        Bounce(bounceStart);
+                    }
+                    
                 }
 
                 if (def.projectile.extraDamages != null)

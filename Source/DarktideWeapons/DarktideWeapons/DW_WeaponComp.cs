@@ -41,7 +41,23 @@ namespace DarktideWeapons
 
 
         }
+        public override void Notify_Unequipped(Pawn pawn)
+        {
+            base.Notify_Unequipped(pawn);
+            this.wielder = null;
+        }
 
-
+        public override void Notify_Equipped(Pawn pawn)
+        {
+            base.Notify_Equipped(pawn);
+            this.wielder = pawn;
+        }
+        public virtual void SwitchVerb()
+        {
+            if(this.wielder != null)
+            {
+                
+            }
+        }
     }
 }

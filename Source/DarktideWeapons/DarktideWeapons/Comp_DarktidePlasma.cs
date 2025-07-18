@@ -37,6 +37,7 @@ namespace DarktideWeapons
 
         protected bool safeMode = true;
 
+        protected int ticksSinceLastShot = 150;
         public bool SafeMode
         {
             get { return safeMode; } 
@@ -50,11 +51,16 @@ namespace DarktideWeapons
                 return (CompProperties_DarktidePlasma)this.props;
             }
         }
+
+        public void ResetLastShotTick()
+        {
+            ticksSinceLastShot = 0;
+        }
         public override void CompTick()
         {
             base.CompTick();
             tick++;
-            
+            ticksSinceLastShot++;
             if (plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
             {
                 heat -= coolingWeaponHeatLossRate;
@@ -72,11 +78,11 @@ namespace DarktideWeapons
             {
                 if(PawnOwner != null)
                 {
-                    if (PawnOwner.stances.curStance is Stance_Warmup)
+                    if (PawnOwner.stances?.curStance is Stance_Warmup)
                     {
                         return;
                     }
-                    else
+                    if(ticksSinceLastShot >= Util_Ranged.PLASMA_SELFCOOLING_TICKS)
                     {
                         heat -= coolingWeaponHeatLossRate / 2;
                         if (heat < 0)
@@ -101,14 +107,14 @@ namespace DarktideWeapons
 
         public virtual void ForcedCooling()
         {
-            if (this.heat >= 0.4f)
+            if (this.heat >= 40f)
             {
                 this.heat -= coolingWeaponHeatLossForced;
                 if (this.heat < 0)
                 {
                     this.heat = 0;
                 }
-                DamageInfo dinfo = new DamageInfo(DamageDefOf.Burn, Props.coolingWeaponHeatDamage, 0.5f, -1, null, null, null);
+                DamageInfo dinfo = new DamageInfo(DamageDefOf.Burn, Props.coolingWeaponHeatDamage, 0.05f, -1, null, null, null);
                 wielder?.TakeDamage(dinfo);
             }
             else
@@ -119,9 +125,11 @@ namespace DarktideWeapons
                     this.heat = 0;
                 }
             }
+            this.plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
         }
         public void HeatBuild()
         {
+            this.ResetLastShotTick();
             if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Charged && heat == maxHeat)
             {
                 this.OverHeatExplostion(wielder);
@@ -154,7 +162,7 @@ namespace DarktideWeapons
         {
             if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Normal)
             {
-                plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Cooling; 
+                plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Charged; 
                 
             }
             else
@@ -301,7 +309,13 @@ namespace DarktideWeapons
             Rect rect4 = rect2;
             rect4.yMin = rect2.y + rect2.height / 2f;
             float fillPercent = compPlasma.heat / Mathf.Max(1f, compPlasma.maxHeat);
-            if(fillPercent > 0.5f)
+            
+            if(fillPercent > 0.9f)
+            {
+                Color tempDangerHeatBarColor = new Color(204 / 255f, 0 / 255f, 0 / 255f);
+                FullHeatBarTex = SolidColorMaterials.NewSolidColorTexture(tempDangerHeatBarColor);
+            }
+            else if (fillPercent > 0.5f)
             {
                 Color tempHeatBarColor = new Color(255 / 255f, 165 / 255f, 79 / 255f);
                 FullHeatBarTex = SolidColorMaterials.NewSolidColorTexture(tempHeatBarColor);

@@ -59,14 +59,16 @@ namespace DarktideWeapons
                 {
                     if (enumerator.Current is DW_WeaponComp dw)
                     {
-                        dw.wielder = this.holder;
                         weaponComps.Add(dw);
                     }
                 }
             }
         }
 
-
+        public virtual void ChangeVerb()
+        {
+            
+        }
         public override IEnumerable<Gizmo> GetGizmos()
         {
             yield return new Command_Action

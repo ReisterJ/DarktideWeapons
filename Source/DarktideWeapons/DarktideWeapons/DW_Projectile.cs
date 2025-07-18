@@ -86,12 +86,15 @@ namespace DarktideWeapons
 
         protected Vector3 LastPosition;
 
+        protected float projectileCollisionRadius = 0.2f;
 
         protected int launchTick = -1;
 
         protected Thing lastHitThing;
 
         protected int flyingTicks = -1;
+
+        public bool ignoreProjectileInterceptor = false;
         public override Vector3 ExactPosition
         {
             get
@@ -407,7 +410,7 @@ namespace DarktideWeapons
                 equipmentDef = null;
             }
 
-            destination = usedTarget.Cell.ToVector3Shifted() + Gen.RandomHorizontalVector(0.3f);
+            destination = usedTarget.Cell.ToVector3Shifted();
 
             critFlag = Util_Crit.IsCrit(this.critChanceinGame);
             float lifetimeF = this.projectileProps.effectiveRange / this.def.projectile.SpeedTilesPerTick;
@@ -441,6 +444,8 @@ namespace DarktideWeapons
             }
             if (hitThing != null)
             {
+                Util_Ranged.DEV_output(hitThing.Label);
+
                 bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
                 DamageInfo dinfo = CalculateDamage(hitThing);
                 dinfo.SetWeaponQuality(equipmentQuality);
@@ -600,6 +605,7 @@ namespace DarktideWeapons
 
         protected virtual bool CheckForFreeInterceptBetween(Vector3 lastExactPos, Vector3 newExactPos)
         {
+            //Util_Ranged.DEV_output("lastExactPos:" + lastExactPos + " , " + "newExactPos:" + newExactPos);
             if (lastExactPos == newExactPos)
             {
                 return false;
@@ -618,6 +624,8 @@ namespace DarktideWeapons
 
             IntVec3 intVecLastExactPos = lastExactPos.ToIntVec3();
             IntVec3 intVecNewExactPos = newExactPos.ToIntVec3();
+
+            //Util_Ranged.DEV_output("intVecLastExactPos:" + intVecLastExactPos + " , intVecNewExactPos:" + intVecNewExactPos);
             if (intVecNewExactPos == intVecLastExactPos)
             {
                 return false;
@@ -626,7 +634,7 @@ namespace DarktideWeapons
             {
                 return false;
             }
-            if (intVecNewExactPos.AdjacentToCardinal(intVecLastExactPos))
+            if (intVecNewExactPos.AdjacentTo8WayOrInside(intVecLastExactPos))
             {
                 return CheckForFreeIntercept(intVecNewExactPos);
             }
@@ -665,10 +673,6 @@ namespace DarktideWeapons
 
         protected virtual bool CheckForFreeIntercept(IntVec3 c)
         {
-            if (destination.ToIntVec3() == c)
-            {
-                return false;
-            }
             /*
             float num = VerbUtility.InterceptChanceFactorFromDistance(origin, c);
             if (num <= 0f)
@@ -681,9 +685,12 @@ namespace DarktideWeapons
             {
                 return false;
             }
+            Util_Ranged.DEV_output("CheckForFreeIntercept  pos : " + c +" Thing list ___:");
             for (int i = 0; i < thingList.Count; i++)
             {
                 Thing thing = thingList[i];
+                if (thing == this) continue;
+                Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
                 //wall hit check
                 bool openDoorHitFlag = false;
                 if (thing.def.Fillage == FillCategory.Full)
@@ -706,11 +713,11 @@ namespace DarktideWeapons
                         return true;
                     }
                 }
-                float pawnHitProbability = 0f;
+                
                 float coverHitProbablility = 0f;
                 if (thing is Pawn pawn)
                 {
-                  
+                    float pawnHitProbability = 0.5f;
                     pawnHitProbability = Util_Ranged.Intercept_PawnBodySize_Factor * Mathf.Clamp(pawn.BodySize, 0.5f, 3f);
                     if (pawn.GetPosture() != 0)
                     {
@@ -724,17 +731,17 @@ namespace DarktideWeapons
                         }
                         else
                         {
-                            pawnHitProbability *= Find.Storyteller.difficulty.friendlyFireChanceFactor * 0.4f;
+                            pawnHitProbability *= Find.Storyteller.difficulty.friendlyFireChanceFactor * 0.5f;
                         }
                     }
                     if (pawnHitProbability > 0.01f)
                     {
-                        if(Rand.Chance(pawnHitProbability))
-                        {
-                            PenetratedTarget++;
-                            Impact(thing);
-                            return true;
-                        }
+                        //Util_Ranged.DEV_output(pawn.Label + " , pawn hit probability : " + pawnHitProbability + " , pawn pos : " + c);
+                        
+                        PenetratedTarget++;
+                        Impact(thing);
+                        return true;
+                        
                     }
 
                 }
@@ -787,7 +794,7 @@ namespace DarktideWeapons
 
         public virtual bool IgnoreProjectileInterceptor()
         {
-            if(this.isPlasma || this.isLaser)
+            if(this.isLaser || this.isPlasma || ignoreProjectileInterceptor)
             {
                 return true;
             }
@@ -795,12 +802,10 @@ namespace DarktideWeapons
         }
         public virtual float GetCoverPenetrationChance(Thing thing)
         {
-            float chance = Util_Ranged.CoverPenetrationBaseChance;
-            if(thing.def.fillPercent > Util_Ranged.MinFillPercentCountAsCover)
-            {
-                chance =(( Math.Max(this.penetrateNum - this.PenetratedTarget,0)) * this.DamageAmount / thing.HitPoints);
-            }
-            return chance;
+            return this.isPlasma ? 0.9999f : 
+                (thing.def.fillPercent > Util_Ranged.MinFillPercentCountAsCover ? 
+                ((Math.Max(this.penetrateNum - this.PenetratedTarget, 0)) * this.DamageAmount / thing.HitPoints) : 
+                Util_Ranged.CoverPenetrationBaseChance) ;
         }
     }
 }

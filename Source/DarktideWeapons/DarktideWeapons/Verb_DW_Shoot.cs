@@ -37,14 +37,7 @@ namespace DarktideWeapons
         public override bool Available()
         {
             bool flag = base.Available();
-            if (DarktideWeapon != null)
-            {
-                Comp_DarktidePlasma plasmaComp = DarktideWeapon.TryGetComp<Comp_DarktidePlasma>();
-                if (plasmaComp  != null)
-                {
-                    flag = plasmaComp.AllowShoot();
-                }
-            }
+           
             return flag;
         }
 

@@ -144,6 +144,7 @@ namespace DarktideWeapons
                     {
                         num *= 0.5f;
                     }
+
                 }
                 else
                 {

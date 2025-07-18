@@ -31,49 +31,6 @@ namespace DarktideWeapons
         }
     }
 
-    public class CompAbilityEffect_PlasmaChargedShot : CompAbilityEffect
-    {
-        Comp_DarktidePlasma CompPlasma => parent.pawn.equipment.Primary.TryGetComp<Comp_DarktidePlasma>();
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            ChargeWeapon();
-            base.Apply(target, dest);
-        }
-
-        public void ChargeWeapon()
-        {
-            
-            if(CompPlasma != null)
-            {
-                CompPlasma.plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Charged;
-            }
-           
-        }
-        public override bool GizmoDisabled(out string reason)
-        {
-            reason = "";
-            if(CompPlasma == null)
-            {
-                reason = "CompPlasmaNotExist".Translate();
-                return true;
-            }
-            if (CompPlasma.SafeMode)
-            {
-                reason = "PlasmaSafeModeOn".Translate();
-                return true;
-            }
-            return false;
-        }
-    }
-
-    public class CompProperties_AbilityEffect_PlasmaChargedShot : CompProperties_AbilityEffect
-    {
-        public CompProperties_AbilityEffect_PlasmaChargedShot()
-        {
-            this.compClass = typeof(CompAbilityEffect_PlasmaChargedShot);
-        }
-    }
-
     public class CompAbilityEffect_EmergencyCooling: CompAbilityEffect
     {
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)

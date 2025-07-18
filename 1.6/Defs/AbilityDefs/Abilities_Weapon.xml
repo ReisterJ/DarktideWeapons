@@ -44,18 +44,18 @@
     <statBases>
     </statBases>
     <verbProperties>
-      <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+      <verbClass>Verb_LaunchProjectileStatic</verbClass>
       <warmupTime>2.8</warmupTime>
       <!-- <soundCast> </soundCast> -->
       <ai_IsWeapon>false</ai_IsWeapon>
-      <range>40.9</range>
+      <range>50.9</range>
       <drawAimPie>true</drawAimPie>
       <requireLineOfSight>false</requireLineOfSight>
       <defaultProjectile>DW_PlasmaChargedProjectile</defaultProjectile>
-      <accuracyTouch>0.88</accuracyTouch>
-      <accuracyShort>0.85</accuracyShort>
-      <accuracyMedium>0.85</accuracyMedium>
-      <accuracyLong>0.83</accuracyLong>
+      <accuracyTouch>0.98</accuracyTouch>
+      <accuracyShort>0.95</accuracyShort>
+      <accuracyMedium>0.95</accuracyMedium>
+      <accuracyLong>0.93</accuracyLong>
       <soundCast>Shot_Shotgun</soundCast>
       <targetParams>
         <canTargetSelf>false</canTargetSelf>
@@ -67,7 +67,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_AbilityEffect_PlasmaChargedShot"></li>
+      <!-- <li Class="DarktideWeapons.CompProperties_AbilityEffect_PlasmaChargedShot"></li> -->
     </comps>
   </AbilityDef>
 
@@ -98,7 +98,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchPlasmaMode"></li>
+      <li Class="DarktideWeapons.CompProperties_AbilityEffect_EmergencyCooling"></li>
     </comps>
   </AbilityDef>
 

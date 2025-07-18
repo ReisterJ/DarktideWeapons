@@ -74,14 +74,6 @@ namespace DarktideWeapons
             Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
             ThingDef targetCoverDef = randomCoverToMissInto?.def;
             ProjectileHitFlags projectileHitFlags4 = ProjectileHitFlags.IntendedTarget;
-            if (canHitNonTargetPawnsNow)
-            {
-                projectileHitFlags4 |= ProjectileHitFlags.NonTargetPawns;
-            }
-            if (!currentTarget.HasThing || currentTarget.Thing.def.Fillage == FillCategory.Full)
-            {
-                projectileHitFlags4 |= ProjectileHitFlags.NonTargetWorld;
-            }
             if (currentTarget.Thing != null)
             {
                 projectile2.Launch(manningPawn, drawPos, currentTarget, currentTarget, projectileHitFlags4, preventFriendlyFire, equipmentSource, targetCoverDef);

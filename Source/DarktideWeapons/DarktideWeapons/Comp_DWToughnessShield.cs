@@ -308,7 +308,7 @@ namespace DarktideWeapons
            
            
         }
-
+        /*
         protected virtual bool DarktideWeaponCompTick()
         {
             if (PawnOwner.equipment == null) return false;
@@ -324,6 +324,7 @@ namespace DarktideWeapons
             }
             return flag;
         }
+        */
         public override void CompTick()
         {
             if (this.PawnOwner == null )
