@@ -17,6 +17,16 @@ namespace DarktideWeapons
 
         public float spreadAngleMin;
 
+        protected float spreadOffset;
+
+
+        
+        public void SpreadOffset()
+        {
+
+            spreadAngleMax -= spreadOffset;
+            if (spreadAngleMax < spreadAngleMin) spreadAngleMax = spreadAngleMin;
+        }
         protected virtual bool ShotgunFire(ProjectileHitFlags hitflag, ThingDef targetCoverDef)
         {
             ModExtension_ShotgunProperties shotgunProperties = this.EquipmentSource?.def.GetModExtension<ModExtension_ShotgunProperties>();
@@ -42,7 +52,8 @@ namespace DarktideWeapons
                     spreadAngleMin = shotgunProperties.spreadAngleMin;
                     spreadAngleMax = shotgunProperties.spreadAngleMax;
                 }
-                
+                SpreadOffset();
+
                 Vector3 origin = caster.DrawPos;
                 Vector3 target = currentTarget.CenterVector3;
                 for (int i = 0; i < projectileNum; i++)

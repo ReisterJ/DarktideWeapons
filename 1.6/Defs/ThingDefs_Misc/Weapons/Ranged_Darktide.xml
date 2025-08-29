@@ -35,6 +35,11 @@
     <comps>
       <li Class="CompProperties_Forbiddable"/>
       <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li> -->
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
     </comps>
   </ThingDef>
 
@@ -491,7 +496,7 @@
   <modExtensions>
     <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
       <projectileNum>4</projectileNum>
-      <spreadAngleMax>7</spreadAngleMax>
+      <spreadAngleMax>3</spreadAngleMax>
       <spreadAngleMin>0</spreadAngleMin>
     </li>
   </modExtensions>
@@ -592,7 +597,7 @@
   <modExtensions>
     <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
       <projectileNum>7</projectileNum>
-      <spreadAngleMax>10</spreadAngleMax>
+      <spreadAngleMax>5</spreadAngleMax>
       <spreadAngleMin>1</spreadAngleMin>
     </li>
   </modExtensions>
@@ -996,7 +1001,7 @@
       <damageAmountBase>70</damageAmountBase>
       <stoppingPower>5</stoppingPower>
       <armorPenetrationBase>1.25</armorPenetrationBase>
-      <speed>95</speed>
+      <speed>85</speed>
     </projectile>
     <thingClass>DarktideWeapons.DW_Plasma</thingClass>
     <modExtensions>
@@ -1028,7 +1033,7 @@
       <AccuracyShort>0.90</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.75</AccuracyLong>
-      <RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>50</Steel>
@@ -1047,14 +1052,14 @@
         <defaultProjectile>DW_PlasmaProjectile</defaultProjectile>
         <warmupTime>1.0</warmupTime>
         <range>39.9</range>
-        <soundCast>Shot_Revolver</soundCast>
+        <soundCast>Shot_Shotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
         <isPrimary>true</isPrimary>
       </li>
       <li>
-        <verbClass>DarktideWeapons.Verb_DW_PlasmaShoot</verbClass>
-        <warmupTime>2.8</warmupTime>
+        <verbClass>DarktideWeapons.Verb_DW_PlasmaChargedShoot</verbClass>
+        <warmupTime>3.1</warmupTime>
         <hasStandardCommand>true</hasStandardCommand>
         <range>50.9</range>
         <drawAimPie>true</drawAimPie>
@@ -1066,14 +1071,14 @@
         <accuracyLong>0.93</accuracyLong>
         <soundCast>Shot_Shotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
-        <muzzleFlashScale>10</muzzleFlashScale>
+        <muzzleFlashScale>12</muzzleFlashScale>
         <isPrimary>false</isPrimary>
       </li>
     </verbs>
     <comps>
       <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li> -->
       <li Class="DarktideWeapons.CompProperties_DarktidePlasma">
-        <heatGen>14</heatGen> 
+        <heatGen>12</heatGen> 
         <heatGenCharged>35</heatGenCharged>
         <coolingWeaponHeatDamage>6</coolingWeaponHeatDamage>
         <coolingWeaponHeatLossForced>22</coolingWeaponHeatLossForced>
@@ -1084,7 +1089,6 @@
       </li>
       <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
         <abilityDefList>
-          <li>DW_Ability_SwitchPlasmaMode</li>
           <li>DW_Ability_EmergencyCooling</li>
         </abilityDefList>
       </li>
@@ -1147,7 +1151,7 @@
       <ComponentIndustrial>20</ComponentIndustrial>
     </costList>
     <equippedStatOffsets>
-      <MoveSpeed>-0.6</MoveSpeed>
+      <MoveSpeed>-0.2</MoveSpeed>
     </equippedStatOffsets>
     <verbs>
       <li>
@@ -1187,7 +1191,7 @@
     </graphicData>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>15</damageAmountBase>
+      <damageAmountBase>13</damageAmountBase>
       <stoppingPower>1.5</stoppingPower>
       <armorPenetrationBase>0.21</armorPenetrationBase>
       <speed>96</speed>
@@ -1215,8 +1219,8 @@
     <soundInteract>Interact_Revolver</soundInteract>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
-        <projectileNum>15</projectileNum>
-        <spreadAngleMax>12</spreadAngleMax>
+        <projectileNum>13</projectileNum>
+        <spreadAngleMax>7</spreadAngleMax>
         <spreadAngleMin>1</spreadAngleMin>
       </li>
     </modExtensions>
@@ -1265,7 +1269,7 @@
     </tools>
   </ThingDef>
 <!-- Lorenz Mk IV Rumbler -->
-  <!-- <ThingDef ParentName="DW_BaseBullet">
+  <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_LorenzRumblerGrenade</defName>
     <label>Grenade</label>
     <graphicData>
@@ -1274,22 +1278,23 @@
     </graphicData>
     <projectile>
       <damageDef>Blunt</damageDef>
-      <damageAmountBase>30</damageAmountBase>
-      <stoppingPower>3.5</stoppingPower>
+      <damageAmountBase>20</damageAmountBase>
+      <stoppingPower>4.5</stoppingPower>
       <armorPenetrationBase>0.35</armorPenetrationBase>
       <speed>60</speed>
     </projectile>
     <thingClass>DarktideWeapons.DW_Grenade</thingClass>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-        <penetrationPower>1</penetrationPower>
+        <penetrationPower>0</penetrationPower>
         <effectiveRange>36.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>
         <isExplosive>true</isExplosive>
-        <explosionDamage>20</explosionDamage>
-        <explosionRadius>0.8</explosionRadius>
+        <explosionDamage>30</explosionDamage>
+        <explosionRadius>3.0</explosionRadius>
         <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionArmorPenetration>0.4</explosionArmorPenetration>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1312,7 +1317,7 @@
       <AccuracyShort>0.70</AccuracyShort>
       <AccuracyMedium>0.35</AccuracyMedium>
       <AccuracyLong>0.15</AccuracyLong>
-      <RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>300</Steel>
@@ -1320,7 +1325,7 @@
       <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <equippedStatOffsets>
-      <MoveSpeed>-0.5</MoveSpeed>
+      <MoveSpeed>-0.2</MoveSpeed>
     </equippedStatOffsets>
     <verbs>
       <li>
@@ -1342,9 +1347,93 @@
         <capacities>
           <li>Blunt</li>
         </capacities>
-        <power>17</power>
+        <power>20</power>
         <cooldownTime>1.8</cooldownTime>
       </li>
     </tools>
-  </ThingDef> -->
+  </ThingDef>
+
+  <!-- Grenadier Gauntlet -->
+<ThingDef  ParentName="BaseBullet">
+  <defName>DW_GauntletGrenade</defName>
+  <label>GauntletGrenade</label>
+  <graphicData>
+    <texPath>Things/Projectile/Bullet_Big</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <projectile>
+    <damageDef>Bullet</damageDef>
+    <damageAmountBase>20</damageAmountBase>
+    <speed>70</speed>
+    <stoppingPower>4</stoppingPower>
+    <armorPenetrationBase>0.60</armorPenetrationBase>
+  </projectile>
+  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+  <modExtensions>
+    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <penetrationPower>0</penetrationPower>
+      <effectiveRange>32.9</effectiveRange>
+      <penetrateWall>false</penetrateWall>
+      <friendlyFire>false</friendlyFire>
+      <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+      <isExplosive>true</isExplosive>
+      <explosionDamage>40</explosionDamage>
+      <explosionRadius>1.1</explosionRadius>
+      <explosionDamageDef>Bomb</explosionDamageDef>
+      <explosionArmorPenetration>0.7</explosionArmorPenetration>
+    </li>
+  </modExtensions>
+</ThingDef>
+
+<ThingDef ParentName="Darktide_Gun">
+  <defName>DW_Grenadier_Gauntlet</defName>
+  <label>Blastoom Mk III Grenadier Gauntlet</label>
+  <description>Grenades can be launched with relative precision once a wielder braces and aims. Otherwise it makes an excellent club.</description>
+  <graphicData>
+    <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <soundInteract>Interact_Rifle</soundInteract>
+  <statBases>
+    <WorkToMake>60000</WorkToMake>
+    <Mass>6.5</Mass>
+    <AccuracyTouch>0.90</AccuracyTouch>
+    <AccuracyShort>0.70</AccuracyShort>
+    <AccuracyMedium>0.55</AccuracyMedium>
+    <AccuracyLong>0.30</AccuracyLong>
+    <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+  </statBases>
+  <costList>
+    <Steel>50</Steel>
+    <Plasteel>100</Plasteel>
+    <Uranium>30</Uranium>
+    <ComponentIndustrial>10</ComponentIndustrial>
+    <ComponentSpacer>2</ComponentSpacer>
+  </costList>
+  <equippedStatOffsets>
+    <MoveSpeed>-0.2</MoveSpeed>
+  </equippedStatOffsets>
+  <verbs>
+    <li>
+      <verbClass>Verb_Shoot</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>DW_GauntletGrenade</defaultProjectile>
+      <warmupTime>1.2</warmupTime>
+      <range>32.9</range>
+      <soundCast>Shot_Autocannon</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </li>
+  </verbs>
+  <tools>
+    <li>
+      <label>barrel</label>
+      <capacities>
+        <li>Blunt</li>
+      </capacities>
+      <power>22</power>
+      <cooldownTime>2</cooldownTime>
+    </li>
+  </tools>
+</ThingDef>
 </Defs>

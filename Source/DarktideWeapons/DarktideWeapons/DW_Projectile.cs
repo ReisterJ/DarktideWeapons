@@ -3,6 +3,7 @@ using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -84,15 +85,21 @@ namespace DarktideWeapons
 
         public float RangedDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().RangedDamageMultiplierGlobal;
 
+        protected int DEBUGLEVEL => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().DEBUGLEVEL;
+
         protected Vector3 LastPosition;
 
         protected float projectileCollisionRadius = 0.2f;
 
         protected int launchTick = -1;
 
+        protected int lastCollisionTick = -1;
+
         protected Thing lastHitThing;
 
         protected int flyingTicks = -1;
+
+        
 
         public bool ignoreProjectileInterceptor = false;
         public override Vector3 ExactPosition
@@ -142,7 +149,7 @@ namespace DarktideWeapons
             if (isExplosive)
             {
                 IntVec3 ExpPosition = hitThing != null ? hitThing.Position : base.Position;
-                GenExplosion.DoExplosion(ExpPosition, this.Map, this.explosionRadius, this.projectileProps.explosionDamageDef, this.launcher, (int)this.explosionDamageAmount, this.projectileProps.explosionArmorPenetration);
+                GenExplosionDW.DoExplosionNoFriendlyFire(ExpPosition, this.Map, this.explosionRadius, this.projectileProps.explosionDamageDef, this.launcher, (int)this.explosionDamageAmount, this.projectileProps.explosionArmorPenetration);
             }
         }
         protected override void Tick()
@@ -186,7 +193,6 @@ namespace DarktideWeapons
             return;
         }
 
-        
 
 
         protected virtual void EquipmentProjectileInit(ThingWithComps equipment)
@@ -409,8 +415,10 @@ namespace DarktideWeapons
             {
                 equipmentDef = null;
             }
-
             destination = usedTarget.Cell.ToVector3Shifted();
+            Util_Ranged.DEV_output("start shoot point : " + this.origin.ToString());
+            Util_Ranged.DEV_output("target point : " + this.destination.ToString() + " " + usedTarget.Thing?.Label);
+            
 
             critFlag = Util_Crit.IsCrit(this.critChanceinGame);
             float lifetimeF = this.projectileProps.effectiveRange / this.def.projectile.SpeedTilesPerTick;
@@ -423,7 +431,8 @@ namespace DarktideWeapons
             }
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
-        { 
+        {
+            
             bool destroyFlag = false;
             Map map = base.Map;
             IntVec3 position = base.Position;
@@ -444,8 +453,9 @@ namespace DarktideWeapons
             }
             if (hitThing != null)
             {
-                Util_Ranged.DEV_output(hitThing.Label);
-
+                //Util_Ranged.DEV_output(hitThing.Label);
+                lastCollisionTick = Find.TickManager.TicksGame;
+                lastHitThing = hitThing;
                 bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
                 DamageInfo dinfo = CalculateDamage(hitThing);
                 dinfo.SetWeaponQuality(equipmentQuality);
@@ -685,14 +695,20 @@ namespace DarktideWeapons
             {
                 return false;
             }
-            Util_Ranged.DEV_output("CheckForFreeIntercept  pos : " + c +" Thing list ___:");
+            if(DEBUGLEVEL > 1) Util_Ranged.DEV_output("CheckForFreeIntercept  pos : " + c +" Thing list ___:");
+
             for (int i = 0; i < thingList.Count; i++)
             {
                 Thing thing = thingList[i];
                 if (thing == this) continue;
-                Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
+                if (!CanHit(thing))
+                {
+                    continue;
+                }
+                if (DEBUGLEVEL > 1) Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
                 //wall hit check
                 bool openDoorHitFlag = false;
+                if (SameTargetCollisionCheck(thing)) return false;
                 if (thing.def.Fillage == FillCategory.Full)
                 {
                     if (thing is Building_Door Door && Door.Open == true)
@@ -701,6 +717,7 @@ namespace DarktideWeapons
                     }
                     else
                     {
+                        
                         if (penetrateWall)
                         {
                             PenetratedTarget++;
@@ -806,6 +823,16 @@ namespace DarktideWeapons
                 (thing.def.fillPercent > Util_Ranged.MinFillPercentCountAsCover ? 
                 ((Math.Max(this.penetrateNum - this.PenetratedTarget, 0)) * this.DamageAmount / thing.HitPoints) : 
                 Util_Ranged.CoverPenetrationBaseChance) ;
+        }
+
+        protected bool SameTargetCollisionCheck(Thing hitThing)
+        {
+            if(hitThing == null)
+            {
+                return false;
+            }
+            if (lastHitThing != null && lastHitThing == hitThing && Find.TickManager.TicksGame - lastCollisionTick < 1) return true;
+            return false;
         }
     }
 }

@@ -72,22 +72,26 @@ namespace DarktideWeapons
             {
                 return false;
             }
+
             ThingDef projectile = Projectile;
             if (projectile == null)
             {
                 return false;
             }
+
             ShootLine resultingLine;
             bool flag = TryFindShootLineFromTo(caster.Position, currentTarget, out resultingLine);
             if (verbProps.stopBurstWithoutLos && !flag)
             {
                 return false;
             }
+
             if (base.EquipmentSource != null)
             {
                 base.EquipmentSource.GetComp<CompChangeableProjectile>()?.Notify_ProjectileLaunched();
                 base.EquipmentSource.GetComp<CompApparelVerbOwner_Charged>()?.UsedOnce();
             }
+
             lastShotTick = Find.TickManager.TicksGame;
             Thing manningPawn = caster;
             Thing equipmentSource = base.EquipmentSource;
@@ -97,8 +101,31 @@ namespace DarktideWeapons
                 manningPawn = compMannable.ManningPawn;
                 equipmentSource = caster;
             }
+
             Vector3 drawPos = caster.DrawPos;
             Projectile projectile2 = (Projectile)GenSpawn.Spawn(projectile, resultingLine.Source, caster.Map);
+            if (equipmentSource.TryGetComp(out CompUniqueWeapon comp))
+            {
+                foreach (WeaponTraitDef item in comp.TraitsListForReading)
+                {
+                    if (item.damageDefOverride != null)
+                    {
+                        projectile2.damageDefOverride = item.damageDefOverride;
+                    }
+
+                    if (!item.extraDamages.NullOrEmpty())
+                    {
+                        Projectile projectile3 = projectile2;
+                        if (projectile3.extraDamages == null)
+                        {
+                            projectile3.extraDamages = new List<ExtraDamage>();
+                        }
+
+                        projectile2.extraDamages.AddRange(item.extraDamages);
+                    }
+                }
+            }
+
             if (verbProps.ForcedMissRadius > 0.5f)
             {
                 float num = verbProps.ForcedMissRadius;
@@ -106,6 +133,7 @@ namespace DarktideWeapons
                 {
                     num *= verbProps.GetForceMissFactorFor(equipmentSource, pawn);
                 }
+
                 float num2 = VerbUtility.CalculateAdjustedForcedMiss(num, currentTarget.Cell - caster.Position);
                 if (num2 > 0.5f)
                 {
@@ -119,21 +147,25 @@ namespace DarktideWeapons
                         {
                             projectileHitFlags = ProjectileHitFlags.All;
                         }
+
                         if (!canHitNonTargetPawnsNow)
                         {
                             projectileHitFlags &= ~ProjectileHitFlags.NonTargetPawns;
                         }
+
                         projectile2.Launch(manningPawn, drawPos, forcedMissTarget, currentTarget, projectileHitFlags, preventFriendlyFire, equipmentSource);
                         return true;
                     }
                 }
             }
+
             ShotReport shotReport = ShotReport.HitReportFor(caster, this, currentTarget);
             Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
             ThingDef targetCoverDef = randomCoverToMissInto?.def;
             if (verbProps.canGoWild && !Rand.Chance(shotReport.AimOnTargetChance_IgnoringPosture))
             {
                 bool flyOverhead = projectile2?.def?.projectile != null && projectile2.def.projectile.flyOverhead;
+                resultingLine.ChangeDestToMissWild(shotReport.AimOnTargetChance_StandardTarget, flyOverhead, caster.Map);
                 ThrowDebugText("ToWild" + (canHitNonTargetPawnsNow ? "\nchntp" : ""));
                 ThrowDebugText("Wild\nDest", resultingLine.Dest);
                 ProjectileHitFlags projectileHitFlags2 = ProjectileHitFlags.NonTargetWorld;
@@ -141,9 +173,11 @@ namespace DarktideWeapons
                 {
                     projectileHitFlags2 |= ProjectileHitFlags.NonTargetPawns;
                 }
+
                 projectile2.Launch(manningPawn, drawPos, resultingLine.Dest, currentTarget, projectileHitFlags2, preventFriendlyFire, equipmentSource, targetCoverDef);
                 return true;
             }
+
             if (currentTarget.Thing != null && currentTarget.Thing.def.CanBenefitFromCover && !Rand.Chance(shotReport.PassCoverChance))
             {
                 ThrowDebugText("ToCover" + (canHitNonTargetPawnsNow ? "\nchntp" : ""));
@@ -153,18 +187,22 @@ namespace DarktideWeapons
                 {
                     projectileHitFlags3 |= ProjectileHitFlags.NonTargetPawns;
                 }
+
                 projectile2.Launch(manningPawn, drawPos, randomCoverToMissInto, currentTarget, projectileHitFlags3, preventFriendlyFire, equipmentSource, targetCoverDef);
                 return true;
             }
+
             ProjectileHitFlags projectileHitFlags4 = ProjectileHitFlags.IntendedTarget;
             if (canHitNonTargetPawnsNow)
             {
                 projectileHitFlags4 |= ProjectileHitFlags.NonTargetPawns;
             }
+
             if (!currentTarget.HasThing || currentTarget.Thing.def.Fillage == FillCategory.Full)
             {
                 projectileHitFlags4 |= ProjectileHitFlags.NonTargetWorld;
             }
+
             ThrowDebugText("ToHit" + (canHitNonTargetPawnsNow ? "\nchntp" : ""));
             if (currentTarget.Thing != null)
             {
@@ -176,6 +214,7 @@ namespace DarktideWeapons
                 projectile2.Launch(manningPawn, drawPos, resultingLine.Dest, currentTarget, projectileHitFlags4, preventFriendlyFire, equipmentSource, targetCoverDef);
                 ThrowDebugText("Hit\nDest", resultingLine.Dest);
             }
+
             return true;
         }
 

@@ -32,11 +32,7 @@ namespace DarktideWeapons
                     this.penetrateWall = false;
                 }
                 
-                compPlasma.HeatBuild();
-                if (compPlasma.plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Charged)
-                {
-                    compPlasma.plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
-                }
+                
             }
             
         }

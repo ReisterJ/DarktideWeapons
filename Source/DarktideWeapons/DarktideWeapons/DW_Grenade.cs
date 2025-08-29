@@ -19,7 +19,8 @@ namespace DarktideWeapons
         public bool bounceFlag = false;
         public Thing stickTarget;
 
-        public int ticksToDetonation = 120;
+        public int ticksToDetonation = 60;
+        public int bounceTicks = 0;
 
         protected Vector3 bounceDest;
         protected Vector3 bounceStart;
@@ -30,8 +31,9 @@ namespace DarktideWeapons
         {
             get
             {
-                if(!landed)
+                if(!bounceFlag)
                 {
+                    if (lifetime <= 0) return LastPosition;
                     Vector3 vector = (destination - origin).normalized * flyingTicks * def.projectile.SpeedTilesPerTick;
                     return origin.Yto0() + vector + Vector3.up * def.Altitude;
                 }
@@ -39,8 +41,8 @@ namespace DarktideWeapons
                 {
                     if (!sticksToTarget)
                     {
-                        if(LastPosition == bounceDest || flyingTicks > 60)  return LastPosition;
-                        Vector3 vector = (bounceDest - bounceStart).normalized * flyingTicks / (bounceCounter * 10);
+                        if(LastPosition == bounceDest || bounceTicks > 60)  return LastPosition;
+                        Vector3 vector = (bounceDest - bounceStart).normalized * flyingTicks * 0.02f;
                         return bounceStart.Yto0() + vector + Vector3.up * def.Altitude;
                     }
                     else
@@ -67,14 +69,17 @@ namespace DarktideWeapons
             if (!ExactPosition.InBounds(base.Map))
             {
                 base.Position = ExactPosition.ToIntVec3();
-                Destroy();
+                Explode();
                 return;
             }
             Vector3 exactPosition2 = ExactPosition;
+            
             if (this.CheckForFreeInterceptBetween(exactPosition, exactPosition2))
             {
                 return;
             }
+
+
             LastPosition = exactPosition;
             base.Position = ExactPosition.ToIntVec3();
             
@@ -82,18 +87,23 @@ namespace DarktideWeapons
             {
                 ambientSustainer.Maintain();
             }
-            lifetime--;
-            if (lifetime <= 0)
+            if(bounceFlag) bounceTicks++;
+            if(lifetime > 0)
+            {
+                lifetime--;
+            }
+            else
             {
                 StartCountDown();
+            }
+
+            if (ticksToDetonation <= 0)
+            {
+                Explode();
             }
             if (ticksToDetonation > 0 && landedFlag)
             {
                 ticksToDetonation --;
-                if (ticksToDetonation <= 0)
-                {
-                    Explode();
-                }
             }
         }
         public void StartCountDown()
@@ -125,9 +135,8 @@ namespace DarktideWeapons
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
-            bool destroyFlag = false;
-            //landedFlag = true;
-            landed = true;
+           
+            //landed = true;
             Map map = base.Map;
             IntVec3 position = base.Position;
             GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
@@ -138,9 +147,9 @@ namespace DarktideWeapons
             BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
             Find.BattleLog.Add(battleLogEntry_RangedImpact);
             NotifyImpact(hitThing, map, position);
+            StartCountDown();
             if (blockedByShield)
             {
-                destroyFlag = true;
                 Explode();
             }
             if (hitThing != null)
@@ -167,11 +176,12 @@ namespace DarktideWeapons
                 }
                 else
                 {
-                    if(bounceCounter < 1)
+                    if(bounceCounter < 2)
                     {
-                        flyingTicks = 0;
+                        bounceCounter++;
                         bounceStart = this.ExactPosition;
                         Bounce(bounceStart);
+                        flyingTicks = 0;
                     }
                     
                 }
@@ -205,7 +215,7 @@ namespace DarktideWeapons
         protected virtual void Explode()
         {
             Map map = base.Map;
-            Destroy();
+            
             if (def.projectile.explosionEffect != null)
             {
                 Effecter effecter = def.projectile.explosionEffect.Spawn();
@@ -246,7 +256,9 @@ namespace DarktideWeapons
             bool doExplosionVFX = def.projectile.doExplosionVFX;
             ThingDef preExplosionSpawnSingleThingDef = def.projectile.preExplosionSpawnSingleThingDef;
             ThingDef postExplosionSpawnSingleThingDef = def.projectile.postExplosionSpawnSingleThingDef;
+            Destroy();
             GenExplosionDW.DoExplosionNoFriendlyFire(position, map, explosionRadius, damageDef, instigator, damageAmount, armorPenetration, soundExplode, weapon, projectile, thing, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount, postExplosionGasType, null, 255, applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef, preExplosionSpawnChance, preExplosionSpawnThingCount, explosionChanceToStartFire, explosionDamageFalloff, direction, null, null, doExplosionVFX, expolosionPropagationSpeed, 0f, doSoundEffects: true, postExplosionSpawnThingDefWater, screenShakeFactor, null, null, postExplosionSpawnSingleThingDef, preExplosionSpawnSingleThingDef);
+            
             if (def.projectile.explosionSpawnsSingleFilth && def.projectile.filth != null && def.projectile.filthCount.TrueMax > 0 && Rand.Chance(def.projectile.filthChance) && !base.Position.Filled(map))
             {
                 FilthMaker.TryMakeFilth(base.Position, map, def.projectile.filth, def.projectile.filthCount.RandomInRange);
@@ -255,11 +267,19 @@ namespace DarktideWeapons
 
         protected void Bounce(Vector3 startpoint)
         {
-            float radius = Rand.Range(0.5f, 2f);
+            bounceFlag = true;
+            float radius = Rand.Range(1f, 3f);
             lastBounceRadius = radius;
             float angle = Rand.Range(float.Epsilon, 80f);
+            
             Vector3 bounceDirection =  Quaternion.AngleAxis(Rand.Range(-angle,angle)  , Vector3.up) * (origin - destination).normalized;
+            
             bounceDest = startpoint + bounceDirection * radius;
+
+            if (!GenSight.LineOfSight(startpoint.ToIntVec3(),bounceDest.ToIntVec3(), this.Map))
+            {
+                Bounce(startpoint);
+            }
         }
     }
 }

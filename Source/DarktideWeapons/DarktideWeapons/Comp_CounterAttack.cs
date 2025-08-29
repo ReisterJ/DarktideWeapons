@@ -26,6 +26,9 @@ namespace DarktideWeapons
 
         public float CounterAttackDamageInfo = 0f;
 
+        protected int cooldown = 10;
+
+        protected int lastCounterAttackTick = -9999;
         public CompProperties_CounterAttack Props
         {
             get
@@ -47,11 +50,19 @@ namespace DarktideWeapons
             CounterAttackChanceCurrent = CounterAttackChance;
         }
 
+        public override void CompTickInterval(int delta)
+        {
+            lastCounterAttackTick -= delta;
+            if (lastCounterAttackTick <= 0)
+            {
+                lastCounterAttackTick = 0;
+            }
+        }
         public bool CanCounterAttack(Pawn pawn, DamageInfo dinfo)
         {
             if (pawn != null)
             {
-                if (!pawn.DeadOrDowned && pawn.Drafted && Util_Melee.IsMeleeDamage(dinfo))
+                if (!pawn.DeadOrDowned && pawn.Drafted && Util_Melee.IsMeleeDamage(dinfo) && lastCounterAttackTick == 0)
                 {
                     int meleelevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
                     CounterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
@@ -88,6 +99,7 @@ namespace DarktideWeapons
                     opponent, true, true, QualityCategory.Normal, true);
                 opponent.TakeDamage(dinfo);
                 MoteMaker.ThrowText(wielder.PositionHeld.ToVector3(), wielder.MapHeld, "CounterAttack", 1f);
+                lastCounterAttackTick = cooldown;
             }
 
         }

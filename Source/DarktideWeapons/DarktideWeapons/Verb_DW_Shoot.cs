@@ -94,6 +94,7 @@ namespace DarktideWeapons
         protected override bool TryCastShot()
         {
             bool num = base.TryCastShot();
+            
             if (num)
             {
                 if (verbProps.consumeFuelPerShot > 0f && caster.TryGetComp<CompRefuelable>() is CompRefuelable compRefuelable)

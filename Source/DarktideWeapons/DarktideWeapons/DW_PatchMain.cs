@@ -37,8 +37,22 @@ namespace DarktideWeapons.HarmonyPatches
         }
     }
 
-    
-    
+
+    [HarmonyPatch(typeof(VerbTracker), "PrimaryVerb", MethodType.Getter)]
+    public static class Patch_VerbTracker_PrimaryVerb
+    {
+        public static bool Prefix(VerbTracker __instance, ref Verb __result)
+        {
+            Thing owner = __instance.directOwner as Thing;
+            if (owner is DW_Equipment dwEquip && __instance.AllVerbs.Count > 1)
+            {
+                __result = dwEquip.switchverb ? __instance.AllVerbs[1] : __instance.AllVerbs[0];
+                return false;
+            }
+            return true;
+        }
+    }
+
 
 
 

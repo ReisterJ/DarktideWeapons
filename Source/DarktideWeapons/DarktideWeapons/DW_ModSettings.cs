@@ -14,6 +14,7 @@ namespace DarktideWeapons
 
         public float MeleeDamageMultiplierGlobal = 1f;
 
+        public int DEBUGLEVEL = 0;
         public override void ExposeData()
         {
             Scribe_Values.Look(ref RangedDamageMultiplierGlobal, "RangedDamageMultiplierGlobal",1f);
@@ -37,9 +38,9 @@ namespace DarktideWeapons
             listingStandard.Begin(inRect);
             //listingStandard.CheckboxLabeled("exampleBoolExplanation", ref settings.exampleBool, "exampleBoolToolTip");
             listingStandard.Label("RangedDamageMultiplierGlobalLabel".Translate());
-            settings.RangedDamageMultiplierGlobal = listingStandard.Slider(settings.RangedDamageMultiplierGlobal, 0.2f, 5f);
+            settings.RangedDamageMultiplierGlobal = listingStandard.Slider(settings.RangedDamageMultiplierGlobal, 0.5f, 10f);
             listingStandard.Label("MeleeDamageMultiplierGlobalLabel".Translate());
-            settings.MeleeDamageMultiplierGlobal = listingStandard.Slider(settings.MeleeDamageMultiplierGlobal, 0.2f, 5f);
+            settings.MeleeDamageMultiplierGlobal = listingStandard.Slider(settings.MeleeDamageMultiplierGlobal, 0.5f, 10f);
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
         }

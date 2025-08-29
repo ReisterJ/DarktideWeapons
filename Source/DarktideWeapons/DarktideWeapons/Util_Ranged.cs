@@ -28,15 +28,17 @@ namespace DarktideWeapons
 
         public const float MinFillPercentCountAsCover = 0.3f;
 
-        public const float HeadHuntBaseChance = 0.08f;
+        public const float HeadHuntBaseChance = 0.075f;
         public const float HeadHuntShootLevelBonusConstant = 2f;
         public const int MinHeadHuntShootLevel = 5;
 
+        public const float MarksmanBase = 0.2f;
+        public const float MarksmanShootLevelBonusConstant = 0.0015f;
         public enum PlasmaWeaponMode
         {
             Normal,
-            Cooling,
             Charged,
+            Cooling
         }
         public const int PLASMA_SELFCOOLING_TICKS = 150; // 2.5 seconds
        
@@ -92,6 +94,13 @@ namespace DarktideWeapons
             chance = shootlevel > Util_Ranged.MinHeadHuntShootLevel ?
                 chance * (Mathf.Pow(Util_Ranged.HeadHuntShootLevelBonusConstant, (float)shootlevel / 10f) * Util_Ranged.HeadHuntShootLevelBonusConstant)
                 : chance;
+            return chance;
+        }
+
+        public static float MarksmanFunc(int shootlevel)
+        {
+            float chance = Util_Ranged.MarksmanBase;
+            chance += (float)shootlevel * (float)shootlevel * MarksmanShootLevelBonusConstant;
             return chance;
         }
 

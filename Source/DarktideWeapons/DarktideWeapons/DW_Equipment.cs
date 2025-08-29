@@ -19,6 +19,8 @@ namespace DarktideWeapons
         public Comp_DWToughnessShield Linked_CompDWToughnessShield;
 
         protected int maxCheck = 10;
+
+        public bool switchverb = false;
         public Pawn HoldingPawn
         {
             get
@@ -67,6 +69,12 @@ namespace DarktideWeapons
 
         public virtual void ChangeVerb()
         {
+            if(holder == null)
+            {
+                return;
+            }
+            switchverb = !switchverb;
+            CompEquippable compEquippable = this.GetComp<CompEquippable>();
             
         }
         public override IEnumerable<Gizmo> GetGizmos()

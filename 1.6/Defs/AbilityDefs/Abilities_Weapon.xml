@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <AbilityDef>
+      <defName>DW_Ability_FireModeSwitch</defName>
+      <label>Switch Mode</label>
+      <description>Switch fire mode.</description>
+      <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+      <jobDef>CastAbilityOnThing</jobDef>
+      <targetRequired>false</targetRequired>
+      <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+      <stunTargetWhileCasting>false</stunTargetWhileCasting>
+      <statBases>
+      </statBases>
+      <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.2</warmupTime>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetHumans>false</canTargetHumans>
+          <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+      </verbProperties>
+      <comps>
+      <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchFireMode"></li>
+      </comps>
+  </AbilityDef>
+
+
 <!-- plasma weapon -->
     <AbilityDef>
         <defName>DW_Ability_SwitchPlasmaMode</defName>

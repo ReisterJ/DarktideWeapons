@@ -9,6 +9,7 @@ using Verse;
 
 namespace DarktideWeapons
 {
+    //DEPRECATED
     public class Comp_DarktideWeapon : ThingComp
     {
         protected int counter = 0;

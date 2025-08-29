@@ -33,7 +33,7 @@ namespace DarktideWeapons
 
         protected Gizmo_PlasmaWeaponStatus plasmaWeaponStatus;
 
-        public float DangerHeatThreshold = 0.85f;
+        public const float DangerHeatThreshold = 0.85f;
 
         protected bool safeMode = true;
 
@@ -119,7 +119,7 @@ namespace DarktideWeapons
             }
             else
             {
-                this.heat -= coolingWeaponHeatLossRate / 2;
+                this.heat -= this.heat / 2;
                 if (this.heat < 0)
                 {
                     this.heat = 0;
@@ -154,10 +154,16 @@ namespace DarktideWeapons
             {
                 heat = maxHeat;
                 plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Cooling;
+                if(wielder != null)
+                {
+                    MoteMaker.ThrowText(wielder.PositionHeld.ToVector3(), wielder.MapHeld, "OverHeat", 2f);
+                }
+                
             }
-            Util_Ranged.DEV_output("Plasma Heat : " + this.heat);
+            //Util_Ranged.DEV_output("Plasma Heat : " + this.heat);
         }
 
+        /*
         public void SwitchMode()
         {
             if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Normal)
@@ -169,8 +175,18 @@ namespace DarktideWeapons
             {
                 plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
             }
-            
         }
+        */
+
+        public void SwitchToNormalMode()
+        {
+            plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Normal;
+        }
+        public void SwitchToChargeMode()
+        {
+            plasmaWeaponMode = Util_Ranged.PlasmaWeaponMode.Charged;
+        }
+
         protected IEnumerable<Gizmo> GetGizmos()
         {
            
@@ -201,7 +217,7 @@ namespace DarktideWeapons
                 //action = new Action()
             };
             
-            */
+            
             yield return new Command_Action
             {
                 defaultLabel = "SafeMode".Translate() + " : " + this.safeMode.ToString().Translate(),
@@ -209,6 +225,7 @@ namespace DarktideWeapons
                 icon = TexCommand.DesirePower,
                 action = SwitchSafeMode
             };
+            */
         }
 
         protected void SwitchSafeMode()

@@ -46,6 +46,8 @@ namespace DarktideWeapons
         //public Comp_DarktideWeapon CompDarktideWeaponPrimary => this.PawnOwner.equipment.Primary.TryGetComp<Comp_DarktideWeapon>();
 
         private int interval = -1;
+
+        protected bool isFullShield = false;
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
@@ -266,11 +268,15 @@ namespace DarktideWeapons
                 absorbed = true;
                 return;
             }
+            this.isFullShield = false;
+
             if (this.ShieldState != ShieldState.Active )
             {
                 return;
             }
+
             float toughnessdamage = dinfo.Amount * ToughnessDamageReductionMultiplierinGame;
+            if (toughnessdamage > this.MaxToughnessinGame) toughnessdamage = this.energy; 
             ticksToReset = this.StartTickstoResetinGame;
             if (Util_Melee.IsMeleeDamage(dinfo))
             {
@@ -294,7 +300,7 @@ namespace DarktideWeapons
                 toughnessdamage *= 0.5f;
             }
 
-            if (this.energy <= toughnessdamage)
+            if (this.energy < toughnessdamage)
             {
                 this.ToughnessBreak();
                 dinfo.SetAmount(toughnessdamage - this.energy);
@@ -325,6 +331,12 @@ namespace DarktideWeapons
             return flag;
         }
         */
+
+        public override void CompTickInterval(int delta)
+        {
+            //base.CompTickInterval(delta);
+            ShieldRegenerateInterval(delta);
+        }
         public override void CompTick()
         {
             if (this.PawnOwner == null )
@@ -337,13 +349,19 @@ namespace DarktideWeapons
             {
                 return;
             }
+            //ShieldRegenerateInterval(1);
             //DarktideWeaponCompTick();
+
+
+        }
+        protected void ShieldRegenerateInterval(int val)
+        {
             if (enableShield)
             {
                 if (this.ShieldState == ShieldState.Resetting)
                 {
-                    this.ticksToReset--;
-               
+                    this.ticksToReset-= val;
+
                     if (this.ticksToReset <= 0)
                     {
                         this.Reset();
@@ -352,18 +370,19 @@ namespace DarktideWeapons
                 }
                 else if (this.ShieldState == ShieldState.Active)
                 {
-
+                    if (this.isFullShield) return;
                     if (this.energy >= this.MaxToughnessinGame)
                     {
                         this.energy = this.MaxToughnessinGame;
+                        this.isFullShield = true;
                         return;
                     }
-                    this.energy += baseToughnessRegenerationRate;
+                    this.energy += baseToughnessRegenerationRate * val;
 
                 }
             }
-       
         }
+
         public override float CompGetSpecialApparelScoreOffset()
         {
             return this.MaxToughnessinGame; //* this.ApparelScorePerEnergyMax;

@@ -8,28 +8,6 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class CompAbilityEffect_SwitchPlasmaMode : CompAbilityEffect
-    {
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            SwitchMode();
-            base.Apply(target, dest);
-            
-        }
-
-        public void SwitchMode()
-        {
-            Comp_DarktidePlasma compPlasma = parent.pawn.equipment.Primary.TryGetComp<Comp_DarktidePlasma>();
-            compPlasma?.SwitchMode();   
-        }
-    }
-    public class CompProperties_AbilityEffect_SwitchPlasmaMode : CompProperties_AbilityEffect
-    {
-        public CompProperties_AbilityEffect_SwitchPlasmaMode()
-        {
-            this.compClass = typeof(CompAbilityEffect_SwitchPlasmaMode);
-        }
-    }
 
     public class CompAbilityEffect_EmergencyCooling: CompAbilityEffect
     {
