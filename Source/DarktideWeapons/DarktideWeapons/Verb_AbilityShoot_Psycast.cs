@@ -16,7 +16,6 @@ namespace DarktideWeapons
         public ModExtension_PsyCastExtendedProperties PsyCastExtProps => this.ability.def.GetModExtension<ModExtension_PsyCastExtendedProperties>();
         protected override int ShotsPerBurst => verbProps.burstShotCount;
 
-
         protected override bool TryCastShot()
         {
             return (base.TryCastShot() && TryAbilityShoot()); 

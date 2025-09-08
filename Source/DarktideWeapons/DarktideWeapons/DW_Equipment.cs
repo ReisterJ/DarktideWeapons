@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,15 @@ namespace DarktideWeapons
 
         public Comp_DWToughnessShield Linked_CompDWToughnessShield;
 
+        public Comp_DWSwtichMode Comp_DWSwtichMode => this.TryGetComp<Comp_DWSwtichMode>();
+        protected CompEquippable Comp_Equippable => this.TryGetComp<CompEquippable>(); 
+
+        public Comp_DWChargeWeapon Comp_DWChargeWeapon => this.TryGetComp<Comp_DWChargeWeapon>();
+
         protected int maxCheck = 10;
 
         public bool switchverb = false;
+
         public Pawn HoldingPawn
         {
             get
@@ -39,7 +46,21 @@ namespace DarktideWeapons
            
             base.Tick();
         }
+        protected override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if(HoldingPawn?.Drafted == false && switchverb)
+            {
+                ChangeVerb(setMainMode : true);
+            }
+        }
 
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            
+        }
         public virtual bool QualityUpgrade(QualityCategory q)
         {
             CompQuality compQuality = this.TryGetComp<CompQuality>();
@@ -51,10 +72,12 @@ namespace DarktideWeapons
    
         public override void Notify_Equipped(Pawn pawn)
         {
-            base.Notify_Equipped(pawn);
             this.holder = pawn;
             //caution here     
             Linked_CompDWToughnessShield = pawn.TryGetComp<Comp_DWToughnessShield>();
+            base.Notify_Equipped(pawn);
+
+            weaponComps.Clear();
             using (var enumerator = AllComps.GetEnumerator())
             {
                 while (enumerator.MoveNext())
@@ -65,17 +88,44 @@ namespace DarktideWeapons
                     }
                 }
             }
+            ChangeVerb(setMainMode: true);
         }
 
-        public virtual void ChangeVerb()
+        public override void Notify_Unequipped(Pawn pawn)
+        {
+            ChangeVerb(setMainMode: true);
+            base.Notify_Unequipped(pawn);
+            this.holder = null;
+        }
+
+        public virtual void ChangeVerb(bool setMainMode = false)
         {
             if(holder == null)
             {
                 return;
             }
             switchverb = !switchverb;
-            CompEquippable compEquippable = this.GetComp<CompEquippable>();
+            if (setMainMode)
+            {
+                switchverb = false;
+            }
+            if(Comp_DWSwtichMode != null)
+            {
+                Comp_DWSwtichMode.wielder = holder;
+                Comp_DWSwtichMode.EquipmentChangeVerbWithHediff(switchverb);
+            }
             
+            using (var enumerator = weaponComps.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    if (switchverb)
+                    {
+                        enumerator.Current.SwitchMode(switchverb);
+                    }
+                }
+            }
+
         }
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -91,10 +141,46 @@ namespace DarktideWeapons
                 yield return gizmo;
             }
         }
+
+        public override string GetInspectString()
+        {
+            string s = " ";
+            if (this.def.IsRangedWeapon)
+            {
+                if (Comp_Equippable.VerbProperties.Count > 1)
+                {
+                    if (!switchverb)
+                    {
+                        return (s + "DWCurrentFireMode".Translate() + " : " + "DWMainMode".Translate());
+                    }
+                    else
+                    {
+                        return (s + "DWCurrentFireMode".Translate() + " : " + "DWAuxiliaryMode".Translate());
+                    }
+                }
+            }
+            return s;
+        }
         protected virtual void ShowInspectDialog()
         {
             StringBuilder info = new StringBuilder();
-            info.AppendLine("Weapon Info:".Translate());
+            info.AppendLine("DWWeaponInfo:".Translate());
+            if (this.def.IsRangedWeapon) 
+            {
+                info.AppendLine("DWWeaponType".Translate() + " : " + "DWWeaponTypeRanged".Translate());
+                if(Comp_Equippable.VerbProperties.Count > 1)
+                {
+                    if (!switchverb)
+                    {
+                        info.AppendLine("DWCurrentFireMode".Translate() + " : " + "DWMainMode".Translate());
+                    }
+                    else
+                    {
+                        info.AppendLine("DWCurrentFireMode".Translate() + " : " + "DWAuxiliaryMode".Translate());
+                    }
+                }
+            }
+                
             using (var enumerator = weaponComps.GetEnumerator())
             {
                 while (enumerator.MoveNext())

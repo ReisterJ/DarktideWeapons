@@ -29,7 +29,7 @@ namespace DarktideWeapons
         //我不认为暗潮有人会拿着等离子这种纯直弹道打不中人，于是乎我这么写了
         protected override bool TryCastShot()
         {
-            PlasmaComp?.SwitchToNormalMode();
+            //PlasmaComp?.SwitchToNormalMode();
             if (currentTarget.HasThing && currentTarget.Thing.Map != caster.Map)
             {
                 return false;
@@ -84,7 +84,7 @@ namespace DarktideWeapons
     {
         protected override bool TryCastShot()
         {
-            PlasmaComp?.SwitchToChargeMode();
+            //PlasmaComp?.SwitchToChargeMode();
             if (currentTarget.HasThing && currentTarget.Thing.Map != caster.Map)
             {
                 return false;

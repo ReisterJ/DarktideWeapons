@@ -42,28 +42,33 @@ namespace DarktideWeapons
                 CompDisappears.ticksToDisappear = remainingtick;
             }
         }
-
+       
         protected virtual float GetDamage()
         {
             return this.level * this.level / 2 * DamageBonusPerLevel * DamageMultiplier_Global;
         }
 
-        public override void Tick()
+
+        protected virtual void DOTDamage()
         {
-            if (this.pawn.Dead)
+            float ap = this.ArmorPenetrationBase;
+            DamageInfo dinfo = new DamageInfo(damageDefOf, GetDamage(), ap);
+            dinfo.SetIgnoreArmor(this.IgnoreArmor);
+            pawn.TakeDamage(dinfo);
+        }
+        public override void TickInterval(int delta)
+        {
+            if (!this.pawn.Spawned || this.pawn.Dead)
             {
                 return;
             }
-            damageTick ++;
-            if(damageTick % DamageTickPeriod == 0)
+            damageTick += delta;
+            levelkeepcheck+= delta;
+            if (damageTick % DamageTickPeriod == 0)
             {
-                float ap = this.ArmorPenetrationBase;
-                DamageInfo dinfo = new DamageInfo(damageDefOf, GetDamage(), ap);
-                dinfo.SetIgnoreArmor(this.IgnoreArmor);
-                pawn.TakeDamage(dinfo);
-                levelkeepcheck++;
+                DOTDamage();
             }
-            if(levelkeepcheck >= Extension_HediffDOT.downgradeDamageTime)
+            if (levelkeepcheck >= Extension_HediffDOT.downgradeDamageTime)
             {
                 levelkeepcheck = 0;
                 this.SetLevelTo(this.level - 1);

@@ -26,7 +26,7 @@ namespace DarktideWeapons
 
         public float CounterAttackDamageInfo = 0f;
 
-        protected int cooldown = 10;
+        protected int cooldown = 20;
 
         protected int lastCounterAttackTick = -9999;
         public CompProperties_CounterAttack Props
@@ -62,7 +62,7 @@ namespace DarktideWeapons
         {
             if (pawn != null)
             {
-                if (!pawn.DeadOrDowned && pawn.Drafted && Util_Melee.IsMeleeDamage(dinfo) && lastCounterAttackTick == 0)
+                if (!pawn.DeadOrDowned && pawn.Drafted && Util_Melee.IsMeleeDamage(dinfo) && lastCounterAttackTick <= 0)
                 {
                     int meleelevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
                     CounterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;

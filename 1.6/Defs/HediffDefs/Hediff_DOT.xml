@@ -57,7 +57,7 @@
 				<hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
 				<isBrain>true</isBrain>
 			</li>
-			<!-- <li Class="HediffCompProperties_DisappearsOnDeath" /> -->
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
 		</comps>
 		<isBad>true</isBad>
 	</HediffDef>

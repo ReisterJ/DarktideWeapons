@@ -43,32 +43,7 @@ namespace DarktideWeapons
         public const int PLASMA_SELFCOOLING_TICKS = 150; // 2.5 seconds
        
 
-        public static bool IsStun(float chance)
-        {
-            if (Rand.Chance(chance))
-            {
-                return true;
-            }
-            return false;
-        }
-        public static bool CanBeStunned(Pawn victim, float stoppingPower)
-        {          
-             if(victim != null)
-             {
-                    //victim.stances
-                    
-                    if (!victim.DeadOrDowned  && victim.BodySize <= stoppingPower )
-                    {
-                        Pawn_StanceTracker stance = victim.stances;
-                        if (stance != null)
-                        {
-                            return true;
-                        }
-                    }
-                   
-                } 
-            return false;
-        }
+        
 
         public static List<IntVec3> GetLineSegmentCells(IntVec3 origin, IntVec3 dest, float range)
         {
@@ -86,7 +61,7 @@ namespace DarktideWeapons
             return cells;
         }
 
-       
+
 
         public static float HeadHuntChanceCalculation(int shootlevel)
         {

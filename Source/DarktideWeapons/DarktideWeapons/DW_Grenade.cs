@@ -27,6 +27,65 @@ namespace DarktideWeapons
 
         public float lastBounceRadius;
         public int bounceCounter = 0;
+
+        public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
+        {
+            if (projectileProps != null)
+            {
+                this.Initiate(equipment);
+            }
+
+            this.launchTick = Find.TickManager.TicksGame;
+            this.launcher = launcher;
+            this.origin = origin;
+            this.usedTarget = usedTarget;
+            this.intendedTarget = intendedTarget;
+            this.targetCoverDef = targetCoverDef;
+            this.preventFriendlyFire = preventFriendlyFire;
+            HitFlags = hitFlags;
+            stoppingPower = def.projectile.stoppingPower;
+            if (stoppingPower == 0f && def.projectile.damageDef != null)
+            {
+                stoppingPower = def.projectile.damageDef.defaultStoppingPower;
+            }
+
+            if (equipment != null)
+            {
+                this.equipment = equipment;
+                equipmentDef = equipment.def;
+                equipment.TryGetQuality(out equipmentQuality);
+                if (equipment.TryGetComp(out CompUniqueWeapon comp))
+                {
+                    foreach (WeaponTraitDef item in comp.TraitsListForReading)
+                    {
+                        if (!Mathf.Approximately(item.additionalStoppingPower, 0f))
+                        {
+                            stoppingPower += item.additionalStoppingPower;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                equipmentDef = null;
+            }
+            destination = usedTarget.Cell.ToVector3Shifted();
+            if (DEBUGLEVEL > 1)
+            {
+                Util_Ranged.DEV_output("start shoot point : " + this.origin.ToString());
+                Util_Ranged.DEV_output("target point : " + this.destination.ToString() + " " + usedTarget.Thing?.Label);
+            }
+
+            critFlag = Util_Crit.IsCrit(this.critChanceinGame);
+            float lifetimeF = (usedTarget.CenterVector3 - this.origin).magnitude / this.def.projectile.SpeedTilesPerTick;
+            flyingTicks = 0;
+            lifetime = lifetimeF > 0.1f ? (int)lifetimeF : 1;
+            LastPosition = ExactPosition;
+            if (!def.projectile.soundAmbient.NullOrUndefined())
+            {
+                ambientSustainer = def.projectile.soundAmbient.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
+            }
+        }
         public override Vector3 ExactPosition
         {
             get
@@ -163,12 +222,24 @@ namespace DarktideWeapons
                 Pawn pawn2 = hitThing as Pawn;
                 if(pawn2 != null)
                 {
-                    pawn2.stances?.stagger.Notify_BulletImpact(this);
+                    if(pawn2.stances != null)
+                    {
+                        pawn2.stances.stagger.Notify_BulletImpact(this);
+                        if (Util_Stagger.CanBeStunned(pawn2, this.stoppingPower))
+                        {
+                            pawn2.stances.stunner.StunFor(95, null, false, false);
+                        }
+                    }
+                    
+
+                    
                     foreach (HediffDef hediffDef in projectileProps.applyHediffDefs)
                     {
-                        pawn2.health.AddHediff(hediffDef, GetTorsoPart(pawn2) , null, null);
+                        pawn2.health.AddHediff(hediffDef, Util_BodyPart.GetTorsoPart(pawn2) , null, null);
                     }
                 }
+
+               
                 if (sticksToTarget)
                 {
                     sticked = true;
@@ -256,13 +327,14 @@ namespace DarktideWeapons
             bool doExplosionVFX = def.projectile.doExplosionVFX;
             ThingDef preExplosionSpawnSingleThingDef = def.projectile.preExplosionSpawnSingleThingDef;
             ThingDef postExplosionSpawnSingleThingDef = def.projectile.postExplosionSpawnSingleThingDef;
-            Destroy();
+            
             GenExplosionDW.DoExplosionNoFriendlyFire(position, map, explosionRadius, damageDef, instigator, damageAmount, armorPenetration, soundExplode, weapon, projectile, thing, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount, postExplosionGasType, null, 255, applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef, preExplosionSpawnChance, preExplosionSpawnThingCount, explosionChanceToStartFire, explosionDamageFalloff, direction, null, null, doExplosionVFX, expolosionPropagationSpeed, 0f, doSoundEffects: true, postExplosionSpawnThingDefWater, screenShakeFactor, null, null, postExplosionSpawnSingleThingDef, preExplosionSpawnSingleThingDef);
             
             if (def.projectile.explosionSpawnsSingleFilth && def.projectile.filth != null && def.projectile.filthCount.TrueMax > 0 && Rand.Chance(def.projectile.filthChance) && !base.Position.Filled(map))
             {
                 FilthMaker.TryMakeFilth(base.Position, map, def.projectile.filth, def.projectile.filthCount.RandomInRange);
             }
+            Destroy();
         }
 
         protected void Bounce(Vector3 startpoint)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,12 +15,12 @@ namespace DarktideWeapons
         public Comp_DWToughnessShield Linked_CompDWToughnessShield;
 
         public Thing wielder;
-       
-
+        //protected int hediffStoredCounter = 0;
         public Pawn PawnOwner
         {
             get
             {
+                if (wielder == null) return null;
                 if(wielder is Pawn pawn)
                 {
                     return pawn;
@@ -26,10 +28,16 @@ namespace DarktideWeapons
                 return null;
             }
         }
-
+        
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            
+        }
+        
         public virtual string ShowInfo(Thing wielder)
         {
-            return "DEFAULTINFO".Translate();
+            return "DWWEAPONCOMP_DEFAULTINFO".Translate();
         }
         public override void Notify_KilledPawn(Pawn pawn)
         {
@@ -38,8 +46,6 @@ namespace DarktideWeapons
             {
                 Linked_CompDWToughnessShield?.Recharge_Afterkill();
             }
-
-
         }
         public override void Notify_Unequipped(Pawn pawn)
         {
@@ -49,15 +55,23 @@ namespace DarktideWeapons
 
         public override void Notify_Equipped(Pawn pawn)
         {
-            base.Notify_Equipped(pawn);
             this.wielder = pawn;
+            base.Notify_Equipped(pawn);
         }
-        public virtual void SwitchVerb()
+        
+        public virtual void SwitchMode(bool AuxiMode , int id = 0 )
         {
-            if(this.wielder != null)
+            if (AuxiMode)
             {
-                
+
+            }
+            else
+            {
+
             }
         }
+    }
+    public class DW_WeaponCompProperties : CompProperties
+    {
     }
 }

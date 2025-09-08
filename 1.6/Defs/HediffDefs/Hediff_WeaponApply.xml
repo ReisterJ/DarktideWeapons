@@ -12,4 +12,59 @@
 		</comps>
 		<isBad>true</isBad>
 	</HediffDef> -->
+
+
+	<!-- change fire mode -->
+	<HediffDef>
+		<defName>DW_Hediff_AimFire</defName>
+		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
+		<label>Aim</label>
+		<description>Ready yourself for better accuracy, but slow you down.</description>
+		<initialSeverity>1</initialSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<statOffsets>
+                    <ShootingAccuracyFactor_Long>0.25</ShootingAccuracyFactor_Long>
+					<ShootingAccuracyFactor_Medium>0.25</ShootingAccuracyFactor_Medium>
+                    <MoveSpeed>-2.0</MoveSpeed>
+				</statOffsets>
+				<statFactors>
+					<RangedWeapon_WarmupMultiplier>1.2</RangedWeapon_WarmupMultiplier>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>DW_Hediff_DeployHeavyGun</defName>
+		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
+		<label>Deployed</label>
+		<description>deployed</description>
+		<initialSeverity>1</initialSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<statOffsets>
+                    <ShootingAccuracyFactor_Long>0.10</ShootingAccuracyFactor_Long>
+					<ShootingAccuracyFactor_Medium>0.15</ShootingAccuracyFactor_Medium>
+                    <ShootingAccuracyFactor_Short>0.15</ShootingAccuracyFactor_Short>
+                    <ShootingAccuracyFactor_Touch>0.10</ShootingAccuracyFactor_Touch>
+                    <MoveSpeed>-4.0</MoveSpeed>
+				</statOffsets>
+				<statFactors>
+                    <RangedCooldownFactor>0.8</RangedCooldownFactor>
+					<RangedWeapon_WarmupMultiplier>0.75</RangedWeapon_WarmupMultiplier>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+
+	
 </Defs>

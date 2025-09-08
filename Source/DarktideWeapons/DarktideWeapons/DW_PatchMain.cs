@@ -25,34 +25,92 @@ namespace DarktideWeapons.HarmonyPatches
     }
 
 
-    [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer))]
-    [HarmonyPatch("ImpliedThingDefs")]
-    [HarmonyPatch(new Type[] { typeof(bool) })]
-    static class ThingDefGenerator_Neurotrainer_Patch {
-       
-        [HarmonyPrefix]
-        static bool Prefix(ref IEnumerable<ThingDef> __result )
-        {
-            return true;
-        }
-    }
-
-
     [HarmonyPatch(typeof(VerbTracker), "PrimaryVerb", MethodType.Getter)]
     public static class Patch_VerbTracker_PrimaryVerb
     {
-        public static bool Prefix(VerbTracker __instance, ref Verb __result)
+        //默认两个射击模式
+        [HarmonyPostfix]
+        public static void Postfix(VerbTracker __instance, ref Verb __result)
         {
-            Thing owner = __instance.directOwner as Thing;
-            if (owner is DW_Equipment dwEquip && __instance.AllVerbs.Count > 1)
+            CompEquippable compEquippable = __instance.directOwner as CompEquippable;
+            if (compEquippable == null) return ;
+            if (compEquippable.parent is DW_Equipment dwEquip && __instance.AllVerbs.Count > 1)
             {
                 __result = dwEquip.switchverb ? __instance.AllVerbs[1] : __instance.AllVerbs[0];
-                return false;
+                return ;
             }
-            return true;
+            //return true;
         }
     }
 
+    [HarmonyPatch(typeof(Pawn), "TryGetAttackVerb")]
+    public static class Patch_Pawn_TryGetAttackVerb
+    {
+        //默认两个射击模式
+        [HarmonyPostfix]
+        public static void Postfix(Pawn __instance, ref Verb __result)
+        {
+            if(__instance?.equipment?.Primary is DW_Equipment DWequipment)
+            {
+                if (DWequipment.def.IsRangedWeapon)
+                {
+                    CompEquippable compEquippable = DWequipment.TryGetComp<CompEquippable>();
+                    if (compEquippable == null) return;
+                    if (compEquippable.verbTracker.AllVerbs.Count > 1)
+                    {
+                        __result = DWequipment.switchverb ? compEquippable.verbTracker.AllVerbs[1] : compEquippable.verbTracker.AllVerbs[0];
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer))]
+    [HarmonyPatch("ImpliedThingDefs")]
+    public static class Patch_ThingDefGenerator_Neurotrainer_ImpliedThingDefs
+    {
+        // 使用 Postfix 并修改返回的 IEnumerable<ThingDef>
+        [HarmonyPostfix]
+        public static void Postfix(ref IEnumerable<ThingDef> __result)
+        {
+            List<ThingDef> filteredDefs = new List<ThingDef>();
+            int abilityIndex = 0;
+            foreach (ThingDef neurotrainerDef in __result)
+            {
+                Log.Message("Checking neurotrainer def: " + neurotrainerDef.defName);
+                if(!neurotrainerDef.defName.StartsWith(ThingDefGenerator_Neurotrainer.PsytrainerDefPrefix + "_"))
+                {
+                    filteredDefs.Add(neurotrainerDef);
+                    continue;
+                }
+                List<AbilityDef> abilityDefs = DefDatabase<AbilityDef>.AllDefs.ToList();
+                string abilityDefName = neurotrainerDef.defName.Replace(ThingDefGenerator_Neurotrainer.PsytrainerDefPrefix + "_", "");
+                while(abilityIndex < abilityDefs.Count())
+                {
+                    Log.Message("Checking abilityDef: " + abilityDefs[abilityIndex].defName);
+                    if (abilityDefs[abilityIndex].defName == abilityDefName)
+                    {
+                        break;
+                    }
+                    abilityIndex++;
+                }
+                
+                if (!abilityDefs[abilityIndex].HasModExtension<ModExtension_PsyCastExtendedProperties>())
+                {
+                    filteredDefs.Add(neurotrainerDef);
+                }
+                else
+                {
+                    if(abilityDefs[abilityIndex].GetModExtension<ModExtension_PsyCastExtendedProperties>()?.ShouldHaveNeurotrainer == true)
+                    {
+                        filteredDefs.Add(neurotrainerDef);
+                    }
+                }
+            }
+            __result = filteredDefs;
+        }
+    }
 
 
 

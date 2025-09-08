@@ -44,7 +44,7 @@ namespace DarktideWeapons
         }
 
         private int tick = 0;
-        public CompProperties_DarktidePlasma Props
+        public new CompProperties_DarktidePlasma Props
         {
             get
             {
@@ -52,6 +52,17 @@ namespace DarktideWeapons
             }
         }
 
+        public override void SwitchMode(bool AuxiMode, int id = 0)
+        {
+            if (AuxiMode)
+            {
+                SwitchToChargeMode();
+            }
+            else
+            {
+                SwitchToNormalMode();
+            }
+        }
         public void ResetLastShotTick()
         {
             ticksSinceLastShot = 0;
@@ -267,7 +278,7 @@ namespace DarktideWeapons
         }
     }
 
-    public class CompProperties_DarktidePlasma : CompProperties
+    public class CompProperties_DarktidePlasma : DW_WeaponCompProperties
     {
         public CompProperties_DarktidePlasma()
         {

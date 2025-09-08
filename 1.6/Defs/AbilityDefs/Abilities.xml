@@ -18,6 +18,12 @@
       <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
       <Ability_EffectRadius>1.9</Ability_EffectRadius>
     </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+        
+        <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
+      </li>
+    </modExtensions>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
       <range>19.9</range>
@@ -62,7 +68,7 @@
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>
         <isExplosive>true</isExplosive>
-        <explosionDamage>20</explosionDamage>
+        <explosionDamage>10</explosionDamage>
         <explosionRadius>0.8</explosionRadius>
         <explosionDamageDef>Bomb</explosionDamageDef>
       </li>
@@ -81,9 +87,10 @@
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
     <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
-      <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
-    </li>
+      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+        <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
+        <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
+      </li>
     </modExtensions>
     <verbProperties>
       <verbClass>DarktideWeapons.Verb_AbilityShoot_Psycast</verbClass>

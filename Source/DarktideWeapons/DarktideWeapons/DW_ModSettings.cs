@@ -37,9 +37,9 @@ namespace DarktideWeapons
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
             //listingStandard.CheckboxLabeled("exampleBoolExplanation", ref settings.exampleBool, "exampleBoolToolTip");
-            listingStandard.Label("RangedDamageMultiplierGlobalLabel".Translate());
+            listingStandard.Label("RangedDamageMultiplierGlobalLabel".Translate() + " : " + settings.RangedDamageMultiplierGlobal);
             settings.RangedDamageMultiplierGlobal = listingStandard.Slider(settings.RangedDamageMultiplierGlobal, 0.5f, 10f);
-            listingStandard.Label("MeleeDamageMultiplierGlobalLabel".Translate());
+            listingStandard.Label("MeleeDamageMultiplierGlobalLabel".Translate() + " : " + settings.MeleeDamageMultiplierGlobal);
             settings.MeleeDamageMultiplierGlobal = listingStandard.Slider(settings.MeleeDamageMultiplierGlobal, 0.5f, 10f);
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);

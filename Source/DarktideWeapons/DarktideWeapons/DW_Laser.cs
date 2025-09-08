@@ -55,7 +55,6 @@ namespace DarktideWeapons
             if (projectileProps != null)
             {
                 this.Initiate(equipment);
-
             }
             this.launcher = launcher;
             this.origin = origin;
@@ -104,7 +103,6 @@ namespace DarktideWeapons
         
         protected void DrawLaser()
         {
-            
             GenDraw.DrawLineBetween(startPoint, endPoint, LaserLineMat, 0.05f);
         }
 
@@ -226,5 +224,15 @@ namespace DarktideWeapons
             }
         }
     }
-   
+
+    public class Mote_LaserBeam : Mote
+    {
+        public Vector3 start;
+        public Vector3 end;
+        public Color color = Color.red;
+
+        
+    }
+
+
 }

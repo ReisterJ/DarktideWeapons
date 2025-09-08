@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  
   <AbilityDef>
       <defName>DW_Ability_FireModeSwitch</defName>
       <label>Switch Mode</label>
@@ -31,9 +32,10 @@
       </comps>
   </AbilityDef>
 
+  
 
 <!-- plasma weapon -->
-    <AbilityDef>
+    <!-- <AbilityDef>
         <defName>DW_Ability_SwitchPlasmaMode</defName>
         <label>Switch Mode</label>
         <description>Switch plasma weapon mode.</description>
@@ -62,7 +64,7 @@
         <comps>
         <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchPlasmaMode"></li>
         </comps>
-  </AbilityDef>
+  </AbilityDef> -->
 <!-- 对武器进行充能以获取更高的伤害，并使等离子投射物穿透一切阻拦物。注意：满热量时再次充能会导致爆炸 -->
   <AbilityDef>
     <defName>DW_Ability_PlasmaChargedShot</defName>
@@ -103,6 +105,7 @@
     </comps>
   </AbilityDef>
 
+  
   <AbilityDef>
     <defName>DW_Ability_EmergencyCooling</defName>
     <label>Emergency Cooling</label>
@@ -135,5 +138,47 @@
   </AbilityDef>
 
 
+  <AbilityDef Name="Ability_ChargeWeaponBase" Abstract="True">
+      <label>Charge Weapon</label>
+      <description>Charge weapon for greater damage.</description>
+      <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+      <jobDef>CastAbilityOnThing</jobDef>
+      <targetRequired>false</targetRequired>
+      <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+      <stunTargetWhileCasting>false</stunTargetWhileCasting>
+      <statBases>
+      </statBases>
+      <verbProperties>
+        <verbClass>Verb_CastAbility</verbClass>
+        <warmupTime>1.0</warmupTime>
+        <range>0</range>
+        <drawAimPie>False</drawAimPie>
+        <requireLineOfSight>False</requireLineOfSight>
+        <targetParams>
+            <canTargetSelf>true</canTargetSelf>
+            <canTargetPawns>false</canTargetPawns>
+            <canTargetBuildings>false</canTargetBuildings>
+            <canTargetAnimals>false</canTargetAnimals>
+            <canTargetHumans>false</canTargetHumans>
+            <canTargetMechs>false</canTargetMechs>
+        </targetParams>
+      </verbProperties>
+      <comps>
+        <li Class="DarktideWeapons.CompProperties_AbilityEffect_ChargeWeapon"></li>
+      </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="Ability_ChargeWeaponBase">
+      <defName>DW_Ability_ChargeWeapon_Powersword</defName>
+      <verbProperties>
+        <warmupTime>1.0</warmupTime>
+      </verbProperties>
+  </AbilityDef>
+  <AbilityDef ParentName="Ability_ChargeWeaponBase">
+      <defName>DW_Ability_ChargeWeapon_ThunderHammer</defName>
+      <verbProperties>
+        <warmupTime>3.0</warmupTime>
+      </verbProperties>
+  </AbilityDef>
   
 </Defs>

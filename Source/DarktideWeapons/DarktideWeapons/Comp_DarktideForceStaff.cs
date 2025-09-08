@@ -11,7 +11,7 @@ namespace DarktideWeapons
 {
     public class Comp_DarktideForceStaff : DW_WeaponComp
     {
-        protected Comp_DarktideWeapon compDarktideWeapon => parent.TryGetComp<Comp_DarktideWeapon>();
+       // protected Comp_DarktideWeapon compDarktideWeapon => parent.TryGetComp<Comp_DarktideWeapon>();
 
         public float CalmEntropy => Props.calmEntrophy;
 
@@ -77,24 +77,24 @@ namespace DarktideWeapons
         public void Ability_CalmEntrophy()
         {
             ReduceEntrophy(GetEntrophyCalmRate(CalmEntropy));
-            compDarktideWeapon.HoldingPawn.psychicEntropy.OffsetPsyfocusDirectly((0f - CalmPsyfocusCost) / compDarktideWeapon.HoldingPawn.psychicEntropy.PsychicSensitivity);
+            PawnOwner.psychicEntropy.OffsetPsyfocusDirectly((0f - CalmPsyfocusCost) / PawnOwner.psychicEntropy.PsychicSensitivity);
         }
 
         public virtual void ReduceEntrophy(float entrophy)
         {
-            if (compDarktideWeapon.HoldingPawn.psychicEntropy.EntropyValue >= entrophy)
+            if (PawnOwner.psychicEntropy.EntropyValue >= entrophy)
             {
                 System.Reflection.FieldInfo entrophyfield = typeof(RimWorld.Pawn_PsychicEntropyTracker).GetField("currentEntropy", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-                entrophyfield?.SetValue(compDarktideWeapon.HoldingPawn.psychicEntropy, compDarktideWeapon.HoldingPawn.psychicEntropy.EntropyValue - entrophy);
+                entrophyfield?.SetValue(PawnOwner.psychicEntropy, PawnOwner.psychicEntropy.EntropyValue - entrophy);
             }
             else
             {
-                compDarktideWeapon.HoldingPawn.psychicEntropy.RemoveAllEntropy();
+                PawnOwner.psychicEntropy.RemoveAllEntropy();
             }
         }
         public virtual float GetEntrophyCalmRate(float baseEntrophy)
         {
-            int level = compDarktideWeapon.HoldingPawn.GetPsylinkLevel();
+            int level = PawnOwner.GetPsylinkLevel();
             float calmRate = baseEntrophy * level;
             if (this.parent.TryGetQuality(out QualityCategory category))
             {
@@ -178,7 +178,7 @@ namespace DarktideWeapons
         }
         public override string ShowInfo(Thing wielder)
         {
-            string header = "ForceStaff".Translate();
+            string header = "DWForceStaff".Translate();
 
             return header;
         }

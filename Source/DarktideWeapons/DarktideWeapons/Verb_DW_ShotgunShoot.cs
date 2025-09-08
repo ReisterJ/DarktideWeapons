@@ -66,6 +66,7 @@ namespace DarktideWeapons
                     Vector3 scatterTarget = origin + scatterDirection * (target - origin).magnitude;
 
                     Projectile projectile = (Projectile)GenSpawn.Spawn(verbProps.defaultProjectile, caster.Position, caster.Map);
+                    if(randomAngle >= 2f)   hitflag |= ProjectileHitFlags.NonTargetWorld;
                     projectile.Launch(caster, origin, scatterTarget.ToIntVec3(), currentTarget, hitflag, true, EquipmentSource,targetCoverDef);
                 }
                 if (verbProps.consumeFuelPerShot > 0f && caster.TryGetComp<CompRefuelable>() is CompRefuelable compRefuelable)

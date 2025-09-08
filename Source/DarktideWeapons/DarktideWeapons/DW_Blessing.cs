@@ -7,10 +7,8 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class ModExtension_PsyCastExtendedProperties : DefModExtension
+    public class DW_Blessing : ThingWithComps
     {
-        public ThingDef defaultProjectile;
-
-        public bool ShouldHaveNeurotrainer = false;
+        
     }
 }

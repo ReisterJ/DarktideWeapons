@@ -2,7 +2,10 @@
 
 <Defs>
 
-  
+  <ToolCapacityDef>
+    <defName>DW_Melee_Cleave</defName>
+    <label>Cut</label> 
+  </ToolCapacityDef>
   <!-- Axe -->
   <ToolCapacityDef>
     <defName>DW_Melee_Axe_Cleave</defName>
@@ -15,13 +18,13 @@
   </ToolCapacityDef>
 
   <ToolCapacityDef>
-    <defName>DW_Melee_SmashDown</defName>
-    <label>SmashDown</label>
+    <defName>DW_Melee_Strikedown</defName>
+    <label>Strikedown</label>
   </ToolCapacityDef>
 
   <!-- PowerSword -->
   <ToolCapacityDef>
-    <defName>DW_Melee_Powered_Cleave</defName>
-    <label>Powered Cleave</label> 
+    <defName>DW_Melee_RelicBlade_Cleave</defName>
+    <label>Cleave</label> 
   </ToolCapacityDef>
 </Defs>

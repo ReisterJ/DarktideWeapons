@@ -47,8 +47,8 @@ namespace DarktideWeapons
                 }
                 else
                 {
-                    BodyPartRecord bodyPartRecord = Props.isBrain ? victim.health.hediffSet.GetBrain() : null;
-                    victim.health.AddHediff(Props.hediffDef, bodyPartRecord, null, null);
+                    //BodyPartRecord bodyPartRecord = Props.isBrain ? victim.health.hediffSet.GetBrain() : null;
+                    victim.health.AddHediff(Props.hediffDef);
                     Hediff newhediff = victim.health.hediffSet.GetFirstHediffOfDef(Props.hediffDef);
                     HediffSpread(ref newhediff);
                     SpreadDebug(victim, hediff);

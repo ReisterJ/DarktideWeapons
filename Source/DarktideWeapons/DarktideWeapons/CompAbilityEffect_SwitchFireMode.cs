@@ -23,10 +23,10 @@ namespace DarktideWeapons
             if (caster == null || caster.equipment == null) return;
             if(caster.equipment.Primary is DW_Equipment weapon)
             {
-                Log.Message("Switching fire mode for " + weapon.LabelCap);
-                Log.Message("Current verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
+                //Log.Message("Switching fire mode for " + weapon.LabelCap);
+                //Log.Message("Current verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
                 weapon.ChangeVerb();
-                Log.Message("Change verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
+                //Log.Message("Change verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
             }
         }
     }
