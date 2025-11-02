@@ -259,6 +259,10 @@ namespace DarktideWeapons
             }
             return false;
         }
+
+        public void BlockDamageCheck() { 
+            
+        }
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
@@ -314,23 +318,7 @@ namespace DarktideWeapons
            
            
         }
-        /*
-        protected virtual bool DarktideWeaponCompTick()
-        {
-            if (PawnOwner.equipment == null) return false;
-            List<ThingWithComps> list = PawnOwner.equipment.AllEquipmentListForReading;
-            if (list == null || list.FirstOrDefault() == null) return false;
-
-            bool flag = false;
-            //Log.Message("this DWTcomp parent's holder " + this.PawnOwner.Name + " | equipmentlist : ");
-            for (int i = 0; i < list.Count; i++)
-            {
-                ThingWithComps thingWithComps = list[i];
-                //thingWithComps?.Tick();
-            }
-            return flag;
-        }
-        */
+       
 
         public override void CompTickInterval(int delta)
         {

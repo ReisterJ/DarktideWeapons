@@ -33,8 +33,16 @@ namespace DarktideWeapons
 
         public bool isStickyBomb = false;
 
+        public bool damageFalloffByRange = false;
+
+        public float minRangeStartFalloff = 25f;
+        
+
         public DamageDef explosionDamageDef;
-       
+
+        // for laser and plasma
+        public ThingDef beamMoteDef;
+        
         public List<HediffDef> applyHediffDefs = new List<HediffDef>();
     }
 

@@ -45,6 +45,45 @@
     </comps>
   </AbilityDef>
 
+  <AbilityDef ParentName="DW_ForceStaffPsycast">
+    <defName>DW_ReleaseWarpFire_Burst</defName>
+    <label>Release warp fire(Burst)</label>
+    <description>Channeling the power of the Immaterium into warp fire. It excels at controlling crowds of enemies.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_EffectRadius>1.9</Ability_EffectRadius>
+    </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+        <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
+      </li>
+    </modExtensions>
+    <verbProperties>
+      <warmupTime>1.8</warmupTime>
+      <range>19.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_DOT">
+        <hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
+        <applicableToMechs>True</applicableToMechs>
+        <addLevel>2</addLevel>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
 
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_VoidEnergyBall</defName>
@@ -57,13 +96,13 @@
       <damageDef>Bullet</damageDef>
       <damageAmountBase>30</damageAmountBase>
       <stoppingPower>4</stoppingPower>
-      <armorPenetrationBase>0.40</armorPenetrationBase>
-      <speed>65</speed>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <speed>75</speed>
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-        <penetrationPower>8</penetrationPower>
+        <penetrationPower>12</penetrationPower>
         <effectiveRange>45.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>

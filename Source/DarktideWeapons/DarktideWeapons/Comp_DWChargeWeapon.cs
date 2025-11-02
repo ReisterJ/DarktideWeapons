@@ -234,4 +234,22 @@ namespace DarktideWeapons
             return new GizmoResult(GizmoState.Clear);
         }
     }
+
+    public class Comp_DWChainSawRending : Comp_DWChargeWeapon
+    {
+
+    }
+
+    public class CompProperties_DWChainSawRending : CompProperties_DWChargeWeapon
+    {
+        public int rendDamageTick = 10;
+
+        public float rendDamage = 20f;
+
+        public int rendTickLasting = 120;
+        public CompProperties_DWChainSawRending()
+        {
+            this.compClass = typeof(Comp_DWChainSawRending);
+        }
+    }
 }

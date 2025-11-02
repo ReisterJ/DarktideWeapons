@@ -27,6 +27,7 @@ namespace DarktideWeapons
         }
 
         public bool isMainMode = true;
+
         public List<HediffDef> weaponCompHediffDefs = new List<HediffDef>();
         public CompProperties_DWSwitchMode Props
         {
@@ -36,6 +37,7 @@ namespace DarktideWeapons
             }
         }
 
+        
         public override void CompTickInterval(int delta)
         {
            
@@ -59,6 +61,7 @@ namespace DarktideWeapons
             {
                 this.weaponCompHediffDefs.Add(hediffDef);
             }
+            
         }
 
         
@@ -71,7 +74,7 @@ namespace DarktideWeapons
                 if (H != null)
                 {
                     PawnOwner.health.RemoveHediff(H);
-                    Log.Message("Removed Hediff: " + hediffDef.defName);
+                    //Log.Message("Removed Hediff: " + hediffDef.defName);
                 }
             }
         }
@@ -83,7 +86,7 @@ namespace DarktideWeapons
             {
                 if (PawnOwner.health.hediffSet.HasHediff(hediff)) continue;
                 PawnOwner.health.AddHediff(hediff);
-                Log.Message("Added Hediff: " + hediff.defName);
+                //Log.Message("Added Hediff: " + hediff.defName);
             }
         }
         public virtual void EquipmentChangeVerbWithHediff(bool AuxiMode , int id = 0)
@@ -101,6 +104,12 @@ namespace DarktideWeapons
                     RemoveGivenHediffs();
                 }
             }
+        }
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Values.Look(ref isMainMode, "isMainMode");
+            Scribe_References.Look(ref wielder, "wielder");
         }
     }
 

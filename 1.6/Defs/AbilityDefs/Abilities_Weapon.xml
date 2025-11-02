@@ -33,79 +33,6 @@
   </AbilityDef>
 
   
-
-<!-- plasma weapon -->
-    <!-- <AbilityDef>
-        <defName>DW_Ability_SwitchPlasmaMode</defName>
-        <label>Switch Mode</label>
-        <description>Switch plasma weapon mode.</description>
-        <iconPath>Things/Building/Power/PowerSwitch</iconPath>
-        <jobDef>CastAbilityOnThing</jobDef>
-        <targetRequired>false</targetRequired>
-        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-        <stunTargetWhileCasting>false</stunTargetWhileCasting>
-        <statBases>
-        </statBases>
-        <verbProperties>
-        <verbClass>Verb_CastAbility</verbClass>
-        <warmupTime>0.25</warmupTime>
-        <range>0</range>
-        <drawAimPie>False</drawAimPie>
-        <requireLineOfSight>False</requireLineOfSight>
-        <targetParams>
-            <canTargetSelf>true</canTargetSelf>
-            <canTargetPawns>false</canTargetPawns>
-            <canTargetBuildings>false</canTargetBuildings>
-            <canTargetAnimals>false</canTargetAnimals>
-            <canTargetHumans>false</canTargetHumans>
-            <canTargetMechs>false</canTargetMechs>
-        </targetParams>
-        </verbProperties>
-        <comps>
-        <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchPlasmaMode"></li>
-        </comps>
-  </AbilityDef> -->
-<!-- 对武器进行充能以获取更高的伤害，并使等离子投射物穿透一切阻拦物。注意：满热量时再次充能会导致爆炸 -->
-  <AbilityDef>
-    <defName>DW_Ability_PlasmaChargedShot</defName>
-    <label>Charged shot</label>
-    <description>Charge the weapon for increased damage and make plasma projectiles penetrate all obstacles. Note: Charging at max heat will cause deadly explosion.</description>
-    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
-	  
-    <targetRequired>false</targetRequired>
-    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-    <stunTargetWhileCasting>false</stunTargetWhileCasting>
-    <statBases>
-    </statBases>
-    <verbProperties>
-      <verbClass>Verb_LaunchProjectileStatic</verbClass>
-      <warmupTime>2.8</warmupTime>
-      <!-- <soundCast> </soundCast> -->
-      <ai_IsWeapon>false</ai_IsWeapon>
-      <range>50.9</range>
-      <drawAimPie>true</drawAimPie>
-      <requireLineOfSight>false</requireLineOfSight>
-      <defaultProjectile>DW_PlasmaChargedProjectile</defaultProjectile>
-      <accuracyTouch>0.98</accuracyTouch>
-      <accuracyShort>0.95</accuracyShort>
-      <accuracyMedium>0.95</accuracyMedium>
-      <accuracyLong>0.93</accuracyLong>
-      <soundCast>Shot_Shotgun</soundCast>
-      <targetParams>
-        <canTargetSelf>false</canTargetSelf>
-        <canTargetPawns>true</canTargetPawns>
-        <canTargetBuildings>true</canTargetBuildings>
-        <canTargetAnimals>true</canTargetAnimals>
-        <canTargetHumans>true</canTargetHumans>
-        <canTargetMechs>true</canTargetMechs>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <!-- <li Class="DarktideWeapons.CompProperties_AbilityEffect_PlasmaChargedShot"></li> -->
-    </comps>
-  </AbilityDef>
-
-  
   <AbilityDef>
     <defName>DW_Ability_EmergencyCooling</defName>
     <label>Emergency Cooling</label>
@@ -138,47 +65,130 @@
   </AbilityDef>
 
 
+  <AbilityDef Name="Ability_HeavyMeleeAttack" Abstract="True">
+    <label>Heavy Attack</label>
+    <description>Heavy Attack.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+    <jobDef>PerformHeavyMeleeAttack</jobDef>
+    <targetRequired>true</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>DarktideWeapons.SpecialMeleeVerbs.Verb_HeavyAttack</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>false</canTargetSelf>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>true</canTargetAnimals>
+          <canTargetHumans>true</canTargetHumans>
+          <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="Ability_HeavyMeleeAttack">
+    <defName>DW_HeavyAttack_Rashad_CombatAxe</defName>
+    <verbProperties>
+      <warmupTime>1.1</warmupTime>
+    </verbProperties>
+  </AbilityDef>
+
+  <AbilityDef Name="Ability_ChainSwordRavage" Abstract="True">
+    <label>Ravage</label>
+    <description>This weapon's razor-sharp teeth are propelled by a powerful motor, allowing it to tear through flesh and armour with equal ease.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+    <jobDef>PerformSpecialMeleeAttack</jobDef>
+    <targetRequired>true</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <!-- <warmupMote>Mote_WarmupWordOf</warmupMote> -->
+    <!-- <warmupSound>Psycast_WordOf_Warmup</warmupSound> -->
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>DarktideWeapons.SpecialMeleeVerbs.Verb_ChainSwordRavage</verbClass>
+      <warmupTime>1.5</warmupTime>
+      <range>-1</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>false</canTargetSelf>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>true</canTargetAnimals>
+          <canTargetHumans>true</canTargetHumans>
+          <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+      <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+      <burstShotCount>6</burstShotCount>
+    </verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="Ability_ChainSwordRavage">
+    <defName>DW_Ability_ChainSwordRavage_ChainSword</defName>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+      <burstShotCount>3</burstShotCount>
+    </verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="Ability_ChainSwordRavage">
+    <defName>DW_Ability_ChainSwordRavage_HeavyEviscerator_XV</defName>
+    <verbProperties>
+      <warmupTime>1.5</warmupTime>
+    </verbProperties>
+  </AbilityDef>
+
   <AbilityDef Name="Ability_ChargeWeaponBase" Abstract="True">
-      <label>Charge Weapon</label>
-      <description>Charge weapon for greater damage.</description>
-      <iconPath>Things/Building/Power/PowerSwitch</iconPath>
-      <jobDef>CastAbilityOnThing</jobDef>
-      <targetRequired>false</targetRequired>
-      <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-      <stunTargetWhileCasting>false</stunTargetWhileCasting>
-      <statBases>
-      </statBases>
-      <verbProperties>
-        <verbClass>Verb_CastAbility</verbClass>
-        <warmupTime>1.0</warmupTime>
-        <range>0</range>
-        <drawAimPie>False</drawAimPie>
-        <requireLineOfSight>False</requireLineOfSight>
-        <targetParams>
-            <canTargetSelf>true</canTargetSelf>
-            <canTargetPawns>false</canTargetPawns>
-            <canTargetBuildings>false</canTargetBuildings>
-            <canTargetAnimals>false</canTargetAnimals>
-            <canTargetHumans>false</canTargetHumans>
-            <canTargetMechs>false</canTargetMechs>
-        </targetParams>
-      </verbProperties>
-      <comps>
-        <li Class="DarktideWeapons.CompProperties_AbilityEffect_ChargeWeapon"></li>
-      </comps>
+    <label>Charge Weapon</label>
+    <description>Charge weapon for greater damage.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>false</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetHumans>false</canTargetHumans>
+          <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_AbilityEffect_ChargeWeapon"></li>
+    </comps>
   </AbilityDef>
 
   <AbilityDef ParentName="Ability_ChargeWeaponBase">
-      <defName>DW_Ability_ChargeWeapon_Powersword</defName>
-      <verbProperties>
-        <warmupTime>1.0</warmupTime>
-      </verbProperties>
+    <defName>DW_Ability_ChargeWeapon_Powersword</defName>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+    </verbProperties>
   </AbilityDef>
+
   <AbilityDef ParentName="Ability_ChargeWeaponBase">
-      <defName>DW_Ability_ChargeWeapon_ThunderHammer</defName>
-      <verbProperties>
-        <warmupTime>3.0</warmupTime>
-      </verbProperties>
+    <defName>DW_Ability_ChargeWeapon_ThunderHammer</defName>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+    </verbProperties>
   </AbilityDef>
   
 </Defs>

@@ -65,12 +65,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompAbilityEffect_ChainSwordSpin.cs" />
+    <Compile Include="CompAbilityEffect_ChargeRequired.cs" />
     <Compile Include="CompAbilityEffect_ChargeWeapon.cs" />
     <Compile Include="CompAbilityEffect_DOT.cs" />
-    <Compile Include="CompAbilityEffect_ForceStaff.cs" />
+    <Compile Include="CompAbilityEffect_ForceStaffRequired.cs" />
     <Compile Include="CompAbilityEffect_SwitchFireMode.cs" />
     <Compile Include="CompAbilityEffect_PlasmaMode.cs" />
-    <Compile Include="Comps\Comp_DWBlessings.cs" />
     <Compile Include="Comp_DWChargeWeapon.cs" />
     <Compile Include="Comp_DWHeadHuntShoot.cs" />
     <Compile Include="Comp_EquippableAbilities.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DW_ArcChain.cs" />
     <Compile Include="DW_Blessing.cs" />
     <Compile Include="DW_Equipment.cs" />
+    <Compile Include="DW_FireCloud.cs" />
     <Compile Include="DW_Grenade.cs" />
     <Compile Include="DW_Laser.cs" />
     <Compile Include="DW_PatchMain.cs" />
@@ -97,13 +99,22 @@
     <Compile Include="Hediff_DWToughnessShield.cs" />
     <Compile Include="Hediff_DOT.cs" />
     <Compile Include="Hediff_StickBomb.cs" />
+    <Compile Include="JobDrivers\JobDriver_HeavyMeleeAttack.cs" />
+    <Compile Include="JobDrivers\JobDriver_SpecialMeleeAttack.cs" />
+    <Compile Include="MeleeComps\Comp_HeavyAttack.cs" />
+    <Compile Include="MeleeComps\Comp_SpecialMelee.cs" />
     <Compile Include="ModExtension_DW_Ability.cs" />
     <Compile Include="ModExtension_HediffDOT.cs" />
     <Compile Include="ModExtension_PsyCastExtendedProperties.cs" />
     <Compile Include="ModExtension_ShotgunProperties.cs" />
-    <Compile Include="Comp_DWShield.cs" />
+    <Compile Include="Comp_Block.cs" />
     <Compile Include="ModExtension_EquipmentIntegration.cs" />
+    <Compile Include="SpecialMeleeVerbs\IHeavyMeleeAttack.cs" />
+    <Compile Include="SpecialMeleeVerbs\ISpecialMeleeAttack.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_AbilityMelee.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_HeavyAttack.cs" />
     <Compile Include="Util_BodyPart.cs" />
+    <Compile Include="Util_CharacterBuild.cs" />
     <Compile Include="Util_Crit.cs" />
     <Compile Include="Util_Melee.cs" />
     <Compile Include="ModExtension_MeleeWeaponProperties.cs" />
@@ -113,6 +124,8 @@
     <Compile Include="Util_Ranged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util_Stagger.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_ChainSwordRavage.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_Thrower.cs" />
     <Compile Include="Verb_DW_HeadHuntShoot.cs" />
     <Compile Include="Verb_DW_PlasmaShoot.cs" />
     <Compile Include="Verb_DW_Shoot.cs" />
@@ -120,6 +133,8 @@
     <Compile Include="Verb_DarktideLaunchProjectile.cs" />
     <Compile Include="Verb_AbilityShoot_Psycast.cs" />
     <Compile Include="Verb_DW_ShotgunShoot.cs" />
+    <Compile Include="Windows\Window_CharacterBuild.cs" />
+    <Compile Include="Windows\Window_Omnissiah.cs" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" />
@@ -129,5 +144,6 @@
     <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll" />
     <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.UI.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

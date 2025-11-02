@@ -35,16 +35,20 @@ namespace DarktideWeapons
                 if (holder is Pawn pawn) return pawn;
                 return null;
             }
-            set
-            {
-                holder = value;
-            }
+            
         }
 
         protected override void Tick()
         {
            
             base.Tick();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref holder, "holder");
+            Scribe_Values.Look(ref switchverb, "switchverb", false);
         }
         protected override void TickInterval(int delta)
         {
@@ -59,7 +63,15 @@ namespace DarktideWeapons
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            
+            if(HoldingPawn != null)
+            {
+                if (HoldingPawn.equipment.Contains(this))
+                {
+                    Linked_CompDWToughnessShield = HoldingPawn.TryGetComp<Comp_DWToughnessShield>();
+                    CompInit();
+                    ChangeVerb(setMainMode: true);
+                } 
+            }
         }
         public virtual bool QualityUpgrade(QualityCategory q)
         {
@@ -76,19 +88,26 @@ namespace DarktideWeapons
             //caution here     
             Linked_CompDWToughnessShield = pawn.TryGetComp<Comp_DWToughnessShield>();
             base.Notify_Equipped(pawn);
+            CompInit();
+            ChangeVerb(setMainMode: true);
+        }
 
-            weaponComps.Clear();
-            using (var enumerator = AllComps.GetEnumerator())
+        protected void CompInit()
+        {
+            if(this.holder != null)
             {
-                while (enumerator.MoveNext())
+                weaponComps.Clear();
+                using (var enumerator = AllComps.GetEnumerator())
                 {
-                    if (enumerator.Current is DW_WeaponComp dw)
+                    while (enumerator.MoveNext())
                     {
-                        weaponComps.Add(dw);
+                        if (enumerator.Current is DW_WeaponComp dw)
+                        {
+                            weaponComps.Add(dw);
+                        }
                     }
                 }
             }
-            ChangeVerb(setMainMode: true);
         }
 
         public override void Notify_Unequipped(Pawn pawn)
@@ -159,6 +178,7 @@ namespace DarktideWeapons
                     }
                 }
             }
+            
             return s;
         }
         protected virtual void ShowInspectDialog()
@@ -180,7 +200,10 @@ namespace DarktideWeapons
                     }
                 }
             }
-                
+            if (this.def.IsMeleeWeapon)
+            {
+                info.AppendLine("DWWeaponType".Translate() + " : " + "DWWeaponTypeMelee".Translate());
+            }
             using (var enumerator = weaponComps.GetEnumerator())
             {
                 while (enumerator.MoveNext())

@@ -34,6 +34,8 @@ namespace DarktideWeapons
 
         public const float MarksmanBase = 0.2f;
         public const float MarksmanShootLevelBonusConstant = 0.0015f;
+
+        public const float MinFlammabilityForDamage = 0.1f;
         public enum PlasmaWeaponMode
         {
             Normal,
@@ -45,7 +47,7 @@ namespace DarktideWeapons
 
         
 
-        public static List<IntVec3> GetLineSegmentCells(IntVec3 origin, IntVec3 dest, float range)
+        public static List<IntVec3> GetLineSegmentCells(IntVec3 origin, IntVec3 dest, float range ,Map map )
         {
             List<IntVec3> cells = new List<IntVec3>();
 
@@ -55,7 +57,7 @@ namespace DarktideWeapons
 
             foreach (IntVec3 cell in GenSight.PointsOnLineOfSight(origin, endPoint.ToIntVec3()))
             {
-                cells.Add(cell);
+                if(cell.InBounds(map))  cells.Add(cell);
             }
 
             return cells;
@@ -79,7 +81,32 @@ namespace DarktideWeapons
             return chance;
         }
 
-        public static void DEV_output(object o)
+        public static List<IntVec3> GetCellsWithinRadius(IntVec3 root, float radius, Map map)
+        {
+            List<IntVec3> area = new List<IntVec3>();
+            int minx = root.x - (int)radius;
+            int maxx = root.x + (int)radius;
+            int minz = root.z - (int)radius;
+            int maxz = root.z + (int)radius;
+            for (int x = minx; x <= maxx; x++)
+            {
+                for (int z = minz; z <= maxz; z++)
+                {
+                    IntVec3 cell = new IntVec3(x, root.y, z);
+                    if (cell.InBounds(map)) //&& cell.DistanceTo(root) <= radius)
+                    {
+                        area.Add(cell);
+                    }
+                }
+            }
+            return area;
+        }
+
+        public static void Ranged_Stats(Pawn pawn)
+        {
+
+        }
+        public static void DEV_output(object o,int level = 0)
         {
 #if DEBUG
             Log.Message("Ranged | " + o);

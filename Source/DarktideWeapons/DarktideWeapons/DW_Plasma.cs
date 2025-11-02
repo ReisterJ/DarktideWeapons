@@ -13,12 +13,12 @@ namespace DarktideWeapons
 {
     public class DW_Plasma : DW_Projectile
     {
-
+        protected MoteDualAttached TrailMote;
         protected override void EquipmentProjectileInit(ThingWithComps equipment)
         {
             PlasmaShotInit(equipment);
         }
-        protected Material LaserLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.SolidColor, Color.red);
+        protected Material TrailMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.SolidColor, Color.red);
 
         protected override void Tick()
         {
@@ -82,14 +82,14 @@ namespace DarktideWeapons
             int totalHitCount = 0;
             List<Thing> targetList = new List<Thing>();
             IntVec3 finalDestination = intendedTarget.Cell;
-            List<IntVec3> cells = Util_Ranged.GetLineSegmentCells(origin.ToIntVec3(), this.usedTarget.Cell, this.projectileProps.effectiveRange);
+            List<IntVec3> cells = Util_Ranged.GetLineSegmentCells(origin.ToIntVec3(), this.usedTarget.Cell, this.projectileProps.effectiveRange,this.Map);
             foreach (IntVec3 cell in cells)
             {
                 List<Thing> things = cell.GetThingList(this.Map);
                 int cellHitCount = 0;
                 foreach (Thing thing in things)
-                {
-                    if (HitCheck(thing))
+                { 
+                    if ( HitCheck(thing))
                     {
                         totalHitCount++;
                         Log.Message("Available target : " + thing.Label);
@@ -107,15 +107,29 @@ namespace DarktideWeapons
             //plasmaTrail.start = origin;
             //plasmaTrail.end = this.destination;
             //GenSpawn.Spawn(plasmaTrail, origin.ToIntVec3(), this.Map);
-            GenDraw.DrawLineBetween(origin, finalDestination.ToVector3(), LaserLineMat, 0.05f);
+            GenDraw.DrawLineBetween(origin, finalDestination.ToVector3(), TrailMat, 0.05f);
             foreach (Thing target in targetList)
             {
                 Impact(target);
             }
         }
 
-       
-        
+        protected void DrawTrail()
+        {
+            if (this.projectileProps?.beamMoteDef != null)
+            {
+                TrailMote = MoteMaker.MakeInteractionOverlay(this.projectileProps.beamMoteDef, this.launcher, new TargetInfo(this.usedTarget.Cell, this.Map));
+            }
+            else
+            {
+                GenDraw.DrawLineBetween(origin, usedTarget.Cell.ToVector3(), TrailMat, 0.05f);
+            }
+        }
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            //DrawLaser();
+            Comps_PostDraw();
+        }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             Map map = base.Map;
@@ -182,7 +196,7 @@ namespace DarktideWeapons
                     FleckMaker.Static(ExactPosition, map, FleckDefOf.ShotHit_Dirt);
                 }
             }
-
+            
         }
         public bool HitCheck(Thing thing)
         {
@@ -211,8 +225,7 @@ namespace DarktideWeapons
             {
                 if(thing is Pawn pawn)
                 {
-                    float pawnHitProbability = 0.5f;
-                    pawnHitProbability = Util_Ranged.Intercept_PawnBodySize_Factor * Mathf.Clamp(pawn.BodySize, 0.5f, 3f);
+                    float pawnHitProbability = Util_Ranged.Intercept_PawnBodySize_Factor * Mathf.Clamp(pawn.BodySize, 0.5f, 3f);
                     if (pawn.GetPosture() != 0)
                     {
                         pawnHitProbability *= Util_Ranged.Intercept_PawnPosture_Downed_Factor;
@@ -233,7 +246,7 @@ namespace DarktideWeapons
                         return true;
                     }
                 }
-                else
+                else if(thing.def.fillPercent > Util_Ranged.MinFillPercentCountAsCover)
                 {
                     if (this.penetrateWall)
                     {
@@ -268,45 +281,4 @@ namespace DarktideWeapons
         }
     }
 
-    public class Mote_PlasmaTrail : Mote
-    {
-        public Vector3 start;
-        public Vector3 end;
-        private Color baseColor = new Color(0.5f, 1f, 1f, 1f); 
-        private float width = 0.1f;
-        private int tickInterval = 5;
-        private int maxTicks = 25;
-        private float currentAlpha = 1f;
-        private int age = 0;
-        private Material trailMat;
-        private Mesh trailMesh;
-        protected override void TickInterval(int delta)
-        {
-            base.TickInterval(delta);
-            age += delta;
-            currentAlpha = Mathf.Max(0f, 1f - (float)age / maxTicks);
-            if (age >= maxTicks)
-            {
-                Destroy();
-            }
-        }
-
-      
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            trailMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.SolidColor, baseColor);
-            trailMesh = MeshPool.GridPlane((start - end));
-        }
-
-        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
-        {
-            Color drawColor = baseColor;
-            drawColor.a = currentAlpha;
-            trailMat.color = drawColor;
-            Matrix4x4 matrix = Matrix4x4.TRS((start + end) / 2f, Quaternion.LookRotation(end - start), new Vector3(width, 1f, (start - end).magnitude));
-            Graphics.DrawMesh(trailMesh, matrix, trailMat, 0);
-        }
-    
-    }
 }

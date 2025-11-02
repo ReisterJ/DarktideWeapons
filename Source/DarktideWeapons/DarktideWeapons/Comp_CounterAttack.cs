@@ -111,8 +111,8 @@ namespace DarktideWeapons
             {
                 int meleelevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
                 CounterAttackChanceCurrent = CounterAttackChance + meleelevel * Props.CounterAttackChanceIncreasePerLevel;
-                string counterAttackInfo = "CounterAttackChance: " + CounterAttackChanceCurrent.ToStringPercent();
-                string counterAttackDamageInfo = "CounterAttackDamage: " + CounterAttackDamageInfo.ToString();
+                string counterAttackInfo = "DWCounterAttackChance"+ " : " + CounterAttackChanceCurrent.ToStringPercent();
+                string counterAttackDamageInfo = "DWCounterAttackDamage"+ " : " + CounterAttackDamageInfo.ToString();
                 return header + "\n" + counterAttackInfo.Translate() + "\n" + counterAttackDamageInfo.Translate() + "\n";
             }
             else

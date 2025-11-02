@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>PerformSpecialMeleeAttack</defName>
+    <driverClass>DarktideWeapons.JobDrivers.JobDriver_SpecialMeleeAttack</driverClass>
+    <reportString>Performing special melee attack.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>PerformHeavyMeleeAttack</defName>
+    <driverClass>DarktideWeapons.JobDrivers.JobDriver_HeavyMeleeAttack</driverClass>
+    <reportString>Performing heavy melee attack.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

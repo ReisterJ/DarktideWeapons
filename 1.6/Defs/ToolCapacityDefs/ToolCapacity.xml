@@ -7,9 +7,15 @@
     <label>Cut</label> 
   </ToolCapacityDef>
   <!-- Axe -->
+
   <ToolCapacityDef>
-    <defName>DW_Melee_Axe_Cleave</defName>
-    <label>Cleave</label> 
+    <defName>DW_Melee_Axe</defName>
+    <label>Axe edge</label> 
+  </ToolCapacityDef>
+
+  <ToolCapacityDef>
+    <defName>DW_Melee_Axe_Heavy</defName>
+    <label>Axe edge</label> 
   </ToolCapacityDef>
   
   <ToolCapacityDef>
@@ -26,5 +32,15 @@
   <ToolCapacityDef>
     <defName>DW_Melee_RelicBlade_Cleave</defName>
     <label>Cleave</label> 
+  </ToolCapacityDef>
+
+  <!-- Eviscerator -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_Eviscerator_Cleave</defName>
+    <label>Cleave</label> 
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>DW_Melee_ChainSwordRavage</defName>
+    <label>Chain saw tear</label> 
   </ToolCapacityDef>
 </Defs>

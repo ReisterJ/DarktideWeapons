@@ -25,7 +25,10 @@ namespace DarktideWeapons
         
         public static void CritMoteMaker(Thing hitThing)
         {
-            MoteMaker.ThrowText(hitThing.PositionHeld.ToVector3(), hitThing.MapHeld, "Crit", 2f);
+            if(hitThing is Pawn)
+            {
+                MoteMaker.ThrowText(hitThing.PositionHeld.ToVector3(), hitThing.MapHeld, "Crit", 1.2f);
+            }
         }
     }
 }

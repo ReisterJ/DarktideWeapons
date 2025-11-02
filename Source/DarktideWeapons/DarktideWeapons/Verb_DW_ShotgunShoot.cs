@@ -27,7 +27,7 @@ namespace DarktideWeapons
             spreadAngleMax -= spreadOffset;
             if (spreadAngleMax < spreadAngleMin) spreadAngleMax = spreadAngleMin;
         }
-        protected virtual bool ShotgunFire(ProjectileHitFlags hitflag, ThingDef targetCoverDef)
+        protected bool ShotgunFire(ProjectileHitFlags hitflag, ThingDef targetCoverDef)
         {
             ModExtension_ShotgunProperties shotgunProperties = this.EquipmentSource?.def.GetModExtension<ModExtension_ShotgunProperties>();
             if(shotgunProperties != null)
@@ -66,7 +66,10 @@ namespace DarktideWeapons
                     Vector3 scatterTarget = origin + scatterDirection * (target - origin).magnitude;
 
                     Projectile projectile = (Projectile)GenSpawn.Spawn(verbProps.defaultProjectile, caster.Position, caster.Map);
-                    if(randomAngle >= 2f)   hitflag |= ProjectileHitFlags.NonTargetWorld;
+                    if (randomAngle >= 2f) {
+                        hitflag = ProjectileHitFlags.All;
+                    }  
+                    else { hitflag = ProjectileHitFlags.IntendedTarget; }
                     projectile.Launch(caster, origin, scatterTarget.ToIntVec3(), currentTarget, hitflag, true, EquipmentSource,targetCoverDef);
                 }
                 if (verbProps.consumeFuelPerShot > 0f && caster.TryGetComp<CompRefuelable>() is CompRefuelable compRefuelable)

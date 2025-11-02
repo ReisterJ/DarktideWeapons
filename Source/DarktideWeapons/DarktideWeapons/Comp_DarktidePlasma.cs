@@ -74,12 +74,15 @@ namespace DarktideWeapons
             ticksSinceLastShot++;
             if (plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
             {
-                heat -= coolingWeaponHeatLossRate;
-                if(heat < 0)
+                if (ticksSinceLastShot >= Util_Ranged.PLASMA_SELFCOOLING_TICKS)
                 {
-                    heat = 0;
-                }   
-                
+                    heat -= coolingWeaponHeatLossRate;
+                    if (heat < 0)
+                    {
+                        heat = 0;
+                    }
+                }
+
             }
             if(plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat <= 0)
             {
@@ -219,16 +222,16 @@ namespace DarktideWeapons
             {
                 yield return gizmo2;
             }
-            /*
+            
             yield return new Command_Action
             {
-                defaultLabel = "ForcedCooling".Translate(),
-                defaultDesc = "ForcedCoolingDesc".Translate(),
-                //icon = TexCommand.DesirePower,
-                //action = new Action()
+                defaultLabel = "DWStopCooling".Translate(),
+                defaultDesc = "DWStopCoolingDesc".Translate(),
+                icon = TexCommand.DesirePower,
+                action = SwitchToNormalMode
             };
-            
-            
+
+            /*
             yield return new Command_Action
             {
                 defaultLabel = "SafeMode".Translate() + " : " + this.safeMode.ToString().Translate(),
@@ -320,7 +323,7 @@ namespace DarktideWeapons
 
         public override float GetWidth(float maxWidth)
         {
-            return 150f;
+            return 180f;
         }
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -333,7 +336,7 @@ namespace DarktideWeapons
             Text.Font = GameFont.Tiny;
 
             string wielderlabel = compPlasma.wielder != null ? compPlasma.wielder.Label : "";
-            Widgets.Label(rect3, wielderlabel +" "+ "PlasmaHeat".Translate().Resolve());
+            Widgets.Label(rect3, wielderlabel +" "+ "PlasmaHeat".Translate().Resolve() + " " + this.compPlasma.plasmaWeaponMode );
             Rect rect4 = rect2;
             rect4.yMin = rect2.y + rect2.height / 2f;
             float fillPercent = compPlasma.heat / Mathf.Max(1f, compPlasma.maxHeat);

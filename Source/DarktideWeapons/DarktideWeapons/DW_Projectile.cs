@@ -48,6 +48,8 @@ namespace DarktideWeapons
 
         public float DamageMultiplier_Anomoly = 1f;
 
+        protected int ETAHitTick = -1;
+
         public bool penetrateWall = false;
 
         protected IntVec3 stopPoint = new IntVec3(0, -1, 0);
@@ -154,17 +156,7 @@ namespace DarktideWeapons
         }
         protected override void Tick()
         {
-            /*if ( != null)
-            {
-                int i = 0;
-                for (int count = comps.Count; i < count; i++)
-                {
-                    comps[i].CompTick();
-                }
-            }
-            */
-            
-            Vector3 exactPosition = ExactPosition;
+            Vector3 exactPosition = ExactPosition;//get the position at the start of the tick
             flyingTicks ++;
             if (!ExactPosition.InBounds(base.Map))
             {
@@ -172,12 +164,13 @@ namespace DarktideWeapons
                 Destroy();
                 return;
             }
-            Vector3 exactPosition2 = ExactPosition;
+            Vector3 exactPosition2 = ExactPosition;//get the position after moving
+            LastPosition = exactPosition;
             if (this.CheckForFreeInterceptBetween(exactPosition, exactPosition2))
             {
                 return;
             }
-            LastPosition = exactPosition;
+            
             base.Position = ExactPosition.ToIntVec3();
             if (ambientSustainer != null)
             {
@@ -277,6 +270,14 @@ namespace DarktideWeapons
             return dinfo;
         }
 
+        protected virtual void BaseDamageModify(ref float damage, ref float ap)
+        {
+
+        }
+
+        protected virtual void CritHandler(ref float damage, ref float ap, Thing hitThing) { 
+            
+        }
 
         //deprecated
         /*
@@ -406,6 +407,7 @@ namespace DarktideWeapons
 
             critFlag = Util_Crit.IsCrit(this.critChanceinGame);
             float lifetimeF = this.projectileProps.effectiveRange / this.def.projectile.SpeedTilesPerTick;
+            ETAHitTick = (int)(this.destination.ToIntVec3().DistanceTo(this.origin.ToIntVec3()) / this.def.projectile.SpeedTilesPerTick);
             flyingTicks = 0;
             lifetime = lifetimeF > 0.1f ? (int)lifetimeF : 1;
             LastPosition = ExactPosition;
@@ -458,7 +460,7 @@ namespace DarktideWeapons
 
                     foreach (HediffDef hediffdef in this.projectileProps.applyHediffDefs)
                     {
-                        pawn2.health.AddHediff(hediffdef,Util_BodyPart.GetTorsoPart(pawn2), null, null);
+                        this.TryAddHediff(hediffdef, pawn2);
                     }
                 }
 
@@ -701,11 +703,8 @@ namespace DarktideWeapons
             {
                 Thing thing = thingList[i];
                 if (thing == this) continue;
-                if (thing.def.Fillage == FillCategory.Full && !CanHit(thing))
-                {
-                    continue;
-                }
-                if (DEBUGLEVEL > 1) Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
+                
+                //if (DEBUGLEVEL > 1) Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
                 //wall hit check
                 bool openDoorHitFlag = false;
                 if (SameTargetCollisionCheck(thing)) return false;
@@ -717,12 +716,15 @@ namespace DarktideWeapons
                     }
                     else
                     {
-                        
                         if (penetrateWall)
                         {
                             PenetratedTarget++;
                             Impact(thing);
                             //penetrateWall = false;
+                            return false;
+                        }
+                        if (!CanHit(thing) && ETAHitTick >= flyingTicks && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
+                        {
                             return false;
                         }
                         forcedStop = true;
@@ -764,7 +766,7 @@ namespace DarktideWeapons
                 }
                 else
                 {
-                    if(this.usedTarget.Thing == thing)
+                    if(this.usedTarget.Thing == thing || this.intendedTarget == thing)
                     {
                         forcedStop = true;
                         Impact(thing);
@@ -779,7 +781,7 @@ namespace DarktideWeapons
                                 PenetratedTarget++;
                             }
                             Impact(thing);
-                            return false;
+                            return true;
                         }
                         coverHitProbablility = (openDoorHitFlag ? 0.05f :
                             ((!usedTarget.Cell.AdjacentTo8Way(c)) ? (thing.def.fillPercent * Util_Ranged.CoverHitFactor_NotCloseToTarget) :
@@ -832,6 +834,25 @@ namespace DarktideWeapons
                 return false;
             }
             if (lastHitThing != null && lastHitThing == hitThing && Find.TickManager.TicksGame - lastCollisionTick < 1) return true;
+            return false;
+        }
+
+        protected virtual bool TryAddHediff(HediffDef hediffdef,Pawn Target)
+        {
+            Hediff H = Target.health.hediffSet.GetFirstHediffOfDef(hediffdef);
+            if (H == null)
+            {
+                Target.health.AddHediff(hediffdef, Util_BodyPart.GetTorsoPart(Target), null, null);
+                return true;
+            }
+            else
+            {
+                if(H is Hediff_DOT dot)
+                {
+                    dot.ChangeLevel(1);
+                    return true;
+                }
+            }
             return false;
         }
     }

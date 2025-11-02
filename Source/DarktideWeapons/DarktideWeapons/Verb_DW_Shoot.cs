@@ -94,7 +94,7 @@ namespace DarktideWeapons
         protected override bool TryCastShot()
         {
             bool num = base.TryCastShot();
-            
+            this.Notify_ProjectileLaunched();
             if (num)
             {
                 if (verbProps.consumeFuelPerShot > 0f && caster.TryGetComp<CompRefuelable>() is CompRefuelable compRefuelable)
@@ -108,6 +108,20 @@ namespace DarktideWeapons
             }
             
             return num;
+        }
+
+        public virtual void Notify_ProjectileLaunched()
+        {
+
+        }
+        public void PostProjectileLaunched()
+        {
+
+        }
+
+        public void PreProjectileLaunched()
+        {
+
         }
         public virtual bool CausesTimeSlowdown(LocalTargetInfo castTarg)
         {

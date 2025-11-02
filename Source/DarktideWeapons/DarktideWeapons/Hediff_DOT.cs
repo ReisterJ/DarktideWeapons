@@ -45,7 +45,7 @@ namespace DarktideWeapons
        
         protected virtual float GetDamage()
         {
-            return this.level * this.level / 2 * DamageBonusPerLevel * DamageMultiplier_Global;
+            return this.level * DamageBonusPerLevel * DamageMultiplier_Global;
         }
 
 
@@ -63,10 +63,10 @@ namespace DarktideWeapons
                 return;
             }
             damageTick += delta;
-            levelkeepcheck+= delta;
             if (damageTick % DamageTickPeriod == 0)
             {
                 DOTDamage();
+                levelkeepcheck += 1;
             }
             if (levelkeepcheck >= Extension_HediffDOT.downgradeDamageTime)
             {

@@ -16,6 +16,12 @@ namespace DarktideWeapons
     {
         private const int TargetCooldown = 50;
 
+        public float critChance = 0.05f;
+
+        public float critDamageMultiplier =1.5f;
+
+        public float critArmorPenetrationMultiplier = 1.25f;
+        
         // cleaveTargetsNum = MainTarget + cleaveTargets. If cleaveTargetsNum is 2 , the main target and one additional target will take damage.
         protected int cleaveTargetsNum = 0;
 
@@ -28,7 +34,15 @@ namespace DarktideWeapons
         public DW_Equipment DW_equipment => this.EquipmentSource as DW_Equipment;
         public float MeleeDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().MeleeDamageMultiplierGlobal;
 
-        
+
+        public override bool Available()
+        {
+            return base.Available();
+        }
+        public virtual void Notify_MeleeAttacked()
+        {
+
+        }
         protected override bool TryCastShot()
         {
             Pawn casterPawn = CasterPawn;
@@ -45,7 +59,6 @@ namespace DarktideWeapons
             {
                 return false;
             }
-            
             if (!CanHitTarget(thing))
             {
                 Log.Warning(string.Concat(casterPawn, " meleed ", thing, " from out of melee position."));
@@ -187,23 +200,17 @@ namespace DarktideWeapons
             {
                 return;
             }
-            //Util_Melee.DEV_output(" CleaveTargets valid ");
-            //IntVec3 targetPos = target.Position;
-            //var targetAdjCardinal = cells;
-
+ 
             int pawnNum = 0;
             bool stopFlag = false;
             TargetChain.Clear();
             foreach (var p in cells)
             {
-                //Log.Message(p);
                 IntVec3 tempPos = p;
                 if (!tempPos.InBounds(target.Map))
                 {
                     continue;
                 }
-                //Util_Melee.DEV_output(" Position check: " + tempPos);
-
                 foreach (Thing thing in tempPos.GetThingList(target.Map))
                 {
                     if (thing is Pawn nextPawnTarget)
@@ -212,10 +219,8 @@ namespace DarktideWeapons
                         if (nextPawnTarget.HostileTo(CasterPawn))
                         {
                             pawnNum += Mathf.CeilToInt(nextPawnTarget.BodySize);
-                            //Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + nextPawnTarget.Name);
                             if (pawnNum >= cleaveTargetsNum)
                             {
-                                //Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
                                 stopFlag = true;
                                 break;
                             }
@@ -372,7 +377,20 @@ namespace DarktideWeapons
             DamageDef def = verbProps.meleeDamageDef;
             BodyPartGroupDef bodyPartGroupDef = null;
             HediffDef hediffDef = null;
+            BodyPartRecord hitpart = null;
             QualityCategory qc = QualityCategory.Normal;
+            // crit
+            if (this.CritCheck())
+            {
+                num *= critDamageMultiplier;
+                armorPenetration *= critArmorPenetrationMultiplier;
+                Util_Crit.CritMoteMaker(target.Thing);
+                if(this.craftType == Util_Melee.CraftType.Strikedown)
+                {
+                    hitpart = Util_Melee.TryHitCorePart(CasterPawn, target.Pawn);
+                }
+            }
+
             //充能武器对单有特殊判定
             if (IsChargeAttack())
             {
@@ -430,7 +448,7 @@ namespace DarktideWeapons
             }
             Vector3 direction = (target.Thing.Position - CasterPawn.Position).ToVector3();
             bool instigatorGuilty = !(caster is Pawn pawn) || !pawn.Drafted;
-            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster, null, source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
+            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster, hitpart , source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
             damageInfo.SetBodyRegion(BodyPartHeight.Undefined, BodyPartDepth.Outside);
             damageInfo.SetWeaponBodyPartGroup(bodyPartGroupDef);
             damageInfo.SetWeaponHediff(hediffDef);
@@ -501,7 +519,7 @@ namespace DarktideWeapons
                 armorPenetration *= DW_equipment.Comp_DWChargeWeapon.NewArmorPenetrationFactor;
                 DW_equipment.Comp_DWChargeWeapon.ConsumeCharge((int)target.BodySize);
             }
-
+            
             if (CasterIsPawn)
             {
                 bodyPartGroupDef = verbProps.AdjustedLinkedBodyPartsGroup(tool);
@@ -562,7 +580,17 @@ namespace DarktideWeapons
             }
         }
 
-
+        private bool CritCheck()
+        {
+            critChance = ModExtension_MeleeProp?.critChance ?? 0.05f;
+            critDamageMultiplier = ModExtension_MeleeProp?.critDamageMultiplier ?? 1.5f;
+            critArmorPenetrationMultiplier = ModExtension_MeleeProp?.critArmorPenetrationMultiplier ?? 1.5f;
+            if (Util_Crit.IsCrit(critChance))
+            {
+                return true;
+            }
+            return false;
+        }
         protected bool CanApplyMeleeSlaveSuppression(Pawn targetPawn)
         {
             if (CasterPawn != null && CasterPawn.IsColonist && !CasterPawn.IsSlave && targetPawn != null && targetPawn.IsSlaveOfColony && targetPawn.health.capacities.CanBeAwake)
@@ -571,8 +599,6 @@ namespace DarktideWeapons
             }
             return false;
         }
-
-
 
         protected virtual void ApplyMeleeSlaveSuppression(Pawn targetPawn, float damageDealt)
         {

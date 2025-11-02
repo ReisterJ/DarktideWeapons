@@ -16,6 +16,7 @@ namespace DarktideWeapons
         public const float Quality_Legendary_Bias = 2f;
         public const int MaxLevel = 20;
 
+        public const int ExpertLevel = 10;
         public static float PawnMeleeLevelDamageMultiplier(Pawn pawn)
         {
             int meleeLevel = pawn.skills.GetSkill(SkillDefOf.Melee).Level;
@@ -60,7 +61,25 @@ namespace DarktideWeapons
             }
             return false;
         }
-        
+
+        public static BodyPartRecord TryHitCorePart(Pawn CasterPawn,Pawn targetPawn)
+        {
+            float headhit = 0f;
+            int level = CasterPawn?.skills.GetSkill(SkillDefOf.Melee).Level ?? 0;
+            if (level > ExpertLevel)
+            {
+                headhit = (level - ExpertLevel) * 0.05f;
+            }
+            if (Rand.Chance(headhit))
+            {
+                return Util_BodyPart.GetHeadPart(targetPawn);
+            }
+            return null;
+        }
+        public static void Melee_Stats(Pawn pawn)
+        {
+
+        }
 
         public static void DEV_output(object o)
         {

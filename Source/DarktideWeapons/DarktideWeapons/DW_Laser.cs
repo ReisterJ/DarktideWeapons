@@ -7,6 +7,7 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 using Verse.Sound;
+using static UnityEngine.Scripting.GarbageCollector;
 
 namespace DarktideWeapons
 {
@@ -18,7 +19,7 @@ namespace DarktideWeapons
         protected Vector3 startPoint;
         protected Vector3 endPoint;
 
-        protected Mote laserMote;
+        protected MoteDualAttached laserMote;
         protected bool isLaserActive = false;
         protected override void Tick()
         {
@@ -103,12 +104,19 @@ namespace DarktideWeapons
         
         protected void DrawLaser()
         {
-            GenDraw.DrawLineBetween(startPoint, endPoint, LaserLineMat, 0.05f);
+            if (this.projectileProps.beamMoteDef != null)
+            {
+                laserMote = MoteMaker.MakeInteractionOverlay(this.projectileProps.beamMoteDef, this.launcher ,new TargetInfo(this.usedTarget.Cell,this.Map) );
+            }
+            else
+            {
+                GenDraw.DrawLineBetween(origin, usedTarget.Cell.ToVector3(), LaserLineMat, 0.05f);
+            }
         }
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            DrawLaser();
+            //DrawLaser();
             Comps_PostDraw();
         }
 

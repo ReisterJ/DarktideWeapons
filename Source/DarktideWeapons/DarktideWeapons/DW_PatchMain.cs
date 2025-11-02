@@ -65,12 +65,12 @@ namespace DarktideWeapons.HarmonyPatches
             }
         }
     }
-
+    // 使用 Postfix 并修改返回的 IEnumerable<ThingDef>
     [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer))]
     [HarmonyPatch("ImpliedThingDefs")]
     public static class Patch_ThingDefGenerator_Neurotrainer_ImpliedThingDefs
     {
-        // 使用 Postfix 并修改返回的 IEnumerable<ThingDef>
+        
         [HarmonyPostfix]
         public static void Postfix(ref IEnumerable<ThingDef> __result)
         {

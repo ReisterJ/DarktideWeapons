@@ -12,6 +12,7 @@ namespace DarktideWeapons
     {
         public const int baseStaggerTick = 90;
 
+        public const int baseStunTick = 120;
         public static bool IsStun(float chance)
         {
             if (Rand.Chance(chance))
@@ -38,6 +39,33 @@ namespace DarktideWeapons
             }
             return false;
         }
+
+
+        public static void StunHandler(Pawn pawn , int ticks , Thing instigator)
+        {
+            if (pawn != null && !pawn.Dead && pawn.Spawned)
+            {
+                pawn.stances.stunner.StunFor(ticks, instigator);
+            }
+        }
+        public static void StaggerHandler(Pawn pawn , int ticks,Thing instigator, float staggerlevel = 1f)
+        {
+            if(staggerlevel > pawn.BodySize * 2)
+            {
+                StunHandler(pawn, StunTicks(pawn,staggerlevel), instigator);
+                return;
+            }
+            if (pawn != null && !pawn.Dead && pawn.Spawned)
+            {
+                pawn.stances.stagger.StaggerFor(ticks);
+            }
+        }
+
+        public static int StaggerTicks(Pawn hitpawn,float staggerlevel)
+        {
+            int tick = staggerlevel > hitpawn.BodySize ?(int) (baseStaggerTick * staggerlevel) :(int) (baseStaggerTick / (1f + hitpawn.BodySize - staggerlevel));
+            return tick;
+        }
         public enum StaggerLevel
         {
             None,
@@ -46,13 +74,10 @@ namespace DarktideWeapons
             Heavy,
             Stunned
         }
-        public static int GetStaggerTick(int level)
+        public static int StunTicks(Pawn hitpawn ,float level)
         {
-            if(level < 4)
-            {
-                return baseStaggerTick * ( level + 1 ); 
-            }
-            return baseStaggerTick;
+            int stunticks = Math.Min((int)(baseStunTick * (1f + level - hitpawn.BodySize)), baseStunTick * 4);
+            return baseStunTick;
         }
     }
 }

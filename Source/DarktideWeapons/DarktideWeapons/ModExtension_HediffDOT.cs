@@ -22,7 +22,7 @@ namespace DarktideWeapons
 
         public bool ignoreArmor = false;
 
-        public int downgradeDamageTime = 4;
+        public int downgradeDamageTime = 2;
 
         public bool isBrain = false;
     }

@@ -70,6 +70,11 @@ namespace DarktideWeapons
 
             }
         }
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_References.Look(ref wielder, "wielder" );
+        }
     }
     public class DW_WeaponCompProperties : CompProperties
     {

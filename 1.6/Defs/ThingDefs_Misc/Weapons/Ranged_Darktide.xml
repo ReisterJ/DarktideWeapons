@@ -146,7 +146,7 @@
         <friendlyFire>false</friendlyFire>
         <critChance>0.20</critChance>
         <critDamageMultiplier>3.0</critDamageMultiplier>
-        <critArmorPenetrationMultiplier>1.25</critArmorPenetrationMultiplier>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
       </li>
     </modExtensions>
   </ThingDef>
@@ -341,10 +341,10 @@
         <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>DW_Bullet_Revolver_A</defaultProjectile>
-        <warmupTime>0.2</warmupTime>
+        <warmupTime>0.5</warmupTime>
         <range>25.9</range>
         <burstShotCount>5</burstShotCount>
-        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
         <soundCast>Shot_Revolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -916,6 +916,7 @@
       <penetrateWall>false</penetrateWall>
       <friendlyFire>false</friendlyFire>
       <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
     </li>
   </modExtensions>
 </ThingDef>
@@ -997,6 +998,7 @@
       <penetrateWall>false</penetrateWall>
       <friendlyFire>false</friendlyFire>
       <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
     </li>
   </modExtensions>
 </ThingDef>
@@ -1074,6 +1076,7 @@
       <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
       <critChance>0.3</critChance>
       <critDamageMultiplier>2.5</critDamageMultiplier>
+      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
     </li>
   </modExtensions>
 </ThingDef>
@@ -1144,6 +1147,7 @@
         <effectiveRange>42.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>
+        <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1169,6 +1173,7 @@
         <effectiveRange>65.9</effectiveRange>
         <penetrateWall>true</penetrateWall>
         <friendlyFire>false</friendlyFire>
+        <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1573,57 +1578,57 @@
   </modExtensions>
 </ThingDef>
 
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_Grenadier_Gauntlet</defName>
-  <label>Blastoom Mk III Grenadier Gauntlet</label>
-  <description>Grenades can be launched with relative precision once a wielder braces and aims. Otherwise it makes an excellent club.</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>60000</WorkToMake>
-    <Mass>6.5</Mass>
-    <AccuracyTouch>0.90</AccuracyTouch>
-    <AccuracyShort>0.70</AccuracyShort>
-    <AccuracyMedium>0.55</AccuracyMedium>
-    <AccuracyLong>0.30</AccuracyLong>
-    <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>50</Steel>
-    <Plasteel>100</Plasteel>
-    <Uranium>30</Uranium>
-    <ComponentIndustrial>10</ComponentIndustrial>
-    <ComponentSpacer>2</ComponentSpacer>
-  </costList>
-  <equippedStatOffsets>
-    <MoveSpeed>-0.2</MoveSpeed>
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>Verb_Shoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_GauntletGrenade</defaultProjectile>
-      <warmupTime>2.0</warmupTime>
-      <range>32.9</range>
-      <soundCast>Shot_Autocannon</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-  </verbs>
-  <tools>
-    <li>
-      <label>barrel</label>
-      <capacities>
-        <li>Blunt</li>
-      </capacities>
-      <power>22</power>
-      <cooldownTime>2</cooldownTime>
-    </li>
-  </tools>
-</ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Grenadier_Gauntlet</defName>
+    <label>Blastoom Mk III Grenadier Gauntlet</label>
+    <description>Grenades can be launched with relative precision once a wielder braces and aims. Otherwise it makes an excellent club.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.30</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>100</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_GauntletGrenade</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>22</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
 <!-- Twin-Linked Heavy Stubber -->
    <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_StubberAmmoHeavy_II</defName>
@@ -1901,5 +1906,90 @@
           <minQualityForArtistic>Excellent</minQualityForArtistic>
       </li>
     </comps>
+  </ThingDef>
+
+  <!-- Artemia Mk III Purgation Flamer -->
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_FireCloud</defName>
+    <label>Fire</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_FireCloud</thingClass>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>999</penetrationPower>
+        <effectiveRange>24.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <critChance>0.15</critChance>
+        <critDamageMultiplier>5.0</critDamageMultiplier>
+        <applyHediffDefs>
+          <li>DW_Hediff_DOT_AttachFire</li>
+        </applyHediffDefs>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Flamer_MkIII</defName>
+    <label>Artemia Mk III Purgation Flamer</label>
+    <description>Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.20</AccuracyTouch>
+      <AccuracyShort>0.20</AccuracyShort>
+      <AccuracyMedium>0.15</AccuracyMedium>
+      <AccuracyLong>0.10</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>150</Plasteel>
+      <Uranium>20</Uranium>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_FireCloud</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>22.9</range>
+        <burstShotCount>10</burstShotCount>
+        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
   </ThingDef>
 </Defs>
