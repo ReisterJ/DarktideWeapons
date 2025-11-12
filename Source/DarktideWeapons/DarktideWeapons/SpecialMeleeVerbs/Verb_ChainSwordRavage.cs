@@ -29,7 +29,12 @@ namespace DarktideWeapons.SpecialMeleeVerbs
         }
         protected override int ShotsPerBurst => verbProps.burstShotCount;
 
-        
+
+        public override void WarmupComplete()
+        {
+            base.WarmupComplete();
+            this.doneCritCheck = false;
+        }
         protected override bool TryCastShot()
         {
             return TryStartSpecialMeleeAttack();

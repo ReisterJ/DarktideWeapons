@@ -540,6 +540,70 @@
 
 <!-- Turtolsky Mk IX Heavy Sword -->
 
-<!-- Cadia Assault Chainsword -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_ShockMaul_SuppressionShield_MKVI</defName>
+    <label>Branx Mk VI Shock Maul and Suppression Shield</label>
+    <techLevel>Medieval</techLevel>
+    <description>A powerful combination. Devastating offense and an almost impenetrable defence.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>1.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light attack</label>
+        <capacities>
+          <li>DW_Melee_ShockMaul</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.1</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+      <li>
+        <label>stab</label>
+        <capacities>
+          <li>DW_Melee_ShockMaulStab</li>
+        </capacities>
+        <power>28</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.50</armorPenetration>
+      </li>
+      <li>
+        <label>bash</label>
+        <capacities>
+          <li>DW_Melee_ShieldBash</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+      <MeleeHitChance>7</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>60</Steel>
+        <Plasteel>100</Plasteel>
+        <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>true</isShield>
+        <maxStamina>200</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
 
 </Defs>

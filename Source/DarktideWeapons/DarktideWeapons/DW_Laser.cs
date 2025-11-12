@@ -14,10 +14,11 @@ namespace DarktideWeapons
     public class DW_Laser : DW_Projectile
     {
         protected Material LaserLineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.SolidColor, Color.red);
-        protected int laserTicks = 10;
+        protected int laserTicks = 30;
 
         protected Vector3 startPoint;
         protected Vector3 endPoint;
+
 
         protected MoteDualAttached laserMote;
         protected bool isLaserActive = false;
@@ -40,6 +41,11 @@ namespace DarktideWeapons
             if (laserTicks <= 0)
             {
                 isLaserActive = false;
+                if (laserMote != null && !laserMote.Destroyed)
+                {
+                    laserMote.Destroy();
+                    laserMote = null;
+                }
                 this.Destroy();
             }
         }
@@ -49,10 +55,9 @@ namespace DarktideWeapons
             this.isLaser = true;
             this.startPoint = origin;
             List<IntVec3> cells = new List<IntVec3>();
-
+            laserTicks = 45;
 
             this.isLaserActive = true;
-            this.laserTicks = 10;
             if (projectileProps != null)
             {
                 this.Initiate(equipment);
@@ -116,7 +121,6 @@ namespace DarktideWeapons
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            //DrawLaser();
             Comps_PostDraw();
         }
 
@@ -183,8 +187,6 @@ namespace DarktideWeapons
             if (this.PenetratedTarget > penetrateNum || forcedStop)
             {
                 destroyFlag = true;
-                //this.ExplosionImpact(hitThing);
-                //this.Destroy();
             }
             if (hitThing != null)
             {
@@ -200,7 +202,6 @@ namespace DarktideWeapons
                     DamageInfo dinfoFlame = new DamageInfo(DamageDefOf.Flame, this.DamageAmount / 2 * RangedDamageMultiplierGlobal, 1f, ExactRotation.eulerAngles.y, launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
                     hitThing.TakeDamage(dinfoFlame).AssociateWithLog(battleLogEntry_RangedImpact);
                 }
-
 
                 Pawn pawn2 = hitThing as Pawn;
                 pawn2?.stances?.stagger.Notify_BulletImpact(this);
@@ -231,15 +232,6 @@ namespace DarktideWeapons
                 }
             }
         }
-    }
-
-    public class Mote_LaserBeam : Mote
-    {
-        public Vector3 start;
-        public Vector3 end;
-        public Color color = Color.red;
-
-        
     }
 
 

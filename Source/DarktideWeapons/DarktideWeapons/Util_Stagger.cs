@@ -11,6 +11,7 @@ namespace DarktideWeapons
     public static class Util_Stagger
     {
         public const int baseStaggerTick = 90;
+        public const int baseBlockBreakStunDuration = 30;
 
         public const int baseStunTick = 120;
         public static bool IsStun(float chance)
@@ -73,6 +74,15 @@ namespace DarktideWeapons
             Medium,
             Heavy,
             Stunned
+        }
+
+        public static bool IsStaggered(Pawn pawn)
+        {
+            if (pawn != null && pawn.stances != null)
+            {
+                return pawn.stances.stagger.Staggered || pawn.stances.stunner.Stunned;
+            }
+            return false;
         }
         public static int StunTicks(Pawn hitpawn ,float level)
         {

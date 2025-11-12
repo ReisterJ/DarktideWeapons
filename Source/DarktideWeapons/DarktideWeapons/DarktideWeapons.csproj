@@ -65,7 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompAbilityEffect_ChainSwordSpin.cs" />
+    <Compile Include="CompAbilityEffect_CannotCastWhileBlocking.cs" />
     <Compile Include="CompAbilityEffect_ChargeRequired.cs" />
     <Compile Include="CompAbilityEffect_ChargeWeapon.cs" />
     <Compile Include="CompAbilityEffect_DOT.cs" />
@@ -76,6 +76,7 @@
     <Compile Include="Comp_DWHeadHuntShoot.cs" />
     <Compile Include="Comp_EquippableAbilities.cs" />
     <Compile Include="Comp_DWSwtichMode.cs" />
+    <Compile Include="Draw\Comp_DrawMultiParts.cs" />
     <Compile Include="DW_ArcChain.cs" />
     <Compile Include="DW_Blessing.cs" />
     <Compile Include="DW_Equipment.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="ModExtension_ShotgunProperties.cs" />
     <Compile Include="Comp_Block.cs" />
     <Compile Include="ModExtension_EquipmentIntegration.cs" />
+    <Compile Include="DW_SoulBlaze.cs" />
     <Compile Include="SpecialMeleeVerbs\IHeavyMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\ISpecialMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_AbilityMelee.cs" />

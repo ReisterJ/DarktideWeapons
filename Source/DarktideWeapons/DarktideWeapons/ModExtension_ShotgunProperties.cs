@@ -15,6 +15,8 @@ namespace DarktideWeapons
 
         public float spreadAngleMin = 0f;
 
+        public int reloadTick = 60;
+
         public static ModExtension_ShotgunProperties DefaultValue = new ModExtension_ShotgunProperties()
         {
             projectileNum = 6

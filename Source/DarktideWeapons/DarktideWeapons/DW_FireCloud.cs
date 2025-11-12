@@ -47,12 +47,10 @@ namespace DarktideWeapons
             bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
             float damageAmount = this.DamageAmount * RangedDamageMultiplierGlobal;
             float armorPenetration = this.armorPenetrationinGame;
-            //Do crit
             if (critFlag)
             {
                 damageAmount *= this.critDamageMultiplierinGame;
                 armorPenetration *= this.critArmorPenetrationMultiplier;
-                //Util_Crit.CritMoteMaker(hitThing);
             }
             damageAmount *= DamageMultiplier_Outer;
             if (!(hitThing is Pawn))

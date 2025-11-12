@@ -28,7 +28,7 @@
     <requiredCapacity>DW_Melee_Eviscerator_Cleave</requiredCapacity>
     <verb>
       <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
-      <meleeDamageDef>Scratch</meleeDamageDef>
+      <meleeDamageDef>Cut</meleeDamageDef>
     </verb>
     <logEntryDef>MeleeAttack</logEntryDef>
     <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
@@ -63,7 +63,7 @@
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
-        <critChance>0.2</critChance>
+        <critChance>0.3</critChance>
         <critDamageMultiplier>2.0</critDamageMultiplier>
         <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
 			</li>
@@ -160,6 +160,7 @@
 		</modExtensions>
   </ManeuverDef>
 
+  <!-- for thunderhammer and melee weapon with great oneshot damage -->
   <ManeuverDef>
     <defName>DW_Melee_Strikedown</defName>
     <requiredCapacity>DW_Melee_Strikedown</requiredCapacity>
@@ -178,6 +179,69 @@
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
+  <!-- shock maul and shield -->
+  <ManeuverDef>
+    <defName>DW_Melee_ShockMaul</defName>
+    <requiredCapacity>DW_Melee_ShockMaul</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>2</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.9</cleaveDamageFalloffRatio>
+        <craftType>Cardinal</craftType>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+  <ManeuverDef>
+    <defName>DW_Melee_ShockMaulStab</defName>
+    <requiredCapacity>DW_Melee_ShockMaulStab</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Stab</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>1</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
+        <craftType>Strikedown</craftType>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+  <ManeuverDef>
+    <defName>DW_Melee_ShieldBash</defName>
+    <requiredCapacity>DW_Melee_ShieldBash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>10</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+        <staggerImpact>3.0</staggerImpact>
 			</li>
 		</modExtensions>
   </ManeuverDef>

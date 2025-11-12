@@ -12,6 +12,14 @@ namespace DarktideWeapons
     {
         protected override int ShotsPerBurst => verbProps.burstShotCount;
 
+
+        public Comp_Block BlockComp 
+        {
+            get 
+            {
+                return DarktideWeapon.TryGetComp<Comp_Block>();
+            }
+        }
         public DW_Equipment DarktideWeapon         
         {
             get
@@ -36,8 +44,9 @@ namespace DarktideWeapons
 
         public override bool Available()
         {
-            bool flag = base.Available();
-           
+            bool flag = base.Available() && (BlockComp?.AllowAttackWhileBlocking() ?? true);
+            
+
             return flag;
         }
 
@@ -114,12 +123,12 @@ namespace DarktideWeapons
         {
 
         }
-        public void PostProjectileLaunched()
+        public virtual void PostProjectileLaunched()
         {
 
         }
 
-        public void PreProjectileLaunched()
+        public virtual void PreProjectileLaunched()
         {
 
         }

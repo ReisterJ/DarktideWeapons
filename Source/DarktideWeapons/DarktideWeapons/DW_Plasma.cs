@@ -14,6 +14,8 @@ namespace DarktideWeapons
     public class DW_Plasma : DW_Projectile
     {
         protected MoteDualAttached TrailMote;
+
+        public IntVec3 finalHitCell;
         protected override void EquipmentProjectileInit(ThingWithComps equipment)
         {
             PlasmaShotInit(equipment);
@@ -83,6 +85,7 @@ namespace DarktideWeapons
             List<Thing> targetList = new List<Thing>();
             IntVec3 finalDestination = intendedTarget.Cell;
             List<IntVec3> cells = Util_Ranged.GetLineSegmentCells(origin.ToIntVec3(), this.usedTarget.Cell, this.projectileProps.effectiveRange,this.Map);
+            finalHitCell = cells.Last();
             foreach (IntVec3 cell in cells)
             {
                 List<Thing> things = cell.GetThingList(this.Map);
@@ -100,6 +103,7 @@ namespace DarktideWeapons
                 if (totalHitCount >= penetrateNum || forcedStop)
                 {
                     finalDestination = cell;
+                    finalHitCell = cell;
                     break;
                 }
             }
@@ -107,7 +111,8 @@ namespace DarktideWeapons
             //plasmaTrail.start = origin;
             //plasmaTrail.end = this.destination;
             //GenSpawn.Spawn(plasmaTrail, origin.ToIntVec3(), this.Map);
-            GenDraw.DrawLineBetween(origin, finalDestination.ToVector3(), TrailMat, 0.05f);
+            //GenDraw.DrawLineBetween(origin, finalDestination.ToVector3(), TrailMat, 0.05f);
+            DrawTrail();
             foreach (Thing target in targetList)
             {
                 Impact(target);
@@ -118,7 +123,7 @@ namespace DarktideWeapons
         {
             if (this.projectileProps?.beamMoteDef != null)
             {
-                TrailMote = MoteMaker.MakeInteractionOverlay(this.projectileProps.beamMoteDef, this.launcher, new TargetInfo(this.usedTarget.Cell, this.Map));
+                TrailMote = MoteMaker.MakeInteractionOverlay(this.projectileProps.beamMoteDef, this.launcher, new TargetInfo(this.finalHitCell, this.Map));
             }
             else
             {

@@ -16,6 +16,7 @@ namespace DarktideWeapons
         public const float Quality_Legendary_Bias = 2f;
         public const int MaxLevel = 20;
 
+        
         public const int ExpertLevel = 10;
         public static float PawnMeleeLevelDamageMultiplier(Pawn pawn)
         {

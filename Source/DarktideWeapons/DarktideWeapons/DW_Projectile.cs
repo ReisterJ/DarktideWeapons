@@ -83,6 +83,8 @@ namespace DarktideWeapons
 
         public float explosionRadius = 0.8f;
 
+        public float explosionArmorPenetraion = 0.2f;
+
         public bool critFlag = false;
 
         public float RangedDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().RangedDamageMultiplierGlobal;
@@ -122,17 +124,22 @@ namespace DarktideWeapons
                 case QualityCategory.Excellent:
                     this.critChanceinGame = this.projectileProps.critChance * Util_Ranged.Quality_Excellent_Multiplier;
                     this.stunChanceinGame = this.projectileProps.stunChance * Util_Ranged.Quality_Master_Multiplier;
+                    this.explosionDamageAmount = this.projectileProps.explosionDamage * Util_Ranged.Quality_Excellent_Multiplier;
                     break;
 
                 case QualityCategory.Masterwork:
                     this.critChanceinGame = this.projectileProps.critChance * Util_Ranged.Quality_Master_Multiplier;
                     this.stunChanceinGame = this.projectileProps.stunChance * Util_Ranged.Quality_Master_Multiplier;
+                    this.explosionDamageAmount = this.projectileProps.explosionDamage * Util_Ranged.Quality_Master_Multiplier;
+                    this.explosionArmorPenetraion = this.projectileProps.explosionArmorPenetration * Util_Ranged.Quality_Master_Multiplier;
                     break;
                 case QualityCategory.Legendary:
                     this.stunChanceinGame = this.projectileProps.stunChance * Util_Ranged.Quality_Legendary_Multiplier;
                     this.stunTicksinGame = (int)((float)this.projectileProps.stunTicks * Util_Ranged.Quality_Legendary_Stun_Tick_Multiplier);
                     this.critChanceinGame = this.projectileProps.critChance * Util_Ranged.Quality_Legendary_Multiplier;
                     this.critDamageMultiplierinGame = this.projectileProps.critDamageMultiplier * Util_Ranged.Quality_Legendary_Multiplier;
+                    this.explosionDamageAmount = this.projectileProps.explosionDamage * Util_Ranged.Quality_Legendary_Multiplier;
+                    this.explosionArmorPenetraion = this.projectileProps.explosionArmorPenetration * Util_Ranged.Quality_Legendary_Multiplier;
                     break;
 
                 default:
@@ -151,7 +158,7 @@ namespace DarktideWeapons
             if (isExplosive)
             {
                 IntVec3 ExpPosition = hitThing != null ? hitThing.Position : base.Position;
-                GenExplosionDW.DoExplosionNoFriendlyFire(ExpPosition, this.Map, this.explosionRadius, this.projectileProps.explosionDamageDef, this.launcher, (int)this.explosionDamageAmount, this.projectileProps.explosionArmorPenetration);
+                GenExplosionDW.DoExplosionNoFriendlyFire(ExpPosition, this.Map, this.explosionRadius, this.projectileProps.explosionDamageDef, this.launcher, (int)this.explosionDamageAmount, this.explosionArmorPenetraion);
             }
         }
         protected override void Tick()
@@ -214,8 +221,12 @@ namespace DarktideWeapons
                 this.armorPenetrationinGame = this.ArmorPenetration;
                 this.isExplosive = this.projectileProps.isExplosive;
                 this.explosionDamageAmount = this.projectileProps.explosionDamage;
+                this.explosionArmorPenetraion = this.projectileProps.explosionArmorPenetration;
                 this.explosionRadius = this.projectileProps.explosionRadius;
             }
+
+            WeaponQuality_bias();
+
             if (equipment != null)
             {
                 //Util_Ranged.DEV_output("Projectile launch equipment : " + equipment.def.label);
@@ -704,7 +715,6 @@ namespace DarktideWeapons
                 Thing thing = thingList[i];
                 if (thing == this) continue;
                 
-                //if (DEBUGLEVEL > 1) Util_Ranged.DEV_output(thing.Label + " , pos : " + c);
                 //wall hit check
                 bool openDoorHitFlag = false;
                 if (SameTargetCollisionCheck(thing)) return false;
@@ -723,7 +733,7 @@ namespace DarktideWeapons
                             //penetrateWall = false;
                             return false;
                         }
-                        if (!CanHit(thing) && ETAHitTick >= flyingTicks && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
+                        if (this.usedTarget == this.intendedTarget && ETAHitTick >= flyingTicks && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
                         {
                             return false;
                         }

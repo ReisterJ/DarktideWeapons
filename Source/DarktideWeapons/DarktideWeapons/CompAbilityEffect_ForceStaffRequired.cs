@@ -24,7 +24,7 @@ namespace DarktideWeapons
         {
             get
             {
-                if (ForceStaff == null || ForceStaff.parent.def != Props.RequiredStaff)
+                if (ForceStaff == null || ForceStaff.parent.def != Props.requiredStaff)
                 {
                     return false;
                 }
@@ -38,9 +38,9 @@ namespace DarktideWeapons
                 reason = "StaffNotEquipped".Translate();
                 return true;
             }
-            if(ForceStaff.parent.def != Props.RequiredStaff)
+            if(ForceStaff.parent.def != Props.requiredStaff)
             {
-                reason = "RequiredStaffNotEquipped".Translate() + ".\n" + Props.RequiredStaff.LabelCap;
+                reason = "RequiredStaffNotEquipped".Translate() + ".\n" + Props.requiredStaff.LabelCap;
                 return true;
             }
             return base.GizmoDisabled(out reason);
@@ -53,7 +53,7 @@ namespace DarktideWeapons
         {
             this.compClass = typeof(CompAbilityEffect_ForceStaffRequired);
         }
-        public ThingDef RequiredStaff;
+        public ThingDef requiredStaff;
 
     }
 }

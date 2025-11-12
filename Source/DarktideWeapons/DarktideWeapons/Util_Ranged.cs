@@ -44,7 +44,10 @@ namespace DarktideWeapons
         }
         public const int PLASMA_SELFCOOLING_TICKS = 150; // 2.5 seconds
        
-
+        public static bool IsRangedAttack(DamageInfo dinfo)
+        {
+            return dinfo.Def.isRanged;
+        }
         
 
         public static List<IntVec3> GetLineSegmentCells(IntVec3 origin, IntVec3 dest, float range ,Map map )

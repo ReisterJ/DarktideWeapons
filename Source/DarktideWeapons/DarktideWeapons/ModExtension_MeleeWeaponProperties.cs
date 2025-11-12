@@ -18,6 +18,9 @@ namespace DarktideWeapons
         public float staggerImpact = 1f;
         public float critArmorPenetrationMultiplier = 2.0f;
 
+        public SoundDef chargedHitSound;
+
+
         
     }
 }

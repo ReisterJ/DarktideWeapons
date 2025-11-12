@@ -42,6 +42,9 @@
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>
+      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+        <requiredStaff>DW_Purgatus_ForceStaff</requiredStaff>
+      </li>
     </comps>
   </AbilityDef>
 
@@ -142,10 +145,46 @@
       </targetParams>
     </verbProperties>
     <comps>
-      
+      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+        <requiredStaff>DW_Voidstrike_ForceStaff</requiredStaff>
+      </li>
     </comps>
   </AbilityDef>
 
+  <AbilityDef ParentName="DW_ForceStaffPsycast">
+    <defName>DW_Electrokinetic</defName>
+    <label>Electrokinetic</label>
+    <description>Sending out balls of Void energy that can both stagger and damage foes.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
+    </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+        <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
+        <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
+      </li>
+    </modExtensions>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_AbilityShoot_Psycast</verbClass>
+      <warmupTime>2.5</warmupTime>
+      <range>39.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+        <requiredStaff>DW_Electrokinetic_ForceStaff</requiredStaff>
+      </li>
+    </comps>
+  </AbilityDef>
  
 
 </Defs>

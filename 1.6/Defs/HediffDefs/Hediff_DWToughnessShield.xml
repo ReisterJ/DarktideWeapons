@@ -17,18 +17,41 @@
 		<alwaysHaulable>true</alwaysHaulable>
 		<resourceReadoutPriority>Middle</resourceReadoutPriority>
 		<thingCategories>
-			<li>BodyPartsArchotech</li>
 		</thingCategories>
 		<thingSetMakerTags>
 			<li>RewardStandardCore</li>
 		</thingSetMakerTags>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<Beauty>-4</Beauty>
+			<Beauty>-1</Beauty>
 			<Mass>1</Mass>
-			<MarketValue>2600</MarketValue>
+			<MarketValue>4600</MarketValue>
 			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<Gold>60</Gold>
+			<Plasteel>100</Plasteel>
+			<Uranium>20</Uranium>
+			<ComponentIndustrial>20</ComponentIndustrial>
+			<ComponentSpacer>10</ComponentSpacer>
+			<BroadshieldCore>2</BroadshieldCore>
+		</costList>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+			<researchPrerequisite>ShieldBelt</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<displayPriority>340</displayPriority>
+		</recipeMaker>
 		<graphicData>
 		<texPath>Things/Item/Special/PsylinkNeuroformer</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
@@ -61,7 +84,7 @@
 		<description>Shield blocks incoming damage.</description>
 		<hediffClass>DarktideWeapons.Hediff_DWToughnessShield</hediffClass>
 		<minSeverity>0</minSeverity>
-    	<maxSeverity>4</maxSeverity>
+    	<maxSeverity>5</maxSeverity>
 		<initialSeverity>1</initialSeverity>
 		<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
 		<stages>
@@ -77,10 +100,13 @@
 		<li>
 			<minSeverity>4</minSeverity>
 		</li>
+		<li>
+			<minSeverity>5</minSeverity>
+		</li>
 		</stages>
 		<modExtensions>
 			<li Class="DarktideWeapons.ModExtension_ToughnessShield">
-				<shieldIncrement>50</shieldIncrement>
+				<shieldIncrement>30</shieldIncrement>
 			</li>
 		</modExtensions>
 		<comps>

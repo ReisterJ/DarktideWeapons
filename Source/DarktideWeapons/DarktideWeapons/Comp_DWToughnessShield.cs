@@ -43,6 +43,8 @@ namespace DarktideWeapons
 
         protected Comp_CounterAttack compCounterAttack;
 
+        public Comp_Block compBlock;
+
         //public Comp_DarktideWeapon CompDarktideWeaponPrimary => this.PawnOwner.equipment.Primary.TryGetComp<Comp_DarktideWeapon>();
 
         private int interval = -1;
@@ -253,19 +255,37 @@ namespace DarktideWeapons
                 if (compCounterAttack.CanCounterAttack(PawnOwner, dinfo) && dinfo.Instigator is Pawn pawn)
                 {
                     compCounterAttack.CounterAttack(PawnOwner, pawn);
-                    //Util_Melee.DEV_output(PawnOwner + " counter " + pawn + " attack");
                     return true;
                 }
             }
             return false;
         }
 
-        public void BlockDamageCheck() { 
-            
+        public bool BlockDamageCheck(DamageInfo dinfo) 
+        {
+            if (PawnOwner.NonHumanlikeOrWildMan())
+            {
+                return false;
+            }
+            compBlock = PawnOwner.equipment.Primary.TryGetComp<Comp_Block>();
+            if (compBlock != null) { 
+                bool flag = compBlock.TryBlockDamage(dinfo);
+                if (flag)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
+            if (BlockDamageCheck(dinfo))
+            {
+                dinfo.SetAmount(0f);
+                absorbed = true;
+                return;
+            }
             if (WillCounterAttack(dinfo))
             {
                 dinfo.SetAmount(0f);

@@ -34,7 +34,11 @@
     </tools>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
-      <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li> -->
+      <li Class="CompProperties_Art">
+          <nameMaker>NamerArtWeaponGun</nameMaker>
+          <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+          <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
     </comps>
   </ThingDef>
 
@@ -123,7 +127,7 @@
       </li>
     </verbs>
   </ThingDef>
-
+<!-- Ius Shredder Autopistol Mk III -->
   <ThingDef ParentName="DW_BaseBullet" >
     <defName>DW_Bullet_Autopistol</defName>
     <label>Autopistol Bullet</label>
@@ -133,8 +137,8 @@
     </graphicData>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>4</damageAmountBase>
-      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>0.12</armorPenetrationBase>
       <speed>82</speed>
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
@@ -163,11 +167,11 @@
       <WorkToMake>12000</WorkToMake>
       <Mass>1.3</Mass>
       <MarketValue>300</MarketValue>
-      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.80</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.15</AccuracyLong>
-      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>75</Steel>
@@ -178,9 +182,9 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>DW_Bullet_Autopistol</defaultProjectile>
-        <warmupTime>0.3</warmupTime>
+        <warmupTime>0.6</warmupTime>
         <range>22.9</range>
-        <burstShotCount>8</burstShotCount>
+        <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
         <soundCast>Shot_HeavySMG</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -250,7 +254,7 @@
       </li>
     </modExtensions>
   </ThingDef>
-
+<!-- Stub Revolver -->
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Zarona_Revolver</defName>
     <label>Zarona Quickdraw Stub Revolver</label>
@@ -381,7 +385,7 @@
 
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_BracedAutogun_VIII</defName>
-    <label>Agripinaa Braced Autogun Mk8</label>
+    <label>Agripinaa Braced Autogun Mk VIII</label>
     <description>Exchanging the iron sights of the better known Agripinaa autogun for a heavy stock and counter-balanced barrel, this weapon is well-suited for mowing down hordes of foes.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
@@ -431,208 +435,319 @@
   </ThingDef>
 
 <!-- Locke Spearhead Boltgun -->
-<ThingDef ParentName="BaseBullet">
-  <defName>DW_Bolt_Round</defName>
-  <label>Bolt</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>30</damageAmountBase>
-    <speed>90</speed>
-    <stoppingPower>4</stoppingPower>
-    <armorPenetrationBase>0.60</armorPenetrationBase>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>1</penetrationPower>
-      <effectiveRange>40.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
-      <isExplosive>true</isExplosive>
-      <explosionDamage>20</explosionDamage>
-      <explosionRadius>0.8</explosionRadius>
-      <explosionDamageDef>Bomb</explosionDamageDef>
-    </li>
-  </modExtensions>
-</ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bolt_Round_IIb</defName>
+    <label>Bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <speed>90</speed>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>40.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <isExplosive>false</isExplosive>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_LockeSpearhead_Boltgun_IIb</defName>
+    <label>Locke MKIIb Spearhead Boltgun</label>
+    <description>Locke-pattern boltguns are known for their reliability and stopping power.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ChainShotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.50</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>100</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bolt_Round_IIb</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>40.9</range>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bolt_Round_IIb</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>28.9</range>
+        <burstShotCount>8</burstShotCount>
+        <accuracyTouch>0.60</accuracyTouch>
+        <accuracyShort>0.35</accuracyShort>
+        <accuracyMedium>0.25</accuracyMedium>
+        <accuracyLong>0.10</accuracyLong>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWSwitchMode">
+          <hediffDefs>
+            <li>DW_Hediff_VolleyFire_Boltgun</li>
+          </hediffDefs>
+        </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bolt_Round_III</defName>
+    <label>Bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <speed>90</speed>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>39.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+        <isExplosive>true</isExplosive>
+        <explosionDamage>20</explosionDamage>
+        <explosionRadius>1.9</explosionRadius>
+        <explosionArmorPenetration>0.3</explosionArmorPenetration>
+        <explosionDamageDef>Bomb</explosionDamageDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_LockeSpearhead_Boltgun_III</defName>
+    <label>Locke Mk III Spearhead Boltgun</label>
+    <description>Boasting a sleeker design than the Mk IIb, the Locke Mk III nonetheless does not compromise on power.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ChainShotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>100</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bolt_Round_III</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>34.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
 
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_LockeSpearhead_Boltgun</defName>
-  <label>Locke Spearhead Boltgun</label>
-  <description>Locke-pattern boltguns are known for their reliability and stopping power.</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/ChainShotgun</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>60000</WorkToMake>
-    <Mass>6.5</Mass>
-    <AccuracyTouch>0.80</AccuracyTouch>
-    <AccuracyShort>0.70</AccuracyShort>
-    <AccuracyMedium>0.65</AccuracyMedium>
-    <AccuracyLong>0.60</AccuracyLong>
-    <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>50</Steel>
-    <Plasteel>100</Plasteel>
-    <Uranium>30</Uranium>
-    <ComponentIndustrial>10</ComponentIndustrial>
-    <ComponentSpacer>2</ComponentSpacer>
-  </costList>
-  <equippedStatOffsets>
-    <MoveSpeed>-0.2</MoveSpeed>
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Bolt_Round</defaultProjectile>
-      <warmupTime>1.0</warmupTime>
-      <range>40.9</range>
-      <burstShotCount>2</burstShotCount>
-      <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-      <soundCast>Shot_Autocannon</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Bolt_Round</defaultProjectile>
-      <warmupTime>0.5</warmupTime>
-      <range>28.9</range>
-      <burstShotCount>9</burstShotCount>
-      <accuracyTouch>0.60</accuracyTouch>
-      <accuracyShort>0.35</accuracyShort>
-      <accuracyMedium>0.25</accuracyMedium>
-      <accuracyLong>0.10</accuracyLong>
-      <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
-      <soundCast>Shot_Autocannon</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-  </verbs>
-  <tools>
-    <li>
-      <label>barrel</label>
-      <capacities>
-        <li>Blunt</li>
-      </capacities>
-      <power>14</power>
-      <cooldownTime>2</cooldownTime>
-    </li>
-  </tools>
-  <comps>
-    <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-      <abilityDefList>
-        <li>DW_Ability_FireModeSwitch</li>
-      </abilityDefList>
-    </li>
-  </comps>
-</ThingDef>
 
 <!-- Godwyn-Branx Bolt Pistol -->
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_Godwyn_BoltPistol</defName>
-  <label>Godwyn-Branx Bolt Pistol</label>
-  <description>This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip.</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/ChainShotgun</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>60000</WorkToMake>
-    <Mass>6.5</Mass>
-    <AccuracyTouch>0.90</AccuracyTouch>
-    <AccuracyShort>0.75</AccuracyShort>
-    <AccuracyMedium>0.74</AccuracyMedium>
-    <AccuracyLong>0.68</AccuracyLong>
-    <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>80</Steel>
-    <Plasteel>40</Plasteel>
-    <Uranium>10</Uranium>
-    <ComponentIndustrial>8</ComponentIndustrial>
-  </costList>
-  <equippedStatOffsets>
-    <MoveSpeed>0.25</MoveSpeed>
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Bolt_Round</defaultProjectile>
-      <warmupTime>1.5</warmupTime>
-      <range>38.9</range>
-      <soundCast>Shot_Autocannon</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-  </verbs>
-  
-</ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_BoltPistol_Bolt_IV</defName>
+    <label>Bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <speed>90</speed>
+      <stoppingPower>3</stoppingPower>
+      <armorPenetrationBase>0.50</armorPenetrationBase>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>35.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <isExplosive>false</isExplosive>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Godwyn_BoltPistol_IV</defName>
+    <label>Godwyn-Branx Mk IV Bolt Pistol</label>
+    <description>This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ChainShotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>1.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.74</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>40</Plasteel>
+      <Uranium>10</Uranium>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_BoltPistol_Bolt_IV</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>27.9</range>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    
+  </ThingDef>
 
 <!--Agripinaa Mk VII Combat Shotgun   -->
-<ThingDef  ParentName="BaseBullet">
-  <defName>DW_Bullet_CombatShotgun</defName>
-  <label>Buckshot</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
-  <projectile>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>10</damageAmountBase>
-    <armorPenetrationBase>0.15</armorPenetrationBase>
-    <stoppingPower>3</stoppingPower>
-    <speed>70</speed>
-  </projectile>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>2</penetrationPower>
-      <effectiveRange>29.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
-    </li>
-  </modExtensions>
-</ThingDef>
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_CombatShotgun</defName>
+    <label>Buckshot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>70</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>2</penetrationPower>
+        <effectiveRange>29.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
-<ThingDef  ParentName="BaseBullet">
-  <defName>DW_Bullet_CombatShotgunSlug</defName>
-  <label>Solid Slug</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <!-- <thingClass>DarktideWeapons.Bullet_ShotgunSlug</thingClass> -->
-  <projectile>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>40</damageAmountBase>
-    <armorPenetrationBase>0.75</armorPenetrationBase>
-    <stoppingPower>3</stoppingPower>
-    <speed>90</speed>
-  </projectile>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>3</penetrationPower>
-      <effectiveRange>50.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
-    </li>
-  </modExtensions>
-</ThingDef>
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_CombatShotgunSlug</defName>
+    <label>Solid Slug</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- <thingClass>DarktideWeapons.Bullet_ShotgunSlug</thingClass> -->
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <armorPenetrationBase>0.75</armorPenetrationBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>3</penetrationPower>
+        <effectiveRange>50.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Agripinaa_CombatShotgun</defName>
@@ -718,413 +833,404 @@
 
 <!-- Kantrael Combat Shotgun -->
 <!-- Loads the weapon with one Incendiary Shell that applies Burning to enemies -->
-<ThingDef  ParentName="BaseIncendiaryProjectile">
-  <defName>DW_Bullet_CombatShotgunIncendiary</defName>
-  <label>Incendiary Shell</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <color>(255,198,97)</color>
-  </graphicData>
-  <thingClass>Projectile_Explosive</thingClass>
-  <projectile>
-    <damageDef>Flame</damageDef>
-    <damageAmountBase>10</damageAmountBase>
-    <explosionRadius>1.8</explosionRadius>
-    <speed>50</speed>
-  </projectile>
-</ThingDef>
+  <ThingDef  ParentName="BaseIncendiaryProjectile">
+    <defName>DW_Bullet_CombatShotgunIncendiary</defName>
+    <label>Incendiary Shell</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(255,198,97)</color>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <explosionRadius>1.8</explosionRadius>
+      <speed>50</speed>
+    </projectile>
+  </ThingDef>
 
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_Kantrael_CombatShotgun</defName>
-  <label>Kantrael Combat Shotgun</label>
-  <description>Loads the shotgun with one Incendiary Shell that applies Burning to enemies</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/Shotgun</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Shotgun</soundInteract>
-  <statBases>
-    <WorkToMake>40000</WorkToMake>
-    <Mass>3.0</Mass>
-    <AccuracyTouch>0.90</AccuracyTouch>
-    <AccuracyShort>0.90</AccuracyShort>
-    <AccuracyMedium>0.40</AccuracyMedium>
-    <AccuracyLong>0.20</AccuracyLong>
-    <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
-  </statBases>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
-      <projectileNum>7</projectileNum>
-      <spreadAngleMax>5</spreadAngleMax>
-      <spreadAngleMin>1</spreadAngleMin>
-    </li>
-  </modExtensions>
-  <costList>
-    <Steel>80</Steel>
-    <Plasteel>120</Plasteel>
-    <ComponentIndustrial>8</ComponentIndustrial>
-    <ComponentSpacer>1</ComponentSpacer>
-  </costList>
-  <recipeMaker>
-    <researchPrerequisite>GasOperation</researchPrerequisite>
-    <skillRequirements>
-      <Crafting>9</Crafting>
-    </skillRequirements>
-  </recipeMaker>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Bullet_CombatShotgun</defaultProjectile>
-      <warmupTime>0.6</warmupTime>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Kantrael_CombatShotgun</defName>
+    <label>Kantrael Combat Shotgun</label>
+    <description>Loads the shotgun with one Incendiary Shell that applies Burning to enemies</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <statBases>
+      <WorkToMake>40000</WorkToMake>
+      <Mass>3.0</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.40</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>7</projectileNum>
+        <spreadAngleMax>5</spreadAngleMax>
+        <spreadAngleMin>1</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>9</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_CombatShotgun</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>19.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_EquippableAbility">
+        <abilityDef>DW_Ability_IncendiaryShot</abilityDef>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+          <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+          <nameMaker>NamerArtWeaponGun</nameMaker>
+          <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+          <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  <AbilityDef ParentName="DW_RangedSpecialAbility">
+    <defName>DW_Ability_IncendiaryShot</defName>
+    <label>IncendiaryShot</label>
+    <description>Load one incendiary shell.</description>
+    <cooldownTicksRange>1800</cooldownTicksRange>
+    <verbProperties>
+      <verbClass>Verb_LaunchProjectileStatic</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <!-- <soundCast> </soundCast> -->
+
+      <!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
+      <!-- <burstShotCount>3</burstShotCount> -->
+      <ai_IsWeapon>false</ai_IsWeapon>
       <range>19.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <defaultProjectile>DW_Bullet_CombatShotgunIncendiary</defaultProjectile>
       <soundCast>Shot_Shotgun</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-  </verbs>
-  <comps>
-    <li Class="CompProperties_EquippableAbility">
-      <abilityDef>DW_Ability_IncendiaryShot</abilityDef>
-    </li>
-    <li Class="CompProperties_Forbiddable"/>
-    <li>
-        <compClass>CompQuality</compClass>
-    </li>
-    <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-    </li>
-  </comps>
-</ThingDef>
-<AbilityDef ParentName="DW_RangedSpecialAbility">
-  <defName>DW_Ability_IncendiaryShot</defName>
-  <label>IncendiaryShot</label>
-  <description>Load one incendiary shell.</description>
-  <cooldownTicksRange>1800</cooldownTicksRange>
-  <verbProperties>
-    <verbClass>Verb_LaunchProjectileStatic</verbClass>
-    <warmupTime>1.0</warmupTime>
-    <!-- <soundCast> </soundCast> -->
-
-    <!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
-    <!-- <burstShotCount>3</burstShotCount> -->
-    <ai_IsWeapon>false</ai_IsWeapon>
-    <range>19.9</range>
-    <requireLineOfSight>true</requireLineOfSight>
-    <defaultProjectile>DW_Bullet_CombatShotgunIncendiary</defaultProjectile>
-    <soundCast>Shot_Shotgun</soundCast>
-  </verbProperties>
-</AbilityDef>
+    </verbProperties>
+  </AbilityDef>
 
 <!-- Vraks Headhunter Autogun -->
-<!-- Headhunter autoguns are highly accurate, modified for high-accuracy takedowns. -->
-<ThingDef ParentName="BaseBullet">
-  <defName>DW_Bullet_HeadhunterAutogun</defName>
-  <label>Headhunter</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>13</damageAmountBase>
-    <armorPenetrationBase>0.15</armorPenetrationBase>
-    <stoppingPower>2</stoppingPower>
-    <speed>90</speed>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_HeadhunterAutogun</defName>
+    <label>Headhunter</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+      <modExtensions>
+        <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+          <penetrationPower>1</penetrationPower>
+          <effectiveRange>50.9</effectiveRange>
+          <penetrateWall>false</penetrateWall>
+          <friendlyFire>false</friendlyFire>
+          <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        </li>
+      </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_HeadhunterAutogun</defName>
+    <label>Headhunter Autogun</label>
+    <description>Headhunter autoguns are highly accurate, modified for high-accuracy takedowns.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.0</Mass>
+      <AccuracyTouch>0.20</AccuracyTouch>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.15</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_HeadhunterAutogun</defaultProjectile>
+        <burstShotCount>2</burstShotCount>
+        <warmupTime>2.5</warmupTime>
+        <range>45.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!-- <comps inherit = "False">
+    </comps> -->
+  </ThingDef>
+
+ <!-- lasgun -->
+<!-- Lucius Mk III Helbore Lasgun -->
+<!-- The Helbore patterns hailing from Lucius are capable of charging up for high-damage shots. -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_HelboreLasgun_III</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>23</damageAmountBase>
+      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-        <penetrationPower>1</penetrationPower>
-        <effectiveRange>50.9</effectiveRange>
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>
         <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
       </li>
     </modExtensions>
-</ThingDef>
-
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_HeadhunterAutogun</defName>
-  <label>Headhunter Autogun</label>
-  <description>Headhunter autoguns are highly accurate, modified for high-accuracy takedowns.</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>50000</WorkToMake>
-    <Mass>3.0</Mass>
-    <AccuracyTouch>0.20</AccuracyTouch>
-    <AccuracyShort>0.60</AccuracyShort>
-    <AccuracyMedium>0.70</AccuracyMedium>
-    <AccuracyLong>0.85</AccuracyLong>
-    <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>100</Steel>
-    <Plasteel>100</Plasteel>
-    <ComponentIndustrial>8</ComponentIndustrial>
-  </costList>
-  <equippedStatOffsets>
-    <ShootingAccuracyFactor_Long>0.15</ShootingAccuracyFactor_Long> 
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Bullet_HeadhunterAutogun</defaultProjectile>
-      <burstShotCount>2</burstShotCount>
-      <warmupTime>2.5</warmupTime>
-      <range>45.9</range>
-      <soundCast>Shot_AssaultRifle</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>9</muzzleFlashScale>
-    </li>
-  </verbs>
-  <!-- <comps inherit = "False">
-  </comps> -->
-</ThingDef>
-
-
-<!-- Lucius Mk III Helbore Lasgun -->
-<!-- The Helbore patterns hailing from Lucius are capable of charging up for high-damage shots. -->
-<ThingDef ParentName="BaseBullet">
-  <defName>DW_Laser_HelboreLasgun_III</defName>
-  <label>Laser</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <useGraphicClass>false</useGraphicClass>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>23</damageAmountBase>
-    <armorPenetrationBase>0.3</armorPenetrationBase>
-    <stoppingPower>2</stoppingPower>
-    <speed>90</speed>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Laser</thingClass>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>0</penetrationPower>
-      <effectiveRange>44.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
-      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
-    </li>
-  </modExtensions>
-</ThingDef>
-
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_LuciusHelboreLasgun_III</defName>
-  <label>Lucius Mk III Helbore Lasgun</label>
-  <description>The Helbore patterns hailing from Lucius are capable of charging up for high-damage shots.</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>50000</WorkToMake>
-    <Mass>3.5</Mass>
-    <AccuracyTouch>0.10</AccuracyTouch>
-    <AccuracyShort>0.50</AccuracyShort>
-    <AccuracyMedium>0.80</AccuracyMedium>
-    <AccuracyLong>0.85</AccuracyLong>
-    <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>100</Steel>
-    <Plasteel>100</Plasteel>
-    <ComponentIndustrial>8</ComponentIndustrial>
-  </costList>
-  <equippedStatOffsets>
-    <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Laser_HelboreLasgun_III</defaultProjectile>
-      <warmupTime>2.5</warmupTime>
-      <range>44.9</range>
-      <soundCast>Shot_AssaultRifle</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>3</muzzleFlashScale>
-    </li>
-  </verbs>
-  <tools inherit="false">
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_LuciusHelboreLasgun_III</defName>
+    <label>Lucius Mk III Helbore Lasgun</label>
+    <description>The Helbore patterns hailing from Lucius are capable of charging up for high-damage shots.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.10</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
       <li>
-        <label>Lucius Bayonet</label>
-        <capacities>
-          <li>Stab</li>
-        </capacities>
-        <power>22</power>
-        <cooldownTime>1.0</cooldownTime>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_HelboreLasgun_III</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>44.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
       </li>
-      <!-- 肘！ -->
-    </tools>
-  <!-- <comps inherit = "False">
-  </comps> -->
-</ThingDef>
-
-
-<ThingDef ParentName="BaseBullet">
-  <defName>DW_Laser_InfantryLasgun_XII</defName>
-  <label>Laser</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <useGraphicClass>false</useGraphicClass>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>18</damageAmountBase>
-    <armorPenetrationBase>0.15</armorPenetrationBase>
-    <stoppingPower>2</stoppingPower>
-    <speed>90</speed>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Laser</thingClass>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>0</penetrationPower>
-      <effectiveRange>35.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
-      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
-    </li>
-  </modExtensions>
-</ThingDef>
-
-
-  <!-- lasgun -->
-
+    </verbs>
+    <tools inherit="false">
+        <li>
+          <label>Lucius Bayonet</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>22</power>
+          <cooldownTime>1.0</cooldownTime>
+        </li>
+        <!-- 肘！ -->
+      </tools>
+    <!-- <comps inherit = "False">
+    </comps> -->
+  </ThingDef>
 <!-- Kantrael MG XII Infantry Lasgun -->
 <!-- torch -->
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_InfantryLasgun_XII</defName>
-  <label>Kantrael MG XII Infantry Lasgun</label>
-  <description>With its improved charge pack and focusing array, the MG XII is amongst the most powerful lasguns to come out of the manufactorums of Kantrael</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>50000</WorkToMake>
-    <Mass>3.0</Mass>
-    <AccuracyTouch>0.20</AccuracyTouch>
-    <AccuracyShort>0.60</AccuracyShort>
-    <AccuracyMedium>0.70</AccuracyMedium>
-    <AccuracyLong>0.85</AccuracyLong>
-    <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>100</Steel>
-    <Plasteel>100</Plasteel>
-    <ComponentIndustrial>8</ComponentIndustrial>
-  </costList>
-  <equippedStatOffsets>
-    <ShootingAccuracyFactor_Long>0.1</ShootingAccuracyFactor_Long> 
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Laser_InfantryLasgun_XII</defaultProjectile>
-      <warmupTime>1.2</warmupTime>
-      <range>35.9</range>
-      <soundCast>Shot_AssaultRifle</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>3</muzzleFlashScale>
-    </li>
-  </verbs>
-  <!-- <comps inherit = "False">
-  </comps> -->
-</ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_InfantryLasgun_XII</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>35.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_InfantryLasgun_XII</defName>
+    <label>Kantrael MG XII Infantry Lasgun</label>
+    <description>With its improved charge pack and focusing array, the MG XII is amongst the most powerful lasguns to come out of the manufactorums of Kantrael</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.0</Mass>
+      <AccuracyTouch>0.20</AccuracyTouch>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.1</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_InfantryLasgun_XII</defaultProjectile>
+        <warmupTime>1.2</warmupTime>
+        <range>35.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!-- <comps inherit = "False">
+    </comps> -->
+  </ThingDef>
 <!-- Accatran Mk VId Recon Lasgun -->
- <!-- This recon pattern is a lighter carbine with a high rate of fire but low damage per shot. -->
-<ThingDef ParentName="BaseBullet">
-  <defName>DW_Laser_AccatranLasgun_VId</defName>
-  <label>Laser</label>
-  <graphicData>
-    <texPath>Things/Projectile/Bullet_Big</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <useGraphicClass>false</useGraphicClass>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>6</damageAmountBase>
-    <armorPenetrationBase>0.10</armorPenetrationBase>
-    <stoppingPower>0.5</stoppingPower>
-    <speed>90</speed>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Laser</thingClass>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>0</penetrationPower>
-      <effectiveRange>32.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
-      <critChance>0.3</critChance>
-      <critDamageMultiplier>2.5</critDamageMultiplier>
-      <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
-    </li>
-  </modExtensions>
-</ThingDef>
-<ThingDef ParentName="Darktide_Gun">
-  <defName>DW_AccatranLasgun_VId</defName>
-  <label>Accatran Mk VId Recon Lasgun</label>
-  <description>This recon pattern is a lighter carbine with a high rate of fire but low damage per shot</description>
-  <graphicData>
-    <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <soundInteract>Interact_Rifle</soundInteract>
-  <statBases>
-    <WorkToMake>50000</WorkToMake>
-    <Mass>2.5</Mass>
-    <AccuracyTouch>0.90</AccuracyTouch>
-    <AccuracyShort>0.85</AccuracyShort>
-    <AccuracyMedium>0.70</AccuracyMedium>
-    <AccuracyLong>0.55</AccuracyLong>
-    <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
-  </statBases>
-  <costList>
-    <Steel>50</Steel>
-    <Plasteel>80</Plasteel>
-    <ComponentIndustrial>8</ComponentIndustrial>
-  </costList>
-  <equippedStatOffsets>
-    <MoveSpeed>0.3</MoveSpeed> 
-  </equippedStatOffsets>
-  <verbs>
-    <li>
-      <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
-      <hasStandardCommand>true</hasStandardCommand>
-      <defaultProjectile>DW_Laser_AccatranLasgun_VId</defaultProjectile>
-      <warmupTime>0.5</warmupTime>
-      <range>32.9</range>
-      <soundCast>Shot_AssaultRifle</soundCast>
-      <soundCastTail>GunTail_Heavy</soundCastTail>
-      <muzzleFlashScale>3</muzzleFlashScale>
-      <burstShotCount>10</burstShotCount>
-      <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-    </li>
-  </verbs>
-  <!-- <comps inherit = "False">
-  </comps> -->
-</ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_AccatranLasgun_VId</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <critChance>0.3</critChance>
+        <critDamageMultiplier>2.5</critDamageMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_AccatranLasgun_VId</defName>
+    <label>Accatran Mk VId Recon Lasgun</label>
+    <description>This recon pattern is a lighter carbine with a high rate of fire but low damage per shot</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>2.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>80</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>0.3</MoveSpeed> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_AccatranLasgun_VId</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
+        <burstShotCount>10</burstShotCount>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+      </li>
+    </verbs>
+    <!-- <comps inherit = "False">
+    </comps> -->
+  </ThingDef>
 
-  <!-- Plasma Gun -->
+<!-- Plasma Gun -->
 
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_PlasmaProjectile</defName>
@@ -1147,7 +1253,7 @@
         <effectiveRange>42.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
         <friendlyFire>false</friendlyFire>
-        <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1173,7 +1279,7 @@
         <effectiveRange>65.9</effectiveRange>
         <penetrateWall>true</penetrateWall>
         <friendlyFire>false</friendlyFire>
-        <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1259,12 +1365,7 @@
       </li>
     </comps>
   </ThingDef>
-
-  
-  
-  
-
-  <!-- Twin-Linked Heavy Stubber -->
+<!-- Twin-Linked Heavy Stubber -->
    <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_StubberAmmoLight</defName>
     <label>Heavy stubber bullet</label>
@@ -1546,37 +1647,37 @@
   </ThingDef>
 
   <!-- Grenadier Gauntlet -->
-<ThingDef  ParentName="BaseBullet">
-  <defName>DW_GauntletGrenade</defName>
-  <label>GauntletGrenade</label>
-  <graphicData>
-    <texPath>Things/Projectile/Grenade</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-  </graphicData>
-  <projectile>
-    <damageDef>Bullet</damageDef>
-    <damageAmountBase>20</damageAmountBase>
-    <speed>70</speed>
-    <stoppingPower>4</stoppingPower>
-    <armorPenetrationBase>0.60</armorPenetrationBase>
-    <arcHeightFactor>2</arcHeightFactor>
-  </projectile>
-  <thingClass>DarktideWeapons.DW_Projectile</thingClass>
-  <modExtensions>
-    <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
-      <penetrationPower>0</penetrationPower>
-      <effectiveRange>32.9</effectiveRange>
-      <penetrateWall>false</penetrateWall>
-      <friendlyFire>false</friendlyFire>
-      <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
-      <isExplosive>true</isExplosive>
-      <explosionDamage>40</explosionDamage>
-      <explosionRadius>1.1</explosionRadius>
-      <explosionDamageDef>Bomb</explosionDamageDef>
-      <explosionArmorPenetration>0.7</explosionArmorPenetration>
-    </li>
-  </modExtensions>
-</ThingDef>
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_GauntletGrenade</defName>
+    <label>GauntletGrenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <speed>70</speed>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <arcHeightFactor>2</arcHeightFactor>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <isExplosive>true</isExplosive>
+        <explosionDamage>40</explosionDamage>
+        <explosionRadius>1.1</explosionRadius>
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionArmorPenetration>0.7</explosionArmorPenetration>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Grenadier_Gauntlet</defName>
@@ -1630,7 +1731,7 @@
     </tools>
   </ThingDef>
 <!-- Twin-Linked Heavy Stubber -->
-   <ThingDef ParentName="DW_BaseBullet">
+  <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_StubberAmmoHeavy_II</defName>
     <label>Heavy stubber bullet</label>
     <graphicData>
@@ -1736,7 +1837,7 @@
     </comps>
   </ThingDef>
 
-
+<!-- Exterminator Shotgun -->
   <ThingDef  ParentName="BaseBullet">
     <defName>DW_Bullet_ExterminatorShotgun_MKIII</defName>
     <label>Pellet</label>
@@ -1747,7 +1848,7 @@
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>20</damageAmountBase>
+      <damageAmountBase>15</damageAmountBase>
       <armorPenetrationBase>0.25</armorPenetrationBase>
       <stoppingPower>3</stoppingPower>
       <speed>80</speed>
@@ -1803,12 +1904,12 @@
       <AccuracyShort>0.90</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.20</AccuracyLong>
-      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
     </statBases>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
-        <projectileNum>10</projectileNum>
-        <spreadAngleMax>14</spreadAngleMax>
+        <projectileNum>9</projectileNum>
+        <spreadAngleMax>15</spreadAngleMax>
         <spreadAngleMin>1</spreadAngleMin>
       </li>
     </modExtensions>
@@ -1828,7 +1929,7 @@
         <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>DW_Bullet_ExterminatorShotgun_MKIII</defaultProjectile>
-        <warmupTime>1.0</warmupTime>
+        <warmupTime>1.3</warmupTime>
         <range>30.9</range>
         <soundCast>Shot_Shotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -1888,7 +1989,7 @@
         <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>DW_Bullet_ExterminatorShotgun_MKVIII</defaultProjectile>
-        <warmupTime>2.0</warmupTime>
+        <warmupTime>2.2</warmupTime>
         <range>42.9</range>
         <soundCast>Shot_Shotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -1896,15 +1997,7 @@
       </li>
     </verbs>
     <comps>
-      <!-- <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_Slugshot</abilityDef>
-      </li> -->
-      <li Class="CompProperties_Forbiddable"/>
-      <li Class="CompProperties_Art">
-          <nameMaker>NamerArtWeaponGun</nameMaker>
-          <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-          <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+      
     </comps>
   </ThingDef>
 
@@ -1939,6 +2032,7 @@
       </li>
     </modExtensions>
   </ThingDef>
+
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Flamer_MkIII</defName>
     <label>Artemia Mk III Purgation Flamer</label>
@@ -1988,6 +2082,98 @@
           <li>Blunt</li>
         </capacities>
         <power>18</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_Shotpistol</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <stoppingPower>4</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Shotpistol_RiotShield_MkIV</defName>
+    <label>Judgement Mk IV Subductor Shotpistol and Riot Shield</label>
+    <description>A Riot Shield and a short Shotpistol are perfect for the tight, cramped halls where the Arbites often find themselves.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>5.1</Mass>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.70</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>150</Plasteel>
+      <Uranium>20</Uranium>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>3</projectileNum>
+        <spreadAngleMax>1</spreadAngleMax>
+        <spreadAngleMin>0</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>true</isShield>
+        <maxStamina>150</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>true</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.1</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Shotpistol</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>25.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>Shield</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>

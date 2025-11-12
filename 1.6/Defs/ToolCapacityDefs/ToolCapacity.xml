@@ -39,8 +39,23 @@
     <defName>DW_Melee_Eviscerator_Cleave</defName>
     <label>Cleave</label> 
   </ToolCapacityDef>
+
   <ToolCapacityDef>
     <defName>DW_Melee_ChainSwordRavage</defName>
     <label>Chain saw tear</label> 
+  </ToolCapacityDef>
+
+  <!-- shockMaul and shield -->
+   <ToolCapacityDef>
+    <defName>DW_Melee_ShockMaul</defName>
+    <label>Shock Maul</label> 
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>DW_Melee_ShockMaulStab</defName>
+    <label>Shock Maul</label> 
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>DW_Melee_ShieldBash</defName>
+    <label>Shield</label> 
   </ToolCapacityDef>
 </Defs>

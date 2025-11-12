@@ -40,6 +40,30 @@
 	</HediffDef>
 
 	<HediffDef>
+		<defName>DW_Hediff_VolleyFire_Boltgun</defName>
+		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
+		<label>VolleyFire</label>
+		<description>Ready for quick volley fire with decreased accuracy.</description>
+		<initialSeverity>1</initialSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<statOffsets>
+                    <ShootingAccuracyFactor_Long>-0.20</ShootingAccuracyFactor_Long>
+					<ShootingAccuracyFactor_Medium>-0.10</ShootingAccuracyFactor_Medium>
+                    <MoveSpeed>0.5</MoveSpeed>
+				</statOffsets>
+				<statFactors>
+					<RangedCooldownFactor>4.0</RangedCooldownFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
 		<defName>DW_Hediff_DeployHeavyGun</defName>
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>Deployed</label>

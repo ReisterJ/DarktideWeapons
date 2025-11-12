@@ -19,5 +19,6 @@ namespace DarktideWeapons.MeleeComps
         }
 
         public Tool specialAttackToolPrimary;
+        
     }   
 }

@@ -34,9 +34,24 @@ namespace DarktideWeapons
         public DW_Equipment DW_equipment => this.EquipmentSource as DW_Equipment;
         public float MeleeDamageMultiplierGlobal => LoadedModManager.GetMod<DW_Mod>().GetSettings<DW_ModSettings>().MeleeDamageMultiplierGlobal;
 
-
+        public float staggerImpact = 1f;
+        public Comp_Block BlockComp
+        {
+            get
+            {
+                return DW_equipment.TryGetComp<Comp_Block>();
+            }
+        }
         public override bool Available()
         {
+            //bool flag = true;
+            if(BlockComp != null)
+            {
+                if(BlockComp.isBlocking && !BlockComp.AllowAttackWhileBlocking())
+                {
+                    return false;
+                }
+            }
             return base.Available();
         }
         public virtual void Notify_MeleeAttacked()
@@ -162,7 +177,8 @@ namespace DarktideWeapons
                     this.cleaveTargetsNum = DW_equipment.Comp_DWChargeWeapon.NewCleaveNum;
                 }
                 craftType = ModExtension_MeleeProp.craftType;
-                
+
+                staggerImpact = ModExtension_MeleeProp.staggerImpact;
                 if (craftType == Util_Melee.CraftType.Cardinal)
                 {
                     List<IntVec3> targetAdjNear = GenAdjFast.AdjacentCellsCardinal(target.Position);
@@ -178,6 +194,7 @@ namespace DarktideWeapons
                 }
                 if (craftType == Util_Melee.CraftType.Strikedown)
                 {
+                    staggerImpact *= 1.5f;
                     ApplyMeleeDamageToTarget(target);
                 }
                 if (craftType == Util_Melee.CraftType.Vanguard)
@@ -246,6 +263,10 @@ namespace DarktideWeapons
                     {
                         foreach (var d in t.Second)
                         {
+                            if(t.First is Pawn pawn)
+                            {
+                                Util_Stagger.StaggerHandler(pawn, Util_Stagger.StaggerTicks(pawn, staggerImpact), CasterPawn, staggerImpact);
+                            }
                             t.First.TakeDamage(d);
                         }
                     }
@@ -362,11 +383,15 @@ namespace DarktideWeapons
                 {
                     break;
                 }
-                
+                if(target.Thing is Pawn pawn)
+                {
+                    Util_Stagger.StaggerHandler(pawn, Util_Stagger.StaggerTicks(pawn, staggerImpact), CasterPawn, staggerImpact);
+                }
                 result = target.Thing.TakeDamage(item);
             }
             return result;
         }
+
 
 
         // first target
@@ -390,6 +415,8 @@ namespace DarktideWeapons
                     hitpart = Util_Melee.TryHitCorePart(CasterPawn, target.Pawn);
                 }
             }
+            //冲击
+
 
             //充能武器对单有特殊判定
             if (IsChargeAttack())

@@ -65,6 +65,27 @@ namespace DarktideWeapons.HarmonyPatches
             }
         }
     }
+
+
+    [HarmonyPatch(typeof(Verb), "Available")]
+    public static class Patch_Verb_Available
+    {
+        [HarmonyPostfix]
+        public static void Postfix(Verb __instance, ref bool __result)
+        {
+
+            if (__instance.EquipmentSource.TryGetComp<Comp_Block>()!= null)
+            {
+                Comp_Block BlockComp = __instance.CasterPawn?.equipment.Primary.TryGetComp<Comp_Block>();
+                if (BlockComp.isBlocking && !BlockComp.AllowAttackWhileBlocking())
+                {
+                    __result = false;
+                }
+                return;
+            }
+        }
+    }
+
     // 使用 Postfix 并修改返回的 IEnumerable<ThingDef>
     [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer))]
     [HarmonyPatch("ImpliedThingDefs")]
