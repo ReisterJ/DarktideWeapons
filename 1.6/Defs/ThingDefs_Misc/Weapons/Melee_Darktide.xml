@@ -8,9 +8,6 @@
       <texPath>Things/Item/Equipment/WeaponMelee/Gladius</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <thingCategories>
-      <li>WeaponsMelee</li>
-    </thingCategories>
     <weaponClasses Inherit="False">
     </weaponClasses>
     <!-- <relicChance>1</relicChance> -->
@@ -34,6 +31,7 @@
     <inspectorTabs>
       <li>ITab_Art</li>
     </inspectorTabs>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
     <tradeTags Inherit="False">
     
     </tradeTags>
@@ -60,10 +58,10 @@
 
   <!-- Catachan_CombatBlade -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Catachan_CombatBlade</defName>
-    <label>Catachan Combat Blade</label>
+    <defName>DW_Catachan_CombatBlade_III</defName>
+    <label>Catachan Mk III Combat Blade</label>
     <techLevel>Medieval</techLevel>
-    <description>Catachan combat blade from Warhammer 40K: Darktide.</description>
+    <description>They say a Catachan Jungle Fighter can take down a full-grown Cudbear with one of these knives.</description>
     <graphicData>
       <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
       <graphicClass>Graphic_Single</graphicClass>
@@ -89,30 +87,38 @@
       <li>
         <label>Heavy attack</label>
         <capacities>
-          <li>Stab</li>
+          <li>DW_Melee_Stab</li>
         </capacities>
         <power>25</power>
-        <cooldownTime>1.55</cooldownTime>
-        <armorPenetration>0.59</armorPenetration>
+        <cooldownTime>1.1</cooldownTime>
+        <armorPenetration>0.65</armorPenetration>
         <chanceFactor>0.4</chanceFactor>
       </li>
     </tools>
     <equippedStatOffsets>
-      <MoveSpeed>1.0</MoveSpeed>
-      <MeleeDodgeChance>10</MeleeDodgeChance>
+      <MoveSpeed>1.1</MoveSpeed>
+      <MeleeDodgeChance>12</MeleeDodgeChance>
     </equippedStatOffsets>
     <costList>
         <Steel>30</Steel>
         <Plasteel>80</Plasteel>
         <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>50</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
   </ThingDef>
 
   <!-- Catachan_Sword -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DM_Catachan_Sword</defName>
-    <label>Catachan Sword</label>
-    <description>Catachan Sword from Warhammer 40K: Darktide.</description>
+    <defName>DW_Catachan_Sword_I</defName>
+    <label>Catachan Sword Mk I</label>
+    <description>The Catachans refer to these massive blades as knives. To everyone else, they're hefty swords.</description>
     <graphicData>
       <!-- <texPath>Things/Weapon/Melee/CatachanSword</texPath> -->
       <graphicClass>Graphic_Single</graphicClass>
@@ -129,21 +135,11 @@
       <li>
         <label>Light attack</label>
         <capacities>
-          <li>Cut</li>
+          <li>DW_Melee_Cleave</li>
         </capacities>
-        <power>12</power>
+        <power>14</power>
         <cooldownTime>1.0</cooldownTime>
         <armorPenetration>0.18</armorPenetration>
-      </li>
-      <li>
-        <label>Heavy attack</label>
-        <capacities>
-          <li>Cut</li>
-        </capacities>
-        <power>22</power>
-        <cooldownTime>2.0</cooldownTime>
-        <armorPenetration>0.36</armorPenetration>
-        <chanceFactor>0.4</chanceFactor>
       </li>
     </tools>
     <comps>
@@ -158,11 +154,16 @@
       </li>
       <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon">
       </li> -->
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
     </comps>
-    <equippedStatOffsets>
-      <!-- <MoveSpeed>0.4</MoveSpeed> -->
-    </equippedStatOffsets>
+    
     <costList>
+        <Plasteel>30</Plasteel>
         <Steel>80</Steel>
         <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
@@ -205,11 +206,11 @@
     </tools>
     <equippedStatOffsets>
       <MoveSpeed>0.2</MoveSpeed>
-      <MeleeHitChance>5</MeleeHitChance>
+      <MeleeHitChance>8</MeleeHitChance>
     </equippedStatOffsets>
     <costList>
         <Steel>60</Steel>
-        <Plasteel>100</Plasteel>
+        <Plasteel>50</Plasteel>
         <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <comps>
@@ -224,16 +225,22 @@
           <capacities>
             <li>DW_Melee_Axe_Heavy</li>
           </capacities>
-          <power>28</power>
-          <armorPenetration>0.70</armorPenetration>
+          <power>27</power>
+          <armorPenetration>0.68</armorPenetration>
         </heavyAttackToolPrimary>
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
     </comps>
   </ThingDef>
 
   <!-- Munitorum Sapper Shovel -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Sapper_Shovel</defName>
+    <defName>DW_Sapper_Shovel_III</defName>
     <label>Munitorum Sapper Shovel</label>
     <description>Munitorum Sapper Shovel from Warhammer 40K: Darktide.</description>
     <graphicData>
@@ -252,10 +259,10 @@
       <li>
         <label>Shovel</label>
         <capacities>
-          <li>Blunt</li>
+          <li>DW_Melee_Cleave</li>
         </capacities>
         <power>18</power>
-        <cooldownTime>1.2</cooldownTime>
+        <cooldownTime>1.5</cooldownTime>
         <armorPenetration>0.20</armorPenetration>
       </li>
     </tools>
@@ -264,17 +271,40 @@
     </equippedStatOffsets>
     <costList>
         <Steel>80</Steel>
-        <Plasteel>120</Plasteel>
-        <ComponentIndustrial>8</ComponentIndustrial>
+        <Plasteel>60</Plasteel>
+        <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_HeavyAttack_Sapper_Shovel_III</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_HeavyAttack">
+        <heavyAttackToolPrimary>
+          <label>Heavy attack</label>
+          <capacities>
+            <li>DW_Melee_Stab</li>
+          </capacities>
+          <power>50</power>
+          <armorPenetration>0.9</armorPenetration>
+        </heavyAttackToolPrimary>
+      </li>
+    </comps>
   </ThingDef>
 
   <!-- Thunder Hammer -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Thunder_Hammer</defName>
-    <label>Thunder Hammer</label>
+    <defName>DW_Thunder_Hammer_II</defName>
+    <label>Crucis Mk II Thunder Hammer</label>
     <techLevel>Spacer</techLevel>
-    <description>Thunder Hammer from Warhammer 40K: Darktide.</description>
+    <description>Power weapons of ancient design, Thunder Hammers are devastating, bone-shattering close combat weapons, though heavy and unwieldy.</description>
     <graphicData>
       <!-- <texPath>Things/Weapon/Melee/Thunderhammer</texPath> -->
       <graphicClass>Graphic_Single</graphicClass>
@@ -293,15 +323,16 @@
         <capacities>
           <li>DW_Melee_Strikedown</li>
         </capacities>
-        <power>18</power>
+        <power>20</power>
         <cooldownTime>2.0</cooldownTime>
         <armorPenetration>0.25</armorPenetration>
+        <chanceFactor>0.8</chanceFactor>
       </li>
     </tools>
     <costList>
         <Steel>20</Steel>
         <Plasteel>250</Plasteel>
-        <Uranium>300</Uranium>
+        <Uranium>200</Uranium>
         <ComponentIndustrial>8</ComponentIndustrial>
         <ComponentSpacer>20</ComponentSpacer>
     </costList>
@@ -314,9 +345,15 @@
       <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
         <ChargeMax>1</ChargeMax>
         <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
-        <weaponChargeDamageFactor>12.0</weaponChargeDamageFactor>
-        <weaponChargeArmorPenetrationFactor>5.0</weaponChargeArmorPenetrationFactor>
+        <weaponChargeDamageFactor>8.0</weaponChargeDamageFactor>
+        <weaponChargeArmorPenetrationFactor>3.0</weaponChargeArmorPenetrationFactor>
         <cleaveNum>1</cleaveNum>
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>80</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
     </comps>
     <recipeMaker>
@@ -333,10 +370,10 @@
 
   <!-- Power Sword -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Power_Sword</defName>
-    <label>Power Sword</label>
+    <defName>DW_Power_Sword_VI</defName>
+    <label>Achlys Mk VI Power Sword</label>
     <techLevel>Spacer</techLevel>
-    <description>Power Sword from Warhammer 40K: Darktide.</description>
+    <description>Munitorum power swords are issued to senior officers of the Astra Militarum, as both badge of office and powerful melee weapon.</description>
     <graphicData>
       <texPath>Things/Weapon/Melee/PowerSword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -367,11 +404,17 @@
         </abilityDefList>
       </li>
       <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
-        <ChargeMax>100</ChargeMax>
+        <ChargeMax>20</ChargeMax>
         <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
         <weaponChargeDamageFactor>4.5</weaponChargeDamageFactor>
         <weaponChargeArmorPenetrationFactor>4.0</weaponChargeArmorPenetrationFactor>
         <cleaveNum>30</cleaveNum>
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
     </comps>
     <equippedStatOffsets>
@@ -397,7 +440,7 @@
   </ThingDef>
 
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_RelicBlade</defName>
+    <defName>DW_RelicBlade_II</defName>
     <label>Munitorum Mk II Relic Blade</label>
     <techLevel>Spacer</techLevel>
     <description>This sword's advanced power core channels coursing energy through the blade with devastating effect.</description>
@@ -437,6 +480,12 @@
         <weaponChargeArmorPenetrationFactor>2.0</weaponChargeArmorPenetrationFactor>
         <cleaveNum>50</cleaveNum>
         <heatBuildup>true</heatBuildup>
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
     </comps>
     <equippedStatOffsets>
@@ -504,6 +553,12 @@
           <armorPenetration>0.25</armorPenetration>
         </specialAttackToolPrimary>
       </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
     </comps>
     <equippedStatOffsets>
       <MoveSpeed>-0.2</MoveSpeed>
@@ -541,7 +596,7 @@
 <!-- Turtolsky Mk IX Heavy Sword -->
 
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_ShockMaul_SuppressionShield_MKVI</defName>
+    <defName>DW_ShockMaul_SuppressionShield_VI</defName>
     <label>Branx Mk VI Shock Maul and Suppression Shield</label>
     <techLevel>Medieval</techLevel>
     <description>A powerful combination. Devastating offense and an almost impenetrable defence.</description>
@@ -605,5 +660,90 @@
       </li>
     </comps>
   </ThingDef>
-
+  <!-- Duelling Sword -->
+  <!-- I know what you are looking for -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Duelling_Sword_IV</defName>
+    <label>Maccabian Mk IV Duelling Sword</label>
+    <description>Maccabian swords are renowned for their light weight, keen edge and ostentatious detailing.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.3</uiIconScale>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <MarketValue>1400</MarketValue>
+      <Mass>2.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>light</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>0.4</cooldownTime>
+        <armorPenetration>0.2</armorPenetration>
+      </li>
+      <li>
+        <label>stab</label>
+        <capacities>
+          <li>DW_Melee_DuellingSword_Stab</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.72</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_CounterAttack">
+        <CounterAttackChance>0.2</CounterAttackChance>
+        <CounterAttackDamage>25</CounterAttackDamage>
+        <CounterAttackStabChance>0.2</CounterAttackStabChance>
+        <CounterAttackStabDamage>34</CounterAttackStabDamage>
+        <CounterAttackArmorPenetrationBase>0.5</CounterAttackArmorPenetrationBase>
+        <CounterAttackStabArmorPenetration>1.2</CounterAttackStabArmorPenetration>
+        <CounterAttackChanceIncreasePerLevel>0.03</CounterAttackChanceIncreasePerLevel>
+      </li>
+      <li Class="DarktideWeapons.CompProperites_Block">
+        <isShield>false</isShield>
+        <maxStamina>50</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_HeavyAttack_Duelling_Sword_IV</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_HeavyAttack">
+        <heavyAttackToolPrimary>
+          <label>Heavy attack</label>
+          <capacities>
+            <li>DW_Melee_DuellingSword_Stab</li>
+          </capacities>
+          <power>30</power>
+          <armorPenetration>0.80</armorPenetration>
+        </heavyAttackToolPrimary>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MoveSpeed>0.6</MoveSpeed>
+      <MeleeHitChance>5</MeleeHitChance>
+      <MeleeDodgeChance>10</MeleeDodgeChance>
+    </equippedStatOffsets>
+    <costList>
+        <Plasteel>80</Plasteel>
+        <Steel>50</Steel>
+        <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+        <skillRequirements>
+          <Crafting>12</Crafting>
+        </skillRequirements>
+        <displayPriority>400</displayPriority>
+      </recipeMaker>
+  </ThingDef>
 </Defs>

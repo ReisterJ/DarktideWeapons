@@ -70,7 +70,7 @@
 		</modExtensions>
   </ManeuverDef>
 
-
+<!-- axe -->
   <ManeuverDef>
     <defName>DW_Melee_Axe</defName>
     <requiredCapacity>DW_Melee_Axe</requiredCapacity>
@@ -242,6 +242,50 @@
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
         <staggerImpact>3.0</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
+  <!-- Duelling Sword -->
+  <ManeuverDef>
+    <defName>DW_Melee_DuellingSword_Slash</defName>
+    <requiredCapacity>DW_Melee_DuellingSword_Slash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>2</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
+        <craftType>Cardinal</craftType>
+        <staggerImpact>0.5</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+  <ManeuverDef>
+    <defName>DW_Melee_DuellingSword_Stab</defName>
+    <requiredCapacity>DW_Melee_DuellingSword_Stab</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Stab</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>1</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.99</cleaveDamageFalloffRatio>
+        <craftType>Strikedown</craftType>
+        <staggerImpact>1.0</staggerImpact>
 			</li>
 		</modExtensions>
   </ManeuverDef>

@@ -14,8 +14,29 @@ namespace DarktideWeapons
     {
         public List<Thing> ChainTargets = new List<Thing>();
 
-        public int MaxChainTargets;
-
+        public int MaxChainTargets = 1;
+        protected override DamageInfo CalculateDamage(Thing hitThing)
+        {
+            bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
+            float damageAmount = this.DamageAmount * RangedDamageMultiplierGlobal;
+            float armorPenetration = this.armorPenetrationinGame;
+            //Do crit
+            if (critFlag)
+            {
+                damageAmount *= this.critDamageMultiplierinGame;
+                armorPenetration *= this.critArmorPenetrationMultiplier;
+                Util_Crit.CritMoteMaker(hitThing);
+            }
+            BodyPartRecord bodyPart = null;
+            damageAmount *= DamageMultiplier_Outer;
+            DamageDef ddef = def.projectile.damageDef;
+            if (ModLister.AnomalyInstalled)
+            {
+                ddef = DamageDefOf.ElectricalBurn;
+            }
+            DamageInfo dinfo = new DamageInfo(ddef, damageAmount, armorPenetration, ExactRotation.eulerAngles.y, launcher, bodyPart, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
+            return dinfo;
+        }
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
             this.isLaser = true;
@@ -69,51 +90,138 @@ namespace DarktideWeapons
             {
                 ambientSustainer = def.projectile.soundAmbient.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
             }
+
+            ChainTargetModify();
             DrawLaser();
             ImpactSomething();
+        }
+
+        protected void ChainTargetModify()
+        {
+            if(this.launcher is Pawn pawn)
+            {
+                Comp_DarktideForceStaff comp = pawn.equipment.Primary.TryGetComp<Comp_DarktideForceStaff>();
+                if(comp != null)
+                {
+                    comp.ChainTarget_QualityOffset(ref MaxChainTargets);
+                }
+            }
         }
         protected void ArcJump(Pawn mainTarget)
         {
             if (mainTarget == null) return;
             ChainTargets.Clear();
+            int linkedEnemiesCount = 0;
+            Queue<Pawn> searchQueue = new Queue<Pawn>();
+            HashSet<Pawn> visited = new HashSet<Pawn>();
 
-            //ChainTargets.Add(mainTarget);
+            searchQueue.Enqueue(mainTarget);
+            visited.Add(mainTarget);
 
-            IntVec3 cell = mainTarget.Position;
-            List<IntVec3> area = Util_Melee.GetPawnNearArea(mainTarget, 2f);
-            List<IntVec3> chosenCells = Util_Rand.ChooseRandomCell(area, MaxChainTargets, false);
-            for (int i = 0; i < MaxChainTargets; i++)
+            while (searchQueue.Count > 0 && linkedEnemiesCount < MaxChainTargets)
             {
-                if(i>chosenCells.Count) i= chosenCells.Count - 1;
-                Pawn pawn = chosenCells[i].GetFirstPawn(mainTarget.Map);
-                if(this.preventFriendlyFireinGame && launcher.Faction != null && pawn.Faction != null && pawn.Faction.HostileTo(launcher.Faction))
+                Pawn currentTarget = searchQueue.Dequeue();
+                List<IntVec3> adjacentCells = Util_Melee.GetPawnNearArea(mainTarget,3f);
+
+                foreach (IntVec3 cell in adjacentCells)
                 {
-                    continue;
+                    if (cell.InBounds(currentTarget.Map))
+                    {
+                        foreach(Thing thing in cell.GetThingList(mainTarget.Map))
+                        {
+                            if (thing is Pawn targetPawn && !visited.Contains(targetPawn) && targetPawn.HostileTo(launcher))
+                            {
+                                ChainTargets.Add(targetPawn);
+                                linkedEnemiesCount++;
+                                visited.Add(targetPawn);
+                                searchQueue.Enqueue(targetPawn);
+                            }
+                        }
+                    }
                 }
-                ChainTargets.Add(pawn);
             }
-            foreach(Thing target in ChainTargets)
+            /*
+            if (linkedEnemiesCount < MaxChainTargets)
             {
-                if (target == null) continue;
-                //this.startPoint = cell.ToVector3Shifted();
-                //this.endPoint = target.Position.ToVector3Shifted();
-                //DrawLaser();
-                Impact(target);
-                cell = target.Position;
-            }   
+                foreach (Thing target in ChainTargets)
+                {
+                    if (target is Pawn targetPawn)
+                    {
+                        ArcJump(targetPawn);
+                    }
+                }
+            }
+            */
+            foreach (Thing target in ChainTargets)
+            {
+                if (target != null)
+                {
+                    Impact(target);
+                }
+            }
         }
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            Map map = base.Map;
+            IntVec3 position = base.Position;
+            GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
+            if (!blockedByShield && def.projectile.landedEffecter != null)
+            {
+                def.projectile.landedEffecter.Spawn(base.Position, base.Map).Cleanup();
+            }
+            BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
+            Find.BattleLog.Add(battleLogEntry_RangedImpact);
+            NotifyImpact(hitThing, map, position);
+            if (hitThing != null)
+            {
 
+                bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
+                DamageInfo dinfo = CalculateDamage(hitThing);
+                dinfo.SetWeaponQuality(equipmentQuality);
+                DamageWorker.DamageResult damageResult = hitThing.TakeDamage(dinfo);
+                damageResult.AssociateWithLog(battleLogEntry_RangedImpact);
+
+                Pawn pawn2 = hitThing as Pawn;
+                Util_Stagger.StunHandler(pawn2,Math.Min(this.MaxChainTargets * (int)dinfo.Amount,210) , launcher);
+
+                if (def.projectile.extraDamages != null)
+                {
+                    foreach (ExtraDamage extraDamage in def.projectile.extraDamages)
+                    {
+                        if (Rand.Chance(extraDamage.chance))
+                        {
+                            DamageInfo dinfo2 = new DamageInfo(extraDamage.def, extraDamage.amount, extraDamage.AdjustedArmorPenetration(), ExactRotation.eulerAngles.y, launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
+                            hitThing.TakeDamage(dinfo2).AssociateWithLog(battleLogEntry_RangedImpact);
+                        }
+                    }
+                }
+                return;
+            }
+            if (!blockedByShield)
+            {
+                SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map));
+                if (base.Position.GetTerrain(map).takeSplashes)
+                {
+                    FleckMaker.WaterSplash(ExactPosition, map, Mathf.Sqrt(DamageAmount) * 1f, 4f);
+                }
+                else
+                {
+                    FleckMaker.Static(ExactPosition, map, FleckDefOf.ShotHit_Dirt);
+                }
+            }
+        }
         protected override void ImpactSomething()
         {
             usedTargetHit = true;
 
             if (usedTarget.HasThing)
             {
-                Impact(usedTarget.Thing);
+                
                 if (usedTarget.Thing is Pawn target)
                 {
                     ArcJump(target);
                 }
+                Impact(usedTarget.Thing);
                 return;
             }
            

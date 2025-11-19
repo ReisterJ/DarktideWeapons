@@ -58,4 +58,13 @@
     <defName>DW_Melee_ShieldBash</defName>
     <label>Shield</label> 
   </ToolCapacityDef>
+  <!-- Duelling Sword -->
+   <ToolCapacityDef>
+    <defName>DW_Melee_DuellingSword_Slash</defName>
+    <label>Edge</label> 
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>DW_Melee_DuellingSword_Stab</defName>
+    <label>Point</label> 
+  </ToolCapacityDef>
 </Defs>

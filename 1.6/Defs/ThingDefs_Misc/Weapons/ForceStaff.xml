@@ -46,8 +46,8 @@
 
     <ThingDef ParentName="BaseForceStaff">
         <defName>DW_Purgatus_ForceStaff</defName>
-        <label>Purgatus Force Staff</label>
-        <description>This pattern of stave works particularly well for channeling the power of the Immaterium into warp fire.</description>
+        <label>Rifthaven Mk II Purgatus Force Staff</label>
+        <description>The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds. - High Ecclesiarch Renald Kothar.</description>
         <graphicData>
         <texPath>Things/Item/Equipment/WeaponMelee/PsyfocusStaff</texPath>
         <graphicClass>Graphic_Single</graphicClass>
@@ -61,13 +61,14 @@
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
             <li Class="CompProperties_EquippableAbility">
                 <abilityDef>DW_ReleaseWarpFire</abilityDef>
+                <abilityDef>DW_ReleaseWarpFire_Burst</abilityDef>
             </li>
         </comps>
     </ThingDef>
 
     <ThingDef ParentName="BaseForceStaff">
         <defName>DW_Voidstrike_ForceStaff</defName>
-        <label>Voidstrike Force Staff</label>
+        <label>Equinox Mk IV Voidstrike Force Staff</label>
         <description>This pattern of stave allows the wielder to create a great blaze bolt projectile that deals high damage and can pass through crowds in a great line of destruction.</description>
         <graphicData>
         <texPath>Things/Item/Equipment/WeaponMelee/PsyfocusStaff</texPath>
@@ -103,6 +104,28 @@
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
             <li Class="CompProperties_EquippableAbility">
                 <abilityDef>DW_Electrokinetic</abilityDef>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!-- Nomanus Mk VI Electrokinetic Force Staff -->
+    <ThingDef ParentName="BaseForceStaff">
+        <defName>DW_VoidBlast_ForceStaff</defName>
+        <label>Equinox Mk III Voidblast Force Staff</label>
+        <description>Through the intricate psi-convectors of a force staff, a psyker harnesses the pure energy of the Warp, unleashing it upon their enemies in ferocious psychic cavalcades.</description>
+        <graphicData>
+        <texPath>Things/Item/Equipment/WeaponMelee/PsyfocusStaff</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costList>
+            <Steel>100</Steel>
+            <Plasteel>100</Plasteel>
+            <ComponentSpacer>10</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>DW_VoidBlast</abilityDef>
             </li>
         </comps>
     </ThingDef>

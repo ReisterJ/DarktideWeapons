@@ -15,4 +15,11 @@ namespace DarktideWeapons.SpecialMeleeVerbs
 
         Comp_SpecialMelee SpecialMeleeComp { get; }
     }
+
+    public interface IPushAttack
+    {
+        bool TryStartPushAttack();
+
+        Comp_PushAttack PushAttackComp { get; }
+    }
 }

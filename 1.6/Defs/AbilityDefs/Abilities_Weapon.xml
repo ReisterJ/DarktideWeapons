@@ -65,39 +65,7 @@
   </AbilityDef>
 
 
-  <AbilityDef Name="Ability_HeavyMeleeAttack" Abstract="True">
-    <label>Heavy Attack</label>
-    <description>Heavy Attack.</description>
-    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
-    <jobDef>PerformHeavyMeleeAttack</jobDef>
-    <targetRequired>true</targetRequired>
-    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
-    <statBases>
-    </statBases>
-    <verbProperties>
-      <verbClass>DarktideWeapons.SpecialMeleeVerbs.Verb_HeavyAttack</verbClass>
-      <warmupTime>1.0</warmupTime>
-      <range>-1</range>
-      <drawAimPie>False</drawAimPie>
-      <requireLineOfSight>False</requireLineOfSight>
-      <targetParams>
-          <canTargetSelf>false</canTargetSelf>
-          <canTargetPawns>true</canTargetPawns>
-          <canTargetBuildings>false</canTargetBuildings>
-          <canTargetAnimals>true</canTargetAnimals>
-          <canTargetHumans>true</canTargetHumans>
-          <canTargetMechs>true</canTargetMechs>
-      </targetParams>
-    </verbProperties>
-  </AbilityDef>
-
-  <AbilityDef ParentName="Ability_HeavyMeleeAttack">
-    <defName>DW_HeavyAttack_Rashad_CombatAxe</defName>
-    <verbProperties>
-      <warmupTime>1.1</warmupTime>
-    </verbProperties>
-  </AbilityDef>
+  
 
   <AbilityDef Name="Ability_ChainSwordRavage" Abstract="True">
     <label>Ravage</label>

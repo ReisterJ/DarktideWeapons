@@ -18,7 +18,7 @@ namespace DarktideWeapons
 
         protected override bool TryCastShot()
         {
-            return (base.TryCastShot() && TryAbilityShoot()); 
+            return (base.TryCastShot() && TryAbilityShoot());
         }
 
         public virtual bool TryAbilityShoot()
@@ -65,7 +65,7 @@ namespace DarktideWeapons
                 projectile2.Launch(manningPawn, drawPos, resultingLine.Dest, currentTarget, projectileHitFlags4, preventFriendlyFire, equipmentSource, targetCoverDef);
             }
             return true;
-            
+
         }
         public void DebugOutput(object o)
         {
@@ -73,5 +73,46 @@ namespace DarktideWeapons
             Log.Message(o);
 #endif
         }
+    }
+
+    public class Verb_ReleaseArcChain_Psycast : Verb_AbilityShoot_Psycast
+    {
+        public override bool TryAbilityShoot()
+        {
+            ThingDef projectile = PsyCastExtProps.defaultProjectile;
+            if (projectile == null)
+            {
+                return false;
+            }
+            ShootLine resultingLine;
+            bool flag = TryFindShootLineFromTo(caster.Position, currentTarget, out resultingLine);
+            Thing manningPawn = caster;
+            Thing equipmentSource = base.EquipmentSource;
+            Vector3 drawPos = caster.DrawPos;
+            Projectile projectile2 = (Projectile)GenSpawn.Spawn(projectile, resultingLine.Source, caster.Map);
+            ShotReport shotReport = ShotReport.HitReportFor(caster, this, currentTarget);
+            Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
+            ThingDef targetCoverDef = randomCoverToMissInto?.def;
+            
+            ProjectileHitFlags projectileHitFlags4 = ProjectileHitFlags.IntendedTarget;
+            if (canHitNonTargetPawnsNow)
+            {
+                projectileHitFlags4 |= ProjectileHitFlags.NonTargetPawns;
+            }
+            if (!currentTarget.HasThing || currentTarget.Thing.def.Fillage == FillCategory.Full)
+            {
+                projectileHitFlags4 |= ProjectileHitFlags.NonTargetWorld;
+            }
+            if (currentTarget.Thing != null)
+            {
+                projectile2.Launch(manningPawn, drawPos, currentTarget, currentTarget, projectileHitFlags4, preventFriendlyFire, equipmentSource, targetCoverDef);
+            }
+            else
+            {
+                projectile2.Launch(manningPawn, drawPos, resultingLine.Dest, currentTarget, projectileHitFlags4, preventFriendlyFire, equipmentSource, targetCoverDef);
+            }
+            return true;
+        }
+
     }
 }

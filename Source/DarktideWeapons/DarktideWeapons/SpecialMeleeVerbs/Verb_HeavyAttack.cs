@@ -268,7 +268,7 @@ namespace DarktideWeapons.SpecialMeleeVerbs
             }
             Vector3 direction = (target.Thing.Position - CasterPawn.Position).ToVector3();
             bool instigatorGuilty = !(caster is Pawn pawn) || !pawn.Drafted;
-            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster, null, source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
+            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster,target.Pawn != null ? Util_Melee.TryHitCorePart(CasterPawn, target.Pawn) :null , source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
             damageInfo.SetBodyRegion(BodyPartHeight.Undefined, BodyPartDepth.Outside);
             damageInfo.SetWeaponBodyPartGroup(bodyPartGroupDef);
             damageInfo.SetWeaponHediff(hediffDef);

@@ -9,5 +9,8 @@
     <defName>DW_PsyCast</defName>
     <displayOrder>11</displayOrder>
   </AbilityCategoryDef>
-  
+  <AbilityCategoryDef>
+    <defName>DW_HeavyMeleeAttack</defName>
+    <displayOrder>5</displayOrder>
+  </AbilityCategoryDef>
 </Defs>

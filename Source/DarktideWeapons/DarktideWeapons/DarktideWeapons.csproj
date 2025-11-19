@@ -70,6 +70,7 @@
     <Compile Include="CompAbilityEffect_ChargeWeapon.cs" />
     <Compile Include="CompAbilityEffect_DOT.cs" />
     <Compile Include="CompAbilityEffect_ForceStaffRequired.cs" />
+    <Compile Include="CompAbilityEffect_PsiExplosion.cs" />
     <Compile Include="CompAbilityEffect_SwitchFireMode.cs" />
     <Compile Include="CompAbilityEffect_PlasmaMode.cs" />
     <Compile Include="Comp_DWChargeWeapon.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="JobDrivers\JobDriver_HeavyMeleeAttack.cs" />
     <Compile Include="JobDrivers\JobDriver_SpecialMeleeAttack.cs" />
     <Compile Include="MeleeComps\Comp_HeavyAttack.cs" />
+    <Compile Include="MeleeComps\Comp_PushAttack.cs" />
     <Compile Include="MeleeComps\Comp_SpecialMelee.cs" />
     <Compile Include="ModExtension_DW_Ability.cs" />
     <Compile Include="ModExtension_HediffDOT.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="SpecialMeleeVerbs\IHeavyMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\ISpecialMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_AbilityMelee.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_PushAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_HeavyAttack.cs" />
     <Compile Include="Util_BodyPart.cs" />
     <Compile Include="Util_CharacterBuild.cs" />

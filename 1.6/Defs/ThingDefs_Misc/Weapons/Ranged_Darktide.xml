@@ -4,7 +4,7 @@
 <Defs>
   <ThingDef Name="Darktide_Gun" ParentName="BaseHumanMakeableGun" Abstract="True">
     <weaponTags Inherit="false">
-
+      <li>DarktideRanged</li>
     </weaponTags>
     <tradeTags Inherit="false">
     
@@ -722,7 +722,6 @@
       </li>
     </modExtensions>
   </ThingDef>
-
   <ThingDef  ParentName="BaseBullet">
     <defName>DW_Bullet_CombatShotgunSlug</defName>
     <label>Solid Slug</label>
@@ -748,7 +747,6 @@
       </li>
     </modExtensions>
   </ThingDef>
-
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Agripinaa_CombatShotgun</defName>
     <label>Agripinaa Combat Shotgun</label>
@@ -849,7 +847,6 @@
       <speed>50</speed>
     </projectile>
   </ThingDef>
-
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Kantrael_CombatShotgun</defName>
     <label>Kantrael Combat Shotgun</label>
@@ -960,7 +957,6 @@
         </li>
       </modExtensions>
   </ThingDef>
-
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_HeadhunterAutogun</defName>
     <label>Headhunter Autogun</label>
@@ -1156,6 +1152,7 @@
     <!-- <comps inherit = "False">
     </comps> -->
   </ThingDef>
+
 <!-- Accatran Mk VId Recon Lasgun -->
   <ThingDef ParentName="BaseBullet">
     <defName>DW_Laser_AccatranLasgun_VId</defName>
@@ -1231,7 +1228,6 @@
   </ThingDef>
 
 <!-- Plasma Gun -->
-
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_PlasmaProjectile</defName>
     <label>Plasma projectile</label>
@@ -1257,7 +1253,6 @@
       </li>
     </modExtensions>
   </ThingDef>
-
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_PlasmaChargedProjectile</defName>
     <label>Plasma charged projectile</label>
@@ -1283,10 +1278,9 @@
       </li>
     </modExtensions>
   </ThingDef>
-  
   <ThingDef ParentName="Darktide_Gun">
-    <defName>DW_PlasmaGun</defName>
-    <label>Plasma Gun</label>
+    <defName>DW_PlasmaGun_II</defName>
+    <label>M35 Magnacore Mk II Plasma Gun</label>
     <description>The weapon fires a highly energized ball of hydrogen-based plasma.Emergency cooling ducts and exhaust vents periodically expel excess heat from the gun while stoping charging device working; if these are overwhelmed by continuous fire the wielder may be harmed by emergency venting.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
@@ -1365,6 +1359,7 @@
       </li>
     </comps>
   </ThingDef>
+
 <!-- Twin-Linked Heavy Stubber -->
    <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_StubberAmmoLight</defName>
@@ -1678,7 +1673,6 @@
       </li>
     </modExtensions>
   </ThingDef>
-
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_Grenadier_Gauntlet</defName>
     <label>Blastoom Mk III Grenadier Gauntlet</label>
@@ -1755,7 +1749,6 @@
       </li>
     </modExtensions>
   </ThingDef>
-
   <ThingDef ParentName="Darktide_Gun">
     <defName>DW_HeavyStubber_II</defName>
     <label>AchlysHeavy Stubber Mk II</label>
@@ -1839,7 +1832,7 @@
 
 <!-- Exterminator Shotgun -->
   <ThingDef  ParentName="BaseBullet">
-    <defName>DW_Bullet_ExterminatorShotgun_MKIII</defName>
+    <defName>DW_Bullet_ExterminatorShotgun_III</defName>
     <label>Pellet</label>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Shotgun</texPath>
@@ -1863,8 +1856,9 @@
       </li>
     </modExtensions>
   </ThingDef>
+  <!-- TODO: Add electronic stun shell as ability -->
   <ThingDef  ParentName="BaseBullet">
-    <defName>DW_Bullet_ExterminatorShotgun_MKVIII</defName>
+    <defName>DW_Bullet_ExterminatorShotgun_VIII</defName>
     <label>Pellet</label>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Shotgun</texPath>
@@ -1888,8 +1882,9 @@
       </li>
     </modExtensions>
   </ThingDef>
+  <!-- TODO: Add thredder shell as ability -->
   <ThingDef ParentName="Darktide_Gun">
-    <defName>DW_ExterminatorShotgun_MKIII</defName>
+    <defName>DW_ExterminatorShotgun_III</defName>
     <label>Exaction Mk III Exterminator Shotgun</label>
     <description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</description>
     <graphicData>
@@ -1928,7 +1923,7 @@
       <li>
         <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>DW_Bullet_ExterminatorShotgun_MKIII</defaultProjectile>
+        <defaultProjectile>DW_Bullet_ExterminatorShotgun_III</defaultProjectile>
         <warmupTime>1.3</warmupTime>
         <range>30.9</range>
         <soundCast>Shot_Shotgun</soundCast>
@@ -1949,7 +1944,7 @@
     </comps>
   </ThingDef>
   <ThingDef ParentName="Darktide_Gun">
-    <defName>DW_ExterminatorShotgun_MKVIII</defName>
+    <defName>DW_ExterminatorShotgun_VIII</defName>
     <label>Exaction Mk VIII Exterminator Shotgun</label>
     <description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</description>
     <graphicData>
@@ -1988,7 +1983,7 @@
       <li>
         <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>DW_Bullet_ExterminatorShotgun_MKVIII</defaultProjectile>
+        <defaultProjectile>DW_Bullet_ExterminatorShotgun_VIII</defaultProjectile>
         <warmupTime>2.2</warmupTime>
         <range>42.9</range>
         <soundCast>Shot_Shotgun</soundCast>
@@ -2000,7 +1995,6 @@
       
     </comps>
   </ThingDef>
-
   <!-- Artemia Mk III Purgation Flamer -->
   <ThingDef  ParentName="BaseBullet">
     <defName>DW_FireCloud</defName>
@@ -2034,7 +2028,7 @@
   </ThingDef>
 
   <ThingDef ParentName="Darktide_Gun">
-    <defName>DW_Flamer_MkIII</defName>
+    <defName>DW_Flamer_III</defName>
     <label>Artemia Mk III Purgation Flamer</label>
     <description>Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire.</description>
     <graphicData>
@@ -2113,7 +2107,7 @@
     </modExtensions>
   </ThingDef>
   <ThingDef ParentName="Darktide_Gun">
-    <defName>DW_Shotpistol_RiotShield_MkIV</defName>
+    <defName>DW_Shotpistol_RiotShield_IV</defName>
     <label>Judgement Mk IV Subductor Shotpistol and Riot Shield</label>
     <description>A Riot Shield and a short Shotpistol are perfect for the tight, cramped halls where the Arbites often find themselves.</description>
     <graphicData>

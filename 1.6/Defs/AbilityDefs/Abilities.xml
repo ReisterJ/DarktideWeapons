@@ -20,13 +20,12 @@
     </statBases>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
-        
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
     </modExtensions>
     <verbProperties>
-      <warmupTime>0.5</warmupTime>
-      <range>19.9</range>
+      <warmupTime>0.3</warmupTime>
+      <range>15.9</range>
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -35,7 +34,7 @@
     </verbProperties>
     <comps>
       <li Class = "DarktideWeapons.CompProperties_AbilityEffect_DOT">
-        <hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
+        <hediffDef>DW_Hediff_DOT_SoulBlaze</hediffDef>
         <applicableToMechs>True</applicableToMechs>
         <addLevel>2</addLevel>
       </li>
@@ -48,38 +47,70 @@
     </comps>
   </AbilityDef>
 
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_SoulBlazeProjectile</defName>
+    <label>SoulBlaze</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_SoulBlaze</thingClass>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>999</penetrationPower>
+        <effectiveRange>22.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+        <critChance>0.25</critChance>
+        <critDamageMultiplier>3.5</critDamageMultiplier>
+        <applyHediffDefs>
+          <li>DW_Hediff_DOT_SoulBlaze</li>
+        </applyHediffDefs>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
   <AbilityDef ParentName="DW_ForceStaffPsycast">
     <defName>DW_ReleaseWarpFire_Burst</defName>
     <label>Release warp fire(Burst)</label>
-    <description>Channeling the power of the Immaterium into warp fire. It excels at controlling crowds of enemies.</description>
+    <description>Charge up the weapon and release holy flames onto the enemy.</description>
     <level>1</level>
     <iconPath>UI/Abilities/FireBurst</iconPath>
     <hostile>false</hostile>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>30</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
-      <Ability_EffectRadius>1.9</Ability_EffectRadius>
+      <Ability_EntropyGain>3</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
-    <modExtensions>
+     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+        <defaultProjectile>DW_SoulBlazeProjectile</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
     </modExtensions>
     <verbProperties>
-      <warmupTime>1.8</warmupTime>
+      <verbClass>DarktideWeapons.Verb_AbilityShoot_Psycast</verbClass>
+      <warmupTime>3.0</warmupTime>
       <range>19.9</range>
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
         <canTargetLocations>True</canTargetLocations>
       </targetParams>
+      <burstShotCount>11</burstShotCount>
+      <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
     </verbProperties>
     <comps>
-      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_DOT">
-        <hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
-        <applicableToMechs>True</applicableToMechs>
-        <addLevel>2</addLevel>
+      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+        <requiredStaff>DW_Purgatus_ForceStaff</requiredStaff>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
@@ -87,7 +118,7 @@
     </comps>
   </AbilityDef>
 
-
+  <!-- void strike -->
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_VoidEnergyBall</defName>
     <label>Energy ball</label>
@@ -151,10 +182,38 @@
     </comps>
   </AbilityDef>
 
+  <!-- electrokinetic -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Lightning_Chain</defName>
+    <label>Lightning</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <armorPenetrationBase>0.7</armorPenetrationBase>
+      <stoppingPower>4</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_ArcChain</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>44.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
   <AbilityDef ParentName="DW_ForceStaffPsycast">
     <defName>DW_Electrokinetic</defName>
     <label>Electrokinetic</label>
-    <description>Sending out balls of Void energy that can both stagger and damage foes.</description>
+    <description>charge the staff and release lightning chain. The lightning will strike several enemies, even staggering bigger elites.</description>
     <level>1</level>
     <iconPath>UI/Abilities/FireBurst</iconPath>
     <hostile>false</hostile>
@@ -165,14 +224,14 @@
     </statBases>
     <modExtensions>
       <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
-        <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
+        <defaultProjectile>DW_Lightning_Chain</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
     </modExtensions>
     <verbProperties>
-      <verbClass>DarktideWeapons.Verb_AbilityShoot_Psycast</verbClass>
-      <warmupTime>2.5</warmupTime>
-      <range>39.9</range>
+      <verbClass>DarktideWeapons.Verb_ReleaseArcChain_Psycast</verbClass>
+      <warmupTime>2.0</warmupTime>
+      <range>30.9</range>
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -186,5 +245,38 @@
     </comps>
   </AbilityDef>
  
-
+  <!-- void blast -->
+  <AbilityDef ParentName="DW_ForceStaffPsycast">
+    <defName>DW_VoidBlast</defName>
+    <label>Void Blast</label>
+    <description>Charge up an attack, placing a field that will explode.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
+    </statBases>
+    <modExtensions>
+    </modExtensions>
+    <verbProperties>
+      <warmupTime>2.5</warmupTime>
+      <range>25.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+        <requiredStaff>DW_VoidBlast_ForceStaff</requiredStaff>
+      </li>
+      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_PsiExplosion">
+        <staggerPower>4</staggerPower>
+        <explosionDamage>20</explosionDamage>
+      </li>
+    </comps>
+  </AbilityDef>
 </Defs>

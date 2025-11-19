@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <HediffDef>
-		<defName>DW_Hediff_DOT_WarpFire</defName>
+		<defName>DW_Hediff_DOT_SoulBlaze</defName>
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
-		<label>Warp fire</label>
-		<description>warp fire scorches victim.</description>
+		<label>Soul Blaze</label>
+		<description>warp fire victim.</description>
 		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
-    	<maxSeverity>8</maxSeverity>
+    	<maxSeverity>10</maxSeverity>
 		<initialSeverity>1</initialSeverity>
 		<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
 		<stages>
@@ -31,30 +31,39 @@
 		</li>
 		<li>
 			<minSeverity>6</minSeverity>
-			<painFactor>1.5</painFactor>
+			<painFactor>1.4</painFactor>
 		</li>
 		<li>
 			<minSeverity>7</minSeverity>
-			<painFactor>1.75</painFactor>
+			<painFactor>1.5</painFactor>
 		</li>
 		<li>
 			<minSeverity>8</minSeverity>
-			<painFactor>2.0</painFactor>
+			<painFactor>1.6</painFactor>
+		</li>
+		<li>
+			<minSeverity>9</minSeverity>
+			<painFactor>1.7</painFactor>
+		</li>
+		<li>
+			<minSeverity>10</minSeverity>
+			<painFactor>1.8</painFactor>
 		</li>
 		</stages>
 		<modExtensions>
 			<li Class="DarktideWeapons.ModExtension_HediffDOT">
-				<damageTickPeriod>120</damageTickPeriod>
+				<damageTickPeriod>90</damageTickPeriod>
 				<damageBonusPerLevel>0.25</damageBonusPerLevel>
-				<armorPenetrationBase>0.6</armorPenetrationBase>
+				<armorPenetrationBase>0.5</armorPenetrationBase>
 				<damageDefOf>Burn</damageDefOf>
 				<isBrain>true</isBrain>
+				<downgradeDamageTime>5</downgradeDamageTime>
 			</li>
 		</modExtensions>
 		<comps>
 			<li Class="DarktideWeapons.HediffCompProperties_SpreadHediffAfterDeath">
 				<friendlySpread>false</friendlySpread>
-				<hediffDef>DW_Hediff_DOT_WarpFire</hediffDef>
+				<hediffDef>DW_Hediff_DOT_SoulBlaze</hediffDef>
 				<isBrain>true</isBrain>
 			</li>
 			<li Class="HediffCompProperties_DisappearsOnDeath" />
@@ -114,9 +123,9 @@
 		</stages>
 		<modExtensions>
 			<li Class="DarktideWeapons.ModExtension_HediffDOT">
-				<damageTickPeriod>120</damageTickPeriod>
+				<damageTickPeriod>60</damageTickPeriod>
 				<damageBonusPerLevel>0.5</damageBonusPerLevel>
-				<armorPenetrationBase>0.8</armorPenetrationBase>
+				<armorPenetrationBase>1.2</armorPenetrationBase>
 				<damageDefOf>Burn</damageDefOf>
 				<isBrain>false</isBrain>
 			</li>
