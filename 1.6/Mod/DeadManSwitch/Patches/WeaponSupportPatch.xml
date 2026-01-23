@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+
+      <!-- Soldats -->
+      <li Class="PatchOperationAdd">
+        <xpath>
+          Defs/ThingDef[
+          defName="DMS_Mech_Soldat"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Sergeant"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Grenadier"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Kanonier"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+      <!-- DMS_Mech_Ronin -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Ronin"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideMelee</li>
+        </value>
+      </li>
+      
+      <!-- DMS_Mech_Siegebreaker -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Siegebreaker"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideMelee</li>
+        </value>
+      </li>
+      <!-- DMS_Mech_Protector -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Protector"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideMelee</li>
+        </value>
+      </li>
+      <!-- DMS_Mech_Phalanx -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Phalanx"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideMelee</li>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <!-- DMS_Mech_Arquebusier -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Arquebusier"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+      
+      <!-- DMS_Mech_Jaeger -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Jaeger"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+  
+      <!-- DMS_Mech_Pioneer -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Pioneer"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+      
+      <!-- DMS_Mech_Sniper -->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Sniper"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <!-- Ape-->
+      <li Class="PatchOperationAdd">
+        <xpath>
+          Defs/ThingDef[
+          defName="DMS_Mech_Ape"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+
+      <!-- BattleFrames -->
+      <li Class="PatchOperationAdd">
+        <xpath>
+          Defs/ThingDef[
+          defName="DMS_Mech_BattleFrame"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+      
+      <!-- <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_ShaftWorker"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>PLA_Pistol</li>
+        </value>
+      </li> -->
+      <!-- 鬣蜥 Iguana-->
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[
+          defName="DMS_Mech_Iguana" or
+          defName="DMS_Mech_Gecko"
+          ]/modExtensions/li[@Class="Fortified.MechWeaponExtension"]/UsableWeaponTags</xpath>
+        <value>
+          <li>DarktideRanged</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

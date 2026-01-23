@@ -2172,4 +2172,134 @@
       </li>
     </tools>
   </ThingDef>
+
+
+  <!-- hive scum -->
+  <ThingDef>
+    <defName>DW_Bullet_Toxic_Needle</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>0.70</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef>
+    <defName>DW_Bullet_Toxic_Needle_Spread</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>0.70</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>  
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_NeedlePistol_II</defName>
+    <label>Branx MKII Needle Pistol</label>
+    <description>Sometimes known as a needler, this weapon is a favourite among those who prefer a less showy method of assassination.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MarketValue>1200</MarketValue>
+      <Mass>2.0</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>230</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle_Spread</defaultProjectile>
+        <warmupTime>1.3</warmupTime>
+        <range>25.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>28.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+    </comps>
+  </ThingDef>
+  
+
 </Defs>

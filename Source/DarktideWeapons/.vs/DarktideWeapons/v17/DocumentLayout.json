@@ -99,7 +99,7 @@
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\meleecomps\\comp_heavyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\specialmeleeverbs\\verb_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\specialmeleeverbs\\verb_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\specialmeleeverbs\\verb_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -119,7 +119,7 @@
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\specialmeleeverbs\\verb_abilitymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|e:\\workstation\\rimworld\\darktide weapons\\source\\darktideweapons\\darktideweapons\\meleecomps\\comp_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|E:\\workstation\\rimworld\\Darktide Weapons\\Source\\DarktideWeapons\\darktideweapons\\meleecomps\\comp_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69BFCA1-82A2-4A33-BF51-1EA98CDA6CE5}|DarktideWeapons\\DarktideWeapons.csproj|solutionrelative:darktideweapons\\meleecomps\\comp_pushattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -301,8 +301,7 @@
               "RelativeToolTip": "DarktideWeapons\\MeleeComps\\Comp_PushAttack.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAADwvwYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T07:50:39.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T07:50:39.35Z"
             },
             {
               "$type": "Document",
@@ -314,8 +313,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\Verb_PushAttack.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAA0wCwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T07:34:39.133Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T07:34:39.133Z"
             },
             {
               "$type": "Document",
@@ -376,8 +374,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_SoulBlaze.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T11:02:26.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T11:02:26.183Z"
             },
             {
               "$type": "Document",
@@ -413,8 +410,7 @@
               "RelativeToolTip": "DarktideWeapons\\MeleeComps\\Comp_SpecialMelee.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T07:05:13.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T07:05:13.158Z"
             },
             {
               "$type": "Document",
@@ -426,8 +422,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\Verb_AbilityMelee.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T06:54:57.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T06:54:57.849Z"
             },
             {
               "$type": "Document",
@@ -451,8 +446,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\Verb_HeavyAttack.cs",
               "ViewState": "AQIAAP4AAAAAAAAAAAAowBUBAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:21:58.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T16:21:58.652Z"
             },
             {
               "$type": "Document",
@@ -464,8 +458,7 @@
               "RelativeToolTip": "DarktideWeapons\\MeleeComps\\Comp_HeavyAttack.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAowCAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T16:10:21.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T16:10:21.603Z"
             },
             {
               "$type": "Document",
@@ -477,8 +470,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\ISpecialMeleeAttack.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T15:54:49.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T15:54:49.641Z"
             },
             {
               "$type": "Document",
@@ -502,8 +494,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_Plasma.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAA0wKIAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T13:30:56.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T13:30:56.026Z"
             },
             {
               "$type": "Document",
@@ -575,8 +566,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\Verb_ChainSwordRavage.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAwwB0AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T13:03:58.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T13:03:58.415Z"
             },
             {
               "$type": "Document",
@@ -588,8 +578,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_FireCloud.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAQwEIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T15:21:57.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T15:21:57.351Z"
             },
             {
               "$type": "Document",
@@ -601,8 +590,7 @@
               "RelativeToolTip": "DarktideWeapons\\SpecialMeleeVerbs\\Verb_Thrower.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T06:27:47.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T06:27:47.247Z"
             },
             {
               "$type": "Document",
@@ -614,8 +602,7 @@
               "RelativeToolTip": "DarktideWeapons\\CompAbilityEffect_CannotCastWhileBlocking.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAswFEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T13:54:42.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T13:54:42.527Z"
             },
             {
               "$type": "Document",
@@ -627,8 +614,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_Equipment.cs",
               "ViewState": "AQIAACMAAAAAAAAAAAAAAEoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T11:00:28.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T11:00:28.003Z"
             },
             {
               "$type": "Document",
@@ -640,8 +626,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_ArcChain.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAQwAwAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T08:31:53.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T08:31:53.906Z"
             },
             {
               "$type": "Document",
@@ -653,8 +638,7 @@
               "RelativeToolTip": "DarktideWeapons\\Util_Rand.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAcwCgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T08:48:12.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T08:48:12.285Z"
             },
             {
               "$type": "Document",
@@ -666,8 +650,7 @@
               "RelativeToolTip": "DarktideWeapons\\CompAbilityEffect_ForceStaffRequired.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAADEAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T08:28:12.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T08:28:12.46Z"
             },
             {
               "$type": "Document",
@@ -691,8 +674,7 @@
               "RelativeToolTip": "DarktideWeapons\\Util_Melee.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAQwCUAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T12:08:59.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T12:08:59.853Z"
             },
             {
               "$type": "Document",
@@ -704,8 +686,7 @@
               "RelativeToolTip": "DarktideWeapons\\CompAbilityEffect_ChargeWeapon.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAADwvw0AAABvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T10:10:44.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T10:10:44.692Z"
             },
             {
               "$type": "Document",
@@ -741,8 +722,7 @@
               "RelativeToolTip": "DarktideWeapons\\Util_Stagger.cs",
               "ViewState": "AQIAACYAAAAAAAAAAAAQwFEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T07:33:08.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T07:33:08.703Z"
             },
             {
               "$type": "Document",
@@ -766,8 +746,7 @@
               "RelativeToolTip": "DarktideWeapons\\Comp_DarktideForceStaff.cs",
               "ViewState": "AQIAAJUAAAAAAAAAAAAgwLMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T10:13:39.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-03T10:13:39.365Z"
             },
             {
               "$type": "Document",
@@ -791,8 +770,7 @@
               "RelativeToolTip": "DarktideWeapons\\Verb_AbilityShoot_Psycast.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAwBIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T13:51:57.711Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T13:51:57.711Z"
             },
             {
               "$type": "Document",
@@ -804,8 +782,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_Laser.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAQwHwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T11:01:27.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T11:01:27.649Z"
             },
             {
               "$type": "Document",
@@ -817,8 +794,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_WeaponComp.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T07:26:55.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T07:26:55.798Z"
             },
             {
               "$type": "Document",
@@ -830,8 +806,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_Projectile.cs",
               "ViewState": "AQIAAP8AAAAAAAAAAAAgwA8BAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T11:00:43.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T11:00:43.492Z"
             },
             {
               "$type": "Document",
@@ -843,8 +818,7 @@
               "RelativeToolTip": "DarktideWeapons\\Verb_DarktideMelee.cs",
               "ViewState": "AQIAAPwBAAAAAAAAAAAAADYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T11:02:39.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T11:02:39.385Z"
             },
             {
               "$type": "Document",
@@ -904,8 +878,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_ModSettings.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T14:33:47.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T14:33:47.753Z"
             },
             {
               "$type": "Document",
@@ -953,8 +926,7 @@
               "RelativeToolTip": "DarktideWeapons\\ModExtension_HediffDOT.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAADwvw8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T12:59:56.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T12:59:56.514Z"
             },
             {
               "$type": "Document",
@@ -1038,8 +1010,7 @@
               "RelativeToolTip": "DarktideWeapons\\Util_Ranged.cs",
               "ViewState": "AQIAADYAAAAAAAAAAADwvzEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T14:31:30.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T14:31:30.211Z"
             },
             {
               "$type": "Document",
@@ -1134,8 +1105,7 @@
               "RelativeToolTip": "DarktideWeapons\\Hediff_DOT.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAYwC8AAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T11:42:19.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T11:42:19.457Z"
             },
             {
               "$type": "Document",
@@ -1159,8 +1129,7 @@
               "RelativeToolTip": "DarktideWeapons\\DW_Projectile_Tracking.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAkwB4AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T11:02:00.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T11:02:00.496Z"
             }
           ]
         }

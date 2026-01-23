@@ -14,6 +14,7 @@
     <thingClass>DarktideWeapons.DW_Equipment</thingClass>
     <tickerType>Normal</tickerType>
     <recipeMaker>
+      <researchPrerequisite>LongBlades</researchPrerequisite>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
       <effectWorking>Smith</effectWorking>
@@ -107,7 +108,7 @@
     <comps>
       <li Class="DarktideWeapons.CompProperites_Block">
         <isShield>false</isShield>
-        <maxStamina>50</maxStamina>
+        <maxStamina>40</maxStamina>
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
