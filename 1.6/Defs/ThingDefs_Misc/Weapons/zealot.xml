@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Artemia Mk III Purgation Flamer -->
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_FireCloud</defName>
+    <label>Fire</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_FireCloud</thingClass>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>999</penetrationPower>
+        <effectiveRange>24.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <critChance>0.15</critChance>
+        <critDamageMultiplier>5.0</critDamageMultiplier>
+        <applyHediffDefs>
+          <li>DW_Hediff_DOT_AttachFire</li>
+        </applyHediffDefs>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Flamer_III</defName>
+    <label>Artemia Mk III Purgation Flamer</label>
+    <description>Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.20</AccuracyTouch>
+      <AccuracyShort>0.20</AccuracyShort>
+      <AccuracyMedium>0.15</AccuracyMedium>
+      <AccuracyLong>0.10</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>150</Plasteel>
+      <Uranium>20</Uranium>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_FireCloud</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>22.9</range>
+        <burstShotCount>10</burstShotCount>
+        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Thunder Hammer -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Thunder_Hammer_II</defName>
+    <label>Crucis Mk II Thunder Hammer</label>
+    <techLevel>Spacer</techLevel>
+    <description>Power weapons of ancient design, Thunder Hammers are devastating, bone-shattering close combat weapons, though heavy and unwieldy.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/Thunderhammer</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.1</uiIconScale>
+    <statBases>
+      <WorkToMake>38000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Hammer</label>
+        <capacities>
+          <li>DW_Melee_Strikedown</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+        <chanceFactor>0.8</chanceFactor>
+      </li>
+    </tools>
+    <costList>
+        <Steel>20</Steel>
+        <Plasteel>250</Plasteel>
+        <Uranium>200</Uranium>
+        <ComponentIndustrial>8</ComponentIndustrial>
+        <ComponentSpacer>20</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ChargeWeapon_ThunderHammer</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
+        <ChargeMax>1</ChargeMax>
+        <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
+        <weaponChargeDamageFactor>8.0</weaponChargeDamageFactor>
+        <weaponChargeArmorPenetrationFactor>3.0</weaponChargeArmorPenetrationFactor>
+        <cleaveNum>1</cleaveNum>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>80</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+        <skillRequirements>
+          <Crafting>12</Crafting>
+        </skillRequirements>
+        <displayPriority>400</displayPriority>
+      </recipeMaker>
+  </ThingDef>
+
+  <!-- Munitorum Mk II Relic Blade -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_RelicBlade_II</defName>
+    <label>Munitorum Mk II Relic Blade</label>
+    <techLevel>Spacer</techLevel>
+    <description>This sword's advanced power core channels coursing energy through the blade with devastating effect.</description>
+    <graphicData>
+      <texPath>Things/Weapon/Melee/PowerSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>2500</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Blade</label>
+        <capacities>
+          <li>DW_Melee_RelicBlade_Cleave</li>
+        </capacities>
+        <power>27</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ChargeWeapon_Powersword</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
+        <ChargeMax>500</ChargeMax>
+        <weaponChargeLastingTicks>3600</weaponChargeLastingTicks>
+        <weaponChargeDamageFactor>3.0</weaponChargeDamageFactor>
+        <weaponChargeArmorPenetrationFactor>2.0</weaponChargeArmorPenetrationFactor>
+        <cleaveNum>50</cleaveNum>
+        <heatBuildup>true</heatBuildup>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MeleeHitChance>6</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>50</Steel>
+        <Plasteel>250</Plasteel>
+        <Uranium>120</Uranium>
+        <ComponentIndustrial>5</ComponentIndustrial>
+        <ComponentSpacer>22</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- Heavy Eviscerator Mk XV -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_HeavyEviscerator_XV</defName>
+    <label>Heavy Eviscerator Mk XV</label>
+    <techLevel>Spacer</techLevel>
+    <description>Strength alone is not enough to effectively wield an Eviscerator, but zeal and rage can compensate. As such, it has become associated with righteous fury, and is a favoured weapon of firebrand preachers.</description>
+    <graphicData>
+      <texPath>Things/Weapon/Melee/PowerSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>2500</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Edge</label>
+        <capacities>
+          <li>DW_Melee_Eviscerator_Cleave</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.8</cooldownTime>
+        <armorPenetration>0.32</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_EquippableAbility">
+        <abilityDef>DW_Ability_ChainSwordRavage_HeavyEviscerator_XV</abilityDef>
+      </li>
+      
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_SpecialMelee">
+        <specialAttackToolPrimary>
+          <label>Edge</label>
+          <capacities>
+            <li>DW_Melee_ChainSwordRavage</li>
+          </capacities>
+          <power>25</power>
+          <armorPenetration>0.25</armorPenetration>
+        </specialAttackToolPrimary>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+      <MeleeHitChance>6</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>250</Steel>
+        <Plasteel>200</Plasteel>
+        <Uranium>10</Uranium>
+        <ComponentIndustrial>10</ComponentIndustrial>
+        <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+</Defs>

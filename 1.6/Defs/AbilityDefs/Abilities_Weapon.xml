@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  
+  <AbilityDef Name="DW_RangedSpecialAbility" Abstract= "True">
+    <aiCanUse>false</aiCanUse>
+    <showOnCharacterCard>false</showOnCharacterCard>
+    <verbProperties>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetPlants>true</canTargetPlants>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+
   <AbilityDef>
       <defName>DW_Ability_FireModeSwitch</defName>
       <label>Switch Mode</label>
@@ -32,6 +45,36 @@
       </comps>
   </AbilityDef>
 
+  <AbilityDef>
+      <defName>DW_Ability_MeleeHediffSwitch</defName>
+      <label>Switch</label>
+      <description>Switch hediff.</description>
+      <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+      <jobDef>CastAbilityOnThing</jobDef>
+      <targetRequired>false</targetRequired>
+      <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+      <stunTargetWhileCasting>false</stunTargetWhileCasting>
+      <statBases>
+      </statBases>
+      <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetHumans>false</canTargetHumans>
+          <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+      </verbProperties>
+      <comps>
+        <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchMeleeHediff"></li>
+      </comps>
+  </AbilityDef>
   
   <AbilityDef>
     <defName>DW_Ability_EmergencyCooling</defName>
@@ -94,8 +137,8 @@
           <canTargetHumans>true</canTargetHumans>
           <canTargetMechs>true</canTargetMechs>
       </targetParams>
-      <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-      <burstShotCount>6</burstShotCount>
+      <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+      <burstShotCount>7</burstShotCount>
     </verbProperties>
   </AbilityDef>
 

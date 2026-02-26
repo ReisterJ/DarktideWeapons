@@ -238,7 +238,7 @@
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
 			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
-				<cleaveTargets>10</cleaveTargets>
+				<cleaveTargets>7</cleaveTargets>
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
         <staggerImpact>3.0</staggerImpact>
@@ -286,6 +286,118 @@
         <cleaveDamageFalloffRatio>0.99</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
         <staggerImpact>1.0</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
+  <!-- Orox Mk II Battle Maul and Slab Shield  -->
+  <ManeuverDef>
+    <defName>DW_Melee_SlabShieldSlash</defName>
+    <requiredCapacity>DW_Melee_SlabShieldSlash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>10</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+        <staggerImpact>3.0</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+  <ManeuverDef>
+    <defName>DW_Melee_SlabShieldBash</defName>
+    <requiredCapacity>DW_Melee_SlabShieldBash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>1</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
+        <craftType>Strikedown</craftType>
+        <staggerImpact>4.0</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
+  <!-- "Brunt's Basher" Mk IIIb Bully Club  -->
+  <ManeuverDef>
+    <defName>DW_Melee_BullyClubIIIbSlash</defName>
+    <requiredCapacity>DW_Melee_BullyClubIIIbSlash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>6</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.90</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+        <staggerImpact>2.0</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+  <!-- Krourk Mk IV Cleaver -->
+  <ManeuverDef>
+    <defName>DW_Melee_KrourkCleaverIVSlash</defName>
+    <requiredCapacity>DW_Melee_KrourkCleaverIVSlash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>3</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.88</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+        <staggerImpact>1.5</staggerImpact>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
+  <!-- Achlys Mk I Power Maul -->
+  <ManeuverDef>
+    <defName>DW_Melee_PowerMaulISlash</defName>
+    <requiredCapacity>DW_Melee_PowerMaulISlash</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>3</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.88</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+        <staggerImpact>2.5</staggerImpact>
 			</li>
 		</modExtensions>
   </ManeuverDef>

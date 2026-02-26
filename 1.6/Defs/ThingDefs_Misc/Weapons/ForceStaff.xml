@@ -59,9 +59,11 @@
         </costList>
         <comps>
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
-            <li Class="CompProperties_EquippableAbility">
-                <abilityDef>DW_ReleaseWarpFire</abilityDef>
-                <abilityDef>DW_ReleaseWarpFire_Burst</abilityDef>
+            <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+                <abilityDefList>
+                    <li>DW_ReleaseWarpFire</li>
+                    <li>DW_ReleaseWarpFire_Burst</li>
+                </abilityDefList>
             </li>
         </comps>
     </ThingDef>

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Verse;
 
-namespace DarktideWeapons
+namespace DarktideWeapons.MeleeComps
 {
-    public class DW_Blessing : ThingWithComps
+    public interface IMeleeAttacked
     {
-        
+        void PostMeleeAttacked(MeleeAttackData data);
     }
 }

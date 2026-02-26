@@ -22,7 +22,26 @@ namespace DarktideWeapons
 
         public bool ignoreArmor = false;
 
-        public int downgradeDamageTime = 2;
+        public int downgradeDamageTime = 3;
+
+        public bool isBrain = false;
+    }
+
+    public class ModExtension_HediffLevelBuff : DefModExtension
+    {
+        public int damageTickPeriod = 60;
+
+        public float damageBonusPerLevel = 0.5f;
+
+        public DamageDef damageDefOf;
+
+        public float damageMultiplier = 1.0f;
+
+        public float armorPenetrationBase = 0.3f;
+
+        public bool ignoreArmor = false;
+
+        public int downgradeDamageTime = 3;
 
         public bool isBrain = false;
     }

@@ -19,7 +19,7 @@ namespace DarktideWeapons
                     return notMissingPart;
                 }
             }
-            return null;
+            return pawn.health.hediffSet.GetNotMissingParts().FirstOrDefault(part => part.parent == null);
         }
         public static BodyPartRecord GetTorsoPart(Pawn pawn)
         {
@@ -31,7 +31,7 @@ namespace DarktideWeapons
                 }
             }
 
-            return null;
+            return pawn.health.hediffSet.GetNotMissingParts().FirstOrDefault(part => part.parent == null);
         }
     }
 }

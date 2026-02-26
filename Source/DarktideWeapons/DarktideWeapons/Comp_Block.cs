@@ -25,7 +25,7 @@ namespace DarktideWeapons
 
         public float staminaRegenRate => Props.staminaRegenRate;
         public bool isBlocking = false;
-        public new CompProperites_Block Props => (CompProperites_Block)props;
+        public new CompProperties_Block Props => (CompProperties_Block)props;
 
         private int blockTick = -1;
         public virtual float GetAdjustedMaxStamina() {
@@ -245,7 +245,7 @@ namespace DarktideWeapons
         
     }
 
-    public class CompProperites_Block : CompProperties
+    public class CompProperties_Block : CompProperties
     {
         public float maxStamina = 100f;
 
@@ -266,7 +266,7 @@ namespace DarktideWeapons
         public float pushStaminaCost = 10f;
 
         public bool allowBlock = false;
-        public CompProperites_Block()
+        public CompProperties_Block ()
         {
             this.compClass = typeof(Comp_Block);
         }

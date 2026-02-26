@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Twin-Linked Heavy Stubber -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_StubberAmmoLight</defName>
+    <label>Heavy stubber bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>0.18</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>38.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_TwinLinkedHeavyStubber_V</defName>
+    <label>Twin-Linked Heavy Stubber MkV</label>
+    <description>Heavy stubbers are projectile weapons similar in appearance and effect to an M2-era heavy machine gun, firing large-calibre bullets able to stop a man dead in his tracks. They are inferior in penetration to a boltgun (being stopped by anything heavier than Flak armour) they compensate through sheer volume of fire.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>2200</MarketValue>
+      <Mass>15.0</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>2.8</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>230</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_StubberAmmoLight</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>34.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <burstShotCount>9</burstShotCount>
+        <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_StubberAmmoLight</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>34.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <burstShotCount>30</burstShotCount>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWSwitchMode">
+        <hediffDefs>
+          <li>DW_Hediff_DeployHeavyGun</li>
+        </hediffDefs>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>17</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Lorenz Mk V Kickback -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_LorenzKickbackPellet</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <stoppingPower>1.5</stoppingPower>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+      <speed>96</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>36.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_LorenzKickback</defName>
+    <label>Lorenz Kickback</label>
+    <description>Utilizes a single giant cartridge to inflict devastation either to hordes or single targets.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>13</projectileNum>
+        <spreadAngleMax>9</spreadAngleMax>
+        <spreadAngleMin>1</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <Mass>12.0</Mass>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>300</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.3</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_LorenzKickbackPellet</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>17</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <!-- Lorenz Mk IV Rumbler -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_LorenzRumblerGrenade</defName>
+    <label>Grenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <stoppingPower>4.5</stoppingPower>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>50</speed>
+      <arcHeightFactor>2</arcHeightFactor>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Grenade</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>36.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <isExplosive>true</isExplosive>
+        <explosionDamage>30</explosionDamage>
+        <explosionRadius>3.0</explosionRadius>
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionArmorPenetration>0.4</explosionArmorPenetration>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_LorenzRumbler</defName>
+    <label>Lorenz Rumbler</label>
+    <description>An Ogryn-sized single grenade launcher.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <Mass>14.0</Mass>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>300</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_LorenzRumblerGrenade</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>29.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Grenadier Gauntlet -->
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_GauntletGrenade</defName>
+    <label>GauntletGrenade</label>
+    <graphicData>
+      <texPath>Things/Projectile/Grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <speed>70</speed>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <arcHeightFactor>2</arcHeightFactor>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+        <isExplosive>true</isExplosive>
+        <explosionDamage>40</explosionDamage>
+        <explosionRadius>1.1</explosionRadius>
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <explosionArmorPenetration>0.7</explosionArmorPenetration>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Grenadier_Gauntlet</defName>
+    <label>Blastoom Mk III Grenadier Gauntlet</label>
+    <description>Grenades can be launched with relative precision once a wielder braces and aims. Otherwise it makes an excellent club.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.30</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>100</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_GauntletGrenade</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>32.9</range>
+        <soundCast>Shot_Autocannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>22</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <!-- Twin-Linked Heavy Stubber -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_StubberAmmoHeavy_II</defName>
+    <label>Heavy stubber bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <stoppingPower>3</stoppingPower>
+      <armorPenetrationBase>0.48</armorPenetrationBase>
+      <speed>95</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>58.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_HeavyStubber_II</defName>
+    <label>AchlysHeavy Stubber Mk II</label>
+    <description>The complicated accelerator mechanism that surrounds the barrel of this weapon helps propel the massive ammunition to incredible speeds. This, predictably, results in a bigger bang and more destruction. Understandably, this pleases the Ogryns.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>2200</MarketValue>
+      <Mass>15.0</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>230</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_StubberAmmoHeavy_II</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>34.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_StubberAmmoHeavy_II</defaultProjectile>
+        <warmupTime>3.0</warmupTime>
+        <range>49.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>17</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWSwitchMode">
+        <hediffDefs>
+          <li>DW_Hediff_AimFire</li>
+        </hediffDefs>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- Lorenz Mk V Kickback -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_RipperGun_Pellet</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>6</damageAmountBase>
+      <stoppingPower>1.5</stoppingPower>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <speed>80</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>1</penetrationPower>
+        <effectiveRange>30.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Ripper_Gun_V</defName>
+    <label>Foe-Rend Mk V Ripper Gun</label>
+    <description>A rare pattern of ripper gun, the Foe-Rend Mk V was an attempt to use a tightly focussed scatter shell to improve the Ogryns' aim at long range. Given the Ogryn propensity for charging wildly into combat, the experiment was quickly abandoned.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>8</projectileNum>
+        <spreadAngleMax>11</spreadAngleMax>
+        <spreadAngleMin>3</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <statBases>
+      <WorkToMake>90000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <Mass>13.0</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>250</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_RipperGun_Pellet</defaultProjectile>
+        <warmupTime>2.2</warmupTime>
+        <range>26.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>17</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+
+
+  <!-- Orox Mk II Battle Maul and Slab Shield  -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Slab_Shield_II</defName>
+    <label>Orox Mk II Battle Maul and Slab Shield</label>
+    <techLevel>Medieval</techLevel>
+    <description>Simple but effective, a slab shield turns an Ogryn into a wall of walking cover, near impervious to enemy attacks.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>10.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>slash</label>
+        <capacities>
+          <li>DW_Melee_SlabShieldSlash</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+      <li>
+        <label>bash</label>
+        <capacities>
+          <li>DW_Melee_SlabShieldBash</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.8</MoveSpeed>
+      <MeleeHitChance>10</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>60</Steel>
+        <Plasteel>200</Plasteel>
+        <Uranium>50</Uranium>
+        <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>250</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- "Brunt's Basher" Mk IIIb Bully Club -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Bully_Club_IIIb</defName>
+    <label>"Brunt's Basher" Mk IIIb Bully Club</label>
+    <techLevel>Medieval</techLevel>
+    <description>Simple but effective</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>5.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>slash</label>
+        <capacities>
+          <li>DW_Melee_BullyClubIIIbSlash</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.0</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MeleeHitChance>10</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>160</Steel>
+        <Plasteel>30</Plasteel>
+        <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>80</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Krourk Mk IV Cleaver -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Krourk_Cleaver_IV</defName>
+    <label>Krourk Mk IV Cleaver</label>
+    <techLevel>Medieval</techLevel>
+    <description>A heavy slashing weapon, devastating in the hands of an enraged Ogryn.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>3.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>slash</label>
+        <capacities>
+          <li>DW_Melee_KrourkCleaverIVSlash</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>0.9</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>0.2</MoveSpeed>
+      <MeleeDodgeChance>5</MeleeDodgeChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>100</Steel>
+        <Plasteel>10</Plasteel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>80</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Achlys Mk I Power Maul -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_PowerMaul_I</defName>
+    <label>Achlys Mk I Power Maul</label>
+    <techLevel>Spacer</techLevel>
+    <description>This model is sized for Ogryns, who are much better able to handle kickback from the power field. The thunderclap as it impacts is truly terrifying and will cause foes nearby to briefly cower.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>5.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>smash</label>
+        <capacities>
+          <li>DW_Melee_PowerMaulISlash</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+    </tools>
+    <costList>
+        <Steel>100</Steel>
+        <Plasteel>10</Plasteel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>100</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

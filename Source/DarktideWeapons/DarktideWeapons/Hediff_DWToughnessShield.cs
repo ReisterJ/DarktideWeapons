@@ -25,12 +25,7 @@ namespace DarktideWeapons
         public override void PostTick()
         {
             base.PostTick();
-            if (CompToughnessShield != null)
-            {
-                this.CompToughnessShield.EnableShield = true;
-                float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
-                CompToughnessShield.SetMaxShieldInGame(shieldnum);
-            }
+            
         }
         protected CompProperties_DWToughnessShield compProperties_DWToughnessShield;
         public ModExtension_ToughnessShield ToughnessShieldExtension
@@ -51,12 +46,6 @@ namespace DarktideWeapons
                 float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
                 CompToughnessShield.SetMaxShieldInGame(shieldnum);
             }
-            /*
-            ThingComp thingComp = (ThingComp)Activator.CreateInstance(typeof(Comp_DWToughnessShield));
-            thingComp.parent = pawn;
-            pawn.AllComps.Add( thingComp );
-            thingComp.Initialize(compProperties_DWToughnessShield);
-            */
         }
 
         public void ChangeLevel(int levelOffset, bool sendLetter)

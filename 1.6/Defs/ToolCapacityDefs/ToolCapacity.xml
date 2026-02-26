@@ -58,6 +58,7 @@
     <defName>DW_Melee_ShieldBash</defName>
     <label>Shield</label> 
   </ToolCapacityDef>
+
   <!-- Duelling Sword -->
    <ToolCapacityDef>
     <defName>DW_Melee_DuellingSword_Slash</defName>
@@ -66,5 +67,33 @@
   <ToolCapacityDef>
     <defName>DW_Melee_DuellingSword_Stab</defName>
     <label>Point</label> 
+  </ToolCapacityDef>
+
+  <!-- Slab Shield -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_SlabShieldSlash</defName>
+    <label>Shield</label>
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>DW_Melee_SlabShieldBash</defName>
+    <label>Shield</label>
+  </ToolCapacityDef>
+
+  <!-- "Brunt's Basher" Mk IIIb Bully Club -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_BullyClubIIIbSlash</defName>
+    <label>Club</label>
+  </ToolCapacityDef>
+
+  <!-- Krourk Mk IV Cleaver -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_KrourkCleaverIVSlash</defName>
+    <label>Cleave</label>
+  </ToolCapacityDef>
+
+  <!-- Achlys Mk I Power Maul -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_PowerMaulISlash</defName>
+    <label>Smash</label>
   </ToolCapacityDef>
 </Defs>

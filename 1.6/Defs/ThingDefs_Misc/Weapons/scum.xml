@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Branx MKII Needle Pistol -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_Toxic_Needle_II</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>2</damageAmountBase>
+      <armorPenetrationBase>1.70</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+        <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Hediff_DOT_Poison</hediffDef>
+            <level>2</level>
+          </li>
+        </applyHediffDefsWithLevel>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_Toxic_Needle_Spread_II</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>2</damageAmountBase>
+      <armorPenetrationBase>1.70</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+        <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Hediff_DOT_Poison_Spread_II</hediffDef>
+            <level>2</level>
+          </li>
+        </applyHediffDefsWithLevel>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>  
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_NeedlePistol_II</defName>
+    <label>Branx MKII Needle Pistol</label>
+    <description>Sometimes known as a needler, this weapon is a favourite among those who prefer a less showy method of assassination.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MarketValue>1200</MarketValue>
+      <Mass>2.0</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>40</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle_Spread_II</defaultProjectile>
+        <warmupTime>1.3</warmupTime>
+        <range>29.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle_II</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>29.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_Toxic_Needle_VI</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>2</damageAmountBase>
+      <armorPenetrationBase>1.90</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+        <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Hediff_DOT_Poison_VI</hediffDef>
+            <level>3</level>
+          </li>
+        </applyHediffDefsWithLevel>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- Branx MkVI Needle Pistol -->
+  <!-- <ThingDef>
+    <defName>DW_Bullet_Toxic_Needle_Spread_VI</defName>
+    <label>Needle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>0.70</armorPenetrationBase>
+      <stoppingPower>0.5</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>   -->
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_NeedlePistol_VI</defName>
+    <label>Branx MKVI Needle Pistol</label>
+    <description>One of the more esoteric weapons found in the Hive Scum's arsenal, this light weight pistol delivers virulent toxins via laser guided energy bursts.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MarketValue>1200</MarketValue>
+      <Mass>2.0</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <!-- <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle_Spread_VI</defaultProjectile>
+        <warmupTime>1.3</warmupTime>
+        <range>29.9</range>
+        <soundCast>Shot_Minigun</soundCast>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li> -->
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_Shoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Toxic_Needle_VI</defaultProjectile>
+        <warmupTime>0.7</warmupTime>
+        <range>30.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <!-- <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li> -->
+    </comps>
+  </ThingDef>
+    <!-- Branx MkIII Dual Autopistols -->
+  <ThingDef ParentName="DW_BaseBullet" >
+    <defName>DW_Bullet_Dual_Autopistols_III</defName>
+    <label>Bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <speed>93</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>2</penetrationPower>
+        <effectiveRange>31.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critChance>0.15</critChance>
+        <critDamageMultiplier>2.5</critDamageMultiplier>
+        <critArmorPenetrationMultiplier>1.25</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Dual_Autopistols_III</defName>
+    <label>Branx Mk III Dual Autopistols</label>
+    <description>Forged in the local weapon manufactorums of Branx Magna, these twinned autopistols deliver concentrated bursts of fire.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/MachinePistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_SMG</soundInteract>   
+    <statBases>
+      <WorkToMake>12000</WorkToMake>
+      <Mass>1.9</Mass>
+      <MarketValue>300</MarketValue>
+      <AccuracyTouch>0.40</AccuracyTouch>
+      <AccuracyShort>0.30</AccuracyShort>
+      <AccuracyMedium>0.30</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>125</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Dual_Autopistols_III</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>27.9</range>
+        <burstShotCount>12</burstShotCount>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <soundCast>Shot_HeavySMG</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>1440</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+    <!-- Branx MkVIII Dual Stub Pistols -->
+  <ThingDef ParentName="DW_BaseBullet" >
+    <defName>DW_Bullet_Dual_Stub_Pistols_VIII</defName>
+    <label>Bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationBase>0.32</armorPenetrationBase>
+      <speed>89</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>2</penetrationPower>
+        <effectiveRange>37.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critChance>0.125</critChance>
+        <critDamageMultiplier>2.0</critDamageMultiplier>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+        <weaknessDamageMultiplier>2.0</weaknessDamageMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Dual_Stub_Pistols_VIII</defName>
+    <label>Branx MkVIII Dual Stub Pistols</label>
+    <description>What's better than one gun? That's right, two guns at the same time!</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/MachinePistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_SMG</soundInteract>   
+    <statBases>
+      <WorkToMake>12000</WorkToMake>
+      <Mass>1.9</Mass>
+      <MarketValue>300</MarketValue>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.30</AccuracyMedium>
+      <AccuracyLong>0.15</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>125</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Dual_Stub_Pistols_VIII</defaultProjectile>
+        <warmupTime>1.2</warmupTime>
+        <range>31.9</range>
+        <burstShotCount>4</burstShotCount>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <soundCast>Shot_HeavySMG</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>1440</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+
+  <!-- Improvised Mk I Shivs -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Improvised_Shivs_I</defName>
+    <label>Improvised Mk I Shivs</label>
+    <techLevel>Medieval</techLevel>
+    <description>Ideal for twisting into your foe's guts.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light attack</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>0.4</cooldownTime>
+        <armorPenetration>0.12</armorPenetration>
+      </li>
+      <li>
+        <label>Heavy attack</label>
+        <capacities>
+          <li>DW_Melee_Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.1</cooldownTime>
+        <armorPenetration>0.60</armorPenetration>
+        <chanceFactor>0.4</chanceFactor>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>1.0</MoveSpeed>
+      <MeleeDodgeChance>10</MeleeDodgeChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>50</Steel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>40</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ThrowPoisonKnife</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_RechargeByAttack">
+        <rechargeAmount>0.2</rechargeAmount>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_PoisonKnife</defName>
+    <label>Poison Knife</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>1.75</armorPenetrationBase>
+      <stoppingPower>0</stoppingPower>
+      <speed>40</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>20.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1</critArmorPenetrationMultiplier>
+        <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Hediff_DOT_Poison_VI</hediffDef>
+            <level>10</level>
+          </li>
+        </applyHediffDefsWithLevel>
+        <!-- <applyHediffSeverity>10</applyHediffSeverity> -->
+      </li>
+    </modExtensions>
+    <comps>
+      
+    </comps>
+  </ThingDef>
+  <AbilityDef ParentName="DW_RangedSpecialAbility">
+    <defName>DW_Ability_ThrowPoisonKnife</defName>
+    <label>Throwing Knife</label>
+    <description>Throws a poisoned knife at the target.</description>
+    <charges>3</charges>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_DW_AbilityLaunchProjectile</verbClass>
+      <warmupTime>0.1</warmupTime>
+
+      <!-- <soundCast> </soundCast> -->
+      <ai_IsWeapon>false</ai_IsWeapon>
+      <range>20.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <defaultProjectile>DW_Bullet_PoisonKnife</defaultProjectile>
+      <accuracyTouch>0.97</accuracyTouch>
+      <accuracyShort>0.89</accuracyShort>
+      <accuracyMedium>0.45</accuracyMedium>
+      <accuracyLong>0.10</accuracyLong>
+      <soundCast>Shot_Shotgun</soundCast>
+    </verbProperties>
+  </AbilityDef>
+
+  <!-- Chirurgeon's Mk IV Bone Saw -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Chirurgeons_BoneSaw_IV</defName>
+    <label>Chirurgeon's Mk IV Bone Saw</label>
+    <techLevel>Medieval</techLevel>
+    <description>Normally found in the hands of a skilled apothecarion, this serrated blade will make short work of bone or sinew.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>2.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Edge</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <!-- <MoveSpeed>1.0</MoveSpeed>
+      <MeleeDodgeChance>10</MeleeDodgeChance> -->
+    </equippedStatOffsets>
+    <costList>
+        <Steel>50</Steel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>50</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_SwitchMeleeHediff">
+        <hediffsToApply>
+          <li>DW_Hediff_DOT_Poison</li>
+          <li>DW_Brittleness</li>
+        </hediffsToApply>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_MeleeHediffSwitch</li>
+        </abilityDefList>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

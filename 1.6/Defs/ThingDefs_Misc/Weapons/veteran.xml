@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Plasma Gun -->
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_PlasmaProjectile</defName>
+    <label>Plasma projectile</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>35</damageAmountBase>
+      <stoppingPower>4</stoppingPower>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <speed>85</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Plasma</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>30</penetrationPower>
+        <effectiveRange>42.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="DW_BaseBullet">
+    <defName>DW_PlasmaChargedProjectile</defName>
+    <label>Plasma charged projectile</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>90</damageAmountBase>
+      <stoppingPower>5</stoppingPower>
+      <armorPenetrationBase>1.25</armorPenetrationBase>
+      <speed>85</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Plasma</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>100</penetrationPower>
+        <effectiveRange>65.9</effectiveRange>
+        <penetrateWall>true</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_PlasmaGun_II</defName>
+    <label>M35 Magnacore Mk II Plasma Gun</label>
+    <description>The weapon fires a highly energized ball of hydrogen-based plasma.Emergency cooling ducts and exhaust vents periodically expel excess heat from the gun while stoping charging device working; if these are overwhelmed by continuous fire the wielder may be harmed by emergency venting.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>0.9</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>150000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <Mass>5.0</Mass>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>20</ComponentIndustrial>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <!-- <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets> -->
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_PlasmaShoot</verbClass>
+        <requireLineOfSight>true</requireLineOfSight>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_PlasmaProjectile</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>39.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <isPrimary>true</isPrimary>
+      </li>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_PlasmaChargedShoot</verbClass>
+        <warmupTime>3.1</warmupTime>
+        <hasStandardCommand>true</hasStandardCommand>
+        <range>50.9</range>
+        <drawAimPie>true</drawAimPie>
+        <requireLineOfSight>false</requireLineOfSight>
+        <defaultProjectile>DW_PlasmaChargedProjectile</defaultProjectile>
+        <accuracyTouch>0.98</accuracyTouch>
+        <accuracyShort>0.95</accuracyShort>
+        <accuracyMedium>0.95</accuracyMedium>
+        <accuracyLong>0.93</accuracyLong>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <isPrimary>false</isPrimary>
+      </li>
+    </verbs>
+    <comps>
+      <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon"></li> -->
+      <li Class="DarktideWeapons.CompProperties_DarktidePlasma">
+        <heatGen>12</heatGen> 
+        <heatGenCharged>36</heatGenCharged>
+        <coolingWeaponHeatDamage>6</coolingWeaponHeatDamage>
+        <coolingWeaponHeatLossForced>22</coolingWeaponHeatLossForced>
+        <coolingWeaponHeatLossRate>0.08</coolingWeaponHeatLossRate>
+        <overheatExplosionDamage>100</overheatExplosionDamage>
+        <overheatExplosionRadius>3</overheatExplosionRadius>
+        <maxHeat>100</maxHeat>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_EmergencyCooling</li>
+          <li>DW_Ability_FireModeSwitch</li>
+        </abilityDefList>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Munitorum Sapper Shovel -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Sapper_Shovel_III</defName>
+    <label>Munitorum Sapper Shovel</label>
+    <description>Munitorum Sapper Shovel from Warhammer 40K: Darktide.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/Shovel</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.0</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>900</MarketValue>
+      <Mass>1.8</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Shovel</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <GeneralLaborSpeed>0.15</GeneralLaborSpeed>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>80</Steel>
+        <Plasteel>60</Plasteel>
+        <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_HeavyAttack_Sapper_Shovel_III</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_HeavyAttack">
+        <heavyAttackToolPrimary>
+          <label>Heavy attack</label>
+          <capacities>
+            <li>DW_Melee_Stab</li>
+          </capacities>
+          <power>50</power>
+          <armorPenetration>0.9</armorPenetration>
+        </heavyAttackToolPrimary>
+      </li>
+    </comps>
+  </ThingDef>  
+
+  <!-- Power Sword -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Power_Sword_VI</defName>
+    <label>Achlys Mk VI Power Sword</label>
+    <techLevel>Spacer</techLevel>
+    <description>Munitorum power swords are issued to senior officers of the Astra Militarum, as both badge of office and powerful melee weapon.</description>
+    <graphicData>
+      <texPath>Things/Weapon/Melee/PowerSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>78000</WorkToMake>
+      <MarketValue>2500</MarketValue>
+      <Mass>2.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Blade</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.1</cooldownTime>
+        <armorPenetration>0.2</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ChargeWeapon_Powersword</li>
+        </abilityDefList>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
+        <ChargeMax>20</ChargeMax>
+        <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
+        <weaponChargeDamageFactor>4.5</weaponChargeDamageFactor>
+        <weaponChargeArmorPenetrationFactor>4.0</weaponChargeArmorPenetrationFactor>
+        <cleaveNum>30</cleaveNum>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MeleeHitChance>4</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>50</Steel>
+        <Plasteel>200</Plasteel>
+        <Uranium>120</Uranium>
+        <ComponentIndustrial>5</ComponentIndustrial>
+        <ComponentSpacer>20</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+</Defs>

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
-using RimWorld;
+using Verse.Noise;
 using Verse.Sound;
 using static UnityEngine.Scripting.GarbageCollector;
 
@@ -149,6 +150,10 @@ namespace DarktideWeapons
                 float num;
                 if (thing is Pawn pawn)
                 {
+                    if (base.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).Contains(pawn))
+                    {
+                        continue;
+                    }
                     num = Util_Ranged.Intercept_PawnBodySize_Factor * Mathf.Clamp(pawn.BodySize, 0.1f, 2f);
                     if (pawn.GetPosture() != 0 && (origin - destination).MagnitudeHorizontalSquared() >= 20.25f)
                     {
@@ -204,7 +209,11 @@ namespace DarktideWeapons
                 }
 
                 Pawn pawn2 = hitThing as Pawn;
-                pawn2?.stances?.stagger.Notify_BulletImpact(this);
+                if(pawn2 != null)
+                {
+                    pawn2.stances?.stagger.Notify_BulletImpact(this);
+                    HediffWorker(pawn2);
+                }
 
                 if (def.projectile.extraDamages != null)
                 {

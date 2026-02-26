@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Exterminator Shotgun -->
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_ExterminatorShotgun_III</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>80</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>37.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- TODO: Add electronic stun shell as ability -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_ElectronicStunShell_III</defName>
+    <label>Electronic Stun shell</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <stoppingPower>6</stoppingPower>
+      <speed>85</speed>
+      <extraDamages>
+        <li>
+          <def>Stun</def>
+        </li>
+        <li>
+          <def>EMP</def>
+        </li>
+      </extraDamages>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>47.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+        <!-- <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Brittleness</hediffDef>
+            <level>6</level>
+          </li>
+        </applyHediffDefsWithLevel> -->
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <AbilityDef ParentName="DW_RangedSpecialAbility">
+    <defName>DW_Ability_LaunchElectronicStunShell</defName>
+    <label>Electronic Stun Shell</label>
+    <description>Fires an electronic stun shell that weakens the target's armor on impact.</description>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_DW_AbilityLaunchProjectile</verbClass>
+      <warmupTime>2.3</warmupTime>
+      <ai_IsWeapon>false</ai_IsWeapon>
+      <range>42.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <defaultProjectile>DW_Bullet_ElectronicStunShell_III</defaultProjectile>
+      <accuracyTouch>0.95</accuracyTouch>
+      <accuracyShort>0.85</accuracyShort>
+      <accuracyMedium>0.70</accuracyMedium>
+      <accuracyLong>0.50</accuracyLong>
+      <soundCast>Shot_Shotgun</soundCast>
+    </verbProperties>
+  </AbilityDef>
+
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_ExterminatorShotgun_VIII</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <armorPenetrationBase>0.45</armorPenetrationBase>
+      <stoppingPower>4</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>6</penetrationPower>
+        <effectiveRange>47.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.75</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Bullet_Thredder_ShotgunShell_VIII</defName>
+    <label>Thredder Shell</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>85</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>47.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>1.5</critArmorPenetrationMultiplier>
+        <applyHediffDefsWithLevel>
+          <li>
+            <hediffDef>DW_Brittleness</hediffDef>
+            <level>6</level>
+          </li>
+        </applyHediffDefsWithLevel>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <AbilityDef ParentName="DW_RangedSpecialAbility">
+    <defName>DW_Ability_LaunchThredderShell</defName>
+    <label>Thredder Shell</label>
+    <description>Fires a thredder shell that weakens the target's armor on impact.</description>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <verbProperties>
+      <verbClass>DarktideWeapons.Verb_DW_AbilityLaunchProjectile</verbClass>
+      <warmupTime>2.3</warmupTime>
+      <ai_IsWeapon>false</ai_IsWeapon>
+      <range>42.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <defaultProjectile>DW_Bullet_Thredder_ShotgunShell_VIII</defaultProjectile>
+      <accuracyTouch>0.95</accuracyTouch>
+      <accuracyShort>0.85</accuracyShort>
+      <accuracyMedium>0.70</accuracyMedium>
+      <accuracyLong>0.50</accuracyLong>
+      <soundCast>Shot_Shotgun</soundCast>
+    </verbProperties>
+  </AbilityDef>
+
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_ExterminatorShotgun_III</defName>
+    <label>Exaction Mk III Exterminator Shotgun</label>
+    <description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <Mass>2.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+    </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>9</projectileNum>
+        <spreadAngleMax>15</spreadAngleMax>
+        <spreadAngleMin>1</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>15</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_ExterminatorShotgun_III</defaultProjectile>
+        <warmupTime>1.3</warmupTime>
+        <range>30.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_LaunchElectronicStunShell</li>
+        </abilityDefList>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Art">
+          <nameMaker>NamerArtWeaponGun</nameMaker>
+          <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+          <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_ExterminatorShotgun_VIII</defName>
+    <label>Exaction Mk VIII Exterminator Shotgun</label>
+    <description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Shotgun</soundInteract>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <Mass>2.5</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+    </statBases>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>3</projectileNum>
+        <spreadAngleMax>2</spreadAngleMax>
+        <spreadAngleMin>0</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>15</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>GasOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_ExterminatorShotgun_VIII</defaultProjectile>
+        <warmupTime>2.2</warmupTime>
+        <range>42.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+       <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_LaunchThredderShell</li>
+        </abilityDefList>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Art">
+          <nameMaker>NamerArtWeaponGun</nameMaker>
+          <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+          <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Judgement Mk IV Subductor Shotpistol and Riot Shield -->
+  <ThingDef  ParentName="BaseBullet">
+    <defName>DW_Bullet_Shotpistol</defName>
+    <label>Pellet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <stoppingPower>4</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>4</penetrationPower>
+        <effectiveRange>32.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Shotpistol_RiotShield_IV</defName>
+    <label>Judgement Mk IV Subductor Shotpistol and Riot Shield</label>
+    <description>A Riot Shield and a short Shotpistol are perfect for the tight, cramped halls where the Arbites often find themselves.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <Mass>5.1</Mass>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.70</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>150</Plasteel>
+      <Uranium>20</Uranium>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+        <projectileNum>3</projectileNum>
+        <spreadAngleMax>1</spreadAngleMax>
+        <spreadAngleMin>0</spreadAngleMin>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>150</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>true</allowAttackWhileBlocking>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.1</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_ShotgunShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Bullet_Shotpistol</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>25.9</range>
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>Shield</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Branx Mk VI Shock Maul and Suppression Shield -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_ShockMaul_SuppressionShield_VI</defName>
+    <label>Branx Mk VI Shock Maul and Suppression Shield</label>
+    <techLevel>Medieval</techLevel>
+    <description>A powerful combination. Devastating offense and an almost impenetrable defence.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>1.5</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light attack</label>
+        <capacities>
+          <li>DW_Melee_ShockMaul</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.1</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+      <li>
+        <label>stab</label>
+        <capacities>
+          <li>DW_Melee_ShockMaulStab</li>
+        </capacities>
+        <power>28</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.50</armorPenetration>
+      </li>
+      <li>
+        <label>bash</label>
+        <capacities>
+          <li>DW_Melee_ShieldBash</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+      <MeleeHitChance>7</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>60</Steel>
+        <Plasteel>100</Plasteel>
+        <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>true</isShield>
+        <maxStamina>200</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

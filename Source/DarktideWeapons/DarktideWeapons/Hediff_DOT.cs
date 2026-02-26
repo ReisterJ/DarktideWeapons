@@ -11,7 +11,6 @@ namespace DarktideWeapons
     public class Hediff_DOT : Hediff_Level
     {
         protected int damageTick = 0;
-
         public int DamageTickPeriod => Extension_HediffDOT.damageTickPeriod;
 
         public float DamageBonusPerLevel => Extension_HediffDOT.damageBonusPerLevel;
@@ -34,7 +33,7 @@ namespace DarktideWeapons
         {
             base.PostAdd(dinfo);
         }
-        
+
         public void SetRemainingTime(int remainingtick)
         {
             if (CompDisappears != null)
@@ -42,7 +41,7 @@ namespace DarktideWeapons
                 CompDisappears.ticksToDisappear = remainingtick;
             }
         }
-       
+
         protected virtual float GetDamage()
         {
             return this.level * DamageBonusPerLevel * DamageMultiplier_Global;
@@ -63,16 +62,21 @@ namespace DarktideWeapons
                 return;
             }
             damageTick += delta;
+            levelkeepcheck += delta;
             if (damageTick % DamageTickPeriod == 0)
             {
                 DOTDamage();
-                levelkeepcheck += 1;
             }
-            if (levelkeepcheck >= Extension_HediffDOT.downgradeDamageTime)
+            if (levelkeepcheck / 60 >= Extension_HediffDOT.downgradeDamageTime)
             {
                 levelkeepcheck = 0;
                 this.SetLevelTo(this.level - 1);
             }
+        }
+        public void RefreshDOT()
+        {
+            //damageTick = 0;
+            levelkeepcheck = 0;
         }
     }
 }

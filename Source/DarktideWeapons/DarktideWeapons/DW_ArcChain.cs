@@ -112,15 +112,17 @@ namespace DarktideWeapons
             if (mainTarget == null) return;
             ChainTargets.Clear();
             int linkedEnemiesCount = 0;
-            Queue<Pawn> searchQueue = new Queue<Pawn>();
+            List<Pawn> searchQueue = new List<Pawn>();
             HashSet<Pawn> visited = new HashSet<Pawn>();
 
-            searchQueue.Enqueue(mainTarget);
+            searchQueue.Add(mainTarget);
             visited.Add(mainTarget);
 
-            while (searchQueue.Count > 0 && linkedEnemiesCount < MaxChainTargets)
+            int queueIndex = 0;
+            while (queueIndex < searchQueue.Count && linkedEnemiesCount < MaxChainTargets)
             {
-                Pawn currentTarget = searchQueue.Dequeue();
+                Pawn currentTarget = searchQueue[queueIndex];
+                queueIndex++;
                 List<IntVec3> adjacentCells = Util_Melee.GetPawnNearArea(mainTarget,3f);
 
                 foreach (IntVec3 cell in adjacentCells)
@@ -134,7 +136,7 @@ namespace DarktideWeapons
                                 ChainTargets.Add(targetPawn);
                                 linkedEnemiesCount++;
                                 visited.Add(targetPawn);
-                                searchQueue.Enqueue(targetPawn);
+                                searchQueue.Add(targetPawn);
                             }
                         }
                     }

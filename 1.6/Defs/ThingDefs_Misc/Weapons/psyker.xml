@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Blaze_Force_Sword_IV</defName>
+    <label>Deimos Mk IV Blaze Force Sword</label>
+    <techLevel>Spacer</techLevel>
+    <description>Through a force sword, a psyker can channel a terrifying amount of Warp energy, with the blade acting as a lethal conduit between the psyker's mind and the enemy's flesh.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>2300</MarketValue>
+      <Mass>2.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.3</cooldownTime>
+        <armorPenetration>0.2</armorPenetration>
+      </li>
+      <li>
+        <label>Point</label>
+        <capacities>
+          <li>DW_Melee_Stab</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.85</armorPenetration>
+        <chanceFactor>0.4</chanceFactor>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <PsychicSensitivity>0.5</PsychicSensitivity>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>30</Steel>
+        <Plasteel>80</Plasteel>
+        <ComponentIndustrial>5</ComponentIndustrial>
+        <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>50</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Blaze_Force_Greatsword_VI</defName>
+    <label>Covenant Mk VI Blaze Force Greatsword</label>
+    <techLevel>Spacer</techLevel>
+    <description>Sometimes called a force falchion, this hefty blade is rendered comparatively lightweight in the hands of a psyker, its psi convectors lending it surprising grace and power.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <Mass>5.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.2</armorPenetration>
+      </li>
+      <li>
+        <label>Heavy attack</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>24</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <PsychicSensitivity>0.5</PsychicSensitivity>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>30</Steel>
+        <Plasteel>100</Plasteel>
+        <ComponentIndustrial>10</ComponentIndustrial>
+        <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

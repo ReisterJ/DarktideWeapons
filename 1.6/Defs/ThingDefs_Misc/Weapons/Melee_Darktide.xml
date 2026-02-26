@@ -106,7 +106,7 @@
         <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <comps>
-      <li Class="DarktideWeapons.CompProperites_Block">
+      <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>
         <maxStamina>40</maxStamina>
         <allowBlock>true</allowBlock>
@@ -155,7 +155,7 @@
       </li>
       <!-- <li Class="DarktideWeapons.CompProperties_DarktideWeapon">
       </li> -->
-      <li Class="DarktideWeapons.CompProperites_Block">
+      <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>
         <maxStamina>60</maxStamina>
         <allowBlock>true</allowBlock>
@@ -230,7 +230,7 @@
           <armorPenetration>0.68</armorPenetration>
         </heavyAttackToolPrimary>
       </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
+      <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>
         <maxStamina>60</maxStamina>
         <allowBlock>true</allowBlock>
@@ -239,350 +239,7 @@
     </comps>
   </ThingDef>
 
-  <!-- Munitorum Sapper Shovel -->
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Sapper_Shovel_III</defName>
-    <label>Munitorum Sapper Shovel</label>
-    <description>Munitorum Sapper Shovel from Warhammer 40K: Darktide.</description>
-    <graphicData>
-      <!-- <texPath>Things/Weapon/Melee/Shovel</texPath> -->
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.0</uiIconScale>
-    <statBases>
-      <WorkToMake>18000</WorkToMake>
-      <MarketValue>900</MarketValue>
-      <Mass>1.8</Mass>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Shovel</label>
-        <capacities>
-          <li>DW_Melee_Cleave</li>
-        </capacities>
-        <power>18</power>
-        <cooldownTime>1.5</cooldownTime>
-        <armorPenetration>0.20</armorPenetration>
-      </li>
-    </tools>
-    <equippedStatOffsets>
-      <GeneralLaborSpeed>0.15</GeneralLaborSpeed>
-    </equippedStatOffsets>
-    <costList>
-        <Steel>80</Steel>
-        <Plasteel>60</Plasteel>
-        <ComponentIndustrial>5</ComponentIndustrial>
-    </costList>
-    <comps>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>false</isShield>
-        <maxStamina>60</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-        <abilityDefList>
-          <li>DW_HeavyAttack_Sapper_Shovel_III</li>
-        </abilityDefList>
-      </li>
-      <li Class="DarktideWeapons.MeleeComps.CompProperties_HeavyAttack">
-        <heavyAttackToolPrimary>
-          <label>Heavy attack</label>
-          <capacities>
-            <li>DW_Melee_Stab</li>
-          </capacities>
-          <power>50</power>
-          <armorPenetration>0.9</armorPenetration>
-        </heavyAttackToolPrimary>
-      </li>
-    </comps>
-  </ThingDef>
 
-  <!-- Thunder Hammer -->
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Thunder_Hammer_II</defName>
-    <label>Crucis Mk II Thunder Hammer</label>
-    <techLevel>Spacer</techLevel>
-    <description>Power weapons of ancient design, Thunder Hammers are devastating, bone-shattering close combat weapons, though heavy and unwieldy.</description>
-    <graphicData>
-      <!-- <texPath>Things/Weapon/Melee/Thunderhammer</texPath> -->
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.1</uiIconScale>
-    <statBases>
-      <WorkToMake>38000</WorkToMake>
-      <MarketValue>3000</MarketValue>
-      <Mass>5.0</Mass>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Hammer</label>
-        <capacities>
-          <li>DW_Melee_Strikedown</li>
-        </capacities>
-        <power>20</power>
-        <cooldownTime>2.0</cooldownTime>
-        <armorPenetration>0.25</armorPenetration>
-        <chanceFactor>0.8</chanceFactor>
-      </li>
-    </tools>
-    <costList>
-        <Steel>20</Steel>
-        <Plasteel>250</Plasteel>
-        <Uranium>200</Uranium>
-        <ComponentIndustrial>8</ComponentIndustrial>
-        <ComponentSpacer>20</ComponentSpacer>
-    </costList>
-    <comps>
-      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-        <abilityDefList>
-          <li>DW_Ability_ChargeWeapon_ThunderHammer</li>
-        </abilityDefList>
-      </li>
-      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
-        <ChargeMax>1</ChargeMax>
-        <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
-        <weaponChargeDamageFactor>8.0</weaponChargeDamageFactor>
-        <weaponChargeArmorPenetrationFactor>3.0</weaponChargeArmorPenetrationFactor>
-        <cleaveNum>1</cleaveNum>
-      </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>false</isShield>
-        <maxStamina>80</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-    </comps>
-    <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
-      <recipeUsers Inherit="False">
-        <li>FabricationBench</li>
-      </recipeUsers>
-        <skillRequirements>
-          <Crafting>12</Crafting>
-        </skillRequirements>
-        <displayPriority>400</displayPriority>
-      </recipeMaker>
-  </ThingDef>
-
-  <!-- Power Sword -->
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_Power_Sword_VI</defName>
-    <label>Achlys Mk VI Power Sword</label>
-    <techLevel>Spacer</techLevel>
-    <description>Munitorum power swords are issued to senior officers of the Astra Militarum, as both badge of office and powerful melee weapon.</description>
-    <graphicData>
-      <texPath>Things/Weapon/Melee/PowerSword</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.2</uiIconScale>
-    <statBases>
-      <WorkToMake>78000</WorkToMake>
-      <MarketValue>2500</MarketValue>
-      <Mass>2.0</Mass>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Blade</label>
-        <capacities>
-          <li>DW_Melee_Cleave</li>
-        </capacities>
-        <power>15</power>
-        <cooldownTime>1.1</cooldownTime>
-        <armorPenetration>0.2</armorPenetration>
-      </li>
-    </tools>
-    <comps>
-      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-        <abilityDefList>
-          <li>DW_Ability_ChargeWeapon_Powersword</li>
-        </abilityDefList>
-      </li>
-      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
-        <ChargeMax>20</ChargeMax>
-        <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
-        <weaponChargeDamageFactor>4.5</weaponChargeDamageFactor>
-        <weaponChargeArmorPenetrationFactor>4.0</weaponChargeArmorPenetrationFactor>
-        <cleaveNum>30</cleaveNum>
-      </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>false</isShield>
-        <maxStamina>60</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-    </comps>
-    <equippedStatOffsets>
-      <MeleeHitChance>4</MeleeHitChance>
-    </equippedStatOffsets>
-    <costList>
-        <Steel>50</Steel>
-        <Plasteel>200</Plasteel>
-        <Uranium>120</Uranium>
-        <ComponentIndustrial>5</ComponentIndustrial>
-        <ComponentSpacer>20</ComponentSpacer>
-    </costList>
-    <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
-      <recipeUsers Inherit="False">
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <skillRequirements>
-        <Crafting>12</Crafting>
-      </skillRequirements>
-      <displayPriority>400</displayPriority>
-    </recipeMaker>
-  </ThingDef>
-
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_RelicBlade_II</defName>
-    <label>Munitorum Mk II Relic Blade</label>
-    <techLevel>Spacer</techLevel>
-    <description>This sword's advanced power core channels coursing energy through the blade with devastating effect.</description>
-    <graphicData>
-      <texPath>Things/Weapon/Melee/PowerSword</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.2</uiIconScale>
-    <statBases>
-      <WorkToMake>90000</WorkToMake>
-      <MarketValue>2500</MarketValue>
-      <Mass>5.0</Mass>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Blade</label>
-        <capacities>
-          <li>DW_Melee_RelicBlade_Cleave</li>
-        </capacities>
-        <power>27</power>
-        <cooldownTime>1.9</cooldownTime>
-        <armorPenetration>0.45</armorPenetration>
-      </li>
-    </tools>
-    <comps>
-      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-        <abilityDefList>
-          <li>DW_Ability_ChargeWeapon_Powersword</li>
-        </abilityDefList>
-      </li>
-      <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
-        <ChargeMax>500</ChargeMax>
-        <weaponChargeLastingTicks>3600</weaponChargeLastingTicks>
-        <weaponChargeDamageFactor>3.0</weaponChargeDamageFactor>
-        <weaponChargeArmorPenetrationFactor>2.0</weaponChargeArmorPenetrationFactor>
-        <cleaveNum>50</cleaveNum>
-        <heatBuildup>true</heatBuildup>
-      </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>false</isShield>
-        <maxStamina>60</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-    </comps>
-    <equippedStatOffsets>
-      <MeleeHitChance>6</MeleeHitChance>
-    </equippedStatOffsets>
-    <costList>
-        <Steel>50</Steel>
-        <Plasteel>250</Plasteel>
-        <Uranium>120</Uranium>
-        <ComponentIndustrial>5</ComponentIndustrial>
-        <ComponentSpacer>22</ComponentSpacer>
-    </costList>
-    <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
-      <recipeUsers Inherit="False">
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <skillRequirements>
-        <Crafting>12</Crafting>
-      </skillRequirements>
-      <displayPriority>400</displayPriority>
-    </recipeMaker>
-  </ThingDef>
-
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_HeavyEviscerator_XV</defName>
-    <label>Heavy Eviscerator Mk XV</label>
-    <techLevel>Spacer</techLevel>
-    <description>Strength alone is not enough to effectively wield an Eviscerator, but zeal and rage can compensate. As such, it has become associated with righteous fury, and is a favoured weapon of firebrand preachers.</description>
-    <graphicData>
-      <texPath>Things/Weapon/Melee/PowerSword</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.2</uiIconScale>
-    <statBases>
-      <WorkToMake>90000</WorkToMake>
-      <MarketValue>2500</MarketValue>
-      <Mass>5.0</Mass>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Edge</label>
-        <capacities>
-          <li>DW_Melee_Eviscerator_Cleave</li>
-        </capacities>
-        <power>25</power>
-        <cooldownTime>1.8</cooldownTime>
-        <armorPenetration>0.32</armorPenetration>
-      </li>
-    </tools>
-    <comps>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_ChainSwordRavage_HeavyEviscerator_XV</abilityDef>
-      </li>
-      
-      <li Class="DarktideWeapons.MeleeComps.CompProperties_SpecialMelee">
-        <specialAttackToolPrimary>
-          <label>Edge</label>
-          <capacities>
-            <li>DW_Melee_ChainSwordRavage</li>
-          </capacities>
-          <power>25</power>
-          <armorPenetration>0.25</armorPenetration>
-        </specialAttackToolPrimary>
-      </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>false</isShield>
-        <maxStamina>60</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-    </comps>
-    <equippedStatOffsets>
-      <MoveSpeed>-0.2</MoveSpeed>
-      <MeleeHitChance>6</MeleeHitChance>
-    </equippedStatOffsets>
-    <costList>
-        <Steel>250</Steel>
-        <Plasteel>200</Plasteel>
-        <Uranium>10</Uranium>
-        <ComponentIndustrial>10</ComponentIndustrial>
-        <ComponentSpacer>10</ComponentSpacer>
-    </costList>
-    <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
-      <recipeUsers Inherit="False">
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <skillRequirements>
-        <Crafting>12</Crafting>
-      </skillRequirements>
-      <displayPriority>400</displayPriority>
-    </recipeMaker>
-  </ThingDef>
 
       <!-- Atrox Tactical Axe -->
       <!-- Derived from ancient hunting weapon designs, tactical axes are simple and cheap to produce, and deadly in the hands of a trained warrior. -->
@@ -590,77 +247,12 @@
       <!-- Indignatus Crusher -->
       <!-- Power mauls exist in a variety of patterns ranging from one-handed batons to crushing mauls. This model is sized for such that it requires two hands for a standard human to wield it. -->
 
-<!-- Orestes Mk IV Assault Chainaxe -->
-<!-- Orestes chainaxes are brutal in their simplicity. -->
+  <!-- Orestes Mk IV Assault Chainaxe -->
+  <!-- Orestes chainaxes are brutal in their simplicity. -->
 
 
-<!-- Turtolsky Mk IX Heavy Sword -->
+  <!-- Turtolsky Mk IX Heavy Sword -->
 
-  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
-    <defName>DW_ShockMaul_SuppressionShield_VI</defName>
-    <label>Branx Mk VI Shock Maul and Suppression Shield</label>
-    <techLevel>Medieval</techLevel>
-    <description>A powerful combination. Devastating offense and an almost impenetrable defence.</description>
-    <graphicData>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <uiIconScale>1.6</uiIconScale>
-    <statBases>
-      <WorkToMake>18000</WorkToMake>
-      <Mass>1.5</Mass>
-      <MarketValue>1000</MarketValue>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <burnableByRecipe>false</burnableByRecipe>
-    <tools>
-      <li>
-        <label>Light attack</label>
-        <capacities>
-          <li>DW_Melee_ShockMaul</li>
-        </capacities>
-        <power>18</power>
-        <cooldownTime>1.1</cooldownTime>
-        <armorPenetration>0.20</armorPenetration>
-      </li>
-      <li>
-        <label>stab</label>
-        <capacities>
-          <li>DW_Melee_ShockMaulStab</li>
-        </capacities>
-        <power>28</power>
-        <cooldownTime>1.6</cooldownTime>
-        <armorPenetration>0.50</armorPenetration>
-      </li>
-      <li>
-        <label>bash</label>
-        <capacities>
-          <li>DW_Melee_ShieldBash</li>
-        </capacities>
-        <power>12</power>
-        <cooldownTime>1.2</cooldownTime>
-        <armorPenetration>0.25</armorPenetration>
-      </li>
-    </tools>
-    <equippedStatOffsets>
-      <MoveSpeed>-0.2</MoveSpeed>
-      <MeleeHitChance>7</MeleeHitChance>
-    </equippedStatOffsets>
-    <costList>
-        <Steel>60</Steel>
-        <Plasteel>100</Plasteel>
-        <ComponentIndustrial>6</ComponentIndustrial>
-    </costList>
-    <comps>
-      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
-      </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
-        <isShield>true</isShield>
-        <maxStamina>200</maxStamina>
-        <allowBlock>true</allowBlock>
-        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
-      </li>
-    </comps>
-  </ThingDef>
   <!-- Duelling Sword -->
   <!-- I know what you are looking for -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
@@ -708,7 +300,7 @@
         <CounterAttackStabArmorPenetration>1.2</CounterAttackStabArmorPenetration>
         <CounterAttackChanceIncreasePerLevel>0.03</CounterAttackChanceIncreasePerLevel>
       </li>
-      <li Class="DarktideWeapons.CompProperites_Block">
+      <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>
         <maxStamina>50</maxStamina>
         <allowBlock>true</allowBlock>

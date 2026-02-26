@@ -58,7 +58,7 @@ namespace DarktideWeapons
                 damageAmount *=( hitThing.def.BaseFlammability >= Util_Ranged.MinFlammabilityForDamage ? hitThing.def.BaseFlammability : Util_Ranged.MinFlammabilityForDamage);
                 if(Rand.Chance(hitThing.def.BaseFlammability / 2f))
                 {
-                    FireUtility.TryStartFireIn(hitThing.Position, hitThing.Map, 0.1f, launcher);
+                    FireUtility.TryStartFireIn(hitThing.Position, hitThing.Map,Mathf.Clamp01(hitThing.def.BaseFlammability / 1.5f) , launcher);
                 }
             }
             BodyPartRecord bodyPart = null;
@@ -124,6 +124,10 @@ namespace DarktideWeapons
             }
             foreach (Thing thing in targets) 
             {
+                if (Rand.Chance(0.3f))
+                {
+                    break;
+                }
                 if (thing != null && thing.Spawned)
                 {
                     Impact(thing);
@@ -171,10 +175,7 @@ namespace DarktideWeapons
                 {
                     pawn2.stances?.stagger.Notify_BulletImpact(this);
 
-                    foreach (HediffDef hediffdef in this.projectileProps.applyHediffDefs)
-                    {
-                        this.TryAddHediff(hediffdef, pawn2);
-                    }
+                    HediffWorker(pawn2);
                 }
 
                 if (def.projectile.extraDamages != null)

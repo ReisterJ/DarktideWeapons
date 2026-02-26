@@ -81,7 +81,10 @@ namespace DarktideWeapons
 
         protected virtual void AddGivenHediffs(int id = 0)
         {
-            if (PawnOwner == null) return;
+            if (PawnOwner == null)
+            {
+                Log.Error("No PawnOwner to add hediff");
+            }
             foreach (HediffDef hediff in weaponCompHediffDefs)
             {
                 if (PawnOwner.health.hediffSet.HasHediff(hediff)) continue;
@@ -108,7 +111,7 @@ namespace DarktideWeapons
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref isMainMode, "isMainMode");
+            Scribe_Values.Look(ref isMainMode, "isMainMode",false);
             Scribe_References.Look(ref wielder, "wielder");
         }
     }

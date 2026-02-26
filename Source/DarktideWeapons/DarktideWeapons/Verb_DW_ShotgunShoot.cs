@@ -66,8 +66,8 @@ namespace DarktideWeapons
                     Vector3 scatterTarget = origin + scatterDirection * (target - origin).magnitude;
 
                     Projectile projectile = (Projectile)GenSpawn.Spawn(verbProps.defaultProjectile, caster.Position, caster.Map);
-                    if (randomAngle >= 2f) {
-                        hitflag = ProjectileHitFlags.All;
+                    if (randomAngle > 1f) {
+                        hitflag = ProjectileHitFlags.NonTargetPawns;
                     }  
                     else { hitflag = ProjectileHitFlags.IntendedTarget; }
                     projectile.Launch(caster, origin, scatterTarget.ToIntVec3(), currentTarget, hitflag, true, EquipmentSource,targetCoverDef);

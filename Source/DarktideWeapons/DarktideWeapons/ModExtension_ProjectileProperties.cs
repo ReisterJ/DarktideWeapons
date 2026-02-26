@@ -44,6 +44,18 @@ namespace DarktideWeapons
         public ThingDef beamMoteDef;
         
         public List<HediffDef> applyHediffDefs = new List<HediffDef>();
+
+        public int applyHediffSeverity = 1;
+
+        public List<HediffDefWithLevel> applyHediffDefsWithLevel = new List<HediffDefWithLevel>();
+        
+        
+    }
+
+    public class HediffDefWithLevel
+    {
+        public HediffDef hediffDef;
+        public int level = 1;
     }
 
    

@@ -230,13 +230,7 @@ namespace DarktideWeapons
                             pawn2.stances.stunner.StunFor(95, null, false, false);
                         }
                     }
-                    
-
-                    
-                    foreach (HediffDef hediffDef in projectileProps.applyHediffDefs)
-                    {
-                        pawn2.health.AddHediff(hediffDef, Util_BodyPart.GetTorsoPart(pawn2) , null, null);
-                    }
+                    HediffWorker(pawn2);
                 }
 
                

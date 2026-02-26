@@ -17,10 +17,11 @@
     <overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
     <!-- <additionalHediffs>
       <li>
-        <hediff>ZombieMelee_Weakened</hediff>
+        <hediff></hediff>
         <severityPerDamageDealt>1</severityPerDamageDealt>
       </li>
     </additionalHediffs> -->
   </DamageDef>
 
+  
 </Defs>

@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using DarktideWeapons.MeleeComps;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,12 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class Comp_EquippableAbilities : CompEquippable
+    public class Comp_EquippableAbilities : CompEquippable , IMeleeAttacked
     {
         //public List<Ability> Abilities = new List<Ability>();
         public CompProperties_EquippableAbilities Props => props as CompProperties_EquippableAbilities;
 
+        public Comp_RechargeByAttack RechargeComp => parent.TryGetComp<Comp_RechargeByAttack>();
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
@@ -50,6 +52,33 @@ namespace DarktideWeapons
             base.PostExposeData();
             
         }
+
+
+        public void RechargeAbilities(Pawn pawn)
+        {
+            if (RechargeComp == null) return;
+            if (RechargeComp.IsFullyCharged())
+            {
+                foreach (AbilityDef abilityDef in Props.abilityDefList)
+                {
+                    Ability ability = pawn.abilities.GetAbility(abilityDef);
+                    if(ability != null)
+                    {
+                        if (ability.UsesCharges && ability.RemainingCharges < ability.maxCharges)
+                        {
+                            ability.RemainingCharges++;
+                            MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "+1 charge", UnityEngine.Color.cyan, 1.5f);
+                        }
+                    }
+                }
+            }
+        }
+        public void PostMeleeAttacked(MeleeAttackData data)
+        {
+            RechargeAbilities(this.Holder);
+        }
+
+       
     }
 
     public class CompProperties_EquippableAbilities : CompProperties

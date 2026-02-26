@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using DarktideWeapons.Util;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -427,6 +428,11 @@ namespace DarktideWeapons
                 ambientSustainer = def.projectile.soundAmbient.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
             }
         }
+
+        protected virtual void HediffWorker(Pawn pawn)
+        {
+            Util_Hediff.HediffImpact(pawn, projectileProps.applyHediffDefs, projectileProps.applyHediffDefsWithLevel);
+        }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             
@@ -469,10 +475,7 @@ namespace DarktideWeapons
                 {
                     pawn2.stances?.stagger.Notify_BulletImpact(this);
 
-                    foreach (HediffDef hediffdef in this.projectileProps.applyHediffDefs)
-                    {
-                        this.TryAddHediff(hediffdef, pawn2);
-                    }
+                    HediffWorker(pawn2);
                 }
 
                 if (def.projectile.extraDamages != null)
@@ -733,7 +736,7 @@ namespace DarktideWeapons
                             //penetrateWall = false;
                             return false;
                         }
-                        if (this.usedTarget == this.intendedTarget && ETAHitTick >= flyingTicks && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
+                        if (this.usedTarget == this.intendedTarget && ETAHitTick >= flyingTicks+1 && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
                         {
                             return false;
                         }
@@ -847,23 +850,5 @@ namespace DarktideWeapons
             return false;
         }
 
-        protected virtual bool TryAddHediff(HediffDef hediffdef,Pawn Target)
-        {
-            Hediff H = Target.health.hediffSet.GetFirstHediffOfDef(hediffdef);
-            if (H == null)
-            {
-                Target.health.AddHediff(hediffdef, Util_BodyPart.GetTorsoPart(Target), null, null);
-                return true;
-            }
-            else
-            {
-                if(H is Hediff_DOT dot)
-                {
-                    dot.ChangeLevel(1);
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }

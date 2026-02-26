@@ -165,10 +165,7 @@ namespace DarktideWeapons
                 {
                     pawn2.stances?.stagger.Notify_BulletImpact(this);
 
-                    foreach (HediffDef hediffdef in this.projectileProps.applyHediffDefs)
-                    {
-                        pawn2.health.AddHediff(hediffdef, Util_BodyPart.GetTorsoPart(pawn2), null, null);
-                    }
+                    HediffWorker(pawn2);
                 }
 
                 if (def.projectile.extraDamages != null)
@@ -205,10 +202,10 @@ namespace DarktideWeapons
         }
         public bool HitCheck(Thing thing)
         {
-            if (thing.def.Fillage == FillCategory.Full && !CanHit(thing) && !this.penetrateWall)
-            {
-                return false;
-            }
+            //if (thing.def.Fillage == FillCategory.Full && !CanHit(thing) && !this.penetrateWall)
+            //{
+            //    return false;
+            //}
             if (thing.def.Fillage == FillCategory.Full)
             {
                 if (thing is Building_Door Door && Door.Open == true)

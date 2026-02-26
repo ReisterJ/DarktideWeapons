@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -20,7 +20,7 @@
     <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>none</ErrorReport>
-    <WarningLevel>2</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,11 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\mod\harmony1.6\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\HarmonyMod\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp, Version=1.6.9438.37837, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -45,22 +46,25 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -73,13 +77,13 @@
     <Compile Include="CompAbilityEffect_PsiExplosion.cs" />
     <Compile Include="CompAbilityEffect_SwitchFireMode.cs" />
     <Compile Include="CompAbilityEffect_PlasmaMode.cs" />
+    <Compile Include="CompAbilityEffect_SwitchMeleeHediff.cs" />
     <Compile Include="Comp_DWChargeWeapon.cs" />
     <Compile Include="Comp_DWHeadHuntShoot.cs" />
     <Compile Include="Comp_EquippableAbilities.cs" />
     <Compile Include="Comp_DWSwtichMode.cs" />
     <Compile Include="Draw\Comp_DrawMultiParts.cs" />
     <Compile Include="DW_ArcChain.cs" />
-    <Compile Include="DW_Blessing.cs" />
     <Compile Include="DW_Equipment.cs" />
     <Compile Include="DW_FireCloud.cs" />
     <Compile Include="DW_Grenade.cs" />
@@ -100,12 +104,17 @@
     <Compile Include="HediffDefOf_DW.cs" />
     <Compile Include="Hediff_DWToughnessShield.cs" />
     <Compile Include="Hediff_DOT.cs" />
+    <Compile Include="Hediff_Level_Buff.cs" />
     <Compile Include="Hediff_StickBomb.cs" />
     <Compile Include="JobDrivers\JobDriver_HeavyMeleeAttack.cs" />
     <Compile Include="JobDrivers\JobDriver_SpecialMeleeAttack.cs" />
     <Compile Include="MeleeComps\Comp_HeavyAttack.cs" />
+    <Compile Include="MeleeComps\Comp_MeleeApplyHediffs.cs" />
     <Compile Include="MeleeComps\Comp_PushAttack.cs" />
+    <Compile Include="MeleeComps\Comp_RechargeByAttack.cs" />
     <Compile Include="MeleeComps\Comp_SpecialMelee.cs" />
+    <Compile Include="MeleeComps\Comp_SwitchMeleeHediff.cs" />
+    <Compile Include="MeleeComps\IMeleeAttacked.cs" />
     <Compile Include="ModExtension_DW_Ability.cs" />
     <Compile Include="ModExtension_HediffDOT.cs" />
     <Compile Include="ModExtension_PsyCastExtendedProperties.cs" />
@@ -113,22 +122,24 @@
     <Compile Include="Comp_Block.cs" />
     <Compile Include="ModExtension_EquipmentIntegration.cs" />
     <Compile Include="DW_SoulBlaze.cs" />
+    <Compile Include="SpecialMeleeVerbs\IEquipmentMelee.cs" />
     <Compile Include="SpecialMeleeVerbs\IHeavyMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\ISpecialMeleeAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_AbilityMelee.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_PushAttack.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_HeavyAttack.cs" />
-    <Compile Include="Util_BodyPart.cs" />
-    <Compile Include="Util_CharacterBuild.cs" />
-    <Compile Include="Util_Crit.cs" />
-    <Compile Include="Util_Melee.cs" />
+    <Compile Include="Util\Util_BodyPart.cs" />
+    <Compile Include="Util\Util_CharacterBuild.cs" />
+    <Compile Include="Util\Util_Crit.cs" />
+    <Compile Include="Util\Util_Hediff.cs" />
+    <Compile Include="Util\Util_Melee.cs" />
     <Compile Include="ModExtension_MeleeWeaponProperties.cs" />
     <Compile Include="ModExtension_ToughnessShield.cs" />
     <Compile Include="ModExtension_ProjectileProperties.cs" />
-    <Compile Include="Util_Rand.cs" />
-    <Compile Include="Util_Ranged.cs" />
+    <Compile Include="Util\Util_Rand.cs" />
+    <Compile Include="Util\Util_Ranged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util_Stagger.cs" />
+    <Compile Include="Util\Util_Stagger.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_ChainSwordRavage.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_Thrower.cs" />
     <Compile Include="Verb_DW_HeadHuntShoot.cs" />
@@ -136,19 +147,17 @@
     <Compile Include="Verb_DW_Shoot.cs" />
     <Compile Include="Verb_DarktideMelee.cs" />
     <Compile Include="Verb_DarktideLaunchProjectile.cs" />
+    <Compile Include="Verb_DW_AbilityLaunchProjectile.cs" />
     <Compile Include="Verb_AbilityShoot_Psycast.cs" />
     <Compile Include="Verb_DW_ShotgunShoot.cs" />
     <Compile Include="Windows\Window_CharacterBuild.cs" />
     <Compile Include="Windows\Window_Omnissiah.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" />
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll" />
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll" />
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll" />
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll" />
-    <Analyzer Include="C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.UI.dll" />
+    <Analyzer Include="..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abilities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
