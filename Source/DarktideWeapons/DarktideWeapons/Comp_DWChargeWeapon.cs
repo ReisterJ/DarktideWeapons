@@ -188,6 +188,7 @@ namespace DarktideWeapons
         }
     }
 
+    [StaticConstructorOnStartup]
     public class Gizmo_ChargeCurrentHeat : Gizmo
     {
         public Comp_DWChargeWeapon comp;

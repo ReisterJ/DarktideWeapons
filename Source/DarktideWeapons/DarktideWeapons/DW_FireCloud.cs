@@ -110,6 +110,10 @@ namespace DarktideWeapons
             List<IntVec3> cells = GenAdjFast.AdjacentCellsCardinal(this.LastPosition.ToIntVec3());
             foreach (IntVec3 cell in cells)
             {
+                if (launcher.Position == cell)
+                {
+                    continue;
+                }
                 foreach (Thing thing in cell.GetThingList(this.Map))
                 {
                     if (thing is Pawn pawn)

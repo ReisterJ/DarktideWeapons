@@ -9,30 +9,16 @@ using Verse;
 
 namespace DarktideWeapons
 {
-    public class Comp_EquippableAbilities : CompEquippable , IMeleeAttacked
+    public class Comp_EquippableAbilities : DW_WeaponComp , IMeleeAttacked
     {
         //public List<Ability> Abilities = new List<Ability>();
-        public CompProperties_EquippableAbilities Props => props as CompProperties_EquippableAbilities;
+        public new CompProperties_EquippableAbilities Props => props as CompProperties_EquippableAbilities;
 
         public Comp_RechargeByAttack RechargeComp => parent.TryGetComp<Comp_RechargeByAttack>();
-        public override void Initialize(CompProperties props)
-        {
-            base.Initialize(props);
-            /*
-            if (base.Holder != null)
-            {
-                foreach (AbilityDef abilityDef in Props.abilityDefList)
-                {
-                    Ability ability = AbilityUtility.MakeAbility(abilityDef, base.Holder);
-                    ability.pawn = base.Holder;
-                    ability.verb.caster = base.Holder;
-                    Abilities.Add(ability);
-                }
-            }*/
-        }
 
         public override void Notify_Equipped(Pawn pawn)
         {
+            base.Notify_Equipped(pawn);
             foreach (AbilityDef abilityDef in Props.abilityDefList)
             {
                 pawn.abilities.GainAbility(abilityDef);
@@ -45,14 +31,8 @@ namespace DarktideWeapons
             {
                 pawn.abilities.RemoveAbility(abilityDef);
             }
+            base.Notify_Unequipped(pawn);
         }
-
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-            
-        }
-
 
         public void RechargeAbilities(Pawn pawn)
         {
@@ -75,9 +55,15 @@ namespace DarktideWeapons
         }
         public void PostMeleeAttacked(MeleeAttackData data)
         {
-            RechargeAbilities(this.Holder);
+            RechargeAbilities(this.PawnOwner);
         }
 
+        // 不需要保存wielder，会在Notify_Equipped时重新设置
+        // 避免与其他DW_WeaponComp子类的"wielder"键名冲突
+        public override void PostExposeData()
+        {
+            // 故意不调用 base.PostExposeData() 来避免重复保存 wielder
+        }
        
     }
 
