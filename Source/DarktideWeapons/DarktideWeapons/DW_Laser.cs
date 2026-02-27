@@ -143,6 +143,7 @@ namespace DarktideWeapons
                 return;
             }
             List<Thing> list = VerbUtility.ThingsToHit(base.Position, base.Map, CanHit);
+            
             list.Shuffle();
             for (int i = 0; i < list.Count; i++)
             {
@@ -243,5 +244,66 @@ namespace DarktideWeapons
         }
     }
 
+    public class DW_NeedleLaser : DW_Laser
+    {
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            bool destroyFlag = false;
+            Map map = base.Map;
+            IntVec3 position = base.Position;
+            GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
+            if (!blockedByShield && def.projectile.landedEffecter != null)
+            {
+                def.projectile.landedEffecter.Spawn(base.Position, base.Map).Cleanup();
+            }
+            BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
+            Find.BattleLog.Add(battleLogEntry_RangedImpact);
+            NotifyImpact(hitThing, map, position);
+            if (this.PenetratedTarget > penetrateNum || forcedStop)
+            {
+                destroyFlag = true;
+            }
+            if (hitThing != null)
+            {
 
+                bool instigatorGuilty = !(launcher is Pawn pawn) || !pawn.Drafted;
+                DamageInfo dinfo = CalculateDamage(hitThing);
+                dinfo.SetWeaponQuality(equipmentQuality);
+                DamageWorker.DamageResult damageResult = hitThing.TakeDamage(dinfo);
+                damageResult.AssociateWithLog(battleLogEntry_RangedImpact);
+
+                Pawn pawn2 = hitThing as Pawn;
+                if (pawn2 != null)
+                {
+                    pawn2.stances?.stagger.Notify_BulletImpact(this);
+                    HediffWorker(pawn2);
+                }
+
+                if (def.projectile.extraDamages != null)
+                {
+                    foreach (ExtraDamage extraDamage in def.projectile.extraDamages)
+                    {
+                        if (Rand.Chance(extraDamage.chance))
+                        {
+                            DamageInfo dinfo2 = new DamageInfo(extraDamage.def, extraDamage.amount, extraDamage.AdjustedArmorPenetration(), ExactRotation.eulerAngles.y, launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
+                            hitThing.TakeDamage(dinfo2).AssociateWithLog(battleLogEntry_RangedImpact);
+                        }
+                    }
+                }
+                return;
+            }
+            if (!blockedByShield)
+            {
+                SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map));
+                if (base.Position.GetTerrain(map).takeSplashes)
+                {
+                    FleckMaker.WaterSplash(ExactPosition, map, Mathf.Sqrt(DamageAmount) * 1f, 4f);
+                }
+                else
+                {
+                    FleckMaker.Static(ExactPosition, map, FleckDefOf.ShotHit_Dirt);
+                }
+            }
+        }
+    }
 }

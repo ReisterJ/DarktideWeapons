@@ -56,7 +56,7 @@ namespace DarktideWeapons.SpecialMeleeVerbs
         public override void BurstingTick()
         {
             base.BurstingTick();
-            Log.Message("bursting tick");
+            //Log.Message("bursting tick");
             
         }
        

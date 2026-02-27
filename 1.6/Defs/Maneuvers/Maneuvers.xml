@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <ManeuverDef>
+    <defName>DW_Melee_PowerSword_Cleave</defName>
+    <requiredCapacity>DW_Melee_PowerSword_Cleave</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>2</cleaveTargets>
+        <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
+        <craftType>Vanguard</craftType>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
 
   <ManeuverDef>
     <defName>DW_Melee_RelicBlade_Cleave</defName>
@@ -401,4 +422,30 @@
 			</li>
 		</modExtensions>
   </ManeuverDef>
+
+  <ManeuverDef>
+    <defName>DW_Melee_CrowBarStrike</defName>
+    <requiredCapacity>DW_Melee_CrowBarStrike</requiredCapacity>
+    <verb>
+      <verbClass>DarktideWeapons.Verb_DarktideMelee</verbClass>
+      <meleeDamageDef>Stab</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+
+    <modExtensions>
+			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+				<cleaveTargets>1</cleaveTargets>
+        <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
+        <craftType>Strikedown</craftType>
+        <critChance>0.25</critChance>
+        <critDamageMultiplier>2.0</critDamageMultiplier>
+        <critArmorPenetrationMultiplier>2.5</critArmorPenetrationMultiplier>
+			</li>
+		</modExtensions>
+  </ManeuverDef>
+
 </Defs>

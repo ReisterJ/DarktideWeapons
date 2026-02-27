@@ -1,4 +1,5 @@
 ﻿using DarktideWeapons.MeleeComps;
+using DarktideWeapons.Util;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -19,18 +20,24 @@ namespace DarktideWeapons.SpecialMeleeVerbs
 
         protected int cleaveTargetsNum = 0;
 
+        protected int hitPawnNum = 0;
+
         public const float expEarnedBase = 200f;
 
         protected Util_Melee.CraftType craftType = Util_Melee.CraftType.None;
- 
+
         public List<Pair<Pawn, List<DamageInfo>>> TargetChain = new List<Pair<Pawn, List<DamageInfo>>>();
+
+        public float staggerImpact = 1f;
+
+        public EquipmentMeleeWorkerData equipmentMeleeWorkerData;
 
         public Comp_HeavyAttack HeavyAttackComp => DW_equipment?.TryGetComp<Comp_HeavyAttack>();
         public Tool UsedTool
         {
-            get 
-            { 
-                if(HeavyAttackComp == null)
+            get
+            {
+                if (HeavyAttackComp == null)
                 {
                     return null;
                 }
@@ -82,6 +89,12 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                 }
                 craftType = ModExtension_MeleeProp.craftType;
 
+                staggerImpact = ModExtension_MeleeProp.staggerImpact;
+
+                TryApplyEquipmentMeleeWorker(target);
+
+                Util_Hediff.HediffImpact(target, equipmentMeleeWorkerData.applyHediffs, equipmentMeleeWorkerData.applyHediffsWithLevel);
+
                 if (craftType == Util_Melee.CraftType.Cardinal)
                 {
                     List<IntVec3> targetAdjNear = GenAdjFast.AdjacentCellsCardinal(target.Position);
@@ -97,6 +110,7 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                 }
                 if (craftType == Util_Melee.CraftType.Strikedown)
                 {
+                    staggerImpact *= 1.5f;
                     ApplyMeleeDamageToTarget(target);
                 }
                 if (craftType == Util_Melee.CraftType.Vanguard)
@@ -127,13 +141,11 @@ namespace DarktideWeapons.SpecialMeleeVerbs
             TargetChain.Clear();
             foreach (var p in cells)
             {
-                //Log.Message(p);
                 IntVec3 tempPos = p;
                 if (!tempPos.InBounds(target.Map))
                 {
                     continue;
                 }
-                //Util_Melee.DEV_output(" Position check: " + tempPos);
 
                 foreach (Thing thing in tempPos.GetThingList(target.Map))
                 {
@@ -143,10 +155,8 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                         if (nextPawnTarget.HostileTo(CasterPawn))
                         {
                             pawnNum += Mathf.CeilToInt(nextPawnTarget.BodySize);
-                            //Util_Melee.DEV_output("Cleave target " + pawnNum + " | Name : " + nextPawnTarget.Name);
                             if (pawnNum >= cleaveTargetsNum)
                             {
-                                //Util_Melee.DEV_output("Cleave targets reach Maximum, no more targets");
                                 stopFlag = true;
                                 break;
                             }
@@ -164,6 +174,8 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                     break;
                 }
             }
+            hitPawnNum += pawnNum;
+
             foreach (var t in TargetChain)
             {
                 if (t != null)
@@ -217,12 +229,15 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                 {
                     break;
                 }
+                if (target.Thing is Pawn pawn)
+                {
+                    Util_Stagger.StaggerHandler(pawn, Util_Stagger.StaggerTicks(pawn, staggerImpact), CasterPawn, staggerImpact);
+                }
                 result = target.Thing.TakeDamage(item);
             }
+            hitPawnNum++;
             return result;
         }
-
-
 
         protected IEnumerable<DamageInfo> DamageInfosToApply(LocalTargetInfo target)
         {
@@ -268,7 +283,11 @@ namespace DarktideWeapons.SpecialMeleeVerbs
             }
             Vector3 direction = (target.Thing.Position - CasterPawn.Position).ToVector3();
             bool instigatorGuilty = !(caster is Pawn pawn) || !pawn.Drafted;
-            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster,target.Pawn != null ? Util_Melee.TryHitCorePart(CasterPawn, target.Pawn) :null , source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
+
+            num *= equipmentMeleeWorkerData.damageMulti;
+            armorPenetration *= equipmentMeleeWorkerData.armorPenetrationMulti;
+
+            DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster, target.Pawn != null ? Util_Melee.TryHitCorePart(CasterPawn, target.Pawn) : null, source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
             damageInfo.SetBodyRegion(BodyPartHeight.Undefined, BodyPartDepth.Outside);
             damageInfo.SetWeaponBodyPartGroup(bodyPartGroupDef);
             damageInfo.SetWeaponHediff(hediffDef);
@@ -317,7 +336,7 @@ namespace DarktideWeapons.SpecialMeleeVerbs
 
         protected virtual IEnumerable<DamageInfo> DamageInfosToApplyCleaveTarget(Pawn target, int pawnNum, float damageFalloffRatio = 0.8f)
         {
-           
+
             HeavyAttackStatSet(out float num, out float armorPenetration, out DamageDef def);
             BodyPartGroupDef bodyPartGroupDef = null;
             HediffDef hediffDef = null;
@@ -344,6 +363,10 @@ namespace DarktideWeapons.SpecialMeleeVerbs
             }
             Vector3 direction = (target.Position - CasterPawn.Position).ToVector3();
             bool instigatorGuilty = !(caster is Pawn pawn) || !pawn.Drafted;
+
+            num *= equipmentMeleeWorkerData.damageMulti;
+            armorPenetration *= equipmentMeleeWorkerData.armorPenetrationMulti;
+
             DamageInfo damageInfo = new DamageInfo(def, num, armorPenetration, -1f, caster, null, source, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty);
             damageInfo.SetBodyRegion(BodyPartHeight.Undefined, BodyPartDepth.Outside);
             damageInfo.SetWeaponBodyPartGroup(bodyPartGroupDef);
@@ -429,9 +452,6 @@ namespace DarktideWeapons.SpecialMeleeVerbs
                 casterPawn.Drawer.Notify_MeleeAttackOn(thing);
             }
 
-            Util_Stagger.StaggerHandler(pawn, Util_Stagger.StaggerTicks(pawn,HeavyAttackComp.staggerlevel),casterPawn);
-
-
             if (casterPawn.Spawned)
             {
                 casterPawn.rotationTracker.FaceCell(thing.Position);
@@ -443,22 +463,45 @@ namespace DarktideWeapons.SpecialMeleeVerbs
             return result;
         }
 
-        protected void HeavyAttackStatSet(out float dam, out float ap,out DamageDef damageDef)
+        protected void HeavyAttackStatSet(out float dam, out float ap, out DamageDef damageDef)
         {
-            if(HeavyAttackComp == null)
+            if (HeavyAttackComp == null)
             {
                 Log.Error("HeavyAttackStatSet called but HeavyAttackComp is null");
                 dam = 1f;
                 ap = 0.1f;
                 damageDef = DamageDefOf.Blunt;
                 return;
-            } 
+            }
             dam = this.tool.power * CasterPawn.GetStatValue(StatDefOf.MeleeDamageFactor);
             dam *= CasterPawn.ageTracker.CurLifeStage.meleeDamageFactor;
             dam *= Util_Melee.PawnMeleeLevelDamageMultiplier(CasterPawn) * MeleeDamageMultiplierGlobal;
             ap = this.tool.armorPenetration;
             ap *= DW_equipment.GetStatValue(StatDefOf.MeleeWeapon_DamageMultiplier);
             damageDef = this.tool.Maneuvers.FirstOrDefault().verb.meleeDamageDef;
+        }
+
+        protected virtual bool TryApplyEquipmentMeleeWorker(LocalTargetInfo target)
+        {
+            this.equipmentMeleeWorkerData = new EquipmentMeleeWorkerData();
+            equipmentMeleeWorkerData.Init();
+            if (this.DW_equipment == null)
+            {
+                Log.Warning("TryApplyEquipmentMeleeWorker was called but DW_equipment is null. This should not happen.");
+                return false;
+            }
+
+            foreach (var comp in DW_equipment.weaponComps)
+            {
+                if (comp != null)
+                {
+                    if (comp is IEquipmentMelee meleeEffect)
+                    {
+                        equipmentMeleeWorkerData.Add(meleeEffect.EquipmentMeleeWorker(target.Thing, this.DW_equipment));
+                    }
+                }
+            }
+            return true;
         }
     }
 }

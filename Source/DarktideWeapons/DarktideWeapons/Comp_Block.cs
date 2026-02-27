@@ -240,9 +240,24 @@ namespace DarktideWeapons
             return staminaRegenRate; 
         }
 
-       
+        public override string ShowInfo(Thing wielder)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(base.ShowInfo(wielder));
 
-        
+            stringBuilder.AppendLine("DW_IsShield".Translate() + ": " + (isShield ? "DW_Yes".Translate() : "DW_No".Translate()));
+            stringBuilder.AppendLine("DW_AllowAttackWhileBlocking".Translate() + ": " + (AllowAttackWhileBlocking() ? "DW_Yes".Translate() : "DW_No".Translate()));
+            stringBuilder.AppendLine("DW_MeleeBlockingEfficiency".Translate() + ": " + GetMeleeBlockingEfficiency().ToStringPercent());
+
+            if (isShield)
+            {
+                stringBuilder.AppendLine("DW_RangedBlockingEfficiency".Translate() + ": " + GetRangedBlockingEfficiency().ToStringPercent());
+            }
+
+            return stringBuilder.ToString();
+        }
+
+
     }
 
     public class CompProperties_Block : CompProperties

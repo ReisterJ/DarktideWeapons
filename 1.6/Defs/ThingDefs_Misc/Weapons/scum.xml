@@ -603,4 +603,63 @@
       </li>
     </comps>
   </ThingDef>
+
+  <!-- Enginseer's Mk VI Crowbar -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Enginseers_Crowbar_VI</defName>
+    <label>Enginseer's Mk VI Crowbar</label>
+    <techLevel>Medieval</techLevel>
+    <description>A simple tool turned into a devastating melee weapon. The Hive Scum's propensity for ingenuity and ultra-violence shines through this brutal instrument.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>2.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Edge</label>
+        <capacities>
+          <li>DW_Melee_Cleave</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <!-- <MoveSpeed>1.0</MoveSpeed>
+      <MeleeDodgeChance>10</MeleeDodgeChance> -->
+    </equippedStatOffsets>
+    <costList>
+        <Steel>50</Steel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>70</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_HeavyAttack">
+        <heavyAttackToolPrimary>
+          <label>head</label>
+          <capacities>
+            <li>DW_Melee_CrowBarStrike</li>
+          </capacities>
+          <power>33</power>
+          <armorPenetration>0.80</armorPenetration>
+        </heavyAttackToolPrimary>
+      </li>
+      <li Class="CompProperties_EquippableAbility">
+        <abilityDef>DW_HeavyAttack_CrowBar_IV</abilityDef>
+      </li>
+    </comps>
+  </ThingDef>
 </Defs>

@@ -24,14 +24,19 @@ namespace DarktideWeapons.Util
                 {
                     TryAddHediffWithLevel(hediffdef.hediffDef, pawn);
                     Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(hediffdef.hediffDef);
-                    if (hediff is Hediff_Level level)
+                    if (hediff is Hediff_Level levelHediff)
                     {
-                        level.SetLevelTo(hediffdef.level);
-                        if (level is Hediff_Level_Buff bufflevel)
+                        // 直接设置 level 字段以确保正确设置等级
+                        // SetLevelTo 方法在某些情况下可能不生效
+                        levelHediff.level = hediffdef.level + levelHediff.level; // 如果已经有该 Hediff，叠加等级；如果没有，则设置为 hediffdef.level
+                        // 同时调用 SetLevelTo 以触发任何必要的内部处理
+                        levelHediff.SetLevelTo(levelHediff.level);
+                        
+                        if (levelHediff is Hediff_Level_Buff bufflevel)
                         {
                             bufflevel.RefreshBuff();
                         }
-                        if (level is Hediff_DOT dot)
+                        if (levelHediff is Hediff_DOT dot)
                         {
                             dot.RefreshDOT();
                         }

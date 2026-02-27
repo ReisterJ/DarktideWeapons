@@ -34,6 +34,11 @@
     <label>Cleave</label> 
   </ToolCapacityDef>
 
+  <ToolCapacityDef>
+    <defName>DW_Melee_PowerSword_Cleave</defName>
+    <label>Stab</label>
+  </ToolCapacityDef>
+
   <!-- Eviscerator -->
   <ToolCapacityDef>
     <defName>DW_Melee_Eviscerator_Cleave</defName>
@@ -95,5 +100,11 @@
   <ToolCapacityDef>
     <defName>DW_Melee_PowerMaulISlash</defName>
     <label>Smash</label>
+  </ToolCapacityDef>
+
+  <!-- Enginseer's Mk VI Crowbar -->
+  <ToolCapacityDef>
+    <defName>DW_Melee_CrowBarStrike</defName>
+    <label>Wreck</label>
   </ToolCapacityDef>
 </Defs>

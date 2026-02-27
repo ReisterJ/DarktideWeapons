@@ -37,16 +37,20 @@
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>25</damageAmountBase>
+      <damageAmountBase>10</damageAmountBase>
       <armorPenetrationBase>0.25</armorPenetrationBase>
       <stoppingPower>6</stoppingPower>
       <speed>85</speed>
       <extraDamages>
         <li>
           <def>Stun</def>
+          <armorPenetration>1</armorPenetration>
+          <amount>10</amount>
         </li>
         <li>
           <def>EMP</def>
+          <armorPenetration>2</armorPenetration>
+          <amount>10</amount>
         </li>
       </extraDamages>
     </projectile>

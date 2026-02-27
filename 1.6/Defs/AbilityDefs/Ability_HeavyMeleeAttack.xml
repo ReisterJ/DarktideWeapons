@@ -51,4 +51,11 @@
       <warmupTime>2.8</warmupTime>
     </verbProperties>
   </AbilityDef>
+
+  <AbilityDef ParentName="Ability_HeavyMeleeAttack">
+    <defName>DW_HeavyAttack_CrowBar_IV</defName>
+    <verbProperties>
+      <warmupTime>2.0</warmupTime>
+    </verbProperties>
+  </AbilityDef>
 </Defs>

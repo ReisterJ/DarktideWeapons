@@ -216,10 +216,10 @@
       <li>
         <label>Blade</label>
         <capacities>
-          <li>DW_Melee_Cleave</li>
+          <li>DW_Melee_PowerSword_Cleave</li>
         </capacities>
         <power>15</power>
-        <cooldownTime>1.1</cooldownTime>
+        <cooldownTime>1.2</cooldownTime>
         <armorPenetration>0.2</armorPenetration>
       </li>
     </tools>
@@ -230,7 +230,7 @@
         </abilityDefList>
       </li>
       <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
-        <ChargeMax>20</ChargeMax>
+        <ChargeMax>15</ChargeMax>
         <weaponChargeLastingTicks>1800</weaponChargeLastingTicks>
         <weaponChargeDamageFactor>4.5</weaponChargeDamageFactor>
         <weaponChargeArmorPenetrationFactor>4.0</weaponChargeArmorPenetrationFactor>

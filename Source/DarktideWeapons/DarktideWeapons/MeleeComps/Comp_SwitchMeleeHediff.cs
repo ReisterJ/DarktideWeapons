@@ -129,7 +129,47 @@ namespace DarktideWeapons.MeleeComps
             return data;
         }
         
-      
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+            {
+                yield return gizmo;
+            }
+
+            if (PawnOwner == null || !PawnOwner.IsColonistPlayerControlled)
+            {
+                yield break;
+            }
+
+            Command_Action command = new Command_Action
+            {
+                defaultLabel = (HediffToApply?.label ?? "None"),
+                defaultDesc = "DW_Comp_SwitchMeleeHediff_HediffGizmoDesc".Translate() + " : " + (HediffToApply?.label ?? "None".Translate()),
+                icon = parent.def.uiIcon,
+            };
+
+            yield return command;
+        }
+        public override string ShowInfo(Thing wielder)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(base.ShowInfo(wielder));
+
+            if (HediffListCheck() && Props.hediffsToApply != null && Props.hediffsToApply.Count > 0)
+            {
+                stringBuilder.AppendLine("DW_Comp_SwitchMeleeHediff_AvailableHediffs".Translate() + ":");
+                foreach (var hediff in Props.hediffsToApply)
+                {
+                    if (hediff != null)
+                    {
+                        stringBuilder.AppendLine("  - " + hediff.label);
+                    }
+                }
+                stringBuilder.AppendLine("DW_Comp_SwitchMeleeHediff_CurrentHediff".Translate() + ": " + (HediffToApply?.label ?? "None".Translate()));
+            }
+
+            return stringBuilder.ToString().TrimEndNewlines();
+        }
     }
 
     public class CompProperties_SwitchMeleeHediff : CompProperties
