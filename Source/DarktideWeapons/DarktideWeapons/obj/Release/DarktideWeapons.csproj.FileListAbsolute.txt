@@ -1,0 +1,2 @@
+E:\workstation\Rimworld\DarktideWeapons\Source\DarktideWeapons\DarktideWeapons\obj\Release\DarktideWeapons.csproj.AssemblyReference.cache
+E:\workstation\Rimworld\DarktideWeapons\Source\DarktideWeapons\DarktideWeapons\obj\Release\DarktideWeapons.csproj.CoreCompileInputs.cache

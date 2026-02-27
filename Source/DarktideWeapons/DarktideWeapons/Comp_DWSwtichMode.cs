@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
-
+//using System.Collections;
 namespace DarktideWeapons
 {
     public class Comp_DWSwtichMode : ThingComp
@@ -113,6 +113,17 @@ namespace DarktideWeapons
             base.PostExposeData();
             Scribe_Values.Look(ref isMainMode, "isMainMode",false);
             Scribe_References.Look(ref wielder, "wielder");
+            Scribe_Collections.Look(ref weaponCompHediffDefs, "weaponCompHediffDefs", LookMode.Def);
+            
+            // 加载后如果列表为空（旧存档兼容），从 Props 初始化
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && (weaponCompHediffDefs == null || weaponCompHediffDefs.Count == 0))
+            {
+                weaponCompHediffDefs = new List<HediffDef>();
+                foreach (var hediffDef in Props.hediffDefs)
+                {
+                    weaponCompHediffDefs.Add(hediffDef);
+                }
+            }
         }
     }
 

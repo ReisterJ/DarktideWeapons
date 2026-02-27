@@ -117,9 +117,11 @@ namespace DarktideWeapons
             this.holder = null;
         }
 
-        public virtual void ChangeVerb(bool setMainMode = false)
+        public virtual void ChangeVerb(bool setMainMode = false, Pawn pawn = null)
         {
-            if(holder == null)
+            // 如果传入了pawn参数，使用它；否则使用holder
+            Thing currentHolder = pawn ?? holder;
+            if(currentHolder == null)
             {
                 return;
             }
@@ -130,7 +132,7 @@ namespace DarktideWeapons
             }
             if(Comp_DWSwtichMode != null)
             {
-                Comp_DWSwtichMode.wielder = holder;
+                Comp_DWSwtichMode.wielder = currentHolder;
                 Comp_DWSwtichMode.EquipmentChangeVerbWithHediff(switchverb);
             }
             

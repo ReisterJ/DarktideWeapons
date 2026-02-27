@@ -759,7 +759,13 @@ namespace DarktideWeapons
                     {
                         if (preventFriendlyFireinGame)
                         {
-                            pawnHitProbability = 0f;
+                            if(intendedTarget.Pawn != null)
+                            {
+                                if(intendedTarget.Pawn != pawn)
+                                {
+                                    pawnHitProbability = 0f;
+                                }
+                            }
                         }
                         else
                         {

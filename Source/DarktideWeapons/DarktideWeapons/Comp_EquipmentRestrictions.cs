@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -294,34 +294,34 @@ namespace DarktideWeapons
     }
 }
 
-namespace DarktideWeapons.HarmonyPatches
-{
-    /// <summary>
-    /// Harmony补丁 - 拦截EquipmentUtility.CanEquip方法
-    /// </summary>
-    [HarmonyPatch(typeof(EquipmentUtility), nameof(EquipmentUtility.CanEquip), new Type[] { typeof(Thing), typeof(Pawn), typeof(string), typeof(bool) })]
-    public static class Patch_EquipmentUtility_CanEquip
-    {
-        [HarmonyPostfix]
-        public static void Postfix(Thing thing, Pawn pawn, ref string cantReason, bool checkBonded, ref bool __result)
-        {
-            // 如果已经不能装备，就不需要继续检查了
-            if (!__result)
-            {
-                return;
-            }
+//namespace DarktideWeapons.HarmonyPatches
+//{
+//    /// <summary>
+//    /// Harmony补丁 - 拦截EquipmentUtility.CanEquip方法
+//    /// </summary>
+//    [HarmonyPatch(typeof(EquipmentUtility), "CanEquip", new Type[] { typeof(Thing), typeof(Pawn), typeof(string).MakeByRefType(), typeof(bool) })]
+//    public static class Patch_EquipmentUtility_CanEquip
+//    {
+//        [HarmonyPostfix]
+//        public static void Postfix(Thing thing, Pawn pawn, ref string cantReason, bool checkBonded, ref bool __result)
+//        {
+//            // 如果已经不能装备，就不需要继续检查了
+//            if (!__result)
+//            {
+//                return;
+//            }
 
-            // 检查物品是否有装备限制组件
-            Comp_EquipmentRestrictions restrictionComp = thing.TryGetComp<Comp_EquipmentRestrictions>();
-            if (restrictionComp != null)
-            {
-                string reason;
-                if (!restrictionComp.CanEquip(pawn, out reason))
-                {
-                    __result = false;
-                    cantReason = reason;
-                }
-            }
-        }
-    }
-}
+//            // 检查物品是否有装备限制组件
+//            Comp_EquipmentRestrictions restrictionComp = thing.TryGetComp<Comp_EquipmentRestrictions>();
+//            if (restrictionComp != null)
+//            {
+//                string reason;
+//                if (!restrictionComp.CanEquip(pawn, out reason))
+//                {
+//                    __result = false;
+//                    cantReason = reason;
+//                }
+//            }
+//        }
+//    }
+//}

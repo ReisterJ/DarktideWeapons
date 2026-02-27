@@ -25,7 +25,7 @@ namespace DarktideWeapons
             {
                 //Log.Message("Switching fire mode for " + weapon.LabelCap);
                 //Log.Message("Current verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
-                weapon.ChangeVerb();
+                weapon.ChangeVerb(pawn: caster);
                 //Log.Message("Change verb: " + weapon.GetComp<CompEquippable>().PrimaryVerb.ToString());
             }
         }

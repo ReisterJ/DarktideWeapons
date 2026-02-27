@@ -67,6 +67,11 @@
       <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\mscorlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompAbilityEffect_CannotCastWhileBlocking.cs" />
@@ -80,6 +85,7 @@
     <Compile Include="CompAbilityEffect_SwitchMeleeHediff.cs" />
     <Compile Include="Comp_DWChargeWeapon.cs" />
     <Compile Include="Comp_DWHeadHuntShoot.cs" />
+    <Compile Include="Comp_EquipmentRestrictions.cs" />
     <Compile Include="Comp_EquippableAbilities.cs" />
     <Compile Include="Comp_DWSwtichMode.cs" />
     <Compile Include="Draw\Comp_DrawMultiParts.cs" />
@@ -155,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" />
+    
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
