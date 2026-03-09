@@ -133,11 +133,247 @@
     </comps>
   </ThingDef>
 
+  <!-- Lucius Mk IIIa Helbore Lasgun -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_HelboreLasgun_IIIa</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>44.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Lucius_HelboreLasgun_IIIa</defName>
+    <label>Lucius MK IIIa Helbore Lasgun</label>
+    <description>Most Lucius-pattern lasguns operate in the 21 megathoule range, discharging a more powerful shot, but draining their power packs more rapidly.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.10</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_HelboreLasgun_IIIa</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>48.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools inherit="false">
+        <li>
+          <label>Lucius Bayonet</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>22</power>
+          <cooldownTime>1.0</cooldownTime>
+        </li>
+        <!-- 肘！ -->
+      </tools>
+
+  </ThingDef>
+
+  <!-- Lucius Mk IV Helbore Lasgun -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_HelboreLasgun_IV</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>33</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>44.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Lucius_HelboreLasgun_IV</defName>
+    <label>Lucius Mk IV Helbore Lasgun </label>
+    <description>With their extended barrels and bayonet loops, Lucius-pattern lasguns are well-regarded by assault troops who seek out melee after discharging a few volleys.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.10</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>130</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_HelboreLasgun_IV</defaultProjectile>
+        <warmupTime>3.3</warmupTime>
+        <range>48.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools inherit="false">
+        <li>
+          <label>Lucius Bayonet</label>
+          <capacities>
+            <li>Cut</li>
+          </capacities>
+          <power>15</power>
+          <cooldownTime>2.5</cooldownTime>
+        </li>
+      </tools>
+  </ThingDef>
+
+  <!-- Lucius MK V Helbore Lasgun -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>DW_Laser_HelboreLasgun_V</defName>
+    <label>Laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <useGraphicClass>false</useGraphicClass>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <modExtensions>
+      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <penetrationPower>0</penetrationPower>
+        <effectiveRange>44.9</effectiveRange>
+        <penetrateWall>false</penetrateWall>
+        <friendlyFire>false</friendlyFire>
+        <critArmorPenetrationMultiplier>2</critArmorPenetrationMultiplier>
+        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="Darktide_Gun">
+    <defName>DW_Lucius_HelboreLasgun_V</defName>
+    <label>Lucius MK V Helbore Lasgun</label>
+    <description>A more elegant design of the Lucius Mk I. Once the preserve of officers in the Death Korps of Krieg, this aging but reliable model has found its way into the hands of soldiers across the galaxy.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.10</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>90</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Long>0.2</ShootingAccuracyFactor_Long> 
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>DarktideWeapons.Verb_DW_HeadHuntShoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>DW_Laser_HelboreLasgun_V</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>48.9</range>
+        <soundCast>Shot_AssaultRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>3</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools inherit="false">
+        <li>
+          <label>Lucius Bayonet</label>
+          <capacities>
+            <li>Stab</li>
+          </capacities>
+          <power>22</power>
+          <cooldownTime>1.0</cooldownTime>
+        </li>
+      </tools>
+  </ThingDef>
+
   <!-- Munitorum Sapper Shovel -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
     <defName>DW_Sapper_Shovel_III</defName>
     <label>Munitorum Sapper Shovel</label>
-    <description>Munitorum Sapper Shovel from Warhammer 40K: Darktide.</description>
+    <description>Dig! Dig for victory! - The Spirit of Tertium</description>
     <graphicData>
       <!-- <texPath>Things/Weapon/Melee/Shovel</texPath> -->
       <graphicClass>Graphic_Single</graphicClass>

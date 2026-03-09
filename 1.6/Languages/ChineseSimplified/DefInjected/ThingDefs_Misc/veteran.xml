@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Plasma Gun ========== -->
+
+  <DW_PlasmaProjectile.label>等离子体</DW_PlasmaProjectile.label>
+  <DW_PlasmaChargedProjectile.label>充能等离子体</DW_PlasmaChargedProjectile.label>
+  <DW_PlasmaGun_II.label>M35麦格纳 Mk.II 等离子枪</DW_PlasmaGun_II.label>
+  <DW_PlasmaGun_II.description>等离子枪能使用线性电磁加速器发射氢基等离子的能量球，有着致命的杀伤力，但容易出现过热的危险。</DW_PlasmaGun_II.description>
+
+  <!-- ========== Lucius Mk IIIa Helbore Lasgun ========== -->
+  <DW_Laser_HelboreLasgun_IIIa.label>激光</DW_Laser_HelboreLasgun_IIIa.label>
+  <DW_Lucius_HelboreLasgun_IIIa.label>卢修斯 MK.IIIa 地狱钻激光枪</DW_Lucius_HelboreLasgun_IIIa.label>
+  <DW_Lucius_HelboreLasgun_IIIa.description>大多数卢修斯样式的激光枪的运行范围都在21兆焦耳内，虽然威力更强大但能量包的消耗速度更快。</DW_Lucius_HelboreLasgun_IIIa.description>
+  <DW_Lucius_HelboreLasgun_IIIa.tools.0.label>刺刀</DW_Lucius_HelboreLasgun_IIIa.tools.0.label>
+
+  <!-- ========== Lucius Mk IV Helbore Lasgun ========== -->
+  <DW_Laser_HelboreLasgun_IV.label>激光</DW_Laser_HelboreLasgun_IV.label>
+  <DW_Lucius_HelboreLasgun_IV.label>卢修斯 MK.IV 地狱钻激光枪</DW_Lucius_HelboreLasgun_IV.label>
+  <DW_Lucius_HelboreLasgun_IV.description>凭借延长枪管和刺刀，卢修斯样式的激光枪深受突击部队的青睐，因为他们能在齐射数轮后寻找近身战斗的机会。</DW_Lucius_HelboreLasgun_IV.description>
+  <DW_Lucius_HelboreLasgun_IV.tools.0.label>刺刀</DW_Lucius_HelboreLasgun_IV.tools.0.label>
+ 
+
+  <!-- ========== Lucius Mk V Helbore Lasgun ========== -->
+  <DW_Laser_HelboreLasgun_V.label>激光</DW_Laser_HelboreLasgun_V.label>
+  <DW_Lucius_HelboreLasgun_V.label>卢修斯 MK.V 地狱钻激光枪</DW_Lucius_HelboreLasgun_V.label>
+  <DW_Lucius_HelboreLasgun_V.description>与卢修斯MkI型相比，设计上更显优雅。曾经是克里格死亡军团中将领的专属武器，如今这款型号已经老旧，但仍然可靠，因此在银河系各地的士兵手中又重新有了用武之地。</DW_Lucius_HelboreLasgun_V.description>
+  <DW_Lucius_HelboreLasgun_V.tools.0.label>刺刀</DW_Lucius_HelboreLasgun_V.tools.0.label>
+
+  <!-- ========== Munitorum Sapper Shovel ========== -->
+  <DW_Sapper_Shovel_III.label>军务部 Mk.III 工兵铲</DW_Sapper_Shovel_III.label>
+  <DW_Sapper_Shovel_III.description>快挖！为胜利而挖！一 特提恩精神。</DW_Sapper_Shovel_III.description>
+  <DW_Sapper_Shovel_III.tools.0.label>铲头</DW_Sapper_Shovel_III.tools.0.label>
+
+  <!-- ========== Achlys Mk VI Power Sword ========== -->
+  <DW_Power_Sword_VI.label>阿喀琉斯 Mk.VI 动力剑</DW_Power_Sword_VI.label>
+  <DW_Power_Sword_VI.description>军务部动力剑是发给星界军的高级军官的，它既是官职的徽章，也是强大的近战武器。</DW_Power_Sword_VI.description>
+  <DW_Power_Sword_VI.tools.0.label>剑刃</DW_Power_Sword_VI.tools.0.label>
+
+</LanguageData>

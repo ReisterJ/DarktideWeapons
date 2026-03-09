@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Catachan Mk III Combat Blade ========== -->
+  <DW_Catachan_CombatBlade_III.label>Catachan Mk III Combat Blade</DW_Catachan_CombatBlade_III.label>
+  <DW_Catachan_CombatBlade_III.description>They say a Catachan Jungle Fighter can take down a full-grown Cudbear with one of these knives.</DW_Catachan_CombatBlade_III.description>
+  <DW_Catachan_CombatBlade_III.tools.0.label>Light attack</DW_Catachan_CombatBlade_III.tools.0.label>
+  <DW_Catachan_CombatBlade_III.tools.1.label>Heavy attack</DW_Catachan_CombatBlade_III.tools.1.label>
+
+  <!-- ========== Catachan Sword Mk I ========== -->
+  <DW_Catachan_Sword_I.label>Catachan Sword Mk I</DW_Catachan_Sword_I.label>
+  <DW_Catachan_Sword_I.description>The Catachans refer to these massive blades as knives. To everyone else, they're hefty swords.</DW_Catachan_Sword_I.description>
+  <DW_Catachan_Sword_I.tools.0.label>Light attack</DW_Catachan_Sword_I.tools.0.label>
+
+  <!-- ========== Rashad Mk II Combat Axe ========== -->
+  <DW_Rashad_CombatAxe.label>Rashad Mk II Combat Axe</DW_Rashad_CombatAxe.label>
+  <DW_Rashad_CombatAxe.description>Rashad Mk II Combat Axe from Warhammer 40K: Darktide.</DW_Rashad_CombatAxe.description>
+  <DW_Rashad_CombatAxe.tools.0.label>Light attack</DW_Rashad_CombatAxe.tools.0.label>
+
+  <!-- ========== Maccabian Mk IV Duelling Sword ========== -->
+  <DW_Duelling_Sword_IV.label>Maccabian Mk IV Duelling Sword</DW_Duelling_Sword_IV.label>
+  <DW_Duelling_Sword_IV.description>Maccabian swords are renowned for their light weight, keen edge and ostentatious detailing.</DW_Duelling_Sword_IV.description>
+  <DW_Duelling_Sword_IV.tools.0.label>light</DW_Duelling_Sword_IV.tools.0.label>
+  <DW_Duelling_Sword_IV.tools.1.label>stab</DW_Duelling_Sword_IV.tools.1.label>
+
+</LanguageData>

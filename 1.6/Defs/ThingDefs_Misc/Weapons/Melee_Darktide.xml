@@ -239,20 +239,6 @@
     </comps>
   </ThingDef>
 
-
-
-      <!-- Atrox Tactical Axe -->
-      <!-- Derived from ancient hunting weapon designs, tactical axes are simple and cheap to produce, and deadly in the hands of a trained warrior. -->
-
-      <!-- Indignatus Crusher -->
-      <!-- Power mauls exist in a variety of patterns ranging from one-handed batons to crushing mauls. This model is sized for such that it requires two hands for a standard human to wield it. -->
-
-  <!-- Orestes Mk IV Assault Chainaxe -->
-  <!-- Orestes chainaxes are brutal in their simplicity. -->
-
-
-  <!-- Turtolsky Mk IX Heavy Sword -->
-
   <!-- Duelling Sword -->
   <!-- I know what you are looking for -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
@@ -338,5 +324,223 @@
         </skillRequirements>
         <displayPriority>400</displayPriority>
       </recipeMaker>
+  </ThingDef>
+
+  <!-- Cadia Mk XIIIg Assault Chainsword -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Cadia_AssaultChainsword_XIIIg</defName>
+    <label>Cadia Mk XIIIg Assault Chainsword</label>
+    <techLevel>Spacer</techLevel>
+    <description>The chainsword has developed little since the Dark Age of Technology. As a brutally effective tool against heresy, why fix what isn't broken?</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>300</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light attack</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.4</cooldownTime>
+        <armorPenetration>0.18</armorPenetration>
+      </li>
+      <li>
+        <label>Heavy attack</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.65</armorPenetration>
+        <chanceFactor>0.4</chanceFactor>
+      </li>
+    </tools>
+    <costList>
+        <Steel>30</Steel>
+        <Plasteel>80</Plasteel>
+        <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_EquippableAbility">
+        <abilityDef>DW_Ability_ChainSwordRavage_ChainSword_XIIIg</abilityDef>
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>60</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+    
+  <!-- Atrox Mk II Tactical Axe -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Atrox_TacticalAxe_II</defName>
+    <label>Atrox Mk II Tactical Axe</label>
+    <techLevel>Medieval</techLevel>
+    <description>Derived from ancient hunting weapon designs, tactical axes are simple and cheap to produce, and deadly in the hands of a trained warrior.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>300</MarketValue>
+      <Mass>0.75</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>0.7</cooldownTime>
+        <armorPenetration>0.13</armorPenetration>
+      </li>
+      <li>
+        <label>Heavy</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>1.2</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MoveSpeed>1.0</MoveSpeed>
+      <MeleeDodgeChance>10</MeleeDodgeChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>80</Steel>
+        <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>40</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Turtolsky Mk IX Heavy Sword -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Turtolsky_HeavySword_IX</defName>
+    <label>Turtolsky Mk IX Heavy Sword</label>
+    <techLevel>Medieval</techLevel>
+    <description>Taking their design from the traditional shashka swords of the Vostroyan Astra Militarum regiments, these popular weapons are effective at both slashing and thrusting.</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>300</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Light attack</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>0.9</cooldownTime>
+        <armorPenetration>0.10</armorPenetration>
+      </li>
+      <li>
+        <label>Heavy attack</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.21</armorPenetration>
+      </li>
+    </tools>
+    <!-- <equippedStatOffsets>
+      <MoveSpeed>1.1</MoveSpeed>
+      <MeleeDodgeChance>12</MeleeDodgeChance>
+    </equippedStatOffsets> -->
+    <costList>
+        <Steel>100</Steel>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>40</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Indignatus Mk IVe Crusher -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Indignatus_Crusher_IVe</defName>
+    <label>Indignatus Mk IVe Crusher</label>
+    <techLevel>Industrial</techLevel>
+    <description>Wot's better than a power maul for bashin' a heretic's skull in? I'll tell ya: A bigger power maul!</description>
+    <graphicData>
+      <!-- <texPath>Things/Weapon/Melee/CatachanBlade</texPath> -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MarketValue>300</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>Head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.23</armorPenetration>
+      </li>
+    </tools>
+    <!-- <equippedStatOffsets>
+      <MoveSpeed>1.1</MoveSpeed>
+      <MeleeDodgeChance>12</MeleeDodgeChance>
+    </equippedStatOffsets> -->
+    <costList>
+        <Steel>80</Steel>
+        <Plasteel>100</Plasteel>
+        <Uranium>20</Uranium>
+        <ComponentIndustrial>5</ComponentIndustrial>
+        <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>100</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
   </ThingDef>
 </Defs>

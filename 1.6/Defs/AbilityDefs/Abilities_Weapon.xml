@@ -143,11 +143,11 @@
   </AbilityDef>
 
   <AbilityDef ParentName="Ability_ChainSwordRavage">
-    <defName>DW_Ability_ChainSwordRavage_ChainSword</defName>
+    <defName>DW_Ability_ChainSwordRavage_ChainSword_XIIIg</defName>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
       <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-      <burstShotCount>3</burstShotCount>
+      <burstShotCount>4</burstShotCount>
     </verbProperties>
   </AbilityDef>
 

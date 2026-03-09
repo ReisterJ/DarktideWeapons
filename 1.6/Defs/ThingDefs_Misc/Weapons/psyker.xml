@@ -85,7 +85,7 @@
         <armorPenetration>0.2</armorPenetration>
       </li>
       <li>
-        <label>Heavy attack</label>
+        <label>Heavy</label>
         <capacities>
           <li>DW_Melee_Cleave</li>
         </capacities>
@@ -106,7 +106,7 @@
     <comps>
       <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>
-        <maxStamina>60</maxStamina>
+        <maxStamina>80</maxStamina>
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>

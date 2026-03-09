@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Columnus Mk VIII Infantry Autogun ========== -->
+  <DW_Bullet_InfantryAutogun_VIII.label>Bullet</DW_Bullet_InfantryAutogun_VIII.label>
+
+  <DW_Infantry_Autogun_VIII.label>Columnus Mk VIII Infantry Autogun</DW_Infantry_Autogun_VIII.label>
+  <DW_Infantry_Autogun_VIII.description>Well-regarded for their high rate of fire and sturdy construction, these autoguns are in short supply after a series of calamities befell the forge world of Graia.</DW_Infantry_Autogun_VIII.description>
+
+  <!-- ========== Ius Shredder Autopistol Mk III ========== -->
+  <DW_Bullet_Autopistol_III.label>Autopistol Bullet</DW_Bullet_Autopistol_III.label>
+
+  <DW_Shredder_Autopistol_III.label>Ius Shredder Autopistol Mk III</DW_Shredder_Autopistol_III.label>
+  <DW_Shredder_Autopistol_III.description>More popular with hive gangers than Moebian military forces, this autopistol's devastating rate of fire is near-legendary.</DW_Shredder_Autopistol_III.description>
+
+  <!-- ========== Zarona Quickdraw Stub Revolver ========== -->
+  <DW_Bullet_Revolver.label>Revolver bullet</DW_Bullet_Revolver.label>
+  <DW_Bullet_Revolver_A.label>Revolver bullet</DW_Bullet_Revolver_A.label>
+
+  <DW_Zarona_Revolver.label>Zarona Quickdraw Stub Revolver</DW_Zarona_Revolver.label>
+  <DW_Zarona_Revolver.description>One of the most ancient pistol designs, stub revolvers endure across myriad frontier worlds thanks to their durability, simplicity and effectiveness.</DW_Zarona_Revolver.description>
+
+  <!-- ========== Agripinaa Quickdraw Stub Revolver ========== -->
+  <DW_Agripinaa_Revolver.label>Agripinaa Quickdraw Stub Revolver</DW_Agripinaa_Revolver.label>
+  <DW_Agripinaa_Revolver.description>A surprisingly weighty, high-calibre pistol, the stopping power of an Agripinaa stub revolver belies its compact size.</DW_Agripinaa_Revolver.description>
+
+  <!-- ========== Agripinaa Braced Autogun Mk VIII ========== -->
+  <DW_Bullet_BracedAutogun_VIII.label>BARG Bullet</DW_Bullet_BracedAutogun_VIII.label>
+
+  <DW_BracedAutogun_VIII.label>Agripinaa Braced Autogun Mk VIII</DW_BracedAutogun_VIII.label>
+  <DW_BracedAutogun_VIII.description>Exchanging the iron sights of the better known Agripinaa autogun for a heavy stock and counter-balanced barrel, this weapon is well-suited for mowing down hordes of foes.</DW_BracedAutogun_VIII.description>
+  <DW_BracedAutogun_VIII.tools.0.label>grip</DW_BracedAutogun_VIII.tools.0.label>
+
+  <!-- ========== Locke MKIIb Spearhead Boltgun ========== -->
+  <DW_Bolt_Round_IIb.label>Bolt</DW_Bolt_Round_IIb.label>
+
+  <DW_LockeSpearhead_Boltgun_IIb.label>Locke MKIIb Spearhead Boltgun</DW_LockeSpearhead_Boltgun_IIb.label>
+  <DW_LockeSpearhead_Boltgun_IIb.description>Locke-pattern boltguns are known for their reliability and stopping power.</DW_LockeSpearhead_Boltgun_IIb.description>
+  <DW_LockeSpearhead_Boltgun_IIb.tools.0.label>barrel</DW_LockeSpearhead_Boltgun_IIb.tools.0.label>
+
+  <!-- ========== Locke Mk III Spearhead Boltgun ========== -->
+  <DW_Bolt_Round_III.label>Bolt</DW_Bolt_Round_III.label>
+
+  <DW_LockeSpearhead_Boltgun_III.label>Locke Mk III Spearhead Boltgun</DW_LockeSpearhead_Boltgun_III.label>
+  <DW_LockeSpearhead_Boltgun_III.description>Boasting a sleeker design than the Mk IIb, the Locke Mk III nonetheless does not compromise on power.</DW_LockeSpearhead_Boltgun_III.description>
+  <DW_LockeSpearhead_Boltgun_III.tools.0.label>barrel</DW_LockeSpearhead_Boltgun_III.tools.0.label>
+
+  <!-- ========== Godwyn-Branx Mk IV Bolt Pistol ========== -->
+  <DW_BoltPistol_Bolt_IV.label>Bolt</DW_BoltPistol_Bolt_IV.label>
+
+  <DW_Godwyn_BoltPistol_IV.label>Godwyn-Branx Mk IV Bolt Pistol</DW_Godwyn_BoltPistol_IV.label>
+  <DW_Godwyn_BoltPistol_IV.description>This human-portable weapon still carries a terrifying punch, provided by the high-calibre mass reactive shells loaded into its clip.</DW_Godwyn_BoltPistol_IV.description>
+
+  <!-- ========== Agripinaa Mk VII Combat Shotgun ========== -->
+  <DW_Bullet_CombatShotgun.label>Buckshot</DW_Bullet_CombatShotgun.label>
+  <DW_Bullet_CombatShotgunSlug.label>Solid Slug</DW_Bullet_CombatShotgunSlug.label>
+
+  <DW_Agripinaa_CombatShotgun.label>Agripinaa Mk VII Combat Shotgun</DW_Agripinaa_CombatShotgun.label>
+  <DW_Agripinaa_CombatShotgun.description>Combat shotguns are ideally suited for battle in the close confines of a hive city.</DW_Agripinaa_CombatShotgun.description>
+
+  <DW_Ability_Slugshot.label>Slugshot</DW_Ability_Slugshot.label>
+  <DW_Ability_Slugshot.description>Load a solid slug.</DW_Ability_Slugshot.description>
+
+  <!-- ========== Accatran Mk IX Combat Shotgun ========== -->
+  <DW_Bullet_CombatShotgunIncendiary.label>Incendiary Shell</DW_Bullet_CombatShotgunIncendiary.label>
+
+  <DW_Accatran_CombatShotgun.label>Accatran Mk IX Combat Shotgun</DW_Accatran_CombatShotgun.label>
+  <DW_Accatran_CombatShotgun.description>In a packed hive tunnel this weapon can unleash some serious damage.</DW_Accatran_CombatShotgun.description>
+
+  <DW_Ability_IncendiaryShot.label>IncendiaryShot</DW_Ability_IncendiaryShot.label>
+  <DW_Ability_IncendiaryShot.description>Loads the weapon with one Incendiary Shell that applies Burning to enemies.</DW_Ability_IncendiaryShot.description>
+
+  <!-- ========== Agripinaa Mk IX Vigilant Autogun ========== -->
+  <DW_Bullet_VigilantAutogun_IX.label>Bullet</DW_Bullet_VigilantAutogun_IX.label>
+
+  <DW_Vigilant_Autogun_IX.label>Agripinaa Mk IX Vigilant Autogun</DW_Vigilant_Autogun_IX.label>
+  <DW_Vigilant_Autogun_IX.description>One of the newest autogun STCs to be uncovered by the Tech-Priests of Agripinaa, the Mk IX couples excellent range with a devastating burst firing mode.</DW_Vigilant_Autogun_IX.description>
+
+  <!-- ========== Columnus Mk III Vigilant Autogun ========== -->
+  <DW_Bullet_VigilantAutogun_III.label>Bullet</DW_Bullet_VigilantAutogun_III.label>
+
+  <DW_Vigilant_Autogun_III.label>Columnus Mk III Vigilant Autogun</DW_Vigilant_Autogun_III.label>
+  <DW_Vigilant_Autogun_III.description>A prized autogun pattern from the vaunted manufactorums of Vraks, the Mk III sacrifices rate of fire in favour of increased range.</DW_Vigilant_Autogun_III.description>
+
+  <!-- ========== Graia Mk VII Vigilant Autogun ========== -->
+  <DW_Bullet_VigilantAutogun_VII.label>Bullet</DW_Bullet_VigilantAutogun_VII.label>
+
+  <DW_Vigilant_Autogun_VII.label>Graia Mk VII Vigilant Autogun</DW_Vigilant_Autogun_VII.label>
+  <DW_Vigilant_Autogun_VII.description>Heavily modified to combat snipers during siege actions, the Vraks Headhunter is an unusual single-shot autogun designed for high-accuracy takedowns.</DW_Vigilant_Autogun_VII.description>
+
+  <!-- ========== Kantrael MG XII Infantry Lasgun ========== -->
+  <DW_Laser_InfantryLasgun_XII.label>Laser</DW_Laser_InfantryLasgun_XII.label>
+
+  <DW_InfantryLasgun_XII.label>Kantrael MG XII Infantry Lasgun</DW_InfantryLasgun_XII.label>
+  <DW_InfantryLasgun_XII.description>With its improved charge pack and focusing array, the MG XII is amongst the most powerful lasguns to come out of the manufactorums of Kantrael</DW_InfantryLasgun_XII.description>
+
+  <!-- ========== Accatran Mk XII Recon Lasgun ========== -->
+  <DW_Laser_AccatranLasgun_XII.label>Laser</DW_Laser_AccatranLasgun_XII.label>
+
+  <DW_AccatranLasgun_XII.label>Accatran Mk XII Recon Lasgun</DW_AccatranLasgun_XII.label>
+  <DW_AccatranLasgun_XII.description>The Mk VI series is an evolutionary offshoot of the Mk IV, so beloved of the Elysian Drop Troops. The improved rate of fire from its more efficient charge pack comes at the expense of stopping power.</DW_AccatranLasgun_XII.description>
+
+</LanguageData>

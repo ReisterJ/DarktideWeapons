@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Artemia Mk III Purgation Flamer ========== -->
+  <DW_FireCloud.label>Fire</DW_FireCloud.label>
+
+  <DW_Flamer_III.label>Artemia Mk III Purgation Flamer</DW_Flamer_III.label>
+  <DW_Flamer_III.description>Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire.</DW_Flamer_III.description>
+  <DW_Flamer_III.tools.0.label>barrel</DW_Flamer_III.tools.0.label>
+
+  <!-- ========== Crucis Mk II Thunder Hammer ========== -->
+  <DW_Thunder_Hammer_II.label>Crucis Mk II Thunder Hammer</DW_Thunder_Hammer_II.label>
+  <DW_Thunder_Hammer_II.description>Power weapons of ancient design, Thunder Hammers are devastating, bone-shattering close combat weapons, though heavy and unwieldy.</DW_Thunder_Hammer_II.description>
+  <DW_Thunder_Hammer_II.tools.0.label>Hammer</DW_Thunder_Hammer_II.tools.0.label>
+
+  <!-- ========== Munitorum Mk II Relic Blade ========== -->
+  <DW_RelicBlade_II.label>Munitorum Mk II Relic Blade</DW_RelicBlade_II.label>
+  <DW_RelicBlade_II.description>This sword's advanced power core channels coursing energy through the blade with devastating effect.</DW_RelicBlade_II.description>
+  <DW_RelicBlade_II.tools.0.label>Blade</DW_RelicBlade_II.tools.0.label>
+
+  <!-- ========== Heavy Eviscerator Mk XV ========== -->
+  <DW_HeavyEviscerator_XV.label>Heavy Eviscerator Mk XV</DW_HeavyEviscerator_XV.label>
+  <DW_HeavyEviscerator_XV.description>Strength alone is not enough to effectively wield an Eviscerator, but zeal and rage can compensate. As such, it has become associated with righteous fury, and is a favoured weapon of firebrand preachers.</DW_HeavyEviscerator_XV.description>
+  <DW_HeavyEviscerator_XV.tools.0.label>Edge</DW_HeavyEviscerator_XV.tools.0.label>
+
+</LanguageData>

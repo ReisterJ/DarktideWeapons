@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Deimos Mk IV Blaze Force Sword ========== -->
+  <DW_Blaze_Force_Sword_IV.label>Deimos Mk IV Blaze Force Sword</DW_Blaze_Force_Sword_IV.label>
+  <DW_Blaze_Force_Sword_IV.description>Through a force sword, a psyker can channel a terrifying amount of Warp energy, with the blade acting as a lethal conduit between the psyker's mind and the enemy's flesh.</DW_Blaze_Force_Sword_IV.description>
+  <DW_Blaze_Force_Sword_IV.tools.0.label>Edge</DW_Blaze_Force_Sword_IV.tools.0.label>
+  <DW_Blaze_Force_Sword_IV.tools.1.label>Point</DW_Blaze_Force_Sword_IV.tools.1.label>
+
+  <!-- ========== Covenant Mk VI Blaze Force Greatsword ========== -->
+  <DW_Blaze_Force_Greatsword_VI.label>Covenant Mk VI Blaze Force Greatsword</DW_Blaze_Force_Greatsword_VI.label>
+  <DW_Blaze_Force_Greatsword_VI.description>Sometimes called a force falchion, this hefty blade is rendered comparatively lightweight in the hands of a psyker, its psi convectors lending it surprising grace and power.</DW_Blaze_Force_Greatsword_VI.description>
+  <DW_Blaze_Force_Greatsword_VI.tools.0.label>Edge</DW_Blaze_Force_Greatsword_VI.tools.0.label>
+  <DW_Blaze_Force_Greatsword_VI.tools.1.label>Heavy attack</DW_Blaze_Force_Greatsword_VI.tools.1.label>
+
+</LanguageData>

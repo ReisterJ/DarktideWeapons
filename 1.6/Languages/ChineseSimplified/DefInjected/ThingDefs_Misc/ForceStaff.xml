@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Rifthaven Mk II Purgatus Force Staff ========== -->
+  <DW_Purgatus_ForceStaff.label>Rifthaven Mk II Purgatus Force Staff</DW_Purgatus_ForceStaff.label>
+  <DW_Purgatus_ForceStaff.description>The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds. - High Ecclesiarch Renald Kothar.</DW_Purgatus_ForceStaff.description>
+
+  <!-- ========== Equinox Mk IV Voidstrike Force Staff ========== -->
+  <DW_Voidstrike_ForceStaff.label>Equinox Mk IV Voidstrike Force Staff</DW_Voidstrike_ForceStaff.label>
+  <DW_Voidstrike_ForceStaff.description>This pattern of stave allows the wielder to create a great blaze bolt projectile that deals high damage and can pass through crowds in a great line of destruction.</DW_Voidstrike_ForceStaff.description>
+
+  <!-- ========== Nomanus Mk VI Electrokinetic Force Staff ========== -->
+  <DW_Electrokinetic_ForceStaff.label>Nomanus Mk VI Electrokinetic Force Staff</DW_Electrokinetic_ForceStaff.label>
+  <DW_Electrokinetic_ForceStaff.description>A Force Staff grounds a Psyker, helping them resist daemonic possession.</DW_Electrokinetic_ForceStaff.description>
+
+  <!-- ========== Equinox Mk III Voidblast Force Staff ========== -->
+  <DW_VoidBlast_ForceStaff.label>Equinox Mk III Voidblast Force Staff</DW_VoidBlast_ForceStaff.label>
+  <DW_VoidBlast_ForceStaff.description>Through the intricate psi-convectors of a force staff, a psyker harnesses the pure energy of the Warp, unleashing it upon their enemies in ferocious psychic cavalcades.</DW_VoidBlast_ForceStaff.description>
+
+</LanguageData>

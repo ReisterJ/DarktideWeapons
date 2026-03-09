@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Exterminator Shotgun Projectiles ========== -->
+  <DW_Bullet_ExterminatorShotgun_III.label>Pellet</DW_Bullet_ExterminatorShotgun_III.label>
+  <DW_Bullet_ElectronicStunShell_III.label>Electronic Stun shell</DW_Bullet_ElectronicStunShell_III.label>
+  <DW_Bullet_ExterminatorShotgun_VIII.label>Pellet</DW_Bullet_ExterminatorShotgun_VIII.label>
+  <DW_Bullet_Thredder_ShotgunShell_VIII.label>Thredder Shell</DW_Bullet_Thredder_ShotgunShell_VIII.label>
+
+  <!-- ========== Exterminator Shotgun Abilities ========== -->
+  <DW_Ability_LaunchElectronicStunShell.label>Electronic Stun Shell</DW_Ability_LaunchElectronicStunShell.label>
+  <DW_Ability_LaunchElectronicStunShell.description>Fires an electronic stun shell that weakens the target's armor on impact.</DW_Ability_LaunchElectronicStunShell.description>
+
+  <DW_Ability_LaunchThredderShell.label>Thredder Shell</DW_Ability_LaunchThredderShell.label>
+  <DW_Ability_LaunchThredderShell.description>Fires a thredder shell that weakens the target's armor on impact.</DW_Ability_LaunchThredderShell.description>
+
+  <!-- ========== Exaction Mk III Exterminator Shotgun ========== -->
+  <DW_ExterminatorShotgun_III.label>Exaction Mk III Exterminator Shotgun</DW_ExterminatorShotgun_III.label>
+  <DW_ExterminatorShotgun_III.description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</DW_ExterminatorShotgun_III.description>
+
+  <!-- ========== Exaction Mk VIII Exterminator Shotgun ========== -->
+  <DW_ExterminatorShotgun_VIII.label>Exaction Mk VIII Exterminator Shotgun</DW_ExterminatorShotgun_VIII.label>
+  <DW_ExterminatorShotgun_VIII.description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</DW_ExterminatorShotgun_VIII.description>
+
+  <!-- ========== Judgement Mk IV Subductor Shotpistol and Riot Shield ========== -->
+  <DW_Bullet_Shotpistol.label>Pellet</DW_Bullet_Shotpistol.label>
+
+  <DW_Shotpistol_RiotShield_IV.label>Judgement Mk IV Subductor Shotpistol and Riot Shield</DW_Shotpistol_RiotShield_IV.label>
+  <DW_Shotpistol_RiotShield_IV.description>A Riot Shield and a short Shotpistol are perfect for the tight, cramped halls where the Arbites often find themselves.</DW_Shotpistol_RiotShield_IV.description>
+  <DW_Shotpistol_RiotShield_IV.tools.0.label>Shield</DW_Shotpistol_RiotShield_IV.tools.0.label>
+
+  <!-- ========== Branx Mk VI Shock Maul and Suppression Shield ========== -->
+  <DW_ShockMaul_SuppressionShield_VI.label>Branx Mk VI Shock Maul and Suppression Shield</DW_ShockMaul_SuppressionShield_VI.label>
+  <DW_ShockMaul_SuppressionShield_VI.description>A powerful combination. Devastating offense and an almost impenetrable defence.</DW_ShockMaul_SuppressionShield_VI.description>
+  <DW_ShockMaul_SuppressionShield_VI.tools.0.label>Light attack</DW_ShockMaul_SuppressionShield_VI.tools.0.label>
+  <DW_ShockMaul_SuppressionShield_VI.tools.1.label>stab</DW_ShockMaul_SuppressionShield_VI.tools.1.label>
+  <DW_ShockMaul_SuppressionShield_VI.tools.2.label>bash</DW_ShockMaul_SuppressionShield_VI.tools.2.label>
+
+</LanguageData>
