@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <DW_PlasmaHeatWave.stages.0.label>等离子热浪</DW_PlasmaHeatWave.stages.0.label>
+  <DW_PlasmaHeatWave.stages.0.description>这破玩意真热</DW_PlasmaHeatWave.stages.0.description>
+
+  <DW_PlasmaOverheat.stages.0.label>等离子武器过热</DW_PlasmaOverheat.stages.0.label>
+  <DW_PlasmaOverheat.stages.0.description>这东西太热了，我受不了了！</DW_PlasmaOverheat.stages.0.description>
+
+</LanguageData>

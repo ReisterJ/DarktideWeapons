@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Plasma Heat Wave: triggered when plasma weapon heat exceeds 50 -->
+  <ThoughtDef>
+    <defName>DW_PlasmaHeatWave</defName>
+    <durationDays>0.3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>plasma heat wave</label>
+        <description>This damn thing is too hot.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Plasma Weapon Overheat: triggered when plasma weapon heat exceeds 80, replaces heat wave -->
+  <ThoughtDef>
+    <defName>DW_PlasmaOverheat</defName>
+    <durationDays>0.3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>plasma weapon overheating</label>
+        <description>The scorching heat is unbearable! </description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

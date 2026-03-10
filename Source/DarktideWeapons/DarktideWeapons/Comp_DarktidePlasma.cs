@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 using UnityEngine;
+using DarktideWeapons.DefOfs;
 
 namespace DarktideWeapons
 {
@@ -52,6 +53,18 @@ namespace DarktideWeapons
             }
         }
 
+        /*
+        public override void Notify_Unequipped(Pawn pawn)
+        {
+            base.Notify_Unequipped(pawn);
+            var memories = PawnOwner.needs?.mood?.thoughts?.memories;
+            if (memories != null)
+            {
+                memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaHeatWave);
+                memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaOverheat);
+            }
+        }
+        */
         public override void SwitchMode(bool AuxiMode, int id = 0)
         {
             if (AuxiMode)
@@ -72,6 +85,31 @@ namespace DarktideWeapons
             base.CompTick();
             tick++;
             ticksSinceLastShot++;
+
+            // Plasma heat mood debuff: updated every 60 ticks for humanlike carriers
+            if (tick % 60 == 0 && PawnOwner != null && PawnOwner.RaceProps.Humanlike)
+            {
+                var memories = PawnOwner.needs?.mood?.thoughts?.memories;
+                if (memories != null)
+                {
+                    if (heat > 80f)
+                    {
+                        memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaHeatWave);
+                        memories.TryGainMemory(ThoughtDefOf_DW.DW_PlasmaOverheat);
+                    }
+                    else if (heat > 50f)
+                    {
+                        memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaOverheat);
+                        memories.TryGainMemory(ThoughtDefOf_DW.DW_PlasmaHeatWave);
+                    }
+                    else
+                    {
+                        memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaHeatWave);
+                        memories.RemoveMemoriesOfDef(ThoughtDefOf_DW.DW_PlasmaOverheat);
+                    }
+                }
+            }
+
             if (plasmaWeaponMode == Util_Ranged.PlasmaWeaponMode.Cooling && heat > 0)
             {
                 if (ticksSinceLastShot >= Util_Ranged.PLASMA_SELFCOOLING_TICKS)
