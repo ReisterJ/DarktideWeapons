@@ -469,7 +469,7 @@
       </li>
     </comps>
   </ThingDef>
-  <!-- Lorenz Mk V Kickback -->
+  <!-- Foe-Rend Mk V Ripper Gun -->
   <ThingDef ParentName="DW_BaseBullet">
     <defName>DW_RipperGun_Pellet</defName>
     <label>Pellet</label>
@@ -550,9 +550,9 @@
       <li>
         <label>barrel</label>
         <capacities>
-          <li>Blunt</li>
+          <li>Stab</li>
         </capacities>
-        <power>17</power>
+        <power>21</power>
         <cooldownTime>1.8</cooldownTime>
       </li>
     </tools>
@@ -624,7 +624,7 @@
     <defName>DW_Bully_Club_IIIb</defName>
     <label>"Brunt's Basher" Mk IIIb Bully Club</label>
     <techLevel>Medieval</techLevel>
-    <description>Simple but effective</description>
+    <description>One of a variety of weapons constructed by the Mourningstar's formidable quartermaster, Gurry “Brunt” Cernik, which he reserves for his favourite Ogryn customers.</description>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>

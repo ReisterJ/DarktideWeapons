@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Heavy Melee Attacks (all inherit label/description from abstract parent) ========== -->
+  <DW_HeavyAttack_Rashad_CombatAxe.label>重击</DW_HeavyAttack_Rashad_CombatAxe.label>
+  <DW_HeavyAttack_Rashad_CombatAxe.description>重击</DW_HeavyAttack_Rashad_CombatAxe.description>
+
+  <DW_HeavyAttack_Duelling_Sword_IV.label>重击</DW_HeavyAttack_Duelling_Sword_IV.label>
+  <DW_HeavyAttack_Duelling_Sword_IV.description>重击</DW_HeavyAttack_Duelling_Sword_IV.description>
+
+  <DW_HeavyAttack_Sapper_Shovel_III.label>重击</DW_HeavyAttack_Sapper_Shovel_III.label>
+  <DW_HeavyAttack_Sapper_Shovel_III.description>重击</DW_HeavyAttack_Sapper_Shovel_III.description>
+
+  <DW_HeavyAttack_Thunder_Hammer_II.label>重击</DW_HeavyAttack_Thunder_Hammer_II.label>
+  <DW_HeavyAttack_Thunder_Hammer_II.description>重击</DW_HeavyAttack_Thunder_Hammer_II.description>
+
+  <DW_HeavyAttack_CrowBar_IV.label>重击</DW_HeavyAttack_CrowBar_IV.label>
+  <DW_HeavyAttack_CrowBar_IV.description>重击</DW_HeavyAttack_CrowBar_IV.description>
+
+</LanguageData>

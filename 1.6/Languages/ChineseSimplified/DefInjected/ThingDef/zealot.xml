@@ -2,25 +2,24 @@
 <LanguageData>
 
   <!-- ========== Artemia Mk III Purgation Flamer ========== -->
-  <DW_FireCloud.label>Fire</DW_FireCloud.label>
+  <DW_FireCloud.label>火焰</DW_FireCloud.label>
 
-  <DW_Flamer_III.label>Artemia Mk III Purgation Flamer</DW_Flamer_III.label>
-  <DW_Flamer_III.description>Hailing from the same forge world as the mighty Hellhound flame tank, this weapon uses volatile promethium to scour heretics with fire.</DW_Flamer_III.description>
-  <DW_Flamer_III.tools.0.label>barrel</DW_Flamer_III.tools.0.label>
+  <DW_Flamer_III.label>阿提米亚 Mk.III 涤罪火焰喷射器</DW_Flamer_III.label>
+  <DW_Flamer_III.description>这款武器与强大的地狱犬火焰坦克来自同一个铸造世界。它使用挥发性钜来焚烧异教徒。</DW_Flamer_III.description>
+  <DW_Flamer_III.tools.0.label>枪管</DW_Flamer_III.tools.0.label>
 
   <!-- ========== Crucis Mk II Thunder Hammer ========== -->
-  <DW_Thunder_Hammer_II.label>Crucis Mk II Thunder Hammer</DW_Thunder_Hammer_II.label>
-  <DW_Thunder_Hammer_II.description>Power weapons of ancient design, Thunder Hammers are devastating, bone-shattering close combat weapons, though heavy and unwieldy.</DW_Thunder_Hammer_II.description>
-  <DW_Thunder_Hammer_II.tools.0.label>Hammer</DW_Thunder_Hammer_II.tools.0.label>
+  <DW_Thunder_Hammer_II.label>十字星 Mk.II 雷霆锤</DW_Thunder_Hammer_II.label>
+  <DW_Thunder_Hammer_II.description>雷霆锤是在古代设计的强力武器，虽然笨重但却是足以粉碎对手的近战杀器。</DW_Thunder_Hammer_II.description>
+  <DW_Thunder_Hammer_II.tools.0.label>锤头</DW_Thunder_Hammer_II.tools.0.label>
 
   <!-- ========== Munitorum Mk II Relic Blade ========== -->
-  <DW_RelicBlade_II.label>Munitorum Mk II Relic Blade</DW_RelicBlade_II.label>
-  <DW_RelicBlade_II.description>This sword's advanced power core channels coursing energy through the blade with devastating effect.</DW_RelicBlade_II.description>
-  <DW_RelicBlade_II.tools.0.label>Blade</DW_RelicBlade_II.tools.0.label>
+  <DW_RelicBlade_II.label>军务部 Mk.II 圣物剑</DW_RelicBlade_II.label>
+  <DW_RelicBlade_II.description>这把剑配备的高级动力核心源源不断地将能量传导至剑刃之上，爆发出毁灭性的威力。</DW_RelicBlade_II.description>
+  <DW_RelicBlade_II.tools.0.label>剑刃</DW_RelicBlade_II.tools.0.label>
 
   <!-- ========== Heavy Eviscerator Mk XV ========== -->
-  <DW_HeavyEviscerator_XV.label>Heavy Eviscerator Mk XV</DW_HeavyEviscerator_XV.label>
-  <DW_HeavyEviscerator_XV.description>Strength alone is not enough to effectively wield an Eviscerator, but zeal and rage can compensate. As such, it has become associated with righteous fury, and is a favoured weapon of firebrand preachers.</DW_HeavyEviscerator_XV.description>
-  <DW_HeavyEviscerator_XV.tools.0.label>Edge</DW_HeavyEviscerator_XV.tools.0.label>
-
+  <DW_HeavyEviscerator_XV.label>泰格鲁斯 Mk.XV 重型开膛剑</DW_HeavyEviscerator_XV.label>
+  <DW_HeavyEviscerator_XV.description>单凭力量并不足以有效地使用开膛剑，但热忱和愤怒可以弥补。因此，它成为了正义之怒的伙伴、火印布道士的最爱。</DW_HeavyEviscerator_XV.description>
+  <DW_HeavyEviscerator_XV.tools.0.label>锯刃</DW_HeavyEviscerator_XV.tools.0.label>
 </LanguageData>

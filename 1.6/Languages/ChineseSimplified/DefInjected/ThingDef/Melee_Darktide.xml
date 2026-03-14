@@ -2,25 +2,48 @@
 <LanguageData>
 
   <!-- ========== Catachan Mk III Combat Blade ========== -->
-  <DW_Catachan_CombatBlade_III.label>Catachan Mk III Combat Blade</DW_Catachan_CombatBlade_III.label>
-  <DW_Catachan_CombatBlade_III.description>They say a Catachan Jungle Fighter can take down a full-grown Cudbear with one of these knives.</DW_Catachan_CombatBlade_III.description>
-  <DW_Catachan_CombatBlade_III.tools.0.label>Light attack</DW_Catachan_CombatBlade_III.tools.0.label>
-  <DW_Catachan_CombatBlade_III.tools.1.label>Heavy attack</DW_Catachan_CombatBlade_III.tools.1.label>
+  <DW_Catachan_CombatBlade_III.label>卡塔昌 Mk.III 战斗利刃</DW_Catachan_CombatBlade_III.label>
+  <DW_Catachan_CombatBlade_III.description>他们说，只要拿着这种匕首，一个卡塔昌丛林战士就能干倒一头成年苔色熊</DW_Catachan_CombatBlade_III.description>
+  <DW_Catachan_CombatBlade_III.tools.0.label>轻击</DW_Catachan_CombatBlade_III.tools.0.label>
+  <DW_Catachan_CombatBlade_III.tools.1.label>重击</DW_Catachan_CombatBlade_III.tools.1.label>
 
   <!-- ========== Catachan Sword Mk I ========== -->
-  <DW_Catachan_Sword_I.label>Catachan Sword Mk I</DW_Catachan_Sword_I.label>
-  <DW_Catachan_Sword_I.description>The Catachans refer to these massive blades as knives. To everyone else, they're hefty swords.</DW_Catachan_Sword_I.description>
-  <DW_Catachan_Sword_I.tools.0.label>Light attack</DW_Catachan_Sword_I.tools.0.label>
+  <DW_Catachan_Sword_I.label>卡塔昌 Mk.I 恶魔之爪</DW_Catachan_Sword_I.label>
+  <DW_Catachan_Sword_I.description>卡塔昌人把这些巨大的利刃称之为小刀。而对其他人而言，它们算得上是重剑。</DW_Catachan_Sword_I.description>
+  <DW_Catachan_Sword_I.tools.0.label>轻击</DW_Catachan_Sword_I.tools.0.label>
 
-  <!-- ========== Rashad Mk II Combat Axe ========== -->
-  <DW_Rashad_CombatAxe.label>Rashad Mk II Combat Axe</DW_Rashad_CombatAxe.label>
-  <DW_Rashad_CombatAxe.description>Rashad Mk II Combat Axe from Warhammer 40K: Darktide.</DW_Rashad_CombatAxe.description>
-  <DW_Rashad_CombatAxe.tools.0.label>Light attack</DW_Rashad_CombatAxe.tools.0.label>
+  <!-- ========== Rashad Mk III Combat Axe ========== -->
+  <DW_Rashad_CombatAxe.label>拉沙德 Mk.III 战斧</DW_Rashad_CombatAxe.label>
+  <DW_Rashad_CombatAxe.description>这把不起眼的战斧是一种过时但有效的武器。它沉重的斧头在挥动时造成的伤害往往比刀刃本身大得多。</DW_Rashad_CombatAxe.description>
+  <DW_Rashad_CombatAxe.tools.0.label>轻击</DW_Rashad_CombatAxe.tools.0.label>
 
   <!-- ========== Maccabian Mk IV Duelling Sword ========== -->
-  <DW_Duelling_Sword_IV.label>Maccabian Mk IV Duelling Sword</DW_Duelling_Sword_IV.label>
-  <DW_Duelling_Sword_IV.description>Maccabian swords are renowned for their light weight, keen edge and ostentatious detailing.</DW_Duelling_Sword_IV.description>
-  <DW_Duelling_Sword_IV.tools.0.label>light</DW_Duelling_Sword_IV.tools.0.label>
-  <DW_Duelling_Sword_IV.tools.1.label>stab</DW_Duelling_Sword_IV.tools.1.label>
+  <DW_Duelling_Sword_IV.label>马克贝恩 Mk.IV 决斗剑</DW_Duelling_Sword_IV.label>
+  <DW_Duelling_Sword_IV.description>马克贝恩剑以其重量轻、锋利的刀刃和约丽的细节而闻名。IV型是海军指挥官、行商浪人和审判者法官的最爱。</DW_Duelling_Sword_IV.description>
+  <DW_Duelling_Sword_IV.tools.0.label>轻击</DW_Duelling_Sword_IV.tools.0.label>
+  <DW_Duelling_Sword_IV.tools.1.label>刺击</DW_Duelling_Sword_IV.tools.1.label>
+
+  <!-- Cadia Mk XIIIg Assault Chainsword -->
+  <DW_Cadia_AssaultChainsword_XIIIg.label>卡迪亚 Mk.XIIIg 突击链锯剑</DW_Cadia_AssaultChainsword_XIIIg.label>
+  <DW_Cadia_AssaultChainsword_XIIIg.description>自黑暗科技纪元以来，链锯剑几乎没有发展。它是对抗异端时残酷而有效的工具。既然没坏，为什么要修它呢？</DW_Cadia_AssaultChainsword_XIIIg.description>
+  <DW_Cadia_AssaultChainsword_XIIIg.tools.0.label>轻击</DW_Cadia_AssaultChainsword_XIIIg.tools.0.label>
+  <DW_Cadia_AssaultChainsword_XIIIg.tools.1.label>重击</DW_Cadia_AssaultChainsword_XIIIg.tools.1.label>
+
+  <!-- Atrox Mk II Tactical Axe -->
+  <DW_Atrox_TacticalAxe_II.label>亚托克斯 Mk.II 战术斧</DW_Atrox_TacticalAxe_II.label>
+  <DW_Atrox_TacticalAxe_II.description>战术斧是源自古代狩猎武器的设计，生产简单，成本低廉，在训练有素的战士手中很致命。</DW_Atrox_TacticalAxe_II.description>
+  <DW_Atrox_TacticalAxe_II.tools.0.label>轻击</DW_Atrox_TacticalAxe_II.tools.0.label>
+  <DW_Atrox_TacticalAxe_II.tools.1.label>重击</DW_Atrox_TacticalAxe_II.tools.1.label>
+
+  <!-- Turtolsky Mk IX Heavy Sword -->
+  <DW_Turtolsky_HeavySword_IX.label>图尔托尔斯基 Mk.IX 重剑</DW_Turtolsky_HeavySword_IX.label>
+  <DW_Turtolsky_HeavySword_IX.description>适合劈砍</DW_Turtolsky_HeavySword_IX.description>
+  <DW_Turtolsky_HeavySword_IX.tools.0.label>轻击</DW_Turtolsky_HeavySword_IX.tools.0.label>
+  <DW_Turtolsky_HeavySword_IX.tools.1.label>重击</DW_Turtolsky_HeavySword_IX.tools.1.label>
+
+  <!-- Indignatus Mk IVe Crusher -->
+  <DW_Indignatus_Crusher_IVe.label>因迪格纳图斯 Mk.IVe 破碎者</DW_Indignatus_Crusher_IVe.label>
+  <DW_Indignatus_Crusher_IVe.description>还有什么比动力锤更适合把异端的脑袋敲碎的呢？更大的动力锤！</DW_Indignatus_Crusher_IVe.description>
+  <DW_Indignatus_Crusher_IVe.tools.0.label>锤击</DW_Indignatus_Crusher_IVe.tools.0.label>
 
 </LanguageData>

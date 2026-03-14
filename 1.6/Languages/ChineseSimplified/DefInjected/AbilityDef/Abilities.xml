@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Purgatus Force Staff: Release Warp Fire ========== -->
+  <DW_ReleaseWarpFire.label>Release warp fire</DW_ReleaseWarpFire.label>
+  <DW_ReleaseWarpFire.description>Channeling the power of the Immaterium into warp fire. It excels at controlling crowds of enemies.</DW_ReleaseWarpFire.description>
+
+  <DW_ReleaseWarpFire_Burst.label>Release warp fire(Burst)</DW_ReleaseWarpFire_Burst.label>
+  <DW_ReleaseWarpFire_Burst.description>Charge up the weapon and release holy flames onto the enemy.</DW_ReleaseWarpFire_Burst.description>
+
+  <!-- ========== Voidstrike Force Staff ========== -->
+  <DW_Voidstrike.label>Void strike</DW_Voidstrike.label>
+  <DW_Voidstrike.description>Sending out balls of Void energy that can both stagger and damage foes.</DW_Voidstrike.description>
+
+  <!-- ========== Electrokinetic Force Staff ========== -->
+  <DW_Electrokinetic.label>Electrokinetic</DW_Electrokinetic.label>
+  <DW_Electrokinetic.description>charge the staff and release lightning chain. The lightning will strike several enemies, even staggering bigger elites.</DW_Electrokinetic.description>
+
+  <!-- ========== Voidblast Force Staff ========== -->
+  <DW_VoidBlast.label>Void Blast</DW_VoidBlast.label>
+  <DW_VoidBlast.description>Charge up an attack, placing a field that will explode.</DW_VoidBlast.description>
+
+</LanguageData>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Soul Blaze ========== -->
+  <DW_Hediff_DOT_SoulBlaze.label>魂火</DW_Hediff_DOT_SoulBlaze.label>
+  <DW_Hediff_DOT_SoulBlaze.description>魂火燃烧</DW_Hediff_DOT_SoulBlaze.description>
+
+  <!-- ========== Attach Fire ========== -->
+  <DW_Hediff_DOT_AttachFire.label>燃烧</DW_Hediff_DOT_AttachFire.label>
+  <DW_Hediff_DOT_AttachFire.description>被点燃</DW_Hediff_DOT_AttachFire.description>
+
+  <!-- ========== Poison (Needle Pistol Mk II) ========== -->
+  <DW_Hediff_DOT_Poison_II.label>中毒</DW_Hediff_DOT_Poison_II.label>
+  <DW_Hediff_DOT_Poison_II.description>中毒</DW_Hediff_DOT_Poison_II.description>
+
+  <!-- ========== Poison Spread (Needle Pistol Mk II) ========== -->
+  <DW_Hediff_DOT_Poison_Spread_II.label>中毒</DW_Hediff_DOT_Poison_Spread_II.label>
+  <DW_Hediff_DOT_Poison_Spread_II.description>中毒</DW_Hediff_DOT_Poison_Spread_II.description>
+
+  <!-- ========== Poison (Needle Pistol Mk VI) ========== -->
+  <DW_Hediff_DOT_Poison_VI.label>中毒</DW_Hediff_DOT_Poison_VI.label>
+  <DW_Hediff_DOT_Poison_VI.description>中毒</DW_Hediff_DOT_Poison_VI.description>
+
+  <!-- ========== Poison (Bone Saw / Shivs) ========== -->
+  <DW_Hediff_DOT_Poison.label>中毒</DW_Hediff_DOT_Poison.label>
+  <DW_Hediff_DOT_Poison.description>中毒</DW_Hediff_DOT_Poison.description>
+
+</LanguageData>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Brittleness ========== -->
+  <DW_Brittleness.label>脆弱</DW_Brittleness.label>
+  <DW_Brittleness.description>更容易受到伤害</DW_Brittleness.description>
+
+</LanguageData>

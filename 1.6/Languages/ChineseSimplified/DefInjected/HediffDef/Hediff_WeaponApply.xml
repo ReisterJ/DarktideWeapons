@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Aim (precision fire mode) ========== -->
+  <DW_Hediff_AimFire.label>瞄准</DW_Hediff_AimFire.label>
+  <DW_Hediff_AimFire.description>更高的命中率，但会降低你的移动速度。</DW_Hediff_AimFire.description>
+
+  <!-- ========== Volley Fire (Boltgun) ========== -->
+  <DW_Hediff_VolleyFire_Boltgun.label>齐射</DW_Hediff_VolleyFire_Boltgun.label>
+  <DW_Hediff_VolleyFire_Boltgun.description>准备快速齐射，但命中率降低。</DW_Hediff_VolleyFire_Boltgun.description>
+
+  <!-- ========== Deployed (Heavy Stubber) ========== -->
+  <DW_Hediff_DeployHeavyGun.label>部署</DW_Hediff_DeployHeavyGun.label>
+  <DW_Hediff_DeployHeavyGun.description>已部署</DW_Hediff_DeployHeavyGun.description>
+
+</LanguageData>

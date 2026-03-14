@@ -2,19 +2,19 @@
 <LanguageData>
 
   <!-- ========== Rifthaven Mk II Purgatus Force Staff ========== -->
-  <DW_Purgatus_ForceStaff.label>Rifthaven Mk II Purgatus Force Staff</DW_Purgatus_ForceStaff.label>
-  <DW_Purgatus_ForceStaff.description>The Inquisitor leads the way with words of benevolence, his force staff held like a symbol of faith. But make no mistake: they are no shepherds of the meek. They are destroyers of worlds. - High Ecclesiarch Renald Kothar.</DW_Purgatus_ForceStaff.description>
+  <DW_Purgatus_ForceStaff.label>裂隙港 Mk.II 地狱力场杖</DW_Purgatus_ForceStaff.label>
+  <DW_Purgatus_ForceStaff.description>审判官用仁慈之言引领道路，手持象征着信仰的力场杖。但别误会，他们绝非弱者的牧羊人，而是世界的毁灭者。</DW_Purgatus_ForceStaff.description>
 
   <!-- ========== Equinox Mk IV Voidstrike Force Staff ========== -->
-  <DW_Voidstrike_ForceStaff.label>Equinox Mk IV Voidstrike Force Staff</DW_Voidstrike_ForceStaff.label>
-  <DW_Voidstrike_ForceStaff.description>This pattern of stave allows the wielder to create a great blaze bolt projectile that deals high damage and can pass through crowds in a great line of destruction.</DW_Voidstrike_ForceStaff.description>
+  <DW_Voidstrike_ForceStaff.label>阴阳 Mk.IV 虚空打击力场杖</DW_Voidstrike_ForceStaff.label>
+  <DW_Voidstrike_ForceStaff.description>这种立场杖的设计允许持有者发射强大的炽焰射弹，并能穿透人群，形成毁灭性的攻击线。</DW_Voidstrike_ForceStaff.description>
 
   <!-- ========== Nomanus Mk VI Electrokinetic Force Staff ========== -->
-  <DW_Electrokinetic_ForceStaff.label>Nomanus Mk VI Electrokinetic Force Staff</DW_Electrokinetic_ForceStaff.label>
-  <DW_Electrokinetic_ForceStaff.description>A Force Staff grounds a Psyker, helping them resist daemonic possession.</DW_Electrokinetic_ForceStaff.description>
+  <DW_Electrokinetic_ForceStaff.label>诺曼纽斯 Mk.VI 电动力场杖</DW_Electrokinetic_ForceStaff.label>
+  <DW_Electrokinetic_ForceStaff.description>力场杖能让灵能者固守本心，帮助他们抵抗恶魔附身。</DW_Electrokinetic_ForceStaff.description>
 
   <!-- ========== Equinox Mk III Voidblast Force Staff ========== -->
-  <DW_VoidBlast_ForceStaff.label>Equinox Mk III Voidblast Force Staff</DW_VoidBlast_ForceStaff.label>
-  <DW_VoidBlast_ForceStaff.description>Through the intricate psi-convectors of a force staff, a psyker harnesses the pure energy of the Warp, unleashing it upon their enemies in ferocious psychic cavalcades.</DW_VoidBlast_ForceStaff.description>
+  <DW_VoidBlast_ForceStaff.label>阴阳 Mk.III 虚空爆破力场杖</DW_VoidBlast_ForceStaff.label>
+  <DW_VoidBlast_ForceStaff.description>通过力场杖上复杂的灵能对流器，灵能者可以控制亚空间的纯净能量，将它倾泻在敌人身上。</DW_VoidBlast_ForceStaff.description>
 
 </LanguageData>

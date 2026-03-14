@@ -8,7 +8,7 @@
       <texPath>Things/Projectile/Bullet_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>2</damageAmountBase>
@@ -29,7 +29,7 @@
             <level>2</level>
           </li>
         </applyHediffDefsWithLevel>
-        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+        <!-- <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef> -->
       </li>
     </modExtensions>
   </ThingDef>
@@ -41,7 +41,7 @@
       <texPath>Things/Projectile/Bullet_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>2</damageAmountBase>
@@ -62,7 +62,7 @@
             <level>2</level>
           </li>
         </applyHediffDefsWithLevel>
-        <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef>
+        <!-- <beamMoteDef>Mote_BeamRepeaterLaser</beamMoteDef> -->
       </li>
     </modExtensions>
   </ThingDef>  
@@ -143,7 +143,7 @@
       </li>
     </comps>
   </ThingDef>
-
+  <!-- Branx MkVI Needle Pistol -->
   <ThingDef ParentName="BaseBullet">
     <defName>DW_Bullet_Toxic_Needle_VI</defName>
     <label>Needle</label>
@@ -151,7 +151,7 @@
       <texPath>Things/Projectile/Bullet_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <thingClass>DarktideWeapons.DW_Laser</thingClass>
+    <thingClass>DarktideWeapons.DW_NeedleLaser</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>2</damageAmountBase>
@@ -176,7 +176,7 @@
       </li>
     </modExtensions>
   </ThingDef>
-  <!-- Branx MkVI Needle Pistol -->
+  
   <!-- <ThingDef>
     <defName>DW_Bullet_Toxic_Needle_Spread_VI</defName>
     <label>Needle</label>
@@ -462,7 +462,6 @@
         <power>25</power>
         <cooldownTime>1.1</cooldownTime>
         <armorPenetration>0.60</armorPenetration>
-        <chanceFactor>0.4</chanceFactor>
       </li>
     </tools>
     <equippedStatOffsets>

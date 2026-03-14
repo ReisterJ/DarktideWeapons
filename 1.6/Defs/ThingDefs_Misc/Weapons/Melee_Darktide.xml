@@ -179,7 +179,7 @@
   <!-- Rashad_CombatAxe -->
   <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
     <defName>DW_Rashad_CombatAxe</defName>
-    <label>Rashad Mk II Combat Axe</label>
+    <label>Rashad Mk III Combat Axe</label>
     <techLevel>Medieval</techLevel>
     <description>Rashad Mk II Combat Axe from Warhammer 40K: Darktide.</description>
     <graphicData>

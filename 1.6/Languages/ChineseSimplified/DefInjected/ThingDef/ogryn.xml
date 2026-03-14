@@ -2,66 +2,66 @@
 <LanguageData>
 
   <!-- ========== Twin-Linked Heavy Stubber Mk V ========== -->
-  <DW_StubberAmmoLight.label>Heavy stubber bullet</DW_StubberAmmoLight.label>
+  <DW_StubberAmmoLight.label>伐木枪子弹</DW_StubberAmmoLight.label>
 
-  <DW_TwinLinkedHeavyStubber_V.label>Twin-Linked Heavy Stubber MkV</DW_TwinLinkedHeavyStubber_V.label>
-  <DW_TwinLinkedHeavyStubber_V.description>Heavy stubbers are projectile weapons similar in appearance and effect to an M2-era heavy machine gun, firing large-calibre bullets able to stop a man dead in his tracks. They are inferior in penetration to a boltgun (being stopped by anything heavier than Flak armour) they compensate through sheer volume of fire.</DW_TwinLinkedHeavyStubber_V.description>
-  <DW_TwinLinkedHeavyStubber_V.tools.0.label>barrel</DW_TwinLinkedHeavyStubber_V.tools.0.label>
+  <DW_TwinLinkedHeavyStubber_V.label>克鲁克 Mk.V 双联重机枪</DW_TwinLinkedHeavyStubber_V.label>
+  <DW_TwinLinkedHeavyStubber_V.description>没有什么能比全自动重武器那震耳欲聋的轰鸣和强大的后坐力更能让欧格林热血沸腾，而任何武器的声音或威力都比不上双联重机枪。</DW_TwinLinkedHeavyStubber_V.description>
+  <DW_TwinLinkedHeavyStubber_V.tools.0.label>枪管</DW_TwinLinkedHeavyStubber_V.tools.0.label>
 
   <!-- ========== Lorenz Mk V Kickback ========== -->
-  <DW_LorenzKickbackPellet.label>Pellet</DW_LorenzKickbackPellet.label>
+  <DW_LorenzKickbackPellet.label>弹丸</DW_LorenzKickbackPellet.label>
 
-  <DW_LorenzKickback.label>Lorenz Kickback</DW_LorenzKickback.label>
-  <DW_LorenzKickback.description>Utilizes a single giant cartridge to inflict devastation either to hordes or single targets.</DW_LorenzKickback.description>
-  <DW_LorenzKickback.tools.0.label>barrel</DW_LorenzKickback.tools.0.label>
+  <DW_LorenzKickback.label>洛伦兹击退者</DW_LorenzKickback.label>
+  <DW_LorenzKickback.description>洛伦兹轨道制造厂最著名的便是为帝国海军打造重型军械。但制造厂的技术能手也会在原始设计的基础上制造对抗欧格林的野战武器。</DW_LorenzKickback.description>
+  <DW_LorenzKickback.tools.0.label>枪管</DW_LorenzKickback.tools.0.label>
 
   <!-- ========== Lorenz Mk IV Rumbler ========== -->
-  <DW_LorenzRumblerGrenade.label>Grenade</DW_LorenzRumblerGrenade.label>
+  <DW_LorenzRumblerGrenade.label>榴弹</DW_LorenzRumblerGrenade.label>
 
-  <DW_LorenzRumbler.label>Lorenz Rumbler</DW_LorenzRumbler.label>
-  <DW_LorenzRumbler.description>An Ogryn-sized single grenade launcher.</DW_LorenzRumbler.description>
-  <DW_LorenzRumbler.tools.0.label>barrel</DW_LorenzRumbler.tools.0.label>
+  <DW_LorenzRumbler.label>洛伦兹低吼者</DW_LorenzRumbler.label>
+  <DW_LorenzRumbler.description>欧格林尺寸的单发榴弹发射器。</DW_LorenzRumbler.description>
+  <DW_LorenzRumbler.tools.0.label>枪管</DW_LorenzRumbler.tools.0.label>
 
   <!-- ========== Blastoom Mk III Grenadier Gauntlet ========== -->
-  <DW_GauntletGrenade.label>GauntletGrenade</DW_GauntletGrenade.label>
+  <DW_GauntletGrenade.label>臂铠榴弹</DW_GauntletGrenade.label>
 
-  <DW_Grenadier_Gauntlet.label>Blastoom Mk III Grenadier Gauntlet</DW_Grenadier_Gauntlet.label>
-  <DW_Grenadier_Gauntlet.description>Grenades can be launched with relative precision once a wielder braces and aims. Otherwise it makes an excellent club.</DW_Grenadier_Gauntlet.description>
-  <DW_Grenadier_Gauntlet.tools.0.label>barrel</DW_Grenadier_Gauntlet.tools.0.label>
+  <DW_Grenadier_Gauntlet.label>布拉斯图姆 Mk.III 掷弹兵臂铠</DW_Grenadier_Gauntlet.label>
+  <DW_Grenadier_Gauntlet.description>掷弹兵臂铠是牛格林部队所喜爱的一种重型榴弹发射器。绑在使用者的手臂上只是为了防止它被头脑迟钝的欧格林弄丢。</DW_Grenadier_Gauntlet.description>
+  <DW_Grenadier_Gauntlet.tools.0.label>枪管</DW_Grenadier_Gauntlet.tools.0.label>
 
   <!-- ========== Achlys Heavy Stubber Mk II ========== -->
-  <DW_StubberAmmoHeavy_II.label>Heavy stubber bullet</DW_StubberAmmoHeavy_II.label>
+  <DW_StubberAmmoHeavy_II.label>重伐木枪子弹</DW_StubberAmmoHeavy_II.label>
 
-  <DW_HeavyStubber_II.label>AchlysHeavy Stubber Mk II</DW_HeavyStubber_II.label>
-  <DW_HeavyStubber_II.description>The complicated accelerator mechanism that surrounds the barrel of this weapon helps propel the massive ammunition to incredible speeds. This, predictably, results in a bigger bang and more destruction. Understandably, this pleases the Ogryns.</DW_HeavyStubber_II.description>
-  <DW_HeavyStubber_II.tools.0.label>barrel</DW_HeavyStubber_II.tools.0.label>
+  <DW_HeavyStubber_II.label>阿喀琉斯 Mk.II 重机枪</DW_HeavyStubber_II.label>
+  <DW_HeavyStubber_II.description>该变体配备了环绕枪管的加速装置，能将大量弹药加速至难以置信的速度。可以预料的是，这会导致更大的爆炸声和更大的威力。因此十分受欧格林的欢迎。</DW_HeavyStubber_II.description>
+  <DW_HeavyStubber_II.tools.0.label>枪管</DW_HeavyStubber_II.tools.0.label>
 
   <!-- ========== Foe-Rend Mk V Ripper Gun ========== -->
-  <DW_RipperGun_Pellet.label>Pellet</DW_RipperGun_Pellet.label>
+  <DW_RipperGun_Pellet.label>弹丸</DW_RipperGun_Pellet.label>
 
-  <DW_Ripper_Gun_V.label>Foe-Rend Mk V Ripper Gun</DW_Ripper_Gun_V.label>
-  <DW_Ripper_Gun_V.description>A rare pattern of ripper gun, the Foe-Rend Mk V was an attempt to use a tightly focussed scatter shell to improve the Ogryns' aim at long range. Given the Ogryn propensity for charging wildly into combat, the experiment was quickly abandoned.</DW_Ripper_Gun_V.description>
-  <DW_Ripper_Gun_V.tools.0.label>barrel</DW_Ripper_Gun_V.tools.0.label>
+  <DW_Ripper_Gun_V.label>裂敌 Mk.V 开膛枪</DW_Ripper_Gun_V.label>
+  <DW_Ripper_Gun_V.description>罕见的开膛枪，破敌V型旨在使用密集的散射弹来提高欧格林的远程精准度。但由于他们有着疯狂冲锋陷阵的习性，此实验很快就被放弃。</DW_Ripper_Gun_V.description>
+  <DW_Ripper_Gun_V.tools.0.label>刺刀</DW_Ripper_Gun_V.tools.0.label>
 
   <!-- ========== Orox Mk II Battle Maul and Slab Shield ========== -->
-  <DW_Slab_Shield_II.label>Orox Mk II Battle Maul and Slab Shield</DW_Slab_Shield_II.label>
-  <DW_Slab_Shield_II.description>Simple but effective, a slab shield turns an Ogryn into a wall of walking cover, near impervious to enemy attacks.</DW_Slab_Shield_II.description>
-  <DW_Slab_Shield_II.tools.0.label>slash</DW_Slab_Shield_II.tools.0.label>
-  <DW_Slab_Shield_II.tools.1.label>bash</DW_Slab_Shield_II.tools.1.label>
+  <DW_Slab_Shield_II.label>奥罗克斯 MK.II 作战大锤与板砖大盾</DW_Slab_Shield_II.label>
+  <DW_Slab_Shield_II.description>简单而有效的板砖大盾。可以将欧格林变成一堵移动的掩体墙，几乎能无视敌人的攻击。</DW_Slab_Shield_II.description>
+  <DW_Slab_Shield_II.tools.0.label>锤击</DW_Slab_Shield_II.tools.0.label>
+  <DW_Slab_Shield_II.tools.1.label>盾击</DW_Slab_Shield_II.tools.1.label>
 
   <!-- ========== "Brunt's Basher" Mk IIIb Bully Club ========== -->
-  <DW_Bully_Club_IIIb.label>"Brunt's Basher" Mk IIIb Bully Club</DW_Bully_Club_IIIb.label>
-  <DW_Bully_Club_IIIb.description>Simple but effective</DW_Bully_Club_IIIb.description>
-  <DW_Bully_Club_IIIb.tools.0.label>slash</DW_Bully_Club_IIIb.tools.0.label>
+  <DW_Bully_Club_IIIb.label>“布伦特的痛击者” Mk.IIIb 恶霸棍棒</DW_Bully_Club_IIIb.label>
+  <DW_Bully_Club_IIIb.description>哀星号令人敬畏的军需官高里·“布伦特”瑟尼克制造的各种武器之一。他为他最喜欢的欧格林顾客保留了这些武器。</DW_Bully_Club_IIIb.description>
+  <DW_Bully_Club_IIIb.tools.0.label>棍击</DW_Bully_Club_IIIb.tools.0.label>
 
   <!-- ========== Krourk Mk IV Cleaver ========== -->
-  <DW_Krourk_Cleaver_IV.label>Krourk Mk IV Cleaver</DW_Krourk_Cleaver_IV.label>
-  <DW_Krourk_Cleaver_IV.description>A heavy slashing weapon, devastating in the hands of an enraged Ogryn.</DW_Krourk_Cleaver_IV.description>
-  <DW_Krourk_Cleaver_IV.tools.0.label>slash</DW_Krourk_Cleaver_IV.tools.0.label>
+  <DW_Krourk_Cleaver_IV.label>克鲁克 Mk.IV 砍刀</DW_Krourk_Cleaver_IV.label>
+  <DW_Krourk_Cleaver_IV.description>这些巨大的刀刃对于卫兵来说太重了，几乎举不起来。但在欧格林的手中，它们只不过是轻便的匕首。</DW_Krourk_Cleaver_IV.description>
+  <DW_Krourk_Cleaver_IV.tools.0.label>劈砍</DW_Krourk_Cleaver_IV.tools.0.label>
 
   <!-- ========== Achlys Mk I Power Maul ========== -->
-  <DW_PowerMaul_I.label>Achlys Mk I Power Maul</DW_PowerMaul_I.label>
-  <DW_PowerMaul_I.description>This model is sized for Ogryns, who are much better able to handle kickback from the power field. The thunderclap as it impacts is truly terrifying and will cause foes nearby to briefly cower.</DW_PowerMaul_I.description>
-  <DW_PowerMaul_I.tools.0.label>smash</DW_PowerMaul_I.tools.0.label>
+  <DW_PowerMaul_I.label>阿喀琉斯 Mk.I 动力锤</DW_PowerMaul_I.label>
+  <DW_PowerMaul_I.description>本质上是一根被能量场包围的狼牙棒。动力锤的震荡打击可以被过载并产生一道强大的冲击波。</DW_PowerMaul_I.description>
+  <DW_PowerMaul_I.tools.0.label>锤击</DW_PowerMaul_I.tools.0.label>
 
 </LanguageData>

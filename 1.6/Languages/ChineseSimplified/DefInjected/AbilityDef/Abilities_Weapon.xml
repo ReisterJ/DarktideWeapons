@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- ========== Switch Mode ========== -->
+  <DW_Ability_FireModeSwitch.label>切换模式</DW_Ability_FireModeSwitch.label>
+  <DW_Ability_FireModeSwitch.description>切换射击模式。</DW_Ability_FireModeSwitch.description>
+
+  <!-- ========== Melee Hediff Switch ========== -->
+  <DW_Ability_MeleeHediffSwitch.label>切换</DW_Ability_MeleeHediffSwitch.label>
+  <DW_Ability_MeleeHediffSwitch.description>切换效果。</DW_Ability_MeleeHediffSwitch.description>
+
+  <!-- ========== Emergency Cooling ========== -->
+  <DW_Ability_EmergencyCooling.label>紧急冷却</DW_Ability_EmergencyCooling.label>
+  <DW_Ability_EmergencyCooling.description>冷却武器。如果温度过高，使用者将被气体灼伤。</DW_Ability_EmergencyCooling.description>
+
+  <!-- ========== Chain Sword Ravage (inherits label/description from abstract parent) ========== -->
+  <DW_Ability_ChainSwordRavage_ChainSword_XIIIg.label>启动链锯</DW_Ability_ChainSwordRavage_ChainSword_XIIIg.label>
+  <DW_Ability_ChainSwordRavage_ChainSword_XIIIg.description>这把武器的锋利齿轮由强大的电机驱动，能够轻松撕裂肉体和装甲。</DW_Ability_ChainSwordRavage_ChainSword_XIIIg.description>
+
+  <DW_Ability_ChainSwordRavage_HeavyEviscerator_XV.label>启动链锯</DW_Ability_ChainSwordRavage_HeavyEviscerator_XV.label>
+  <DW_Ability_ChainSwordRavage_HeavyEviscerator_XV.description>这把武器的锋利齿轮由强大的电机驱动，能够轻松撕裂肉体和装甲。</DW_Ability_ChainSwordRavage_HeavyEviscerator_XV.description>
+
+  <!-- ========== Charge Weapon (inherits label/description from abstract parent) ========== -->
+  <DW_Ability_ChargeWeapon_Powersword.label>充能武器</DW_Ability_ChargeWeapon_Powersword.label>
+  <DW_Ability_ChargeWeapon_Powersword.description>为武器充能以造成更高伤害。</DW_Ability_ChargeWeapon_Powersword.description>
+
+  <DW_Ability_ChargeWeapon_ThunderHammer.label>充能武器</DW_Ability_ChargeWeapon_ThunderHammer.label>
+  <DW_Ability_ChargeWeapon_ThunderHammer.description>为武器充能以造成更高伤害。</DW_Ability_ChargeWeapon_ThunderHammer.description>
+
+</LanguageData>

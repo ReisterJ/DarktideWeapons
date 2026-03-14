@@ -2,38 +2,45 @@
 <LanguageData>
 
   <!-- ========== Exterminator Shotgun Projectiles ========== -->
-  <DW_Bullet_ExterminatorShotgun_III.label>Pellet</DW_Bullet_ExterminatorShotgun_III.label>
-  <DW_Bullet_ElectronicStunShell_III.label>Electronic Stun shell</DW_Bullet_ElectronicStunShell_III.label>
-  <DW_Bullet_ExterminatorShotgun_VIII.label>Pellet</DW_Bullet_ExterminatorShotgun_VIII.label>
-  <DW_Bullet_Thredder_ShotgunShell_VIII.label>Thredder Shell</DW_Bullet_Thredder_ShotgunShell_VIII.label>
+  <DW_Bullet_ExterminatorShotgun_III.label>弹丸</DW_Bullet_ExterminatorShotgun_III.label>
+  <DW_Bullet_ElectronicStunShell_III.label>电击眩晕弹药</DW_Bullet_ElectronicStunShell_III.label>
+  <DW_Bullet_ExterminatorShotgun_VIII.label>弹丸</DW_Bullet_ExterminatorShotgun_VIII.label>
+  <DW_Bullet_Thredder_ShotgunShell_VIII.label>粉碎弹药</DW_Bullet_Thredder_ShotgunShell_VIII.label>
 
   <!-- ========== Exterminator Shotgun Abilities ========== -->
-  <DW_Ability_LaunchElectronicStunShell.label>Electronic Stun Shell</DW_Ability_LaunchElectronicStunShell.label>
-  <DW_Ability_LaunchElectronicStunShell.description>Fires an electronic stun shell that weakens the target's armor on impact.</DW_Ability_LaunchElectronicStunShell.description>
+  <DW_Ability_LaunchElectronicStunShell.label>电击眩晕弹药</DW_Ability_LaunchElectronicStunShell.label>
+  <DW_Ability_LaunchElectronicStunShell.description>发射一枚带有电击眩晕效果的特殊弹药</DW_Ability_LaunchElectronicStunShell.description>
 
-  <DW_Ability_LaunchThredderShell.label>Thredder Shell</DW_Ability_LaunchThredderShell.label>
-  <DW_Ability_LaunchThredderShell.description>Fires a thredder shell that weakens the target's armor on impact.</DW_Ability_LaunchThredderShell.description>
+  <DW_Ability_LaunchThredderShell.label>粉碎弹药</DW_Ability_LaunchThredderShell.label>
+  <DW_Ability_LaunchThredderShell.description>发射一枚带有脆弱效果的特殊弹药</DW_Ability_LaunchThredderShell.description>
 
   <!-- ========== Exaction Mk III Exterminator Shotgun ========== -->
-  <DW_ExterminatorShotgun_III.label>Exaction Mk III Exterminator Shotgun</DW_ExterminatorShotgun_III.label>
-  <DW_ExterminatorShotgun_III.description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</DW_ExterminatorShotgun_III.description>
+  <DW_ExterminatorShotgun_III.label>征收 Mk.III 处决者霰弹枪</DW_ExterminatorShotgun_III.label>
+  <DW_ExterminatorShotgun_III.description>这支霰弹枪的广域横向扩散专为清扫大群的异端而设计。如果目标强韧异常，特殊的电击弹也可确保敌人毫无还手之力。</DW_ExterminatorShotgun_III.description>
 
   <!-- ========== Exaction Mk VIII Exterminator Shotgun ========== -->
-  <DW_ExterminatorShotgun_VIII.label>Exaction Mk VIII Exterminator Shotgun</DW_ExterminatorShotgun_VIII.label>
-  <DW_ExterminatorShotgun_VIII.description>This shotgun's wide horizontal pellet spread is tailored to wipe out entire crowds of heretics. If the target is particularly tough, the electric shells will ensure that they cannot resist.</DW_ExterminatorShotgun_VIII.description>
+  <DW_ExterminatorShotgun_VIII.label>征收 Mk.VIII 处决者霰弹枪</DW_ExterminatorShotgun_VIII.label>
+  <DW_ExterminatorShotgun_VIII.description>这支霰弹枪加强了射击精度，使执法者手眼通天。无论异端在多远的地方，法律都能准确地对其降下制裁。</DW_ExterminatorShotgun_VIII.description>
 
   <!-- ========== Judgement Mk IV Subductor Shotpistol and Riot Shield ========== -->
-  <DW_Bullet_Shotpistol.label>Pellet</DW_Bullet_Shotpistol.label>
+  <DW_Bullet_Shotpistol.label>弹丸</DW_Bullet_Shotpistol.label>
 
-  <DW_Shotpistol_RiotShield_IV.label>Judgement Mk IV Subductor Shotpistol and Riot Shield</DW_Shotpistol_RiotShield_IV.label>
-  <DW_Shotpistol_RiotShield_IV.description>A Riot Shield and a short Shotpistol are perfect for the tight, cramped halls where the Arbites often find themselves.</DW_Shotpistol_RiotShield_IV.description>
-  <DW_Shotpistol_RiotShield_IV.tools.0.label>Shield</DW_Shotpistol_RiotShield_IV.tools.0.label>
+  <DW_Shotpistol_RiotShield_IV.label>审判 Mk.IV 执法者霰弹手枪与防爆盾</DW_Shotpistol_RiotShield_IV.label>
+  <DW_Shotpistol_RiotShield_IV.description>地下巢都的隧道漆黑一片，纵横交错，到处都埋伏着心怀不轨的渣滓。要小心每一个转角。如果要探索这些狭窄拥挤的地方，霰弹手枪和防爆盾是法务官随身携带的最优解。</DW_Shotpistol_RiotShield_IV.description>
+  <DW_Shotpistol_RiotShield_IV.tools.0.label>盾击</DW_Shotpistol_RiotShield_IV.tools.0.label>
 
   <!-- ========== Branx Mk VI Shock Maul and Suppression Shield ========== -->
-  <DW_ShockMaul_SuppressionShield_VI.label>Branx Mk VI Shock Maul and Suppression Shield</DW_ShockMaul_SuppressionShield_VI.label>
-  <DW_ShockMaul_SuppressionShield_VI.description>A powerful combination. Devastating offense and an almost impenetrable defence.</DW_ShockMaul_SuppressionShield_VI.description>
-  <DW_ShockMaul_SuppressionShield_VI.tools.0.label>Light attack</DW_ShockMaul_SuppressionShield_VI.tools.0.label>
-  <DW_ShockMaul_SuppressionShield_VI.tools.1.label>stab</DW_ShockMaul_SuppressionShield_VI.tools.1.label>
-  <DW_ShockMaul_SuppressionShield_VI.tools.2.label>bash</DW_ShockMaul_SuppressionShield_VI.tools.2.label>
+  <DW_ShockMaul_SuppressionShield_VI.label>布兰克斯 Mk.VI 法务官震慑锤与压制盾</DW_ShockMaul_SuppressionShield_VI.label>
+  <DW_ShockMaul_SuppressionShield_VI.description>强力组合，既有毁灭性的攻势，又拥有近乎坚不可摧的防御。</DW_ShockMaul_SuppressionShield_VI.description>
+  <DW_ShockMaul_SuppressionShield_VI.tools.0.label>轻击</DW_ShockMaul_SuppressionShield_VI.tools.0.label>
+  <DW_ShockMaul_SuppressionShield_VI.tools.1.label>刺击</DW_ShockMaul_SuppressionShield_VI.tools.1.label>
+  <DW_ShockMaul_SuppressionShield_VI.tools.2.label>盾击</DW_ShockMaul_SuppressionShield_VI.tools.2.label>
+
+  <!-- Branx Mk III Arbites Shock Maul -->
+  <DW_Arbites_ShockMaul_III.label>布兰克斯 Mk.III 法务官震慑锤</DW_Arbites_ShockMaul_III.label>
+  <DW_Arbites_ShockMaul_III.description>仅凭这根硬化钢塑制成的棒体猛击敌人就足以造成巨大的伤害，激活其中的震击电荷更是能确保目标彻底失去战斗力。</DW_Arbites_ShockMaul_III.description>
+  <DW_Arbites_ShockMaul_III.tools.0.label>锤击</DW_Arbites_ShockMaul_III.tools.0.label>
+
+
 
 </LanguageData>

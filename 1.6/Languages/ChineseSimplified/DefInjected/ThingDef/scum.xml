@@ -2,52 +2,52 @@
 <LanguageData>
 
   <!-- ========== Branx MK II Needle Pistol ========== -->
-  <DW_Bullet_Toxic_Needle_II.label>Needle</DW_Bullet_Toxic_Needle_II.label>
-  <DW_Bullet_Toxic_Needle_Spread_II.label>Needle</DW_Bullet_Toxic_Needle_Spread_II.label>
+  <DW_Bullet_Toxic_Needle_II.label>毒针</DW_Bullet_Toxic_Needle_II.label>
+  <DW_Bullet_Toxic_Needle_Spread_II.label>毒针</DW_Bullet_Toxic_Needle_Spread_II.label>
 
-  <DW_NeedlePistol_II.label>Branx MKII Needle Pistol</DW_NeedlePistol_II.label>
-  <DW_NeedlePistol_II.description>Sometimes known as a needler, this weapon is a favourite among those who prefer a less showy method of assassination.</DW_NeedlePistol_II.description>
-  <DW_NeedlePistol_II.tools.0.label>barrel</DW_NeedlePistol_II.tools.0.label>
+  <DW_NeedlePistol_II.label>布兰克斯 Mk.II 毒针手枪</DW_NeedlePistol_II.label>
+  <DW_NeedlePistol_II.description>这种武器有时也被称为射针枪，那些想让暗杀手段不那么招摇的刺客往往对它们青睐有加。</DW_NeedlePistol_II.description>
+  <DW_NeedlePistol_II.tools.0.label>枪管</DW_NeedlePistol_II.tools.0.label>
 
   <!-- ========== Branx MK VI Needle Pistol ========== -->
-  <DW_Bullet_Toxic_Needle_VI.label>Needle</DW_Bullet_Toxic_Needle_VI.label>
+  <DW_Bullet_Toxic_Needle_VI.label>毒针</DW_Bullet_Toxic_Needle_VI.label>
 
-  <DW_NeedlePistol_VI.label>Branx MKVI Needle Pistol</DW_NeedlePistol_VI.label>
-  <DW_NeedlePistol_VI.description>One of the more esoteric weapons found in the Hive Scum's arsenal, this light weight pistol delivers virulent toxins via laser guided energy bursts.</DW_NeedlePistol_VI.description>
-  <DW_NeedlePistol_VI.tools.0.label>barrel</DW_NeedlePistol_VI.tools.0.label>
+  <DW_NeedlePistol_VI.label>布兰克斯 Mk.VI 毒针手枪</DW_NeedlePistol_VI.label>
+  <DW_NeedlePistol_VI.description>巢都渣津使用的一种奇特武器。这类轻量化手枪能借助激光制导能量束将病毒性毒素送入目标体内。</DW_NeedlePistol_VI.description>
+  <DW_NeedlePistol_VI.tools.0.label>枪管</DW_NeedlePistol_VI.tools.0.label>
 
   <!-- ========== Branx Mk III Dual Autopistols ========== -->
-  <DW_Bullet_Dual_Autopistols_III.label>Bullet</DW_Bullet_Dual_Autopistols_III.label>
+  <DW_Bullet_Dual_Autopistols_III.label>手枪弹</DW_Bullet_Dual_Autopistols_III.label>
 
-  <DW_Dual_Autopistols_III.label>Branx Mk III Dual Autopistols</DW_Dual_Autopistols_III.label>
-  <DW_Dual_Autopistols_III.description>Forged in the local weapon manufactorums of Branx Magna, these twinned autopistols deliver concentrated bursts of fire.</DW_Dual_Autopistols_III.description>
+  <DW_Dual_Autopistols_III.label>布兰克斯 Mk.III 双持自动手枪</DW_Dual_Autopistols_III.label>
+  <DW_Dual_Autopistols_III.description>这些成对的自动手枪产自当地的布兰克斯·麦格纳武器制造厂，能打出密集的速射火力。</DW_Dual_Autopistols_III.description>
 
   <!-- ========== Branx Mk VIII Dual Stub Pistols ========== -->
-  <DW_Bullet_Dual_Stub_Pistols_VIII.label>Bullet</DW_Bullet_Dual_Stub_Pistols_VIII.label>
+  <DW_Bullet_Dual_Stub_Pistols_VIII.label>伐木手枪弹</DW_Bullet_Dual_Stub_Pistols_VIII.label>
 
-  <DW_Dual_Stub_Pistols_VIII.label>Branx MkVIII Dual Stub Pistols</DW_Dual_Stub_Pistols_VIII.label>
-  <DW_Dual_Stub_Pistols_VIII.description>What's better than one gun? That's right, two guns at the same time!</DW_Dual_Stub_Pistols_VIII.description>
+  <DW_Dual_Stub_Pistols_VIII.label>布兰克斯 Mk.VIII 双持伐木手枪</DW_Dual_Stub_Pistols_VIII.label>
+  <DW_Dual_Stub_Pistols_VIII.description>有什么比一把枪更好？没错，同时使用两把枪！</DW_Dual_Stub_Pistols_VIII.description>
 
   <!-- ========== Improvised Mk I Shivs ========== -->
-  <DW_Improvised_Shivs_I.label>Improvised Mk I Shivs</DW_Improvised_Shivs_I.label>
-  <DW_Improvised_Shivs_I.description>Ideal for twisting into your foe's guts.</DW_Improvised_Shivs_I.description>
-  <DW_Improvised_Shivs_I.tools.0.label>Light attack</DW_Improvised_Shivs_I.tools.0.label>
-  <DW_Improvised_Shivs_I.tools.1.label>Heavy attack</DW_Improvised_Shivs_I.tools.1.label>
+  <DW_Improvised_Shivs_I.label>临时 Mk I 匕首</DW_Improvised_Shivs_I.label>
+  <DW_Improvised_Shivs_I.description>适合戳进敌人的内脏。</DW_Improvised_Shivs_I.description>
+  <DW_Improvised_Shivs_I.tools.0.label>轻攻击</DW_Improvised_Shivs_I.tools.0.label>
+  <DW_Improvised_Shivs_I.tools.1.label>重攻击</DW_Improvised_Shivs_I.tools.1.label>
 
   <!-- ========== Throwing Knife (Projectile and Ability) ========== -->
-  <DW_Bullet_PoisonKnife.label>Poison Knife</DW_Bullet_PoisonKnife.label>
+  <DW_Bullet_PoisonKnife.label>淬毒飞刀</DW_Bullet_PoisonKnife.label>
 
-  <DW_Ability_ThrowPoisonKnife.label>Throwing Knife</DW_Ability_ThrowPoisonKnife.label>
-  <DW_Ability_ThrowPoisonKnife.description>Throws a poisoned knife at the target.</DW_Ability_ThrowPoisonKnife.description>
+  <DW_Ability_ThrowPoisonKnife.label>投掷飞刀</DW_Ability_ThrowPoisonKnife.label>
+  <DW_Ability_ThrowPoisonKnife.description>向目标投掷一把淬毒飞刀。</DW_Ability_ThrowPoisonKnife.description>
 
   <!-- ========== Chirurgeon's Mk IV Bone Saw ========== -->
-  <DW_Chirurgeons_BoneSaw_IV.label>Chirurgeon's Mk IV Bone Saw</DW_Chirurgeons_BoneSaw_IV.label>
-  <DW_Chirurgeons_BoneSaw_IV.description>Normally found in the hands of a skilled apothecarion, this serrated blade will make short work of bone or sinew.</DW_Chirurgeons_BoneSaw_IV.description>
-  <DW_Chirurgeons_BoneSaw_IV.tools.0.label>Edge</DW_Chirurgeons_BoneSaw_IV.tools.0.label>
+  <DW_Chirurgeons_BoneSaw_IV.label>外科医生 Mk.IV 骨锯</DW_Chirurgeons_BoneSaw_IV.label>
+  <DW_Chirurgeons_BoneSaw_IV.description>这种带锯齿刃口的锯子能轻易切开骨头或肌腱，它们通常会出现在训练有素的医生手中。</DW_Chirurgeons_BoneSaw_IV.description>
+  <DW_Chirurgeons_BoneSaw_IV.tools.0.label>刀刃</DW_Chirurgeons_BoneSaw_IV.tools.0.label>
 
   <!-- ========== Enginseer's Mk VI Crowbar ========== -->
-  <DW_Enginseers_Crowbar_VI.label>Enginseer's Mk VI Crowbar</DW_Enginseers_Crowbar_VI.label>
-  <DW_Enginseers_Crowbar_VI.description>A simple tool turned into a devastating melee weapon. The Hive Scum's propensity for ingenuity and ultra-violence shines through this brutal instrument.</DW_Enginseers_Crowbar_VI.description>
-  <DW_Enginseers_Crowbar_VI.tools.0.label>Edge</DW_Enginseers_Crowbar_VI.tools.0.label>
+  <DW_Enginseers_Crowbar_VI.label>科技教士 Mk.VI 撬棍</DW_Enginseers_Crowbar_VI.label>
+  <DW_Enginseers_Crowbar_VI.description>由简单的工具改装而来的毁灭性近战武器，在它的简单结构中闪耀着巢都渣滓的创造力和他们对终极暴力的喜好。</DW_Enginseers_Crowbar_VI.description>
+  <DW_Enginseers_Crowbar_VI.tools.0.label>棍柄</DW_Enginseers_Crowbar_VI.tools.0.label>
 
 </LanguageData>

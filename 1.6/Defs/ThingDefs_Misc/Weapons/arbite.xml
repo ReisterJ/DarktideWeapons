@@ -399,7 +399,7 @@
     <uiIconScale>1.6</uiIconScale>
     <statBases>
       <WorkToMake>18000</WorkToMake>
-      <Mass>1.5</Mass>
+      <Mass>8.5</Mass>
       <MarketValue>1000</MarketValue>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -410,9 +410,9 @@
         <capacities>
           <li>DW_Melee_ShockMaul</li>
         </capacities>
-        <power>18</power>
-        <cooldownTime>1.1</cooldownTime>
-        <armorPenetration>0.20</armorPenetration>
+        <power>23</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
       </li>
       <li>
         <label>stab</label>
@@ -420,7 +420,7 @@
           <li>DW_Melee_ShockMaulStab</li>
         </capacities>
         <power>28</power>
-        <cooldownTime>1.6</cooldownTime>
+        <cooldownTime>2.0</cooldownTime>
         <armorPenetration>0.50</armorPenetration>
       </li>
       <li>
@@ -429,7 +429,7 @@
           <li>DW_Melee_ShieldBash</li>
         </capacities>
         <power>12</power>
-        <cooldownTime>1.2</cooldownTime>
+        <cooldownTime>2.1</cooldownTime>
         <armorPenetration>0.25</armorPenetration>
       </li>
     </tools>
@@ -448,6 +448,55 @@
       <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>true</isShield>
         <maxStamina>200</maxStamina>
+        <allowBlock>true</allowBlock>
+        <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <!-- Branx Mk III Arbites Shock Maul -->
+  <ThingDef ParentName="Darktide_MeleeWeapon_Quality">
+    <defName>DW_Arbites_ShockMaul_III</defName>
+    <label>Branx Mk III Arbites Shock Maul</label>
+    <techLevel>Industrial</techLevel>
+    <description>Simply smashing your target with this hardened plasteel rod could cause considerable damage. Activating its stunning charge just makes sure the job gets done.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>1.6</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>DW_Melee_ShockMaul</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>1.0</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+    </tools>
+    <equippedStatOffsets>
+      <MeleeHitChance>12</MeleeHitChance>
+    </equippedStatOffsets>
+    <costList>
+        <Steel>120</Steel>
+        <Plasteel>100</Plasteel>
+        <ComponentIndustrial>12</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+      </li>
+      <li Class="DarktideWeapons.CompProperties_Block">
+        <isShield>false</isShield>
+        <maxStamina>90</maxStamina>
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
