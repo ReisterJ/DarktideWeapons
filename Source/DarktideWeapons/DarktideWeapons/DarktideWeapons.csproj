@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blessings\DW_Blessing.cs" />
+    <Compile Include="Blessings\DW_Blessing_DamageEffect.cs" />
+    <Compile Include="Blessings\DW_Blessing_KillEffect.cs" />
     <Compile Include="CompAbilityEffect_CannotCastWhileBlocking.cs" />
     <Compile Include="CompAbilityEffect_ChargeRequired.cs" />
     <Compile Include="CompAbilityEffect_ChargeWeapon.cs" />

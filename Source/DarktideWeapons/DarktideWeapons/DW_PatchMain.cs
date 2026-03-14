@@ -133,8 +133,28 @@ namespace DarktideWeapons.HarmonyPatches
         }
     }
 
-
-
-
+    [HarmonyPatch(typeof(Thing), "TakeDamage")]
+    public static class Patch_Thing_TakeDamage
+    {
+        [HarmonyPostfix]
+        public static void Postfix(Thing __instance, DamageInfo dinfo)
+        {
+            if (__instance is Pawn)
+            {
+                //Log.Message($"Thing {__instance.Label} is a Pawn and took damage");
+                if(dinfo.Instigator == null) return;
+                if (dinfo.Instigator is Pawn instigatorPawn)
+                {
+                    //Log.Message($"Damage instigator {instigatorPawn.Label} is a Pawn");
+                    ThingWithComps equipment = instigatorPawn.equipment?.Primary;
+                    if(equipment == null) return;
+                    if(equipment is DW_Equipment dwEquip)
+                    {
+                        
+                    }
+                }
+            }
+        }
+    }
 
 }
