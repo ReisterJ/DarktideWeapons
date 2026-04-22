@@ -10,6 +10,9 @@
     </graphicData>
     <weaponClasses Inherit="False">
     </weaponClasses>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
     <!-- <relicChance>1</relicChance> -->
     <thingClass>DarktideWeapons.DW_Equipment</thingClass>
     <tickerType>Normal</tickerType>
