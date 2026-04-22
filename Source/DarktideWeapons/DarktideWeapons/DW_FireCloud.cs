@@ -99,43 +99,45 @@ namespace DarktideWeapons
                 return false;
             }
 
-            ImpactSomething();
+            DamageSomething();
 
             return CheckForFreeIntercept(intVecNewExactPos);
         }
 
-        protected override void ImpactSomething()
-        {
+        private void DamageSomething()
+        {   
+            if(this.LastPosition.ToIntVec3().AdjacentTo8WayOrInside(launcher.Position))
+            {
+                return;
+            }
             List<Thing> targets = new List<Thing>();
             List<IntVec3> cells = GenAdjFast.AdjacentCellsCardinal(this.LastPosition.ToIntVec3());
             foreach (IntVec3 cell in cells)
             {
-                if (launcher.Position == cell)
-                {
-                    continue;
-                }
-                foreach (Thing thing in cell.GetThingList(this.Map))
-                {
-                    if (thing is Pawn pawn)
-                    {
-                        if (!pawn.Spawned || (pawn.Faction != null && !pawn.HostileTo(this.launcher) && preventFriendlyFireinGame))
-                        {
-                            continue;
-                        }
-                    }
-                    targets.Add(thing);
-                }
-            }
-            foreach (Thing thing in targets) 
-            {
-                if (Rand.Chance(0.3f))
+                if (cell.AdjacentTo8WayOrInside(launcher.Position))
                 {
                     break;
                 }
+                FireUtility.TryStartFireIn(cell, this.Map, 0.3f, launcher);
+            }
+            foreach (Thing thing in this.LastPosition.ToIntVec3().GetThingList(this.Map))
+            {
+                if (thing is Pawn pawn)
+                {
+                    if (!pawn.Spawned || (pawn.Faction != null && !pawn.HostileTo(this.launcher) && preventFriendlyFireinGame))
+                    {
+                        continue;
+                    }
+                }
+                targets.Add(thing);
+            }
+            foreach (Thing thing in targets)
+            {
                 if (thing != null && thing.Spawned)
                 {
                     Impact(thing);
                 }
+
             }
         }
         protected override void Impact(Thing hitThing, bool blockedByShield = false)

@@ -95,7 +95,7 @@ namespace DarktideWeapons
                     if ( HitCheck(thing))
                     {
                         totalHitCount++;
-                        Log.Message("Available target : " + thing.Label);
+                        //Log.Message("Available target : " + thing.Label);
                         targetList.Add(thing);
                     }
                     

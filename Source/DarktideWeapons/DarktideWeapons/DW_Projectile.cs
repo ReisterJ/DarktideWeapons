@@ -419,7 +419,7 @@ namespace DarktideWeapons
 
             critFlag = Util_Crit.IsCrit(this.critChanceinGame);
             float lifetimeF = this.projectileProps.effectiveRange / this.def.projectile.SpeedTilesPerTick;
-            ETAHitTick = (int)(this.destination.ToIntVec3().DistanceTo(this.origin.ToIntVec3()) / this.def.projectile.SpeedTilesPerTick);
+            ETAHitTick = Math.Abs( Mathf.CeilToInt(this.destination.ToIntVec3().DistanceTo(this.origin.ToIntVec3()) / this.def.projectile.SpeedTilesPerTick));
             flyingTicks = 0;
             lifetime = lifetimeF > 0.1f ? (int)lifetimeF : 1;
             LastPosition = ExactPosition;
@@ -736,8 +736,25 @@ namespace DarktideWeapons
                             //penetrateWall = false;
                             return false;
                         }
-                        if (this.usedTarget == this.intendedTarget && ETAHitTick >= flyingTicks+1 && (this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
+                        if (c.AdjacentTo8WayOrInside(Launcher.Position))
                         {
+                            return false;
+                        }
+                        
+                        if (this.usedTarget == this.intendedTarget && ETAHitTick >= flyingTicks )
+                        {
+                            if (c.AdjacentTo8WayOrInside(intendedTarget.Cell)
+                            && (HitFlags & ProjectileHitFlags.IntendedTarget) != 0
+                            && (HitFlags & ProjectileHitFlags.NonTargetWorld) == 0
+                            && Rand.Chance(1f - thing.def.fillPercent))
+                            {
+                                return false;
+                            }
+
+                            if ((this.HitFlags & ProjectileHitFlags.IntendedTarget) != 0)
+                            {
+                                return false;
+                            }
                             return false;
                         }
                         forcedStop = true;
@@ -759,6 +776,10 @@ namespace DarktideWeapons
                     {
                         if (preventFriendlyFireinGame)
                         {
+                            if(intendedTarget.Pawn == null)
+                            {
+                                pawnHitProbability = 0f;
+                            }
                             if(intendedTarget.Pawn != null)
                             {
                                 if(intendedTarget.Pawn != pawn)
