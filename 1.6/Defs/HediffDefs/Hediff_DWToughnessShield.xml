@@ -29,13 +29,11 @@
 			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
 		<costList>
-			<Steel>100</Steel>
-			<Gold>60</Gold>
-			<Plasteel>100</Plasteel>
+			<Gold>6</Gold>
+			<Plasteel>30</Plasteel>
 			<Uranium>20</Uranium>
-			<ComponentIndustrial>20</ComponentIndustrial>
-			<ComponentSpacer>10</ComponentSpacer>
-			<BroadshieldCore>2</BroadshieldCore>
+			<ComponentSpacer>5</ComponentSpacer>
+			<BroadshieldCore>1</BroadshieldCore>
 		</costList>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
@@ -106,7 +104,7 @@
 		</stages>
 		<modExtensions>
 			<li Class="DarktideWeapons.ModExtension_ToughnessShield">
-				<shieldIncrement>30</shieldIncrement>
+				<shieldIncrement>50</shieldIncrement>
 			</li>
 		</modExtensions>
 		<comps>

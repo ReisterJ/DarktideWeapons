@@ -236,7 +236,7 @@ namespace DarktideWeapons
 
         protected virtual void ApplyMeleeDamageToNearTarget(Pawn target, List<IntVec3> cells)
         {
-            if (target == null || target.Dead || target.Map == null || target.Position.InBounds(target.Map) == false)
+            if (target == null || target.Map == null || target.Position.InBounds(target.Map) == false)
             {
                 return;
             }
@@ -246,8 +246,11 @@ namespace DarktideWeapons
             }
 
             int pawnNum = 0;
+            
             bool stopFlag = false;
+            
             TargetChain.Clear();
+
             foreach (IntVec3 p in cells)
             {
                 IntVec3 tempPos = p;
@@ -347,7 +350,7 @@ namespace DarktideWeapons
                     num += caster.GetStatValue(StatDefOf.MeleeHitChanceIndoorsLitOffset);
                 }
             }
-            return num;
+            return Mathf.Clamp01(num + 0.2f);
         }
 
         protected virtual float GetDodgeChance(LocalTargetInfo target)

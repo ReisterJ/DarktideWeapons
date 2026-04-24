@@ -18,7 +18,7 @@ namespace DarktideWeapons
 
         public float GetShieldIncrement(int level)
         {
-            return (shieldIncrement * level);
+            return (shieldIncrement * level * 2);
         }
 
         public static ModExtension_ToughnessShield DefaultValue = new ModExtension_ToughnessShield();
