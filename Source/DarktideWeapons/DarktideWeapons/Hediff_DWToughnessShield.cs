@@ -38,14 +38,15 @@ namespace DarktideWeapons
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
-            this.Debug_Print();
+            
             if (CompToughnessShield != null)
             {
-
+                CompToughnessShield.PostAdd();
                 this.CompToughnessShield.EnableShield = true;
                 float shieldnum = CompToughnessShield.DWTSProp.maxToughnessBase + ToughnessShieldExtension.GetShieldIncrement(level);
                 CompToughnessShield.SetMaxShieldInGame(shieldnum);
             }
+            this.Debug_Print();
         }
 
         public void ChangeLevel(int levelOffset, bool sendLetter)

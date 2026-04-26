@@ -56,15 +56,20 @@ namespace DarktideWeapons
             
         }
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
+
+        public void PostAdd()
         {
-            
             KillRechargeinGame = DWTSProp.killRechargeToughnessBase;
             StartTickstoResetinGame = DWTSProp.startTickstoResetBase;
             MaxToughnessinGame = DWTSProp.maxToughnessBase;
             ToughnessDamageReductionMultiplierinGame = DWTSProp.toughnessDamageReductionMultiplier;
-            enableShield = DWTSProp.spawnEnableShield;
+            //enableShield = DWTSProp.spawnEnableShield;
             baseToughnessRegenerationRate = DWTSProp.baseToughnessRegenerationRate;
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            
             base.PostSpawnSetup(respawningAfterLoad);
             //MeleeUtil.DEV_output("postspawn");
         }
@@ -479,6 +484,9 @@ namespace DarktideWeapons
             Scribe_Values.Look(ref this.enableShield, "enableShield", false);
             Scribe_Values.Look(ref this.MaxToughnessinGame, "MaxToughnessinGame", 0f);
             Scribe_Values.Look(ref this.toughnessExceeded, "toughnessExceeded", 0f);
+            Scribe_Values.Look(ref this.baseToughnessRegenerationRate, "baseToughnessRegenerationRate", 0f);
+            Scribe_Values.Look(ref this.StartTickstoResetinGame, "StartTickstoResetinGame", 900);
+            Scribe_Values.Look(ref this.ToughnessDamageReductionMultiplierinGame, "ToughnessDamageReductionMultiplierinGame", 1.0f);
         }
         public void SetMaxShieldInGame(float maxShieldInGame)
         {
