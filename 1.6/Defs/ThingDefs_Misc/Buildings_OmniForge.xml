@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    The Omnissiah's Forge: a 2x2 production building.
+    Any pawn wielding a weapon with Comp_BlessingSocket can right-click
+    this building to install Perks and Blessings on their weapon.
+  -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>DW_Building_OmniForge</defName>
+    <label>Omnissiah's forge</label>
+    <description>A sacred forge blessed by the Machine God. Techpriests and faithful warriors can bring their weapons here to receive divine markings.</description>
+    <thingClass>DarktideWeapons.Building_Omnissiah</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.3</Flammability>
+      <Beauty>4</Beauty>
+    </statBases>
+    <size>(2,2)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.8</fillPercent>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <designationCategory>Production</designationCategory>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <!-- Add a tech prerequisite here if desired -->
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>

@@ -41,7 +41,7 @@
       </targetParams>
       </verbProperties>
       <comps>
-      <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchFireMode"></li>
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_SwitchFireMode"></li>
       </comps>
   </AbilityDef>
 
@@ -72,7 +72,7 @@
       </targetParams>
       </verbProperties>
       <comps>
-        <li Class="DarktideWeapons.CompProperties_AbilityEffect_SwitchMeleeHediff"></li>
+        <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_SwitchMeleeHediff"></li>
       </comps>
   </AbilityDef>
   
@@ -103,7 +103,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_AbilityEffect_EmergencyCooling"></li>
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_EmergencyCooling"></li>
     </comps>
   </AbilityDef>
 
@@ -184,7 +184,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_AbilityEffect_ChargeWeapon"></li>
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_ChargeWeapon"></li>
     </comps>
   </AbilityDef>
 

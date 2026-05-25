@@ -17,7 +17,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>1</penetrationPower>
         <effectiveRange>38.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -125,7 +125,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>1</penetrationPower>
         <effectiveRange>36.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -145,7 +145,7 @@
     <uiIconScale>0.9</uiIconScale>
     <soundInteract>Interact_Revolver</soundInteract>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>13</projectileNum>
         <spreadAngleMax>9</spreadAngleMax>
         <spreadAngleMin>1</spreadAngleMin>
@@ -213,7 +213,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Grenade</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>36.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -299,7 +299,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>32.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -381,7 +381,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>58.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -486,7 +486,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>1</penetrationPower>
         <effectiveRange>30.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -506,7 +506,7 @@
     <uiIconScale>0.9</uiIconScale>
     <soundInteract>Interact_Revolver</soundInteract>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>8</projectileNum>
         <spreadAngleMax>11</spreadAngleMax>
         <spreadAngleMin>3</spreadAngleMin>
@@ -624,7 +624,7 @@
     <defName>DW_Bully_Club_IIIb</defName>
     <label>"Brunt's Basher" Mk IIIb Bully Club</label>
     <techLevel>Medieval</techLevel>
-    <description>One of a variety of weapons constructed by the Mourningstar's formidable quartermaster, Gurry “Brunt” Cernik, which he reserves for his favourite Ogryn customers.</description>
+    <description>One of a variety of weapons constructed by the Mourningstar's formidable quartermaster, Gurry “Brunt�?Cernik, which he reserves for his favourite Ogryn customers.</description>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>

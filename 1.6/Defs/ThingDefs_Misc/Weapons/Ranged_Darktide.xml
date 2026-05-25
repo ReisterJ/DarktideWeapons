@@ -64,7 +64,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>29.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -130,7 +130,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>26.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -203,7 +203,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -230,7 +230,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>2</penetrationPower>
         <effectiveRange>35.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -361,7 +361,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>3</penetrationPower>
         <effectiveRange>34.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -437,7 +437,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>1</penetrationPower>
         <effectiveRange>40.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -544,7 +544,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>39.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -630,7 +630,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>1</penetrationPower>
         <effectiveRange>35.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -699,7 +699,7 @@
       <speed>70</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>2</penetrationPower>
         <effectiveRange>29.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -724,7 +724,7 @@
       <speed>90</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>3</penetrationPower>
         <effectiveRange>50.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -752,7 +752,7 @@
       <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>4</projectileNum>
         <spreadAngleMax>2</spreadAngleMax>
         <spreadAngleMin>0</spreadAngleMin>
@@ -854,7 +854,7 @@
       <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>7</projectileNum>
         <spreadAngleMax>4</spreadAngleMax>
         <spreadAngleMin>1</spreadAngleMin>
@@ -932,7 +932,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
       <modExtensions>
-        <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
           <penetrationPower>1</penetrationPower>
           <effectiveRange>50.9</effectiveRange>
           <penetrateWall>false</penetrateWall>
@@ -999,7 +999,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
       <modExtensions>
-        <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
           <penetrationPower>1</penetrationPower>
           <effectiveRange>50.9</effectiveRange>
           <penetrateWall>false</penetrateWall>
@@ -1066,7 +1066,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
       <modExtensions>
-        <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+        <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
           <penetrationPower>2</penetrationPower>
           <effectiveRange>50.9</effectiveRange>
           <penetrateWall>false</penetrateWall>
@@ -1138,7 +1138,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>35.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -1208,7 +1208,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>32.9</effectiveRange>
         <penetrateWall>false</penetrateWall>

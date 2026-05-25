@@ -1,4 +1,5 @@
-﻿using DarktideWeapons.MeleeComps;
+using DarktideWeapons.MeleeComps;
+using DarktideWeapons.ModExtensions;
 using DarktideWeapons.Util;
 using RimWorld;
 using System;

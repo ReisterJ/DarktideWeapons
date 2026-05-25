@@ -19,7 +19,7 @@
       <Ability_EffectRadius>1.9</Ability_EffectRadius>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
     </modExtensions>
@@ -33,7 +33,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_DOT">
+      <li Class = "DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_DOT">
         <hediffDef>DW_Hediff_DOT_SoulBlaze</hediffDef>
         <applicableToMechs>True</applicableToMechs>
         <addLevel>2</addLevel>
@@ -41,7 +41,7 @@
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>
-      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_ForceStaffRequired">
         <requiredStaff>DW_Purgatus_ForceStaff</requiredStaff>
       </li>
     </comps>
@@ -63,7 +63,7 @@
       <speed>40</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>999</penetrationPower>
         <effectiveRange>22.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -91,7 +91,7 @@
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
      <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
         <defaultProjectile>DW_SoulBlazeProjectile</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
@@ -109,7 +109,7 @@
       <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_ForceStaffRequired">
         <requiredStaff>DW_Purgatus_ForceStaff</requiredStaff>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
@@ -135,7 +135,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Projectile</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>12</penetrationPower>
         <effectiveRange>45.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -160,7 +160,7 @@
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
         <defaultProjectile>DW_VoidEnergyBall</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
@@ -176,7 +176,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_ForceStaffRequired">
         <requiredStaff>DW_Voidstrike_ForceStaff</requiredStaff>
       </li>
     </comps>
@@ -200,7 +200,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_ArcChain</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -223,7 +223,7 @@
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_PsyCastExtendedProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
         <defaultProjectile>DW_Lightning_Chain</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
       </li>
@@ -239,7 +239,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_ForceStaffRequired">
         <requiredStaff>DW_Electrokinetic_ForceStaff</requiredStaff>
       </li>
     </comps>
@@ -270,10 +270,10 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="DarktideWeapons.CompProperties_ForceStaffRequired">
+      <li Class="DarktideWeapons.CompAbilityEffects.CompProperties_ForceStaffRequired">
         <requiredStaff>DW_VoidBlast_ForceStaff</requiredStaff>
       </li>
-      <li Class = "DarktideWeapons.CompProperties_AbilityEffect_PsiExplosion">
+      <li Class = "DarktideWeapons.CompAbilityEffects.CompProperties_AbilityEffect_PsiExplosion">
         <staggerPower>4</staggerPower>
         <explosionDamage>20</explosionDamage>
       </li>

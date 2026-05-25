@@ -80,7 +80,7 @@
 		<defaultLabelColor>(0.8, 0.9, 1.0)</defaultLabelColor>
 		<label>Toughness shield</label>
 		<description>Shield blocks incoming damage.</description>
-		<hediffClass>DarktideWeapons.Hediff_DWToughnessShield</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DWToughnessShield</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>5</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -103,7 +103,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_ToughnessShield">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_ToughnessShield">
 				<shieldIncrement>50</shieldIncrement>
 			</li>
 		</modExtensions>

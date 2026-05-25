@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+      class token
+      A consumable item that, when used, applies the DW_ClassSystem hediff
+      and grants 5 starting skill points.
+      
+      Replace the texPath with your own texture when available.
+    ═══════════════════════════════════════════════════════════════════
+  -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>DW_ClassToken</defName>
+    <label>class token</label>
+    <description>A token of recognition granting the bearer the right to choose a specialised career path. Using it grants access to a skill tree and an initial pool of skill points.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <stackLimit>10</stackLimit>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use class token</useLabel>
+      </li>
+      <li Class="DarktideWeapons.Classes.CompProperties_GrantClassAccess">
+        <startingSkillPoints>5</startingSkillPoints>
+      </li>
+    </comps>
+    <tradeability>Sellable</tradeability>
+    <tradeTags>
+      <li>Exotic</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>

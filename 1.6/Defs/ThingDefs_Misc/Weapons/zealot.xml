@@ -17,7 +17,7 @@
       <speed>40</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>999</penetrationPower>
         <effectiveRange>24.9</effectiveRange>
         <penetrateWall>false</penetrateWall>

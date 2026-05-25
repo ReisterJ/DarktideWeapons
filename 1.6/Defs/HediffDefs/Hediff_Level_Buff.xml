@@ -5,7 +5,7 @@
 		<defaultLabelColor>(1.0, 0.3, 0.3)</defaultLabelColor>
 		<label>brittleness</label>
 		<description>more vulnerable to damage</description>
-		<hediffClass>DarktideWeapons.Hediff_Level_Buff</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_Level_Buff</hediffClass>
 		<minSeverity>1</minSeverity>
 		<maxSeverity>10</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -123,7 +123,59 @@
 			</li>
 		</stages>
         <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffLevelBuff">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffLevelBuff">
+				<isBrain>true</isBrain>
+				<downgradeDamageTime>5</downgradeDamageTime>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+	<HediffDef>
+		<defName>DW_Headtaker</defName>
+		<defaultLabelColor>(1.0, 0.3, 0.3)</defaultLabelColor>
+		<label>headtaker</label>
+		<description>more melee damage</description>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_Level_Buff</hediffClass>
+		<minSeverity>1</minSeverity>
+		<maxSeverity>5</maxSeverity>
+		<initialSeverity>1</initialSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<minSeverity>1</minSeverity>
+				<statFactors>
+					<MeleeDamageFactor>1.05</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>2</minSeverity>
+				<statFactors>
+					<MeleeDamageFactor>1.1</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>3</minSeverity>
+				<statFactors>
+					<MeleeDamageFactor>1.15</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>4</minSeverity>
+				<statFactors>
+					<MeleeDamageFactor>1.2</MeleeDamageFactor>
+				</statFactors>
+			</li>
+			<li>
+				<minSeverity>5</minSeverity>
+				<statFactors>
+					<MeleeDamageFactor>1.25</MeleeDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+        <modExtensions>
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffLevelBuff">
 				<isBrain>true</isBrain>
 				<downgradeDamageTime>5</downgradeDamageTime>
 			</li>

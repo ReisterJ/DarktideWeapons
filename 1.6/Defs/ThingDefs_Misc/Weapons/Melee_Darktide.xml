@@ -115,6 +115,26 @@
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
+      <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
+        <maxBlessingSlots>1</maxBlessingSlots>
+        <maxPerkSlots>1</maxPerkSlots>
+        <availableBlessings>
+          <li>DW_Blessing_Sunder</li>
+        </availableBlessings>
+        <availablePerks>
+          <li>DW_Perk_Sharpness</li>
+          <li>DW_Perk_Unyielding</li>
+        </availablePerks>
+        <overrideBlessingDefs>
+          <li>DW_Blessing_Sunder</li>
+        </overrideBlessingDefs>
+        <overrideHitSeverities>
+          <li>0.15</li>
+        </overrideHitSeverities>
+        <overrideKillSeverities>
+          <li>0.3</li>
+        </overrideKillSeverities>
+      </li>
     </comps>
   </ThingDef>
 
@@ -309,6 +329,25 @@
           <power>30</power>
           <armorPenetration>0.80</armorPenetration>
         </heavyAttackToolPrimary>
+      </li>
+      <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
+        <maxBlessingSlots>2</maxBlessingSlots>
+        <maxPerkSlots>1</maxPerkSlots>
+        <availableBlessings>
+          <li>DW_Blessing_Sunder</li>
+        </availableBlessings>
+        <availablePerks>
+          <li>DW_Perk_Sharpness</li>
+        </availablePerks>
+        <overrideBlessingDefs>
+          <li>DW_Blessing_Sunder</li>
+        </overrideBlessingDefs>
+        <overrideHitSeverities>
+          <li>0.08</li>
+        </overrideHitSeverities>
+        <overrideKillSeverities>
+          <li>0.2</li>
+        </overrideKillSeverities>
       </li>
     </comps>
     <equippedStatOffsets>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    ═══════════════════════════════════════════════════
+      BLESSINGS  (DW_BlessingDef)
+      Set workerClass to DW_Blessing_HitEffect  for on-hit effects
+      Set workerClass to DW_Blessing_KillEffect for on-kill effects
+
+      Hit fields:  hitVictimHediff, hitSelfHediff, hediffHitSeverity
+      Kill fields: killSelfHediff, hediffKillSeverity
+    ═══════════════════════════════════════════════════
+  -->
+
+  <!-- On-hit → applies BloodLoss to the struck enemy -->
+  <DarktideWeapons.Blessings.DW_BlessingDef>
+    <defName>DW_Blessing_Sunder</defName>
+    <label>Sunder</label>
+    <description>Strikes sunder armor and flesh alike, inflicting grievous bleeding wounds on the target.</description>
+    <workerClass>DarktideWeapons.Blessings.DW_Blessing_HitEffect</workerClass>
+    <hitVictimHediff>BloodLoss</hitVictimHediff>
+    <hediffHitSeverity>0.05</hediffHitSeverity>
+  </DarktideWeapons.Blessings.DW_BlessingDef>
+
+  <DarktideWeapons.Blessings.DW_BlessingDef>
+    <defName>DW_Blessing_Headtaker</defName>
+    <label>Headtaker</label>
+    <description>+8% melee damage multiplier for 3.5s on Hit. Stacks 5 times.</description>
+    <workerClass>DarktideWeapons.Blessings.DW_Blessing_HitEffect</workerClass>
+    <!-- <hitVictimHediff>BloodLoss</hitVictimHediff> -->
+    <!-- <hediffHitSeverity>0.05</hediffHitSeverity> -->
+  </DarktideWeapons.Blessings.DW_BlessingDef>
+
+  <!-- On-kill → applies a temporary buff hediff to the wielder -->
+  <!-- Replace "DW_Hediff_SlaughterRush" with an actual HediffDef from your mod -->
+  <!--
+  <DarktideWeapons.Blessings.DW_BlessingDef>
+    <defName>DW_Blessing_Slaughter</defName>
+    <label>Slaughter</label>
+    <description>Each kill invigorates the wielder with unholy vigour, sharpening their reflexes for a brief moment.</description>
+    <workerClass>DarktideWeapons.Blessings.DW_Blessing_KillEffect</workerClass>
+    <killSelfHediff>DW_Hediff_SlaughterRush</killSelfHediff>
+    <hediffKillSeverity>0.3</hediffKillSeverity>
+  </DarktideWeapons.Blessings.DW_BlessingDef>
+  -->
+
+  <!--
+    ═══════════════════════════════════════════════════
+      PERKS  (DW_EquipmentPerkDef)
+      statOffsets  — weapon stat modifiers, format: <StatDefName>Value</StatDefName>
+      compProperties — optional DW_WeaponCompProperties for comp-based passive effects
+    ═══════════════════════════════════════════════════
+  -->
+
+  <DarktideWeapons.Blessings.DW_EquipmentPerkDef>
+    <defName>DW_Perk_Sharpness</defName>
+    <label>Sharpness</label>
+    <description>The weapon's edge has been honed to supernatural keenness, increasing its melee damage.</description>
+    <statOffsets>
+      <MeleeWeapon_AverageDPS>2</MeleeWeapon_AverageDPS>
+    </statOffsets>
+  </DarktideWeapons.Blessings.DW_EquipmentPerkDef>
+
+  <DarktideWeapons.Blessings.DW_EquipmentPerkDef>
+    <defName>DW_Perk_Unyielding</defName>
+    <label>Unyielding</label>
+    <description>Blessed runes of endurance reduce the weapon's handling time, allowing faster strikes.</description>
+    <statOffsets>
+      <MeleeWeapon_CooldownMultiplier>-0.05</MeleeWeapon_CooldownMultiplier>
+    </statOffsets>
+  </DarktideWeapons.Blessings.DW_EquipmentPerkDef>
+
+</Defs>

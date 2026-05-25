@@ -1,4 +1,6 @@
-ï»¿using DarktideWeapons.Util;
+using DarktideWeapons.Blessings;
+using DarktideWeapons.ModExtensions;
+using DarktideWeapons.Util;
 using RimWorld;
 using RimWorld.Planet;
 using System;
@@ -474,6 +476,21 @@ namespace DarktideWeapons
                 if (pawn2 != null)
                 {
                     pawn2.stances?.stagger.Notify_BulletImpact(this);
+
+                    // Trigger blessing on-hit effects (before HediffWorker and damage kill the pawn)
+                    if (launcher is Pawn attackerPawn && equipment != null)
+                    {
+                        var socket = equipment.TryGetComp<Comp_BlessingSocket>();
+                        if (socket != null)
+                        {
+                            BlessingLog.Dev($"DW_Projectile.Impact ¨C blessing hit triggered  weapon=[{equipment.Label}] attacker=[{attackerPawn.Name?.ToStringShort}] victim=[{pawn2.Name?.ToStringShort}]");
+                            socket.Notify_HitPawn(attackerPawn, pawn2);
+                        }
+                        else
+                        {
+                            BlessingLog.Dev($"DW_Projectile.Impact ¨C [{equipment.Label}] has no Comp_BlessingSocket, skipping blessing hit");
+                        }
+                    }
 
                     HediffWorker(pawn2);
                 }

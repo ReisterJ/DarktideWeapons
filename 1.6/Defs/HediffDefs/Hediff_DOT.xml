@@ -6,7 +6,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>Soul Blaze</label>
 		<description>warp fire victim.</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>10</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -52,7 +52,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>90</damageTickPeriod>
 				<damageBonusPerLevel>0.35</damageBonusPerLevel>
 				<armorPenetrationBase>0.5</armorPenetrationBase>
@@ -62,7 +62,7 @@
 			</li>
 		</modExtensions>
 		<comps>
-			<li Class="DarktideWeapons.HediffCompProperties_SpreadHediffAfterDeath">
+			<li Class="DarktideWeapons.Hediffs.HediffCompProperties_SpreadHediffAfterDeath">
 				<friendlySpread>false</friendlySpread>
 				<hediffDef>DW_Hediff_DOT_SoulBlaze</hediffDef>
 				<isBrain>true</isBrain>
@@ -77,7 +77,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>fire</label>
 		<description>Ignited by flamer</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>10</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -123,7 +123,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>60</damageTickPeriod>
 				<damageBonusPerLevel>0.5</damageBonusPerLevel>
 				<armorPenetrationBase>1.2</armorPenetrationBase>
@@ -142,7 +142,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>poison</label>
 		<description>Poisoned by weapon</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>12</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -186,7 +186,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>45</damageTickPeriod>
 				<damageBonusPerLevel>1.25</damageBonusPerLevel>
 				<armorPenetrationBase>1.9</armorPenetrationBase>
@@ -205,7 +205,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>poison</label>
 		<description>Poisoned by weapon</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>8</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -237,7 +237,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>45</damageTickPeriod>
 				<damageBonusPerLevel>0.75</damageBonusPerLevel>
 				<armorPenetrationBase>1.9</armorPenetrationBase>
@@ -248,7 +248,7 @@
 		</modExtensions>
 		<comps>
 			<li Class="HediffCompProperties_DisappearsOnDeath" />
-			<li Class="DarktideWeapons.HediffCompProperties_SpreadHediffAfterDeath">
+			<li Class="DarktideWeapons.Hediffs.HediffCompProperties_SpreadHediffAfterDeath">
 				<friendlySpread>false</friendlySpread>
 				<hediffDef>DW_Hediff_DOT_Poison_Spread_II</hediffDef>
 				<isBrain>true</isBrain>
@@ -262,7 +262,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>poison</label>
 		<description>Poisoned by weapon</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>12</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -306,7 +306,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>30</damageTickPeriod>
 				<damageBonusPerLevel>1.5</damageBonusPerLevel>
 				<armorPenetrationBase>1.9</armorPenetrationBase>
@@ -325,7 +325,7 @@
 		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
 		<label>poison</label>
 		<description>Poisoned by weapon</description>
-		<hediffClass>DarktideWeapons.Hediff_DOT</hediffClass>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
 		<minSeverity>0</minSeverity>
     	<maxSeverity>12</maxSeverity>
 		<initialSeverity>1</initialSeverity>
@@ -369,7 +369,7 @@
 		</li>
 		</stages>
 		<modExtensions>
-			<li Class="DarktideWeapons.ModExtension_HediffDOT">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>30</damageTickPeriod>
 				<damageBonusPerLevel>1.0</damageBonusPerLevel>
 				<armorPenetrationBase>1.9</armorPenetrationBase>

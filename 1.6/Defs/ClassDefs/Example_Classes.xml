@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+      CLASS NODE DEFS  (DarktideWeapons.Classes.DW_ClassNodeDef)
+
+      nodeType   : Perk  – grants statOffsets while unlocked
+                   Skill – grants abilityDef while unlocked
+      skillPointCost  : SP required to unlock
+      statOffsets     : stat modifiers (Perk type only), format: <StatDefName>Value</StatDefName>
+      abilityDef      : ability granted (Skill type only)
+      childNodes      : list of child node defNames reachable from this node
+      iconPath        : texture path (optional, falls back to BadTex)
+    ═══════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- ─────────── WARRIOR TREE ─────────────────────────────────────── -->
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Warrior_Root</defName>
+    <label>warrior's resolve</label>
+    <description>The foundation of the warrior's path. A pawn who never falters.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>0</skillPointCost>
+    <statOffsets>
+      <MeleeHitChance>0.02</MeleeHitChance>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Warrior_Toughness</li>
+      <li>DW_ClassNode_Warrior_Strike</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Warrior_Toughness</defName>
+    <label>iron skin</label>
+    <description>Years of battle have hardened this warrior's body, reducing damage taken slightly.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>1</skillPointCost>
+    <statOffsets>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Warrior_Bulwark</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Warrior_Strike</defName>
+    <label>power strike</label>
+    <description>Focused training with heavy weapons increases melee damage output.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>1</skillPointCost>
+    <statOffsets>
+      <MeleeDPS>1.5</MeleeDPS>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Warrior_Cleave</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Warrior_Bulwark</defName>
+    <label>bulwark</label>
+    <description>A walking fortress. This warrior moves slower but can barely be knocked down.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>2</skillPointCost>
+    <statOffsets>
+      <ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+      <MoveSpeed>-0.1</MoveSpeed>
+    </statOffsets>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Warrior_Cleave</defName>
+    <label>brutal cleave</label>
+    <description>Each swing is a death sentence. Greatly improved melee damage at the cost of accuracy.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>2</skillPointCost>
+    <statOffsets>
+      <MeleeDPS>3.0</MeleeDPS>
+      <MeleeHitChance>-0.05</MeleeHitChance>
+    </statOffsets>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <!-- ─────────── SHARPSHOOTER TREE ─────────────────────────────────── -->
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Sharp_Root</defName>
+    <label>marksman's eye</label>
+    <description>The foundation of the sharpshooter's path. Calm, patient, lethal.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>0</skillPointCost>
+    <statOffsets>
+      <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Sharp_SteadyHand</li>
+      <li>DW_ClassNode_Sharp_Penetrator</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Sharp_SteadyHand</defName>
+    <label>steady hand</label>
+    <description>Years of practice allow this shooter to aim with supernatural precision.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>1</skillPointCost>
+    <statOffsets>
+      <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Sharp_Deadeye</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Sharp_Penetrator</defName>
+    <label>armour piercer</label>
+    <description>Shots are placed precisely at weak points in the target's armour.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>1</skillPointCost>
+    <statOffsets>
+      <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
+    </statOffsets>
+    <childNodes>
+      <li>DW_ClassNode_Sharp_HunterInstinct</li>
+    </childNodes>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Sharp_Deadeye</defName>
+    <label>dead-eye</label>
+    <description>At this level of mastery, missing is simply not an option.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>2</skillPointCost>
+    <statOffsets>
+      <ShootingAccuracyPawn>0.08</ShootingAccuracyPawn>
+    </statOffsets>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <DarktideWeapons.Classes.DW_ClassNodeDef>
+    <defName>DW_ClassNode_Sharp_HunterInstinct</defName>
+    <label>hunter's instinct</label>
+    <description>This pawn moves with purpose. Slightly faster movement speed in the field.</description>
+    <nodeType>Perk</nodeType>
+    <skillPointCost>2</skillPointCost>
+    <statOffsets>
+      <MoveSpeed>0.15</MoveSpeed>
+    </statOffsets>
+  </DarktideWeapons.Classes.DW_ClassNodeDef>
+
+  <!-- ─────────── CAREER DEFS ────────────────────────────────────────── -->
+
+  <DarktideWeapons.Classes.DW_ClassDef>
+    <defName>DW_Class_Warrior</defName>
+    <label>warrior</label>
+    <description>A melee specialist hardened by war. Warriors focus on durability and raw combat power,
+delivering devastating blows while shrugging off punishment that would kill lesser soldiers.</description>
+    <rootNode>DW_ClassNode_Warrior_Root</rootNode>
+  </DarktideWeapons.Classes.DW_ClassDef>
+
+  <DarktideWeapons.Classes.DW_ClassDef>
+    <defName>DW_Class_Sharpshooter</defName>
+    <label>sharpshooter</label>
+    <description>A ranged combatant who wins battles before the enemy gets close.
+Sharpshooters invest in pinpoint accuracy and tactical positioning over brute force.</description>
+    <rootNode>DW_ClassNode_Sharp_Root</rootNode>
+  </DarktideWeapons.Classes.DW_ClassDef>
+
+</Defs>

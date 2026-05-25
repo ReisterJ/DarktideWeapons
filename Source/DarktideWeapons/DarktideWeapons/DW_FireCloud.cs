@@ -61,6 +61,13 @@ namespace DarktideWeapons
                     FireUtility.TryStartFireIn(hitThing.Position, hitThing.Map,Mathf.Clamp01(hitThing.def.BaseFlammability / 1.5f) , launcher);
                 }
             }
+            if(hitThing is Building b)
+            {
+                if(b.Faction == null || ( b.Faction != null && b.Faction != launcher.Faction))
+                {
+                    damageAmount = this.DamageAmount * RangedDamageMultiplierGlobal * 10f; 
+                }
+            }
             BodyPartRecord bodyPart = null;
             DamageInfo dinfo = new DamageInfo(def.projectile.damageDef, damageAmount, armorPenetration, ExactRotation.eulerAngles.y, launcher, bodyPart, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing, instigatorGuilty);
             return dinfo;

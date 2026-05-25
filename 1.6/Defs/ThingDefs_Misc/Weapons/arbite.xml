@@ -17,7 +17,7 @@
       <speed>80</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>37.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -55,7 +55,7 @@
       </extraDamages>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>47.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -107,7 +107,7 @@
       <speed>90</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>6</penetrationPower>
         <effectiveRange>47.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -133,7 +133,7 @@
       <speed>85</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>47.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -188,7 +188,7 @@
       <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>9</projectileNum>
         <spreadAngleMax>15</spreadAngleMax>
         <spreadAngleMin>1</spreadAngleMin>
@@ -250,7 +250,7 @@
       <RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
     </statBases>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>3</projectileNum>
         <spreadAngleMax>2</spreadAngleMax>
         <spreadAngleMin>0</spreadAngleMin>
@@ -311,7 +311,7 @@
       <speed>90</speed>
     </projectile>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>4</penetrationPower>
         <effectiveRange>32.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -346,7 +346,7 @@
       <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ShotgunProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ShotgunProperties">
         <projectileNum>3</projectileNum>
         <spreadAngleMax>1</spreadAngleMax>
         <spreadAngleMin>0</spreadAngleMin>

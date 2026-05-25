@@ -7,7 +7,7 @@
 
   <!-- ========== Volley Fire (Boltgun) ========== -->
   <DW_Hediff_VolleyFire_Boltgun.label>齐射</DW_Hediff_VolleyFire_Boltgun.label>
-  <DW_Hediff_VolleyFire_Boltgun.description>准备快速齐射，但命中率降低。</DW_Hediff_VolleyFire_Boltgun.description>
+  <DW_Hediff_VolleyFire_Boltgun.description>准备快速射击，但命中率降低。</DW_Hediff_VolleyFire_Boltgun.description>
 
   <!-- ========== Deployed (Heavy Stubber) ========== -->
   <DW_Hediff_DeployHeavyGun.label>部署</DW_Hediff_DeployHeavyGun.label>

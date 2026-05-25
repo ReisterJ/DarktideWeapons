@@ -1,4 +1,6 @@
-Ôªøusing DarktideWeapons.MeleeComps;
+using DarktideWeapons.Blessings;
+using DarktideWeapons.MeleeComps;
+using DarktideWeapons.ModExtensions;
 using DarktideWeapons.SpecialMeleeVerbs;
 using DarktideWeapons.Util;
 using RimWorld;
@@ -61,6 +63,22 @@ namespace DarktideWeapons
             }
             return base.Available();
         }
+        /// <summary>
+        /// Called when the melee verb successfully hits a pawn (after damage is applied).
+        /// Triggers Comp_BlessingSocket hit effects if the weapon has one.
+        /// </summary>
+        protected virtual void Notify_BlessingHit(Pawn attacker, Pawn victim)
+        {
+            var socket = DW_equipment?.TryGetComp<Comp_BlessingSocket>();
+            if (socket == null)
+            {
+                BlessingLog.Dev($"Verb_DarktideMelee.Notify_BlessingHit ®C [{DW_equipment?.Label}] has no Comp_BlessingSocket, skipping");
+                return;
+            }
+            BlessingLog.Dev($"Verb_DarktideMelee.Notify_BlessingHit ®C weapon=[{DW_equipment.Label}] attacker=[{attacker?.Name?.ToStringShort}] victim=[{victim?.Name?.ToStringShort}]");
+            socket.Notify_HitPawn(attacker, victim);
+        }
+
         public virtual void Notify_MeleeAttacked()
         {
             if (DW_equipment == null) return;
@@ -134,6 +152,7 @@ namespace DarktideWeapons
                     if (currentTarget.Thing is Pawn pawnTarget)
                     {
                         ApplyAOEMeleeDamage(pawnTarget);
+                        Notify_BlessingHit(casterPawn, pawnTarget);
                     }
                     else
                     {
@@ -448,10 +467,10 @@ namespace DarktideWeapons
                     hitpart = Util_Melee.TryHitCorePart(CasterPawn, target.Pawn);
                 }
             }
-            //ÂÜ≤Âáª
+            //≥Âª˜
 
 
-            //ÂÖÖËÉΩÊ≠¶Âô®ÂØπÂçï
+            //≥‰ƒ‹Œ‰∆˜∂‘µ•
             if (IsChargeAttack())
             {
                 num *= DW_equipment.Comp_DWChargeWeapon.NewDamageFactor;

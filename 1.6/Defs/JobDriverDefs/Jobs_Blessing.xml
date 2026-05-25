@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>DW_UseOmniBlessing</defName>
+    <driverClass>DarktideWeapons.JobDrivers.JobDriver_OmniBlessing</driverClass>
+    <reportString>receiving blessings from the Omnissiah.</reportString>
+  </JobDef>
+
+</Defs>

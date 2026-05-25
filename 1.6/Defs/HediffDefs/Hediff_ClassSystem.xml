@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+      Career Hediff
+      Applied by the career-grant item. Persists forever (ShouldRemove = false).
+      No stages needed – CurStage is built dynamically from unlocked perks.
+    ═══════════════════════════════════════════════════════════════
+  -->
+  <HediffDef>
+    <defName>DW_ClassSystem</defName>
+    <hediffClass>DarktideWeapons.Classes.Hediff_ClassSystem</hediffClass>
+    <label>class</label>
+    <labelNoun>class</labelNoun>
+    <description>This pawn has chosen a class path that shapes their abilities and grants unique powers.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+  </HediffDef>
+
+</Defs>

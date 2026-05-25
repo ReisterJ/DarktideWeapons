@@ -17,7 +17,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Plasma</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>30</penetrationPower>
         <effectiveRange>42.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -42,7 +42,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Plasma</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>100</penetrationPower>
         <effectiveRange>65.9</effectiveRange>
         <penetrateWall>true</penetrateWall>
@@ -151,7 +151,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -231,7 +231,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>
@@ -309,7 +309,7 @@
     </projectile>
     <thingClass>DarktideWeapons.DW_Laser</thingClass>
     <modExtensions>
-      <li Class="DarktideWeapons.ModExtension_ProjectileProperties">
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_ProjectileProperties">
         <penetrationPower>0</penetrationPower>
         <effectiveRange>44.9</effectiveRange>
         <penetrateWall>false</penetrateWall>

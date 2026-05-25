@@ -14,7 +14,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>2</cleaveTargets>
         <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -36,7 +36,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>3</cleaveTargets>
         <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -58,7 +58,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>3</cleaveTargets>
         <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -80,7 +80,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -106,7 +106,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Cardinal</craftType>
@@ -128,7 +128,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -151,7 +151,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>2</cleaveTargets>
         <cleaveDamageFalloffRatio>0.9</cleaveDamageFalloffRatio>
         <craftType>Cardinal</craftType>
@@ -173,7 +173,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>0.8</cleaveDamageFalloffRatio>
         <craftType>Impale</craftType>
@@ -196,7 +196,7 @@
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -218,7 +218,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>2</cleaveTargets>
         <cleaveDamageFalloffRatio>0.9</cleaveDamageFalloffRatio>
         <craftType>Cardinal</craftType>
@@ -238,7 +238,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -258,7 +258,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>7</cleaveTargets>
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -281,7 +281,7 @@
     <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>2</cleaveTargets>
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Cardinal</craftType>
@@ -302,7 +302,7 @@
     <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>0.99</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -325,7 +325,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>10</cleaveTargets>
         <cleaveDamageFalloffRatio>0.85</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -346,7 +346,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>0.95</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
@@ -369,7 +369,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>6</cleaveTargets>
         <cleaveDamageFalloffRatio>0.90</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -391,7 +391,7 @@
     <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>3</cleaveTargets>
         <cleaveDamageFalloffRatio>0.88</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -414,7 +414,7 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>3</cleaveTargets>
         <cleaveDamageFalloffRatio>0.88</cleaveDamageFalloffRatio>
         <craftType>Vanguard</craftType>
@@ -437,7 +437,7 @@
     <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
 
     <modExtensions>
-			<li Class="DarktideWeapons.ModExtension_MeleeWeaponProperties">
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_MeleeWeaponProperties">
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
