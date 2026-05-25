@@ -135,7 +135,7 @@
 	<HediffDef>
 		<defName>DW_Headtaker</defName>
 		<defaultLabelColor>(1.0, 0.3, 0.3)</defaultLabelColor>
-		<label>headtaker</label>
+		<label>Headtaker</label>
 		<description>more melee damage</description>
 		<hediffClass>DarktideWeapons.Hediffs.Hediff_Level_Buff</hediffClass>
 		<minSeverity>1</minSeverity>

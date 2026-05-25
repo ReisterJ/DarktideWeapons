@@ -55,7 +55,7 @@
 			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
 				<damageTickPeriod>90</damageTickPeriod>
 				<damageBonusPerLevel>0.35</damageBonusPerLevel>
-				<armorPenetrationBase>0.5</armorPenetrationBase>
+				<armorPenetrationBase>0.4</armorPenetrationBase>
 				<damageDefOf>Burn</damageDefOf>
 				<isBrain>true</isBrain>
 				<downgradeDamageTime>6</downgradeDamageTime>
@@ -375,6 +375,73 @@
 				<armorPenetrationBase>1.9</armorPenetrationBase>
 				<damageDefOf>AcidBurn</damageDefOf>
 				<isBrain>false</isBrain>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+		<isBad>true</isBad>
+	</HediffDef>
+	<!-- DW_Hediff_DOT_Lacerate -->
+	<HediffDef>
+		<defName>DW_Hediff_DOT_Lacerate</defName>
+		<defaultLabelColor>(0.1, 0.1, 1.0)</defaultLabelColor>
+		<label>Lacerate</label>
+		<description>Lacerated by weapon</description>
+		<hediffClass>DarktideWeapons.Hediffs.Hediff_DOT</hediffClass>
+		<minSeverity>0</minSeverity>
+		<maxSeverity>10</maxSeverity>
+		<initialSeverity>1</initialSeverity>
+		<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+		<stages>
+		<li>
+			<minSeverity>1</minSeverity>
+			<painFactor>1.05</painFactor>
+		</li>
+		<li>
+			<minSeverity>2</minSeverity>
+			<painFactor>1.1</painFactor>
+		</li>
+		<li>
+			<minSeverity>3</minSeverity>
+			<painFactor>1.15</painFactor>
+		</li>
+		<li>
+			<minSeverity>4</minSeverity>
+			<painFactor>1.2</painFactor>
+		</li>
+		<li>
+			<minSeverity>5</minSeverity>
+			<painFactor>1.25</painFactor>
+		</li>
+		<li>
+			<minSeverity>6</minSeverity>
+			<painFactor>1.3</painFactor>
+		</li>
+		<li>
+			<minSeverity>7</minSeverity>
+			<painFactor>1.35</painFactor>
+		</li>
+		<li>
+			<minSeverity>8</minSeverity>
+			<painFactor>1.4</painFactor>
+		</li>
+		<li>
+		 <minSeverity>9</minSeverity>
+		  <painFactor>1.45</painFactor>
+	    </li>
+		<li>
+			<minSeverity>10</minSeverity>
+			<painFactor>1.5</painFactor>
+		</li>
+		</stages>
+		<modExtensions>
+			<li Class="DarktideWeapons.ModExtensions.ModExtension_HediffDOT">
+				<damageTickPeriod>60</damageTickPeriod>
+				<damageBonusPerLevel>0.75</damageBonusPerLevel>
+				<armorPenetrationBase>0.4</armorPenetrationBase>
+				<damageDefOf>Cut</damageDefOf>
+				<isBrain>false</isBrain>	
 			</li>
 		</modExtensions>
 		<comps>

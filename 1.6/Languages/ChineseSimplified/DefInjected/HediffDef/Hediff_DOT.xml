@@ -25,4 +25,8 @@
   <DW_Hediff_DOT_Poison.label>中毒</DW_Hediff_DOT_Poison.label>
   <DW_Hediff_DOT_Poison.description>中毒</DW_Hediff_DOT_Poison.description>
 
+  <!-- ========== Laceration ========== -->
+  <DW_Hediff_DOT_Lacerate.label>割裂</DW_Hediff_DOT_Lacerate.label>
+  <DW_Hediff_DOT_Lacerate.description>持续出血伤害</DW_Hediff_DOT_Lacerate.description>
+  
 </LanguageData>

@@ -5,4 +5,8 @@
   <DW_Brittleness.label>脆弱</DW_Brittleness.label>
   <DW_Brittleness.description>更容易受到伤害</DW_Brittleness.description>
 
+  <!-- ========== Headtaker ========== -->
+  <DW_Headtaker.label>夺颅者</DW_Headtaker.label>
+  <DW_Headtaker.description>增加近战伤害</DW_Headtaker.description>
+  
 </LanguageData>
