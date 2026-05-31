@@ -117,23 +117,17 @@
       </li>
       <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
         <maxBlessingSlots>1</maxBlessingSlots>
-        <maxPerkSlots>1</maxPerkSlots>
+        <maxPerkSlots>2</maxPerkSlots>
         <availableBlessings>
-          <li>DW_Blessing_Sunder</li>
+          <li>DW_Blessing_Lacerate</li>
         </availableBlessings>
         <availablePerks>
-          <li>DW_Perk_Sharpness</li>
-          <li>DW_Perk_Unyielding</li>
+          <!-- <li>DW_Perk_Sharpness</li>
+          <li>DW_Perk_Unyielding</li> -->
         </availablePerks>
         <overrideBlessingDefs>
-          <li>DW_Blessing_Sunder</li>
+          <li>DW_Blessing_Lacerate</li>
         </overrideBlessingDefs>
-        <overrideHitSeverities>
-          <li>0.15</li>
-        </overrideHitSeverities>
-        <overrideKillSeverities>
-          <li>0.3</li>
-        </overrideKillSeverities>
       </li>
     </comps>
   </ThingDef>
@@ -259,6 +253,19 @@
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
       </li>
+      <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
+        <maxBlessingSlots>1</maxBlessingSlots>
+        <maxPerkSlots>2</maxPerkSlots>
+        <availableBlessings>
+          <li>DW_Blessing_Headtaker</li>
+        </availableBlessings>
+        <availablePerks>
+  
+        </availablePerks>
+        <overrideBlessingDefs>
+          <li>DW_Blessing_Headtaker</li>
+        </overrideBlessingDefs>
+      </li>
     </comps>
   </ThingDef>
 
@@ -330,7 +337,7 @@
           <armorPenetration>0.80</armorPenetration>
         </heavyAttackToolPrimary>
       </li>
-      <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
+      <!-- <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
         <maxBlessingSlots>2</maxBlessingSlots>
         <maxPerkSlots>1</maxPerkSlots>
         <availableBlessings>
@@ -342,13 +349,7 @@
         <overrideBlessingDefs>
           <li>DW_Blessing_Sunder</li>
         </overrideBlessingDefs>
-        <overrideHitSeverities>
-          <li>0.08</li>
-        </overrideHitSeverities>
-        <overrideKillSeverities>
-          <li>0.2</li>
-        </overrideKillSeverities>
-      </li>
+      </li> -->
     </comps>
     <equippedStatOffsets>
       <MoveSpeed>0.6</MoveSpeed>

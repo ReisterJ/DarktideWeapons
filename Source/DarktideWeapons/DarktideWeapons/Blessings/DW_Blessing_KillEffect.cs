@@ -1,4 +1,5 @@
-using RimWorld;
+using DarktideWeapons.Util;
+using System.Collections.Generic;
 using Verse;
 
 namespace DarktideWeapons.Blessings
@@ -14,11 +15,8 @@ namespace DarktideWeapons.Blessings
                 BlessingLog.Dev($"  [{def?.defName}] OnKillPawn skipped – killSelfHediff={def?.killSelfHediff?.defName ?? "null"} attacker={(attacker == null ? "null" : attacker.Dead ? "dead" : attacker.Name?.ToStringShort)}");
                 return;
             }
-            float severity = severityOverride >= 0f ? severityOverride : def.hediffKillSeverity;
-            Hediff hediff = HediffMaker.MakeHediff(def.killSelfHediff, attacker);
-            hediff.Severity = severity;
-            attacker.health.AddHediff(hediff);
-            BlessingLog.Dev($"  [{def.defName}] OnKillPawn → added [{def.killSelfHediff.defName}] (severity={severity}) to attacker=[{attacker.Name?.ToStringShort}]  (killed: [{killed?.Name?.ToStringShort}])");
+            Util_Hediff.HediffImpact(attacker, new List<HediffDef> { def.killSelfHediff }, null);
+            BlessingLog.Dev($"  [{def.defName}] OnKillPawn → applied [{def.killSelfHediff.defName}] to attacker=[{attacker.Name?.ToStringShort}]  (killed: [{killed?.Name?.ToStringShort}])");
         }
     }
 }

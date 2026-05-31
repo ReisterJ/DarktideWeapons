@@ -93,9 +93,8 @@
   <!-- 手电筒 -->
   <!-- ========== Kantrael MG XII Infantry Lasgun ========== -->
   <DW_Laser_InfantryLasgun_XII.label>激光</DW_Laser_InfantryLasgun_XII.label>
-
-  <DW_InfantryLasgun_XII.label>Kantrael MG XII Infantry Lasgun</DW_InfantryLasgun_XII.label>
-  <DW_InfantryLasgun_XII.description>With its improved charge pack and focusing array, the MG XII is amongst the most powerful lasguns to come out of the manufactorums of Kantrael</DW_InfantryLasgun_XII.description>
+  <DW_InfantryLasgun_XII.label>坎特雷尔 MG XII 步兵激光枪</DW_InfantryLasgun_XII.label>
+  <DW_InfantryLasgun_XII.description>凭借其改进的充能包和聚焦阵列，MG XII 是坎特雷尔制造厂出品的最强大的步兵激光枪之一。</DW_InfantryLasgun_XII.description>
 
   <!-- 阿卡特兰 -->
   <!-- ========== Accatran Mk XII Recon Lasgun ========== -->

@@ -14,12 +14,12 @@
 
   <!-- On-hit → applies BloodLoss to the struck enemy -->
   <DarktideWeapons.Blessings.DW_BlessingDef>
-    <defName>DW_Blessing_Sunder</defName>
-    <label>Sunder</label>
+    <defName>DW_Blessing_Lacerate</defName>
+    <label>Lacerate</label>
     <description>Strikes sunder armor and flesh alike, inflicting grievous bleeding wounds on the target.</description>
     <workerClass>DarktideWeapons.Blessings.DW_Blessing_HitEffect</workerClass>
-    <hitVictimHediff>BloodLoss</hitVictimHediff>
-    <hediffHitSeverity>0.05</hediffHitSeverity>
+    <hitVictimHediff>DW_Hediff_DOT_Lacerate</hitVictimHediff>
+    <!-- <hediffHitSeverity>0.05</hediffHitSeverity> -->
   </DarktideWeapons.Blessings.DW_BlessingDef>
 
   <DarktideWeapons.Blessings.DW_BlessingDef>
@@ -27,7 +27,7 @@
     <label>Headtaker</label>
     <description>+8% melee damage multiplier for 3.5s on Hit. Stacks 5 times.</description>
     <workerClass>DarktideWeapons.Blessings.DW_Blessing_HitEffect</workerClass>
-    <!-- <hitVictimHediff>BloodLoss</hitVictimHediff> -->
+    <hitVictimHediff>DW_Headtaker</hitVictimHediff>
     <!-- <hediffHitSeverity>0.05</hediffHitSeverity> -->
   </DarktideWeapons.Blessings.DW_BlessingDef>
 

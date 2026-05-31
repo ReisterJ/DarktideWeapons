@@ -46,12 +46,16 @@ namespace DarktideWeapons.Blessings
         /// <summary>Severity of hit hediffs.</summary>
         public float hediffHitSeverity = 0.1f;
 
+        public int hediffLevelAddPerHit = 1;
+
         // --- Kill effect fields ---
         /// <summary>Hediff applied to the attacker (self) on kill.</summary>
         public HediffDef killSelfHediff;
         /// <summary>Severity of kill hediff.</summary>
         public float hediffKillSeverity = 0.2f;
 
+        public int hediffLevelAddPerKill = 1;
+        
         private DW_Blessing cachedWorker;
 
         public DW_Blessing GetWorker()
