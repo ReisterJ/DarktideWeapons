@@ -158,6 +158,35 @@
     </verbProperties>
   </AbilityDef>
 
+  <!-- Thunder Hammer Strike -->
+  <AbilityDef>
+    <defName>DW_Ability_ThunderHammerStrike</defName>
+    <label>Thunder Strike</label>
+    <description>Charges the thunder hammer with devastating power, then brings it down with the force of a lightning bolt. Requires the weapon to be charged.</description>
+    <iconPath>Things/Building/Power/PowerSwitch</iconPath>
+    <jobDef>PerformSpecialMeleeAttack</jobDef>
+    <targetRequired>true</targetRequired>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <statBases>
+    </statBases>
+    <verbProperties>
+      <verbClass>DarktideWeapons.SpecialMeleeVerbs.Verb_ThunderHammerStrike</verbClass>
+      <warmupTime>3.0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+          <canTargetSelf>false</canTargetSelf>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>true</canTargetBuildings>
+          <canTargetAnimals>true</canTargetAnimals>
+          <canTargetHumans>true</canTargetHumans>
+          <canTargetMechs>true</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
   <AbilityDef Name="Ability_ChargeWeaponBase" Abstract="True">
     <label>Charge Weapon</label>
     <description>Charge weapon for greater damage.</description>
@@ -198,7 +227,7 @@
   <AbilityDef ParentName="Ability_ChargeWeaponBase">
     <defName>DW_Ability_ChargeWeapon_ThunderHammer</defName>
     <verbProperties>
-      <warmupTime>3.0</warmupTime>
+      <warmupTime>2.0</warmupTime>
     </verbProperties>
   </AbilityDef>
 

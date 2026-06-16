@@ -123,6 +123,7 @@
     <Compile Include="MeleeComps\Comp_RechargeByAttack.cs" />
     <Compile Include="MeleeComps\Comp_SpecialMelee.cs" />
     <Compile Include="MeleeComps\Comp_SwitchMeleeHediff.cs" />
+    <Compile Include="MeleeComps\Comp_WeaponWarmupRotation.cs" />
     <Compile Include="MeleeComps\IMeleeAttacked.cs" />
     <Compile Include="ModExtensions\ModExtension_DW_Ability.cs" />
     <Compile Include="ModExtensions\ModExtension_HediffDOT.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Util_Stagger.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_ChainSwordRavage.cs" />
+    <Compile Include="SpecialMeleeVerbs\Verb_ThunderHammerStrike.cs" />
     <Compile Include="SpecialMeleeVerbs\Verb_Thrower.cs" />
     <Compile Include="Verb_DW_HeadHuntShoot.cs" />
     <Compile Include="Verb_DW_PlasmaShoot.cs" />

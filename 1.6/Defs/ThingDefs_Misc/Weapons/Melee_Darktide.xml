@@ -337,19 +337,6 @@
           <armorPenetration>0.80</armorPenetration>
         </heavyAttackToolPrimary>
       </li>
-      <!-- <li Class="DarktideWeapons.Blessings.CompProperties_BlessingSocket">
-        <maxBlessingSlots>2</maxBlessingSlots>
-        <maxPerkSlots>1</maxPerkSlots>
-        <availableBlessings>
-          <li>DW_Blessing_Sunder</li>
-        </availableBlessings>
-        <availablePerks>
-          <li>DW_Perk_Sharpness</li>
-        </availablePerks>
-        <overrideBlessingDefs>
-          <li>DW_Blessing_Sunder</li>
-        </overrideBlessingDefs>
-      </li> -->
     </comps>
     <equippedStatOffsets>
       <MoveSpeed>0.6</MoveSpeed>
@@ -422,6 +409,16 @@
         <maxStamina>60</maxStamina>
         <allowBlock>true</allowBlock>
         <allowAttackWhileBlocking>false</allowAttackWhileBlocking>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_SpecialMelee">
+        <specialAttackToolPrimary>
+          <label>Edge</label>
+          <capacities>
+            <li>DW_Melee_ChainSwordRavage</li>
+          </capacities>
+          <power>15</power>
+          <armorPenetration>0.20</armorPenetration>
+        </specialAttackToolPrimary>
       </li>
     </comps>
   </ThingDef>

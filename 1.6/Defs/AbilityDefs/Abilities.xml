@@ -90,7 +90,7 @@
       <Ability_EntropyGain>3</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
-     <modExtensions>
+    <modExtensions>
       <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
         <defaultProjectile>DW_SoulBlazeProjectile</defaultProjectile>
         <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
@@ -259,6 +259,9 @@
       <Ability_PsyfocusCost>0.001</Ability_PsyfocusCost>
     </statBases>
     <modExtensions>
+      <li Class="DarktideWeapons.ModExtensions.ModExtension_PsyCastExtendedProperties">
+        <ShouldHaveNeurotrainer>false</ShouldHaveNeurotrainer>
+      </li>
     </modExtensions>
     <verbProperties>
       <warmupTime>2.5</warmupTime>

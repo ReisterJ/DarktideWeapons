@@ -126,6 +126,7 @@
       <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
         <abilityDefList>
           <li>DW_Ability_ChargeWeapon_ThunderHammer</li>
+          <li>DW_Ability_ThunderHammerStrike</li>
         </abilityDefList>
       </li>
       <li Class="DarktideWeapons.CompProperties_DWChargeWeapon">
@@ -134,6 +135,21 @@
         <weaponChargeDamageFactor>8.0</weaponChargeDamageFactor>
         <weaponChargeArmorPenetrationFactor>3.0</weaponChargeArmorPenetrationFactor>
         <cleaveNum>1</cleaveNum>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_SpecialMelee">
+        <specialAttackToolPrimary>
+          <label>Hammer</label>
+          <capacities>
+            <li>DW_Melee_Strikedown</li>
+          </capacities>
+          <power>20</power>
+          <armorPenetration>0.25</armorPenetration>
+        </specialAttackToolPrimary>
+      </li>
+      <li Class="DarktideWeapons.MeleeComps.CompProperties_WeaponWarmupRotation">
+        <warmupRotateAngle>-65</warmupRotateAngle>
+        <strikeRotateAngle>30</strikeRotateAngle>
+        <snapDurationTicks>6</snapDurationTicks>
       </li>
       <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>

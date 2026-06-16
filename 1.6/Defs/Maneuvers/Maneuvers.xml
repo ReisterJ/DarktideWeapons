@@ -200,6 +200,9 @@
 				<cleaveTargets>1</cleaveTargets>
         <cleaveDamageFalloffRatio>1</cleaveDamageFalloffRatio>
         <craftType>Strikedown</craftType>
+        <critChance>0.25</critChance>
+        <critDamageMultiplier>2.5</critDamageMultiplier>
+        <critArmorPenetrationMultiplier>2.0</critArmorPenetrationMultiplier>
 			</li>
 		</modExtensions>
   </ManeuverDef>

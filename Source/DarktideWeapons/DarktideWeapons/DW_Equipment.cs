@@ -1,10 +1,12 @@
-﻿using RimWorld;
+﻿using DarktideWeapons.MeleeComps;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace DarktideWeapons
@@ -42,6 +44,29 @@ namespace DarktideWeapons
         {
            
             base.Tick();
+        }
+
+        /// <summary>
+        /// 重写绘制方法，支持武器前摇旋转动画（Comp_WeaponWarmupRotation）。
+        /// 在 warmup 期间缓慢向后旋转，warmup 结束后快速向前挥击。
+        /// </summary>
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            float extraRotation = 0f;
+            var animComp = this.TryGetComp<Comp_WeaponWarmupRotation>();
+            if (animComp != null)
+            {
+                extraRotation = animComp.GetExtraRotation();
+            }
+
+            if (def.drawerType == DrawerType.RealtimeOnly || !Spawned)
+            {
+                Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, extraRotation);
+            }
+            SilhouetteUtility.DrawGraphicSilhouette(this, drawLoc);
+
+            Comps_DrawAt(drawLoc, flip);
+            Comps_PostDraw();
         }
 
         public override void ExposeData()
@@ -222,7 +247,7 @@ namespace DarktideWeapons
 
         }
 
-        protected void DEV(Object o)
+        protected void DEV(System.Object o)
         {
 #if DEBUG
             Log.Message(o);

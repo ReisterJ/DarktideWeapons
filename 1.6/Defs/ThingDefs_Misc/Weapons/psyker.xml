@@ -32,7 +32,7 @@
         <capacities>
           <li>DW_Melee_Stab</li>
         </capacities>
-        <power>30</power>
+        <power>24</power>
         <cooldownTime>2.0</cooldownTime>
         <armorPenetration>0.85</armorPenetration>
         <chanceFactor>0.4</chanceFactor>
