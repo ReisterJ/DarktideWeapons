@@ -782,8 +782,10 @@
       </li>
     </verbs>
     <comps>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_Slugshot</abilityDef>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_Slugshot</li>
+        </abilityDefList>
       </li>
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Art">
@@ -885,8 +887,10 @@
       </li>
     </verbs>
     <comps>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_IncendiaryShot</abilityDef>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_IncendiaryShot</li>
+        </abilityDefList>
       </li>
       <li Class="CompProperties_Forbiddable"/>
       <li>

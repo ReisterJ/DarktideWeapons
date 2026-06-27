@@ -73,7 +73,15 @@ namespace DarktideWeapons
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_References.Look(ref wielder, "wielder" );
+            // 不再在此处保存/加载 wielder。
+            // 原因：多个 DW_WeaponComp 子类实例存在于同一武器上时，
+            // 每个子类的 base.PostExposeData() 都会尝试以相同键名 "wielder" 
+            // 读写 Scribe_References.Look，导致 LoadIDsWantedBank 中
+            // 出现重复的 loadID 注册
+            //
+            // wielder 字段会通过以下方式正确恢复：
+            // 1. DW_Equipment.ExposeData() 加载 holder 后同步到所有 comp
+            // 2. Notify_Equipped 在装备时被调用
         }
     }
     public class DW_WeaponCompProperties : CompProperties

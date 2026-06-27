@@ -401,8 +401,10 @@
         <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <comps>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_ChainSwordRavage_ChainSword_XIIIg</abilityDef>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ChainSwordRavage_ChainSword_XIIIg</li>
+        </abilityDefList>
       </li>
       <li Class="DarktideWeapons.CompProperties_Block">
         <isShield>false</isShield>

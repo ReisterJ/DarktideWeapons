@@ -58,11 +58,11 @@ namespace DarktideWeapons
             RechargeAbilities(this.PawnOwner);
         }
 
-        // 不需要保存wielder，会在Notify_Equipped时重新设置
-        // 避免与其他DW_WeaponComp子类的"wielder"键名冲突
+        // wielder 字段由 DW_Equipment.ExposeData() 加载 holder 后统一同步，
+        // DW_WeaponComp.PostExposeData() 已不再单独保存 wielder，故可安全调用 base。
         public override void PostExposeData()
         {
-            // 故意不调用 base.PostExposeData() 来避免重复保存 wielder
+            base.PostExposeData();
         }
        
     }

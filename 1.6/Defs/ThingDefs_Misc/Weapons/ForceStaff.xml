@@ -83,8 +83,10 @@
         </costList>
         <comps>
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
-            <li Class="CompProperties_EquippableAbility">
-                <abilityDef>DW_Voidstrike</abilityDef>
+            <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+                <abilityDefList>
+                    <li>DW_Voidstrike</li>
+                </abilityDefList>
             </li>
         </comps>
     </ThingDef>
@@ -104,8 +106,10 @@
         </costList>
         <comps>
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
-            <li Class="CompProperties_EquippableAbility">
-                <abilityDef>DW_Electrokinetic</abilityDef>
+            <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+                <abilityDefList>
+                    <li>DW_Electrokinetic</li>
+                </abilityDefList>
             </li>
         </comps>
     </ThingDef>
@@ -126,8 +130,10 @@
         </costList>
         <comps>
             <li Class="DarktideWeapons.CompProperties_DarktideForceStaff"></li>
-            <li Class="CompProperties_EquippableAbility">
-                <abilityDef>DW_VoidBlast</abilityDef>
+            <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+                <abilityDefList>
+                    <li>DW_VoidBlast</li>
+                </abilityDefList>
             </li>
         </comps>
     </ThingDef>

@@ -74,6 +74,24 @@ namespace DarktideWeapons
             base.ExposeData();
             Scribe_References.Look(ref holder, "holder");
             Scribe_Values.Look(ref switchverb, "switchverb", false);
+
+            // 加载后将 holder 同步到所有 comp 的 wielder 字段
+            // 因为 DW_WeaponComp.PostExposeData() 不再保存 wielder，
+            // 以避免多个 comp 实例使用相同键名导致的 loadID 冲突
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && holder != null)
+            {
+                foreach (var comp in AllComps)
+                {
+                    if (comp is DW_WeaponComp dwComp)
+                    {
+                        dwComp.wielder = holder;
+                    }
+                    else if (comp is Comp_DWSwtichMode swComp)
+                    {
+                        swComp.wielder = holder;
+                    }
+                }
+            }
         }
         protected override void TickInterval(int delta)
         {

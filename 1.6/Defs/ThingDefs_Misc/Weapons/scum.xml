@@ -656,8 +656,10 @@
           <armorPenetration>0.80</armorPenetration>
         </heavyAttackToolPrimary>
       </li>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_HeavyAttack_CrowBar_IV</abilityDef>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_HeavyAttack_CrowBar_IV</li>
+        </abilityDefList>
       </li>
     </comps>
   </ThingDef>

@@ -272,8 +272,10 @@
       </li>
     </tools>
     <comps>
-      <li Class="CompProperties_EquippableAbility">
-        <abilityDef>DW_Ability_ChainSwordRavage_HeavyEviscerator_XV</abilityDef>
+      <li Class="DarktideWeapons.CompProperties_EquippableAbilities">
+        <abilityDefList>
+          <li>DW_Ability_ChainSwordRavage_HeavyEviscerator_XV</li>
+        </abilityDefList>
       </li>
       
       <li Class="DarktideWeapons.MeleeComps.CompProperties_SpecialMelee">
