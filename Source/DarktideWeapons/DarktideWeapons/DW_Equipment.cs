@@ -229,7 +229,7 @@ namespace DarktideWeapons
         protected virtual void ShowInspectDialog()
         {
             StringBuilder info = new StringBuilder();
-            info.AppendLine("DWWeaponInfo:".Translate());
+            info.AppendLine("DWWeaponInfo".Translate() + ":");
             if (this.def.IsRangedWeapon) 
             {
                 info.AppendLine("DWWeaponType".Translate() + " : " + "DWWeaponTypeRanged".Translate());

@@ -289,7 +289,7 @@ namespace DarktideWeapons
         public override string ShowInfo(Thing wielder)
         {
             string header = "PlasmaWeapon".Translate();
-            string text = "PlasmaWeaponMode".Translate() + " : " + this.plasmaWeaponMode.ToString().Translate();
+            string text = "PlasmaWeaponMode".Translate() + " : " + ("DW_PlasmaMode_" + this.plasmaWeaponMode).Translate();
 
             return header + "\n" + text;
 
@@ -374,7 +374,7 @@ namespace DarktideWeapons
             Text.Font = GameFont.Tiny;
 
             string wielderlabel = compPlasma.wielder != null ? compPlasma.wielder.Label : "";
-            Widgets.Label(rect3, wielderlabel +" "+ "PlasmaHeat".Translate().Resolve() + " " + this.compPlasma.plasmaWeaponMode );
+            Widgets.Label(rect3, wielderlabel + " " + "PlasmaHeat".Translate().Resolve() + " " + ("DW_PlasmaMode_" + this.compPlasma.plasmaWeaponMode).Translate().Resolve());
             Rect rect4 = rect2;
             rect4.yMin = rect2.y + rect2.height / 2f;
             float fillPercent = compPlasma.heat / Mathf.Max(1f, compPlasma.maxHeat);

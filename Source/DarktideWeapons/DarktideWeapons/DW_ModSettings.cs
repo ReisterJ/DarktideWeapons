@@ -42,6 +42,8 @@ namespace DarktideWeapons
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
             //listingStandard.CheckboxLabeled("exampleBoolExplanation", ref settings.exampleBool, "exampleBoolToolTip");
+            listingStandard.Label("DW_SettingsDescription".Translate());
+            listingStandard.Gap();
             listingStandard.Label("RangedAPMultiplierGlobalLabel".Translate() + " : " + settings.RangedAPMultiplierGlobal);
             settings.RangedAPMultiplierGlobal = listingStandard.Slider(settings.RangedAPMultiplierGlobal, 0.25f, 4f);
             listingStandard.Label("RangedDamageMultiplierGlobalLabel".Translate() + " : " + settings.RangedDamageMultiplierGlobal);

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <DWInspectWeapon>Inspect weapon</DWInspectWeapon>
+  <DWInspectWeaponDesc>View detailed information for this Darktide weapon.</DWInspectWeaponDesc>
+  <DWWeaponInfo>Darktide weapon info</DWWeaponInfo>
+  <WeaponInfo>Weapon info</WeaponInfo>
+  <DWWeaponType>Weapon type</DWWeaponType>
+  <DWWeaponTypeRanged>Ranged weapon</DWWeaponTypeRanged>
+  <DWWeaponTypeMelee>Melee weapon</DWWeaponTypeMelee>
+  <DWCurrentFireMode>Current fire mode</DWCurrentFireMode>
+  <DWMainMode>Main mode</DWMainMode>
+  <DWAuxiliaryMode>Auxiliary mode</DWAuxiliaryMode>
+  <DWWEAPONCOMP_DEFAULTINFO>No extra weapon component information.</DWWEAPONCOMP_DEFAULTINFO>
+
+  <DW_OmniTitle>Omnissiah's Forge: {0}</DW_OmniTitle>
+  <DW_TabPerks>Perks</DW_TabPerks>
+  <DW_TabBlessings>Blessings</DW_TabBlessings>
+  <DW_InstalledPerks>Installed perks</DW_InstalledPerks>
+  <DW_InstalledBlessings>Installed blessings</DW_InstalledBlessings>
+  <DW_NoPerksAvailable>No perks available.</DW_NoPerksAvailable>
+  <DW_NoBlessingsAvailable>No blessings available.</DW_NoBlessingsAvailable>
+  <DW_Confirm>Confirm</DW_Confirm>
+  <DW_PerkSlotsFull>Perk slots full</DW_PerkSlotsFull>
+  <DW_BlessingSlotsFull>Blessing slots full</DW_BlessingSlotsFull>
+  <DW_Installed>Installed</DW_Installed>
+  <DW_NoSocketedWeapon>No socketed weapon equipped.</DW_NoSocketedWeapon>
+  <DW_BlessWeapon>Modify {0}</DW_BlessWeapon>
+  <DW_HitSeverity>Hit severity</DW_HitSeverity>
+  <DW_KillSeverity>Kill severity</DW_KillSeverity>
+  <DW_KillShort>kill</DW_KillShort>
+
+  <DW_NoSkills>This pawn has no skill system.</DW_NoSkills>
+  <DW_SkillRequirementNotMet>Requires {0} skill level {1} (current: {2}).</DW_SkillRequirementNotMet>
+  <DW_NoGeneSystem>This pawn has no gene system.</DW_NoGeneSystem>
+  <DW_MissingGenes>Missing required genes: {0}</DW_MissingGenes>
+  <DW_NoApparelSystem>This pawn has no apparel system.</DW_NoApparelSystem>
+  <DW_MissingRequiredEquipment>Missing required equipment: {0}</DW_MissingRequiredEquipment>
+  <DW_UnknownRace>Unable to identify this pawn's race.</DW_UnknownRace>
+  <DW_RaceNotAllowed>{0} cannot equip this. Allowed races: {1}</DW_RaceNotAllowed>
+  <DW_SkillRequirementsLabel>Skill requirements:</DW_SkillRequirementsLabel>
+  <DW_GeneRequirementsLabel>Gene requirements:</DW_GeneRequirementsLabel>
+  <DW_EquipmentRequirementsLabel>Equipment requirements:</DW_EquipmentRequirementsLabel>
+  <DW_RaceRequirementsLabel>Race requirements:</DW_RaceRequirementsLabel>
+
+  <ToughnessShield>Toughness shield</ToughnessShield>
+  <ToughnessShieldPersonalTip>Toughness shield absorbs part of incoming damage.</ToughnessShieldPersonalTip>
+  <DWChargeHeat>Charge heat</DWChargeHeat>
+  <PlasmaHeat>Plasma heat</PlasmaHeat>
+  <PlasmaHeatPersonalTip>Current weapon heat. High heat may force cooling or become dangerous.</PlasmaHeatPersonalTip>
+  <HeadHunt>Head hunt</HeadHunt>
+  <HeadShotChance>Headshot chance</HeadShotChance>
+  <DWForceStaff>Force staff</DWForceStaff>
+  <EnableCounterAttack>Counterattack enabled</EnableCounterAttack>
+  <DWCounterAttackChance>Counterattack chance</DWCounterAttackChance>
+  <DWCounterAttackDamage>Counterattack damage</DWCounterAttackDamage>
+  <DW_IsShield>Is shield</DW_IsShield>
+  <DW_AllowAttackWhileBlocking>Can attack while blocking</DW_AllowAttackWhileBlocking>
+  <DW_MeleeBlockingEfficiency>Melee block efficiency</DW_MeleeBlockingEfficiency>
+  <DW_RangedBlockingEfficiency>Ranged block efficiency</DW_RangedBlockingEfficiency>
+  <DW_Stamina>Stamina</DW_Stamina>
+  <DW_Yes>Yes</DW_Yes>
+  <DW_No>No</DW_No>
+
+  <DWStopCooling>Stop cooling</DWStopCooling>
+  <DWStopCoolingDesc>Return the plasma weapon to normal mode.</DWStopCoolingDesc>
+  <PlasmaWeapon>Plasma weapon</PlasmaWeapon>
+  <PlasmaWeaponMode>Plasma mode</PlasmaWeaponMode>
+  <DW_PlasmaMode_Normal>Normal</DW_PlasmaMode_Normal>
+  <DW_PlasmaMode_Charged>Charged</DW_PlasmaMode_Charged>
+  <DW_PlasmaMode_Cooling>Cooling</DW_PlasmaMode_Cooling>
+
+  <CantCastWhileBlocking>Cannot use while blocking.</CantCastWhileBlocking>
+  <MustCastWhileBlocking>Must be blocking to use this.</MustCastWhileBlocking>
+  <DW_AbilityChargeRequired>This ability requires a charged weapon.</DW_AbilityChargeRequired>
+  <StaffNotEquipped>No force staff equipped.</StaffNotEquipped>
+  <RequiredStaffNotEquipped>Required force staff not equipped: {0}</RequiredStaffNotEquipped>
+  <CompPlasmaNotExist>No plasma weapon equipped.</CompPlasmaNotExist>
+  <PlasmaZeroHeat>Plasma heat is already zero.</PlasmaZeroHeat>
+
+  <DW_Comp_SwitchMeleeHediff_HediffGizmoDesc>Current melee applied hediff</DW_Comp_SwitchMeleeHediff_HediffGizmoDesc>
+  <DW_Comp_SwitchMeleeHediff_AvailableHediffs>Available applied hediffs</DW_Comp_SwitchMeleeHediff_AvailableHediffs>
+  <DW_Comp_SwitchMeleeHediff_CurrentHediff>Current applied hediff</DW_Comp_SwitchMeleeHediff_CurrentHediff>
+
+  <LetterToughnessShieldLevelGained_First>{USER_labelShort} has gained a toughness shield.</LetterToughnessShieldLevelGained_First>
+  <LetterToughnessShieldLevelGained_NotFirst>{USER_labelShort}'s toughness shield level has increased.</LetterToughnessShieldLevelGained_NotFirst>
+  <LetterToughnessShieldLevelGained>{USER_labelShort}'s toughness shield is now level {1}.</LetterToughnessShieldLevelGained>
+
+  <DW_Class_AlreadyGranted>{0} already has class access.</DW_Class_AlreadyGranted>
+  <DW_Class_AccessGranted>{0} gained class access and {1} skill points.</DW_Class_AccessGranted>
+  <DW_Class_ChooseLabel>Choose class</DW_Class_ChooseLabel>
+  <DW_Class_ChooseDesc>Choose a class for this pawn and open the class skill tree.</DW_Class_ChooseDesc>
+  <DW_Class_IconDesc>{0}. Skill points: {1}. Click to open the class skill tree.</DW_Class_IconDesc>
+  <DW_Class_SelectTitle>Choose class</DW_Class_SelectTitle>
+  <DW_Class_SP>Skill points: {0}</DW_Class_SP>
+  <DW_Class_ResetAll>Reset all</DW_Class_ResetAll>
+  <DW_Class_ResetConfirm>Reset all unlocked class nodes? Spent skill points will be refunded.</DW_Class_ResetConfirm>
+  <DW_Class_CostSingle>Cost: 1 skill point</DW_Class_CostSingle>
+  <DW_Class_CostPlural>Cost: {0} skill points</DW_Class_CostPlural>
+  <DW_Class_Unlocked>Unlocked</DW_Class_Unlocked>
+  <DW_Class_Locked>Locked</DW_Class_Locked>
+  <DW_Class_AlreadyUnlocked>{0} is already unlocked.</DW_Class_AlreadyUnlocked>
+  <DW_Class_NotEnoughSP>Not enough skill points to unlock {0}. Requires {1}; you have {2}.</DW_Class_NotEnoughSP>
+  <DW_Class_NoParent>Unlock a parent node before unlocking {0}.</DW_Class_NoParent>
+
+  <DW_Career_AlreadyGranted>{0} already has career access.</DW_Career_AlreadyGranted>
+  <DW_Career_AccessGranted>{0} gained career access and {1} skill points.</DW_Career_AccessGranted>
+  <DW_Career_ChooseLabel>Choose career</DW_Career_ChooseLabel>
+  <DW_Career_ChooseDesc>Choose a career for this pawn and open the career skill tree.</DW_Career_ChooseDesc>
+  <DW_Career_IconDesc>{0}. Skill points: {1}. Click to open the career skill tree.</DW_Career_IconDesc>
+  <DW_Career_SelectTitle>Choose career</DW_Career_SelectTitle>
+  <DW_Career_SP>Skill points: {0}</DW_Career_SP>
+  <DW_Career_ResetAll>Reset all</DW_Career_ResetAll>
+  <DW_Career_ResetConfirm>Reset all unlocked career nodes? Spent skill points will be refunded.</DW_Career_ResetConfirm>
+  <DW_Career_CostSingle>Cost: 1 skill point</DW_Career_CostSingle>
+  <DW_Career_CostPlural>Cost: {0} skill points</DW_Career_CostPlural>
+  <DW_Career_Unlocked>Unlocked</DW_Career_Unlocked>
+  <DW_Career_Locked>Locked</DW_Career_Locked>
+  <DW_Career_AlreadyUnlocked>{0} is already unlocked.</DW_Career_AlreadyUnlocked>
+  <DW_Career_NotEnoughSP>Not enough skill points to unlock {0}. Requires {1}; you have {2}.</DW_Career_NotEnoughSP>
+  <DW_Career_NoParent>Unlock a parent node before unlocking {0}.</DW_Career_NoParent>
+</LanguageData>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <DW_Settings>暗潮武器设置</DW_Settings>
+  <DW_SettingsDescription>动态调整暗潮武器mod的数值用于应对不同的游戏环境场景。注意：这些条目都是全局倍率，所以不要调的太高。</DW_SettingsDescription>
+
+  <RangedAPMultiplierGlobalLabel>远程武器全局穿甲倍率</RangedAPMultiplierGlobalLabel>
+  <RangedDamageMultiplierGlobalLabel>远程武器全局伤害倍率</RangedDamageMultiplierGlobalLabel>
+  <MeleeAPMultiplierGlobalLabel>近战武器全局穿甲倍率</MeleeAPMultiplierGlobalLabel>
+  <MeleeDamageMultiplierGlobalLabel>近战武器全局伤害倍率</MeleeDamageMultiplierGlobalLabel>
+</LanguageData>

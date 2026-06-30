@@ -41,7 +41,7 @@ namespace DarktideWeapons.CompAbilityEffects
             }
             if(ForceStaff.parent.def != Props.requiredStaff)
             {
-                reason = "RequiredStaffNotEquipped".Translate() + ".\n" + Props.requiredStaff.LabelCap;
+                reason = "RequiredStaffNotEquipped".Translate(Props.requiredStaff.LabelCap);
                 return true;
             }
             return base.GizmoDisabled(out reason);

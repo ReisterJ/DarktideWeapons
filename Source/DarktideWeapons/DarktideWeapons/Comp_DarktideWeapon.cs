@@ -171,7 +171,7 @@ namespace DarktideWeapons
         protected virtual void ShowInspectDialog()
         {
             StringBuilder info = new StringBuilder();
-            info.AppendLine("WeaponInfo:".Translate());
+            info.AppendLine("WeaponInfo".Translate() + ":");
             //info.AppendLine($"Counter: {counter}".Translate());
             //info.AppendLine($"Cleave Targets: {cleaveTargetsinGame}".Translate());
             if (comp_CounterAttack != null)

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <DWInspectWeapon>查看武器</DWInspectWeapon>
+  <DWInspectWeaponDesc>查看这件暗潮武器的详细信息。</DWInspectWeaponDesc>
+  <DWWeaponInfo>暗潮武器信息</DWWeaponInfo>
+  <WeaponInfo>武器信息</WeaponInfo>
+  <DWWeaponType>武器类型</DWWeaponType>
+  <DWWeaponTypeRanged>远程武器</DWWeaponTypeRanged>
+  <DWWeaponTypeMelee>近战武器</DWWeaponTypeMelee>
+  <DWCurrentFireMode>当前射击模式</DWCurrentFireMode>
+  <DWMainMode>主模式</DWMainMode>
+  <DWAuxiliaryMode>辅助模式</DWAuxiliaryMode>
+  <DWWEAPONCOMP_DEFAULTINFO>没有额外的武器组件信息。</DWWEAPONCOMP_DEFAULTINFO>
+
+  <DW_OmniTitle>欧姆尼赛亚锻炉：{0}</DW_OmniTitle>
+  <DW_TabPerks>词条</DW_TabPerks>
+  <DW_TabBlessings>祝福</DW_TabBlessings>
+  <DW_InstalledPerks>已安装词条</DW_InstalledPerks>
+  <DW_InstalledBlessings>已安装祝福</DW_InstalledBlessings>
+  <DW_NoPerksAvailable>没有可用词条。</DW_NoPerksAvailable>
+  <DW_NoBlessingsAvailable>没有可用祝福。</DW_NoBlessingsAvailable>
+  <DW_Confirm>确认</DW_Confirm>
+  <DW_PerkSlotsFull>词条槽已满</DW_PerkSlotsFull>
+  <DW_BlessingSlotsFull>祝福槽已满</DW_BlessingSlotsFull>
+  <DW_Installed>已安装</DW_Installed>
+  <DW_NoSocketedWeapon>没有装备带插槽的武器。</DW_NoSocketedWeapon>
+  <DW_BlessWeapon>调整 {0}</DW_BlessWeapon>
+  <DW_HitSeverity>命中严重度</DW_HitSeverity>
+  <DW_KillSeverity>击杀严重度</DW_KillSeverity>
+  <DW_KillShort>击杀</DW_KillShort>
+
+  <DW_NoSkills>该角色没有技能系统。</DW_NoSkills>
+  <DW_SkillRequirementNotMet>需要 {0} 技能达到 {1} 级（当前 {2} 级）。</DW_SkillRequirementNotMet>
+  <DW_NoGeneSystem>该角色没有基因系统。</DW_NoGeneSystem>
+  <DW_MissingGenes>缺少所需基因：{0}</DW_MissingGenes>
+  <DW_NoApparelSystem>该角色没有服装栏。</DW_NoApparelSystem>
+  <DW_MissingRequiredEquipment>缺少所需装备：{0}</DW_MissingRequiredEquipment>
+  <DW_UnknownRace>无法识别该角色的种族。</DW_UnknownRace>
+  <DW_RaceNotAllowed>{0} 无法装备此物品。允许的种族：{1}</DW_RaceNotAllowed>
+  <DW_SkillRequirementsLabel>技能要求：</DW_SkillRequirementsLabel>
+  <DW_GeneRequirementsLabel>基因要求：</DW_GeneRequirementsLabel>
+  <DW_EquipmentRequirementsLabel>装备要求：</DW_EquipmentRequirementsLabel>
+  <DW_RaceRequirementsLabel>种族要求：</DW_RaceRequirementsLabel>
+
+  <ToughnessShield>韧性护盾</ToughnessShield>
+  <ToughnessShieldPersonalTip>韧性护盾会吸收一部分受到的伤害。</ToughnessShieldPersonalTip>
+  <DWChargeHeat>充能热量</DWChargeHeat>
+  <PlasmaHeat>等离子热量</PlasmaHeat>
+  <PlasmaHeatPersonalTip>武器当前热量。热量过高时可能进入冷却或造成危险。</PlasmaHeatPersonalTip>
+  <HeadHunt>猎头射击</HeadHunt>
+  <HeadShotChance>爆头概率</HeadShotChance>
+  <DWForceStaff>力场杖</DWForceStaff>
+  <EnableCounterAttack>已启用反击</EnableCounterAttack>
+  <DWCounterAttackChance>反击概率</DWCounterAttackChance>
+  <DWCounterAttackDamage>反击伤害</DWCounterAttackDamage>
+  <DW_IsShield>是否为盾牌</DW_IsShield>
+  <DW_AllowAttackWhileBlocking>格挡时允许攻击</DW_AllowAttackWhileBlocking>
+  <DW_MeleeBlockingEfficiency>近战格挡效率</DW_MeleeBlockingEfficiency>
+  <DW_RangedBlockingEfficiency>远程格挡效率</DW_RangedBlockingEfficiency>
+  <DW_Stamina>耐力</DW_Stamina>
+  <DW_Yes>是</DW_Yes>
+  <DW_No>否</DW_No>
+
+  <DWStopCooling>停止冷却</DWStopCooling>
+  <DWStopCoolingDesc>让等离子武器恢复普通模式。</DWStopCoolingDesc>
+  <PlasmaWeapon>等离子武器</PlasmaWeapon>
+  <PlasmaWeaponMode>等离子模式</PlasmaWeaponMode>
+  <DW_PlasmaMode_Normal>普通</DW_PlasmaMode_Normal>
+  <DW_PlasmaMode_Charged>蓄力</DW_PlasmaMode_Charged>
+  <DW_PlasmaMode_Cooling>冷却</DW_PlasmaMode_Cooling>
+
+  <CantCastWhileBlocking>格挡时无法使用。</CantCastWhileBlocking>
+  <MustCastWhileBlocking>必须在格挡时使用。</MustCastWhileBlocking>
+  <DW_AbilityChargeRequired>该能力需要武器处于充能状态。</DW_AbilityChargeRequired>
+  <StaffNotEquipped>未装备力场杖。</StaffNotEquipped>
+  <RequiredStaffNotEquipped>未装备所需力场杖：{0}</RequiredStaffNotEquipped>
+  <CompPlasmaNotExist>未装备等离子武器。</CompPlasmaNotExist>
+  <PlasmaZeroHeat>等离子热量已经为零。</PlasmaZeroHeat>
+
+  <DW_Comp_SwitchMeleeHediff_HediffGizmoDesc>当前近战附加状态</DW_Comp_SwitchMeleeHediff_HediffGizmoDesc>
+  <DW_Comp_SwitchMeleeHediff_AvailableHediffs>可用附加状态</DW_Comp_SwitchMeleeHediff_AvailableHediffs>
+  <DW_Comp_SwitchMeleeHediff_CurrentHediff>当前附加状态</DW_Comp_SwitchMeleeHediff_CurrentHediff>
+
+  <LetterToughnessShieldLevelGained_First>{USER_labelShort} 获得了韧性护盾。</LetterToughnessShieldLevelGained_First>
+  <LetterToughnessShieldLevelGained_NotFirst>{USER_labelShort} 的韧性护盾等级提升了。</LetterToughnessShieldLevelGained_NotFirst>
+  <LetterToughnessShieldLevelGained>{USER_labelShort} 的韧性护盾现在为 {1} 级。</LetterToughnessShieldLevelGained>
+
+  <DW_Class_AlreadyGranted>{0} 已经拥有职业系统。</DW_Class_AlreadyGranted>
+  <DW_Class_AccessGranted>{0} 获得了职业系统，并得到 {1} 点技能点。</DW_Class_AccessGranted>
+  <DW_Class_ChooseLabel>选择职业</DW_Class_ChooseLabel>
+  <DW_Class_ChooseDesc>为该角色选择一个职业并开启职业技能树。</DW_Class_ChooseDesc>
+  <DW_Class_IconDesc>{0}。可用技能点：{1}。点击打开职业技能树。</DW_Class_IconDesc>
+  <DW_Class_SelectTitle>选择职业</DW_Class_SelectTitle>
+  <DW_Class_SP>技能点：{0}</DW_Class_SP>
+  <DW_Class_ResetAll>重置全部</DW_Class_ResetAll>
+  <DW_Class_ResetConfirm>重置所有已解锁的职业节点？已花费的技能点将返还。</DW_Class_ResetConfirm>
+  <DW_Class_CostSingle>消耗：1 点技能点</DW_Class_CostSingle>
+  <DW_Class_CostPlural>消耗：{0} 点技能点</DW_Class_CostPlural>
+  <DW_Class_Unlocked>已解锁</DW_Class_Unlocked>
+  <DW_Class_Locked>未解锁</DW_Class_Locked>
+  <DW_Class_AlreadyUnlocked>{0} 已经解锁。</DW_Class_AlreadyUnlocked>
+  <DW_Class_NotEnoughSP>技能点不足，无法解锁 {0}。需要 {1} 点，当前有 {2} 点。</DW_Class_NotEnoughSP>
+  <DW_Class_NoParent>请先解锁 {0} 的前置节点。</DW_Class_NoParent>
+
+  <DW_Career_AlreadyGranted>{0} 已经拥有专精系统。</DW_Career_AlreadyGranted>
+  <DW_Career_AccessGranted>{0} 获得了专精系统，并得到 {1} 点技能点。</DW_Career_AccessGranted>
+  <DW_Career_ChooseLabel>选择专精</DW_Career_ChooseLabel>
+  <DW_Career_ChooseDesc>为该角色选择一个专精并开启专精技能树。</DW_Career_ChooseDesc>
+  <DW_Career_IconDesc>{0}。可用技能点：{1}。点击打开专精技能树。</DW_Career_IconDesc>
+  <DW_Career_SelectTitle>选择专精</DW_Career_SelectTitle>
+  <DW_Career_SP>技能点：{0}</DW_Career_SP>
+  <DW_Career_ResetAll>重置全部</DW_Career_ResetAll>
+  <DW_Career_ResetConfirm>重置所有已解锁的专精节点？已花费的技能点将返还。</DW_Career_ResetConfirm>
+  <DW_Career_CostSingle>消耗：1 点技能点</DW_Career_CostSingle>
+  <DW_Career_CostPlural>消耗：{0} 点技能点</DW_Career_CostPlural>
+  <DW_Career_Unlocked>已解锁</DW_Career_Unlocked>
+  <DW_Career_Locked>未解锁</DW_Career_Locked>
+  <DW_Career_AlreadyUnlocked>{0} 已经解锁。</DW_Career_AlreadyUnlocked>
+  <DW_Career_NotEnoughSP>技能点不足，无法解锁 {0}。需要 {1} 点，当前有 {2} 点。</DW_Career_NotEnoughSP>
+  <DW_Career_NoParent>请先解锁 {0} 的前置节点。</DW_Career_NoParent>
+</LanguageData>

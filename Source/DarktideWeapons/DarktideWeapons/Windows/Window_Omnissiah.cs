@@ -207,7 +207,7 @@ namespace DarktideWeapons.Windows
             if (hitOverride >= 0f)
                 displayName += $" ({hitOverride})";
             if (killOverride >= 0f)
-                displayName += $" (kill: {killOverride})";
+                displayName += " (" + "DW_KillShort".Translate() + ": " + killOverride + ")";
 
             Text.Font = GameFont.Small;
             Widgets.Label(new Rect(6f, curY + 4f, width - 12f, 22f), displayName);
@@ -224,13 +224,13 @@ namespace DarktideWeapons.Windows
             // Build tooltip with severity details
             string tooltip = blessDef.LabelCap + "\n" + blessDef.description;
             if (hitOverride >= 0f)
-                tooltip += "\nHit severity: " + hitOverride;
+                tooltip += "\n" + "DW_HitSeverity".Translate() + ": " + hitOverride;
             else
-                tooltip += "\nHit severity: " + blessDef.hediffHitSeverity;
+                tooltip += "\n" + "DW_HitSeverity".Translate() + ": " + blessDef.hediffHitSeverity;
             if (killOverride >= 0f)
-                tooltip += "\nKill severity: " + killOverride;
+                tooltip += "\n" + "DW_KillSeverity".Translate() + ": " + killOverride;
             else if (blessDef.killSelfHediff != null)
-                tooltip += "\nKill severity: " + blessDef.hediffKillSeverity;
+                tooltip += "\n" + "DW_KillSeverity".Translate() + ": " + blessDef.hediffKillSeverity;
             TooltipHandler.TipRegion(itemRect, tooltip);
             curY += ItemHeight + ItemSpacing;
         }

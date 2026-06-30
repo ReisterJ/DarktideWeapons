@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <DW_Settings>Darktide Weapons Settings</DW_Settings>
+  <DW_SettingsDescription>Dynamically adjust Darktide Weapons mod values for different game environments and scenarios. Note: these entries are global multipliers, so do not set them too high.</DW_SettingsDescription>
+
+  <RangedAPMultiplierGlobalLabel>Global ranged armor penetration multiplier</RangedAPMultiplierGlobalLabel>
+  <RangedDamageMultiplierGlobalLabel>Global ranged damage multiplier</RangedDamageMultiplierGlobalLabel>
+  <MeleeAPMultiplierGlobalLabel>Global melee armor penetration multiplier</MeleeAPMultiplierGlobalLabel>
+  <MeleeDamageMultiplierGlobalLabel>Global melee damage multiplier</MeleeDamageMultiplierGlobalLabel>
+</LanguageData>
